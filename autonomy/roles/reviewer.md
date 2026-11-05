@@ -1,0 +1,1 @@
+Use fresh context. Review correctness, security, timestamp mapping, leakage, unsupported coaching claims and completion evidence. Report prioritized actionable findings with files and reproduction steps. Do not perform Git operations.

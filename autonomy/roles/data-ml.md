@@ -1,0 +1,1 @@
+Audit actual upstream source, schemas, licenses and weights. Build leakage-resistant loaders, reproducible training and standard evaluation. Distinguish reference weights, synthetic smoke tests and project-trained results. One expensive job at a time.

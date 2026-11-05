@@ -1,0 +1,47 @@
+{
+  "python": "3.11.14",
+  "platform": "macOS-26.3-arm64-arm-64bit",
+  "machine": "arm64",
+  "ffmpeg_cli": null,
+  "pyav": "16.0.1",
+  "ffmpeg_libraries": {
+    "libavutil": [
+      60,
+      8,
+      100
+    ],
+    "libavcodec": [
+      62,
+      11,
+      100
+    ],
+    "libavformat": [
+      62,
+      3,
+      100
+    ],
+    "libavdevice": [
+      62,
+      1,
+      100
+    ],
+    "libavfilter": [
+      11,
+      4,
+      100
+    ],
+    "libswscale": [
+      9,
+      1,
+      100
+    ],
+    "libswresample": [
+      6,
+      1,
+      100
+    ]
+  },
+  "training_job": null,
+  "torch": "not installed; ML increment pending",
+  "selected_device": "cpu (video inspection only; accelerators not probed)"
+}

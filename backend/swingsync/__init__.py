@@ -1,0 +1,1 @@
+"""SwingSync local video application."""

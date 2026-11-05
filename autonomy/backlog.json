@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "001",
+      "title": "Environment, audit and local inspection app",
+      "dependencies": [],
+      "acceptance_criteria": [
+        "Pinned install and runnable UI/API",
+        "Timestamp, lifecycle and validation tests pass",
+        "Independent review material findings resolved",
+        "Dedicated Git checkpoint verified"
+      ],
+      "status": "completed",
+      "validation_evidence": [
+        "7 pytest tests pass; Ruff clean; frontend build/typecheck pass",
+        "Locked offline uv sync passes; npm audit zero known vulnerabilities",
+        "Browser synthetic H.264 upload:60 frames,2s,readyState4; report HTTP200",
+        "Independent review resolved orphan-upload finding",
+        "Actual data/schema audits in autonomy/reports/data-audit.md"
+      ]
+    },
+    {
+      "id": "002",
+      "title": "GolfDB loader and benchmark contract",
+      "dependencies": [
+        "001"
+      ],
+      "acceptance_criteria": [
+        "Non-mutating annotations and event indices tested",
+        "Outer folds preserved; grouped inner manifest saved",
+        "Official PCE tolerance and tie policy tested",
+        "Permitted real clip source PTS alignment verified"
+      ],
+      "status": "pending",
+      "validation_evidence": []
+    },
+    {
+      "id": "003",
+      "title": "Reproducible frame and temporal event learning",
+      "dependencies": [
+        "002"
+      ],
+      "acceptance_criteria": [
+        "Same frozen MobileNetV2 backbone",
+        "Masked padded sequences and temporal augmentations tested",
+        "Device detection and CPU training smoke completed",
+        "One tracked resumable real training job",
+        "Baseline and temporal outer-test PCE/errors/latency recorded"
+      ],
+      "status": "pending",
+      "validation_evidence": []
+    },
+    {
+      "id": "004",
+      "title": "Local pose measurements and evidence rules",
+      "dependencies": [
+        "002"
+      ],
+      "acceptance_criteria": [
+        "View/handedness/mirror and visibility handling tested",
+        "Defensible normalized features validated",
+        "Manual event corrections recompute with provenance",
+        "Unsupported feedback suppressed"
+      ],
+      "status": "pending",
+      "validation_evidence": []
+    },
+    {
+      "id": "005",
+      "title": "Video-to-report coaching demonstration",
+      "dependencies": [
+        "003",
+        "004"
+      ],
+      "acceptance_criteria": [
+        "Real permitted video demo",
+        "Pose overlays/event markers/thumbnails",
+        "Measurements and limited evidence-backed feedback",
+        "Export with limitations and corrections"
+      ],
+      "status": "pending",
+      "validation_evidence": []
+    },
+    {
+      "id": "006",
+      "title": "CaddieSet grouped tabular research",
+      "dependencies": [
+        "001"
+      ],
+      "acceptance_criteria": [
+        "Strict predictor allowlist excludes outcomes and golfer IDs",
+        "Golfer-grouped nested evaluation and train-only transforms",
+        "Club mean/linear/boosted comparison with per-fold metrics",
+        "Feature equivalence gate remains closed unless evidence passes"
+      ],
+      "status": "pending",
+      "validation_evidence": []
+    },
+    {
+      "id": "007",
+      "title": "Reproducibility and portfolio release",
+      "dependencies": [
+        "005",
+        "006"
+      ],
+      "acceptance_criteria": [
+        "Setup/training/eval/inference reproduced",
+        "Measured hardware and model card complete",
+        "CI verified remotely",
+        "Evidence-based resume claims only"
+      ],
+      "status": "pending",
+      "validation_evidence": []
+    }
+  ]
+}

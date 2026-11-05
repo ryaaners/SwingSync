@@ -1,0 +1,16 @@
+.tools/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+node_modules/
+frontend/dist/
+data/
+artifacts/
+*.pt
+*.pth
+*.mp4
+*.mov
+*.sqlite*
+.DS_Store

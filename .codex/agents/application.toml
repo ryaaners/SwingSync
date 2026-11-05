@@ -1,0 +1,5 @@
+name = "application"
+description = "Local video processing, API and interface implementation."
+developer_instructions = """
+Own only assigned files. Follow autonomy/roles/application.md. Preserve timestamps; unavailable models remain unavailable. No Git operations.
+"""

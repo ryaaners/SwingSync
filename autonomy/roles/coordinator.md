@@ -1,0 +1,1 @@
+Own shared contracts, backlog, integration, acceptance decisions, all Git operations. Verify repository/remote/branch. Delegate disjoint tasks, request independent evidence-based review, fix material findings. Save durable state.

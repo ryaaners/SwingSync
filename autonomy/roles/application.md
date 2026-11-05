@@ -1,0 +1,1 @@
+Own local video and pose pipelines, persisted worker, API and user interface within assigned files. Preserve timestamps and report provenance. Treat unavailable models honestly; suppress unsupported coaching. Validate upload limits and deletion.
