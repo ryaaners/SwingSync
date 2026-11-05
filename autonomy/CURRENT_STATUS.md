@@ -16,7 +16,7 @@ Preregister full baseline/temporal configuration and budgets using grouped inner
 
 ## Existing jobs and scheduling
 
-At execution start actual server PIDs10684(backend8000)/11415(frontend5173) existed; no training job. Smoke PID16282 completed and released training-root lock. Always recheck PIDs/start identities before later work. User separately authorized daily continuation at1:30a.m. Toronto and this one-time00:07run; daily schedule remains active, one-time schedule should be removed after this completion. Schedules are not a continuously running agent; computer/app must remain available.
+At execution start actual server PIDs10684(backend8000)/11415(frontend5173) existed; no training job. Smoke PID16282 completed and released training-root lock. Always recheck PIDs/start identities before later work. User separately authorized daily continuation at1:30a.m. Toronto and this one-time00:07run; daily schedule remains active, one-time schedule was removed after completion. Schedules are not a continuously running agent; computer/app must remain available.
 
 ## Preserved gates
 
@@ -26,4 +26,4 @@ Media/weight access for local research is distinct from redistribution rights; d
 
 ## Git
 
-Dedicated remote https://github.com/ryaaners/SwingSync; branch agent/swingsync. Previous 6df193c remote CI passed(run41968842615). This increment checkpoint SHA and remote verification reported in chat; inspect actual HEAD/remote/CI on resume.
+Dedicated remote https://github.com/ryaaners/SwingSync; branch agent/swingsync. Previous 6df193c remote CI passed(run41968842615). Initial d11fce7 ML CI found a Linux x86-64 torchvision wheel-coverage gap; corrected required-environments/lock and validated a sequential warm-cache smoke in artifacts/training/smoke-003-ci-lock with fresh provenance. See validation-003.md. This increment checkpoint SHA and remote verification reported in chat; inspect actual HEAD/remote/CI on resume.

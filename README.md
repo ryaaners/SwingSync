@@ -67,7 +67,7 @@ The archive and decoded-clip checks are optional; omit their flags to prepare an
 
 ## Run the model pipeline smoke
 
-Install the optional locked ML stack (CPU wheels on Linux/Windows; macOS supports detected MPS, although this smoke deliberately uses CPU):
+Install the optional locked ML stack (CPU wheels on Linux; macOS supports detected MPS, although this smoke deliberately uses CPU):
 
 ```sh
 uv sync --locked --extra ml
@@ -82,3 +82,5 @@ uv run --extra ml python -m scripts.run_ml_smoke \
 Use a fresh run directory; the CLI refuses duplicate state. It selects only training IDs from an exactly validated manifest, records its identity before work, downloads official ImageNet V2 initialization if missing, caches frozen features, and checks exact CPU checkpoint resume for both heads. This explicit setup download needs internet once; model computation is local. Set TORCH_HOME to choose weight storage (default data/torch). Keep generated caches/checkpoints outside Git.
 
 The completed smoke ran on an Apple M1 with 8GiB RAM. That is observed hardware, not an established minimum. CUDA/MPS availability is detected, but this lock installs CPU packages on non-macOS; a CUDA build requires a separately tested environment. Full training, held-out accuracy, inference latency and coaching validity remain unmeasured. Ordinary `uv sync --locked` keeps ML dependencies out of the inspection app; optional tests then skip explicitly. CI has a separate CPU ML-contract job without datasets or pretrained downloads. See autonomy/reports/validation-003.md and docs/experiments.md for evidence.
+
+Supported runtime validation targets are Apple Silicon macOS and Linux x86-64. The dependency resolver requires binary wheel coverage for both. Windows execution is not supported by the current POSIX worker locks.

@@ -26,3 +26,9 @@ Parent 003 remains in progress. Full feature preparation, sequence sampling/augm
 ## Documentation consulted
 
 [Official paired Torch2.9.1/torchvision0.24.1 releases](https://pytorch.org/get-started/previous-versions/), [MobileNetV2 weights](https://docs.pytorch.org/vision/stable/models/generated/torchvision.models.mobilenet_v2.html), [packed sequences](https://docs.pytorch.org/docs/2.9/generated/torch.nn.utils.rnn.pack_padded_sequence.html), [checkpoint serialization](https://docs.pytorch.org/docs/2.9/notes/serialization.html), [uv PyTorch indexes](https://docs.astral.sh/uv/guides/integration/pytorch/), [torchvision BSD3 code license](https://github.com/pytorch/vision/blob/v0.24.1/LICENSE). Source/data/weights/original-project licenses remain separate.
+
+## CI portability correction
+
+First checkpoint d11fce7 passed backend/frontend CI but ML installation failed in run41973090223: the universal resolver selected a torchvision0.24.1 CPU release with only an aarch64 Linux wheel. Added explicit required-environments for Apple Silicon macOS and Linux x86-64 and refreshed torchvision resolution; the lock now selects torchvision0.24.1+cpu for Linux x86-64. Target-platform locked sync dry-run succeeds; actual Linux CI is the acceptance check. Mac runtime versions are unchanged.
+
+Because pyproject/lock hashes changed, preserved the original smoke record rather than rewriting its provenance. Ran sequential warm-cache smoke-003-ci-lock under the corrected lock with fresh identity/checkpoints: both heads again completed five logical updates and exact CPU continuation; losses match the initial run. See smoke-003-ci-lock.json. Cached feature content was reused; this is reproducibility/cache validation, not extra generalization evidence. Original smoke timing remains tied to its original lock. Final CI status is reported in chat after push.

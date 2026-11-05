@@ -1,0 +1,134 @@
+{
+  "artifact_run_dir": "artifacts/training/smoke-003-ci-lock",
+  "backbone": {
+    "architecture": "torchvision.mobilenet_v2.features-global-average-pool",
+    "feature_dim": 1280,
+    "swingsync_event_training": false,
+    "torch": "2.9.1",
+    "torchvision": "0.24.1",
+    "weights": "IMAGENET1K_V2",
+    "weights_url": "https://download.pytorch.org/models/mobilenet_v2-7ebf99e0.pth"
+  },
+  "class_weights": [
+    1.124369740486145,
+    1.124369740486145,
+    1.124369740486145,
+    1.124369740486145,
+    1.124369740486145,
+    1.124369740486145,
+    1.124369740486145,
+    1.124369740486145,
+    0.005042016971856356
+  ],
+  "code_sha256": {
+    "/Users/ryaanmahmood/Downloads/SwingSync/scripts/run_ml_smoke.py": "523e282a2d48cab81ed11c9c1d34eaaa203bd4537cb40b9d660ac72e37946450",
+    "backend/swingsync/research/__init__.py": "f773c042293b35124568ec36288c752983cd33010aa5746c5dd2c2ca6da6a12a",
+    "backend/swingsync/research/evaluation.py": "fe5c6f49282b4f6782181badad47948ca0b9545a6be7a0d878899d898e9a0f19",
+    "backend/swingsync/research/features.py": "0319843f83bf6453eefeadd431a88c6d42186b6a94e541d70672f272be53204d",
+    "backend/swingsync/research/golfdb.py": "5d1cb1e60165e1c62c7df2ff6241b307c192d00a244fe7270f16ae4d38369b70",
+    "backend/swingsync/research/models.py": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+    "backend/swingsync/research/timeline.py": "0d573f013bc5df27481d18bf50eb321bca5bd4aae94968fd4a521019cfd1da4a",
+    "backend/swingsync/research/training.py": "e835d790866a75c1d39e36c7522809ccc98dcfc5950dced3ceba53e9c5b7ea0d",
+    "pyproject.toml": "23395bdee2cab2d4a9061ae547143e7ed0308623d69f4006c215920d209ea00b",
+    "uv.lock": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc"
+  },
+  "completed_at": "2026-11-05T05:19:18.058744+00:00",
+  "config": {
+    "augmentation": "none",
+    "batch_size": 16,
+    "checkpoint_step": 2,
+    "clips": [
+      0,
+      1
+    ],
+    "device": "cpu",
+    "hidden_size": 64,
+    "learning_rate": 0.001,
+    "seed": 20261105,
+    "steps_per_model": 5,
+    "threads": 1
+  },
+  "dataset_sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+  "devices": {
+    "cpu": true,
+    "cuda": false,
+    "mps": true
+  },
+  "elapsed_seconds": 0.8141035418957472,
+  "evidence_type": "real-training-partition-pipeline-smoke-not-benchmark",
+  "feature_cache": [
+    {
+      "cache_key": "8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a",
+      "cache_path": "artifacts/features/8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a.npz",
+      "cache_sha256": "6c968c6ed2c4ac2452486660589921610429b3363ec876c40ca09c6162caae69",
+      "clip_id": 0
+    },
+    {
+      "cache_key": "806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1",
+      "cache_path": "artifacts/features/806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1.npz",
+      "cache_sha256": "e8ea88c3a22d8d6285561024682391f11705f66a5ad3fcbecc99e32cd9efbb5b",
+      "clip_id": 1
+    }
+  ],
+  "feature_extraction_or_cache_load_seconds": 0.02804158302024007,
+  "frames": 462,
+  "git_base_commit": "d11fce7001ffcc4733a32f59eb86aee15f9a5111",
+  "hardware": {
+    "machine": "arm64",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "processor": "arm"
+  },
+  "manifest_sha256": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+  "models": {
+    "frame": {
+      "completed_optimizer_steps": 5,
+      "exact_cpu_resume_verified": true,
+      "step2_sha256": "c260aea2e5e6ec506cbb03fd1aca3e0cb3935097be9c6afa04d8d8dfb2c6e946",
+      "step5_sha256": "8b865129c0b9ea723b4f3c5bd7523c5870c5394cb27888fe9692acd8351e6f01",
+      "training_and_resume_check_seconds": 0.05680254194885492,
+      "training_loss": [
+        2.218994617462158,
+        2.148549795150757,
+        2.080627679824829,
+        2.014495372772217,
+        1.949782133102417
+      ]
+    },
+    "temporal": {
+      "completed_optimizer_steps": 5,
+      "exact_cpu_resume_verified": true,
+      "step2_sha256": "e2b40c99a42388f610d87d9db16736b88ccdc1d0ee7a54b69c64b30ca754246a",
+      "step5_sha256": "edbf3a475f9650bdbe84515a1a699729fc79f44c8f0ddcfd365e5c1dd74c5467",
+      "training_and_resume_check_seconds": 0.6243669162504375,
+      "training_loss": [
+        2.212209939956665,
+        2.1000077724456787,
+        1.9939824342727661,
+        1.889411449432373,
+        1.7742420434951782
+      ]
+    }
+  },
+  "numpy": "2.2.5",
+  "outer_test_evaluated": false,
+  "pid": 16915,
+  "process_start_identity": "Thu Nov  5 00:19:15 2026",
+  "run_record_sha256": "679386285f3115e9bf57105d18213f6e09b19eb6b660192e1a61bf5b36d8bb7f",
+  "started_at": "2026-11-05T05:19:17.169666+00:00",
+  "state": "completed",
+  "torch": "2.9.1",
+  "torchvision": "0.24.1",
+  "training_partition_smoke_class_counts": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    446
+  ],
+  "validated_for_serving": false,
+  "validation_scope": "Sequential warm-cache smoke with corrected platform-coverage lock; not an additional benchmark."
+}
