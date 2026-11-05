@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "seed": 20261105,
+  "model": "frame",
+  "epochs": 20,
+  "batch_size": 4,
+  "learning_rate": 0.001,
+  "hidden_size": 64,
+  "selection_metric": "validation_pce",
+  "context": "full-clip",
+  "augmentation": "none",
+  "device": "cpu"
+}

@@ -14,6 +14,7 @@ import numpy as np
 import torch
 import torchvision
 
+from backend.swingsync.research.cache_job import DEFAULT_LOCK_PATH
 from backend.swingsync.research.features import (
     build_cache_identity, cache_key, extract_clip_features, load_feature_cache, save_feature_cache,
 )
@@ -40,7 +41,8 @@ def write_json(path, value):
 def run(args):
     run_dir = args.run_dir.resolve()
     run_dir.parent.mkdir(parents=True, exist_ok=True)
-    with (run_dir.parent / 'active-training.lock').open('a+') as lock:
+    DEFAULT_LOCK_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with DEFAULT_LOCK_PATH.open('a+') as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError as exc:

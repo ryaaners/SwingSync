@@ -25,3 +25,7 @@ MAT loader -> immutable annotations + exact bytes fingerprint -> deterministic s
 ## Model smoke infrastructure (003a)
 
 Optional ML dependencies support FrozenMobileNetV2 -> provenance-checked full-clip feature cache -> independent frame or packed BiLSTM head. Weighted CE uses valid-prefix masks; no padding loss or backward-context leakage. CPU checkpoints restore model/Adam/RNG/provenance with weights_only loading and atomic no-overwrite publication. A durable smoke-run record precedes work and a training-root lock prevents duplicates; failed/unfinished state is not automatically called complete. The user-facing backend remains disconnected from these smoke artifacts until full training/evaluation and inference gates pass.
+
+## Dataset preparation and full-head driver (003b)
+
+A resumable feature job validates an immutable full media inventory and selected source partitions, atomically publishes each cache+ledger progress, and explicitly distinguishes partial/interrupted/failed/completed. Registered training admission requires complete matching caches; the CPU driver shuffles whole clips deterministically, uses all training labels for weights, and selects only on complete inner-validation epochs. Data cursor/order, RNG, optimizer and selection survive checkpoint resume. One repository lock serializes cache, smoke and head CLIs. No feature-preparation state or synthetic validation score enables user inference.

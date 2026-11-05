@@ -33,3 +33,7 @@ Attach final config/seed/split and dataset fingerprints, trained checkpoint hash
 ## Smoke provenance
 
 See autonomy/reports/smoke-003.json. Reference ImageNet initialization was downloaded from torchvision, not trained here. Event heads received five optimizer steps on fold 1 training clips 0/1; no validation or test partition was evaluated. Training losses and exact CPU resume only demonstrate software operation. No model is enabled in the web app, and no measured shot outcome or coaching advice was added.
+
+## Dataset preparation and full-training status (003b)
+
+A fixed first comparison is now registered, and resumable full feature preparation is running for training plus inner validation only. Completion is not inferred from launch. The complete-cache training/selection driver is implemented and software-tested, but has not trained a full real model. The web app remains model unavailable. See validation-004 and current job state before making any completion or performance claim.

@@ -1,0 +1,111 @@
+{
+  "annotations_sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+  "attempts": [
+    {
+      "attempt": 1,
+      "elapsed_seconds": 35.73269774997607,
+      "ended_at": "2026-11-05T06:42:41.354446+00:00",
+      "max_new_clips": 2,
+      "newly_extracted": 2,
+      "pid": 20640,
+      "process_start_identity": "Thu Nov  5 01:42:02 2026",
+      "reused_cache": 2,
+      "started_at": "2026-11-05T06:42:05.606426+00:00",
+      "state": "partial"
+    },
+    {
+      "attempt": 2,
+      "elapsed_seconds": 5.583377750124782,
+      "ended_at": "2026-11-05T06:43:36.175772+00:00",
+      "max_new_clips": 1,
+      "newly_extracted": 1,
+      "pid": 20705,
+      "process_start_identity": "Thu Nov  5 01:43:28 2026",
+      "reused_cache": 0,
+      "started_at": "2026-11-05T06:43:30.576554+00:00",
+      "state": "partial"
+    }
+  ],
+  "completed_clip_count": 5,
+  "completed_rows": {
+    "0": {
+      "cache_key": "8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a.npz",
+      "cache_sha256": "6c968c6ed2c4ac2452486660589921610429b3363ec876c40ca09c6162caae69",
+      "clip_id": 0,
+      "completed_at": "2026-11-05T06:42:05.754429+00:00",
+      "frames": 138,
+      "partition": "train",
+      "reused": true,
+      "source_id": "f1BWA5F87Jc"
+    },
+    "1": {
+      "cache_key": "806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1.npz",
+      "cache_sha256": "e8ea88c3a22d8d6285561024682391f11705f66a5ad3fcbecc99e32cd9efbb5b",
+      "clip_id": 1,
+      "completed_at": "2026-11-05T06:42:05.775718+00:00",
+      "frames": 324,
+      "partition": "train",
+      "reused": true,
+      "source_id": "f1BWA5F87Jc"
+    },
+    "2": {
+      "cache_key": "37ace2b7fd7537cd9818c933c2b6c184814f9a864eb23a4713945671060ecd25",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/37ace2b7fd7537cd9818c933c2b6c184814f9a864eb23a4713945671060ecd25.npz",
+      "cache_sha256": "13fdda98bd91e05ce3cbe0361b0849c1d8645608dbe1c35e4609ce3afa3e46ec",
+      "clip_id": 2,
+      "completed_at": "2026-11-05T06:42:20.051678+00:00",
+      "frames": 225,
+      "partition": "train",
+      "reused": false,
+      "source_id": "tA1iotgtMyc"
+    },
+    "3": {
+      "cache_key": "516b0534fbf97d6c0f11b554f1ba20ec06f20c7092565bffe0c627fb774ac76c",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/516b0534fbf97d6c0f11b554f1ba20ec06f20c7092565bffe0c627fb774ac76c.npz",
+      "cache_sha256": "0959fa9836fa58ae7f178e5270d757be6b4e8f55ff0a366dd291ef5e4ff77531",
+      "clip_id": 3,
+      "completed_at": "2026-11-05T06:42:41.341677+00:00",
+      "frames": 344,
+      "partition": "train",
+      "reused": false,
+      "source_id": "tA1iotgtMyc"
+    },
+    "4": {
+      "cache_key": "aaa689832428e2b99c762660f233db266a583cd148a3b4b2a2e1e96e0dd4de81",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/aaa689832428e2b99c762660f233db266a583cd148a3b4b2a2e1e96e0dd4de81.npz",
+      "cache_sha256": "4bd651513d415d3fb49c74709d26a3923ef78e7789ad491d498f48cc43f604e3",
+      "clip_id": 4,
+      "completed_at": "2026-11-05T06:43:36.163660+00:00",
+      "frames": 94,
+      "partition": "train",
+      "reused": false,
+      "source_id": "wDCKLePrwHA"
+    }
+  },
+  "config_sha256": "23c9becd76a48727fd19bf61ce71b1f71d5599b5cc4d470eed7b0e05df0f4260",
+  "evidence_limits": [
+    "Bounded cache resume proof only; full1050-clip job not yet complete",
+    "No real head training/inner validation or outer benchmark performed this increment",
+    "Outer-test inputs excluded"
+  ],
+  "evidence_type": "frozen-feature-preparation-not-model-training",
+  "frames_in_validated_cache": 1125,
+  "git_base_commit": "6aa43210b95ec535d066ea1b370b043f930bddd2",
+  "job_fingerprint": "c670683a50a968fdf06bdf16d22aef92846f5f9286262e48ea9a7ee87c69886b",
+  "job_id": "184c02b4709746b79f15a8976399101f",
+  "manifest_sha256": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+  "outer_test_selected": false,
+  "proof_snapshot_path": "artifacts/features/fold1-job-v1/proof-004-partial.json",
+  "proof_snapshot_sha256": "9a5cd2bdd230feb51903509dd8f47e4a29226b5d9173ee171a3a27764d72aec6",
+  "schema_version": 1,
+  "selected_partitions": [
+    "train",
+    "validation"
+  ],
+  "source_job_path": "artifacts/features/fold1-job-v1/job.json",
+  "state": "partial",
+  "target_clip_count": 1050,
+  "validated_for_serving": false
+}

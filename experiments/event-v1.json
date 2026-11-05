@@ -1,0 +1,120 @@
+{
+  "protocol_version": 1,
+  "registered_before_full_training": true,
+  "evidence_scope": "Fixed first comparison protocol; no full-training or held-out result yet",
+  "dataset_sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+  "outer_fold": 1,
+  "split_seed": 20261104,
+  "manifest_sha256": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+  "training_clips": 840,
+  "inner_validation_clips": 210,
+  "outer_test_clips": 350,
+  "backbone": "torchvision MobileNetV2 IMAGENET1K_V2 frozen 1280-dimensional features",
+  "preprocessing": "RGB tensor; resize short edge232; center crop224; ImageNet normalization; deterministic",
+  "class_weight_rule": "Inverse class frequency normalized mean1; fit all training partition labels only",
+  "selection": "Highest standard inner-validation PCE; earliest epoch wins exact ties; no outer-test tuning",
+  "context": "Full clip during training and validation; differs from reference64-frame recurrent evaluation",
+  "augmentation": "None; both heads use identical deterministic cached features",
+  "budget": "20 epochs maximum per head; one fixed learning rate; no hyperparameter sweep or early stopping",
+  "seed": 20261105,
+  "device": "cpu",
+  "cache_partitions": [
+    "train",
+    "validation"
+  ],
+  "outer_test_policy": "Excluded from feature preparation and tuning by default. A separate explicit finalized evaluation is required; never repeatedly tune against it.",
+  "next_folds_policy": "Only fold1 is registered for this first comparison. Do not claim four-fold performance; register further folds before their training/evaluation.",
+  "integration_gates": [
+    "No serving until a complete checkpoint and held-out evaluation are reviewed",
+    "Pose/coaching reliability and source/browser synchronization remain separately gated",
+    "CaddieSet video prediction remains disabled without paired feature equivalence and grouped generalization"
+  ],
+  "config_sha256": {
+    "frame": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+    "temporal": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1"
+  },
+  "feature_pipeline": {
+    "backbone_class": "backend.swingsync.research.models.FrozenMobileNetV2",
+    "backbone_state_sha256": "46cd17dc0b0bbf24bdf5f26a1f20a82f96cc2f5c863fa2fcd87856b5518971be",
+    "backbone_provenance": {
+      "architecture": "torchvision.mobilenet_v2.features-global-average-pool",
+      "feature_dim": 1280,
+      "swingsync_event_training": false,
+      "torch": "2.9.1",
+      "torchvision": "0.24.1",
+      "weights": "IMAGENET1K_V2",
+      "weights_url": "https://download.pytorch.org/models/mobilenet_v2-7ebf99e0.pth"
+    },
+    "transform": {
+      "antialias": true,
+      "center_crop": 224,
+      "input": "RGB-uint8-CHW",
+      "interpolation": "bilinear",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "name": "torchvision-MobileNet_V2_Weights.IMAGENET1K_V2.transforms-tensor",
+      "output": "float32-normalized",
+      "resize_short_edge": 232,
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "stochastic": false
+    },
+    "numpy": "2.2.5",
+    "torch": "2.9.1",
+    "torchvision": "0.24.1",
+    "pyav": "16.0.1",
+    "ffmpeg_libraries": {
+      "libavcodec": [
+        62,
+        11,
+        100
+      ],
+      "libavdevice": [
+        62,
+        1,
+        100
+      ],
+      "libavfilter": [
+        11,
+        4,
+        100
+      ],
+      "libavformat": [
+        62,
+        3,
+        100
+      ],
+      "libavutil": [
+        60,
+        8,
+        100
+      ],
+      "libswresample": [
+        6,
+        1,
+        100
+      ],
+      "libswscale": [
+        9,
+        1,
+        100
+      ]
+    },
+    "extraction_device": "cpu",
+    "implementation_sha256": {
+      "backbone_forward_code": "cb1f9f1a590d0fa80415615159e50ac13a4c5129fd3ad16fb0f043b0a77b4d1e",
+      "backbone_module": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+      "features.py": "0319843f83bf6453eefeadd431a88c6d42186b6a94e541d70672f272be53204d",
+      "golfdb.py": "5d1cb1e60165e1c62c7df2ff6241b307c192d00a244fe7270f16ae4d38369b70",
+      "models.py": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+      "timeline.py": "0d573f013bc5df27481d18bf50eb321bca5bd4aae94968fd4a521019cfd1da4a"
+    },
+    "python": "3.11.14"
+  }
+}

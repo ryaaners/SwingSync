@@ -79,11 +79,50 @@
       ]
     },
     {
+      "id": "003b",
+      "title": "Registered comparison and resumable preparation/training software",
+      "dependencies": [
+        "003a"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Fixed comparison registered before full real training",
+        "Resumable per-clip cache job with immutable provenance/shared lock",
+        "Complete-cache-only admission; train-only weights and inner-validation selection",
+        "Checkpoint restores clip order/cursor/model/optimizer/RNG/selection",
+        "Real bounded resume proof and independent review"
+      ],
+      "validation_evidence": [
+        "Real proof:reuse2+new2 then explicitresume+new1=partial5/1050;zerooutertest",
+        "110fullMLtests,56basepass/7skip,Ruff/frontendclean",
+        "Three P2findings resolved;review-004.md,validation-004.md,cache-resume-004.json"
+      ]
+    },
+    {
+      "id": "003c",
+      "title": "Complete fold1 train+inner-validation frozen feature inventory",
+      "dependencies": [
+        "003b"
+      ],
+      "status": "in_progress",
+      "acceptance_criteria": [
+        "All1050selectedclip caches verified; no outertest cache",
+        "Job actually completed with fingerprints and frame totals",
+        "Independent completed-inventory audit before head training"
+      ],
+      "validation_evidence": [
+        "Job184c02b4709746b79f15a8976399101f running in isolatedMLruntime PID21311,start01:53:08Toronto;verify actualstate",
+        "Proofsnapshot5/1050 then continuation11/1050 observed;not completed",
+        "Actual launch/log/state under artifacts/features/fold1-job-v1"
+      ]
+    },
+    {
       "id": "003",
       "title": "Reproducible frame and temporal event learning",
       "dependencies": [
         "002",
-        "003a"
+        "003a",
+        "003b"
       ],
       "acceptance_criteria": [
         "Same frozen MobileNetV2 backbone",
@@ -96,7 +135,8 @@
       "validation_evidence": [
         "003a complete:shared frozen backbone,frame/BiLSTM heads,padding-safe loss/cache and exact CPU resume",
         "Real train-only2clip462frame5step/head smoke completed; no held-out evaluation",
-        "82tests pass with MLextra;56pass4skip base; independent review findings resolved"
+        "82tests pass with MLextra;56pass4skip base; independent review findings resolved",
+        "003b:registered configs,cache resume and head driver implemented;110tests;full preparation observed running,not completed"
       ]
     },
     {

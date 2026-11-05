@@ -1,29 +1,31 @@
 # Current status — 2026-11-05
 
-Increment 003a completed: shared frozen image features, independent frame/BiLSTM heads, provenance-aware caches and an actual resumable CPU pipeline smoke. Parent 003 remains in progress: full training, inner validation/model selection and outer-test metrics are not complete. App remains inspection-only/model unavailable.
+Increment 003b software complete: preregistered fold1 comparison, resumable dataset feature preparation, complete-cache training admission, deterministic head training/inner selection and checkpoint recovery. Parent 003 is still in progress. Full feature preparation is running; full real head training and outer-test metrics have NOT completed. App remains inspection-only/model unavailable.
 
-## Verified capability and evidence
+## ACTIVE JOB — inspect before any expensive work
 
-Optional torch2.9.1/torchvision0.24.1 CPU stack; frozen ImageNet V2 MobileNetV2, packed temporal head, valid-only weighted CE and device detection. Exact cache identity includes media/annotations/events, weights, deterministic transform, dependency versions, source/runtime implementation and device. Source PTS provenance remains explicit.
+Job 184c02b4709746b79f15a8976399101f: artifacts/features/fold1-job-v1/job.json. Latest verified worker PID 21311, start identity Thu Nov 5 01:53:08 2026 Toronto, command .tools/ml-runtime/bin/python -m scripts.prepare_feature_cache ... --resume. The isolated locked runtime prevents ordinary app dependency checks from uninstalling live ML packages. Launch record: artifacts/features/fold1-job-v1/launch-isolated-004.json; log full-preparation.log. Observed running at 11/1050 clips after checkpointed runtime migration; this is a snapshot, read actual state for progress. One shared absolute lock is held at artifacts/training/active-training.lock. Do NOT launch duplicate extraction or head training while active. PID alone can be reused; check actual command/start identity and lock.
 
-Run artifacts/training/smoke-003-20261105/run.json is COMPLETED, not merely launched. Seed20261105, CPU, one thread, fold 1 training clips 0/1,462 frames,5 logical optimizer steps per head plus checkpoint replay verification. Both model/Adam/RNG restores match CPU continuation exactly. Training losses finite; no held-out metric. Apple M1/8GiB observed; CUDA false,MPS true, acceleration unbenchmarked.37.516 seconds total includes initialization/extraction/checkpoint work, not inference latency. Do not enable serving from smoke artifacts.
+The first bounded proof produced4clips (2 reused + 2 new); explicit resume added1 without repeating prior extraction. Full continuation then reached11 before its own worker was stopped for isolated-runtime migration; its ended attempt was accurately marked interrupted and the same immutable job resumed under PID 21311. No progress or fingerprint was reset. A process launch is not completed preparation or training.
 
-Evidence: autonomy/reports/smoke-003.json, validation-003.md, review-003.md.82 tests pass with ML extra; ordinary locked environment56 pass / 4 explicit optional skips. Ruff and frontend clean install/typecheck/build pass. Reviewer cache-implementation identity issue resolved and independently verified persisted artifacts. Data,caches,weights,checkpoints remain ignored.
+## Verified evidence
 
-## Next highest-priority unblocked increment
+All 110 tests pass with ML extra; base environment56 pass / 7 explicit optional skips. Ruff and frontend clean installation/typecheck/build pass. Independent review resolved three P2s: shared lock bypass, queued-media inventory mutation, and admission of unregistered feature pipelines. Persisted5/1050 bounded proof was independently audited; no outer-test inputs. See validation-004.md, review-004.md, cache-resume-004.json. Large data/caches/jobs remain ignored.
 
-Preregister full baseline/temporal configuration and budgets using grouped inner validation only. Implement resumable dataset feature preparation with per-clip progress/cache checks and safe job identity; add appropriate sequence sampling and temporally consistent augmentation only if enabled (current deterministic frozen pipeline has no augmentation). Then run baseline/temporal training one at a time, select on internal validation and evaluate finalized outer test. Record full-train class counts, exact feature/decoder/backbone/split fingerprints and all departures from reference64-frame context. Do not tune on outer test.
+Registration: experiments/event-v1.json plus hash-bound frame-v1/temporal-v1 configs. Fixed fold1 train 840/inner-validation 210/test 350, seed 20261105,20 epochs/head, batch 4, Adam0.001, hidden 64, CPU one thread, no augmentation, full-clip context. Exact frozen ImageNet V2 backbone/transform/source/runtime signature registered. Full-clip context differs from reference64-frame resets; retain this limitation in later metrics. No outer-test tuning or implicit four-fold claim.
 
-## Existing jobs and scheduling
+## Next highest-priority action
 
-At execution start actual server PIDs10684(backend8000)/11415(frontend5173) existed; no training job. Smoke PID16282 completed and released training-root lock. Always recheck PIDs/start identities before later work. User separately authorized daily continuation at1:30a.m. Toronto and this one-time00:07run; daily schedule remains active, one-time schedule was removed after completion. Schedules are not a continuously running agent; computer/app must remain available.
+1. Inspect active cache job, actual process/start and shared lock. If still active, do not duplicate or mutate its isolated runtime. Work on independent safe tasks. If process stopped, inspect state/error, then explicitly resume only with matching code/data/model/dependency fingerprints.
+2. When all 1050selected caches are actually completed, launch scripts/train_event_head.py with experiments/frame-v1.json and matching cache job; record identity, run sequentially, use --resume after interruption. Then temporal-v1 in its own run directory. Neither driver nor CLI evaluates outer test. A partial cache job is refused.
+3. After complete registered training and inner selection, independently review artifacts and implement a separate finalized standard outer-test evaluation with provenance and latency. Preserve source/browser, pose/coaching and outcome gates. No full real training or held-out accuracy is claimed yet.
 
-## Preserved gates
+## Existing capabilities and preserved gates
 
-Original source equivalence remains blocked pending authorized originals and paired source correspondence. Re-encoded reference-clip research may proceed with disclosed provenance. Browser event synchronization with earlier audio/container start is unverified. No pose feature validation, coaching reliability, real video-to-coaching demonstration or held-out event performance yet. Outcome integration remains closed pending upstream extraction/paired feature equivalence and grouped generalization. No ML résumé performance claim is supported.
+Original CPU five-step smoke (003a) is completed; exact checkpoint continuation on two training clips is software evidence, not generalization. Immutable GolfDB annotations/source-grouped splits/reference PCE and all 1400 reference-media integrity checks remain verified. Original YouTube PTS/image equivalence is blocked pending authorized originals/paired correspondence. Browser leading-audio/container synchronization, pose validation/coaching reliability and CaddieSet feature equivalence/generalization remain unverified. No ML résumé performance claim is supported.
 
-Media/weight access for local research is distinct from redistribution rights; do not publish raw clips/weights or apply upstream licenses to original code. See docs/data-contracts.md and model-card.md.
+At this execution start no old backend/frontend or training processes were running. User-authorized daily 1:30a.m.Toronto continuation remains active; one-time00:07 schedule was previously removed. A scheduled chat is not a continuously running agent. Current feature preparation is an actual independently recorded OS process and needs the computer awake/available.
 
 ## Git
 
-Dedicated remote https://github.com/ryaaners/SwingSync; branch agent/swingsync. Previous 6df193c remote CI passed(run41968842615). Initial d11fce7 ML CI found a Linux x86-64 torchvision wheel-coverage gap; corrected required-environments/lock and validated a sequential warm-cache smoke in artifacts/training/smoke-003-ci-lock with fresh provenance. See validation-003.md. This increment checkpoint SHA and remote verification reported in chat; inspect actual HEAD/remote/CI on resume.
+Dedicated https://github.com/ryaaners/SwingSync, agent/swingsync. Prior 6aa4321 CI passed(run41973464441). This increment checkpoint and new CI outcome are reported in chat; inspect actual HEAD/remote/CI on resume. Coordinator owns all Git; do not force push or merge main.

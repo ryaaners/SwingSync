@@ -84,3 +84,32 @@ Use a fresh run directory; the CLI refuses duplicate state. It selects only trai
 The completed smoke ran on an Apple M1 with 8GiB RAM. That is observed hardware, not an established minimum. CUDA/MPS availability is detected, but this lock installs CPU packages on non-macOS; a CUDA build requires a separately tested environment. Full training, held-out accuracy, inference latency and coaching validity remain unmeasured. Ordinary `uv sync --locked` keeps ML dependencies out of the inspection app; optional tests then skip explicitly. CI has a separate CPU ML-contract job without datasets or pretrained downloads. See autonomy/reports/validation-003.md and docs/experiments.md for evidence.
 
 Supported runtime validation targets are Apple Silicon macOS and Linux x86-64. The dependency resolver requires binary wheel coverage for both. Windows execution is not supported by the current POSIX worker locks.
+
+## Resume dataset preparation and train the registered heads
+
+The registered first comparison is in experiments/event-v1.json and the two hashed head configurations. It fixes fold1, seed 20261105, frozen ImageNet V2 features, no augmentation, full-clip context,20 epochs/head, batch 4, learning rate0.001, and earliest-epoch ties on inner-validation PCE. Full-clip context differs from reference64-frame recurrent evaluation. No outer-test tuning is allowed.
+
+```sh
+uv run --extra ml python -m scripts.prepare_feature_cache \
+  --annotations data/golfdb/golfDB.mat \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --clips-dir data/golfdb/videos_160 \
+  --job-dir artifacts/features/fold1-job-v1 --max-new-clips 2
+```
+
+Use --resume for every later invocation of the same job. Omit --max-new-clips to process all remaining selected clips. The default selects all 840 training and210 inner-validation clips; outer-test clips require separate explicit permission. A bounded job is partial until all 1,050 clips are validated. Resume checks media inventory, exact model/pipeline/config fingerprints, existing cache bytes and prior process identity. Never launch a second process for a running job; inspect job.json and actual PID/start identity first. All feature/head/smoke CLIs use the same absolute repository training lock even if output directories differ. Corrupt or changed artifacts fail closed and require investigation; they are not overwritten silently.
+
+Only after the matching cache job is completed:
+
+```sh
+uv run --extra ml python -m scripts.train_event_head \
+  --config experiments/frame-v1.json \
+  --annotations data/golfdb/golfDB.mat \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --cache-job artifacts/features/fold1-job-v1/job.json \
+  --run-dir artifacts/training/frame-v1
+```
+
+Repeat sequentially for experiments/temporal-v1.json in its own run directory. A started run needs --resume; --max-batches bounds additional work and --checkpoint-batches controls persistence intervals (default 25). Checkpoints store model/Adam/RNG, clip order/cursor and best inner-validation selection. A single checkpoint published just before a crash but absent from the ledger is provenance-validated and adopted on resume. The driver rejects partial jobs, outer-test caches, unregistered configs/pipelines, changed artifact bytes and runtime changes. It computes weights from all training labels only. Selected weights remain gated from serving and require a separate finalized outer evaluation. This CLI does not evaluate the outer test.
+
+For long local jobs, use an isolated locked environment so ordinary app setup cannot remove its ML dependencies: set `UV_PROJECT_ENVIRONMENT=.tools/ml-runtime`, run `uv sync --locked --extra ml`, and keep that environment setting for its `uv run --extra ml ...` commands. The current background preparation uses this isolated runtime. Keep the computer awake; inspect its recorded process and job.json before resuming. The schedule itself is not a continuously running agent.
