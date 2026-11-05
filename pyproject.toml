@@ -5,7 +5,7 @@ description = "Local golf video inspection and reproducible swing research"
 requires-python = ">=3.11,<3.12"
 dependencies = [
   "fastapi==0.115.12", "pydantic==2.11.4", "uvicorn==0.34.2",
-  "python-multipart==0.0.20", "av==16.0.1", "numpy==2.2.5",
+  "python-multipart==0.0.20", "av==16.0.1", "numpy==2.2.5", "scipy==1.15.3",
 ]
 [dependency-groups]
 dev = ["pytest==8.3.5", "httpx==0.28.1", "ruff==0.11.8"]

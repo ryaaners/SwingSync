@@ -17,3 +17,7 @@ Audited GolfDB loader -> frozen shared MobileNetV2 features -> independent frame
 ## Local trust boundary
 
 Bind to loopback only. This local single-user application has no authentication and must not be exposed to a network. Upload limits and decode limits bound resource use; use no shell-based video commands. Local files persist until deleted through history; no automatic upload elsewhere. Do not run multiple backend instances against one storage directory. More robust worker isolation/timeouts are required before broader use.
+
+## Offline research preparation (increment 002)
+
+MAT loader -> immutable annotations + exact bytes fingerprint -> deterministic source-grouped inner partitions preserving each official outer fold. Read-only evaluation helpers implement the upstream full-clip protocol, including chronological target-slot behavior on anomaly677. Timeline inspection decodes exact contiguous frames without FPS guessing, records real PTS and provenance, and never calls re-encoded clip time original-source time. This module is not wired to user-facing model inference. Padding is excluded in evaluation; model/augmentation/feature-cache contracts remain future work.

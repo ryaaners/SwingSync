@@ -35,3 +35,16 @@ Report each fold's MAE, RMSE, sample count, club support and baseline delta. Rep
 ### Integration decision
 
 DISABLED: no paired extraction equivalence evidence; no trained outcome model; no generalization evidence. Even a successful tabular benchmark cannot by itself open this gate.
+
+## Increment 002 — data-preparation evidence, not a model experiment
+
+Annotations loaded from audited MAT SHA36523fce…; source-grouped manifests created for all four folds with seed20261104 and validation fraction0.2 of source groups. Deterministic SHA256 seed/source ranking uses ceil group count, not row or frame sampling.
+
+| Outer fold | Train clips | Inner validation clips | Test clips | Train / validation / test sources |
+| --- | ---: | ---: | ---: | --- |
+| 1 | 840 | 210 | 350 | 348 / 88 / 144 |
+| 2 | 836 | 214 | 350 | 350 / 88 / 142 |
+| 3 | 839 | 211 | 350 | 340 / 86 / 154 |
+| 4 | 853 | 197 | 350 | 352 / 88 / 140 |
+
+No source overlaps partitions and all1,400 clip IDs appear once per fold manifest. Local artifacts: artifacts/golfdb/preparation-002/{fold-1.json,…,fold-4.json,summary.json}; exact manifest hashes recorded in summary. Local reference media acquired and decoded integrity inspection recorded in validation-002. Source YouTube timestamp equivalence and browser alignment remain unverified. Annotation677 anomaly is preserved; see data-contracts. Synthetic predictions in unit tests establish evaluator mechanics only and are not included in model result tables. No training/checkpoint/inference latency has completed.

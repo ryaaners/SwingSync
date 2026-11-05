@@ -1,19 +1,25 @@
 # Current status — 2026-11-04
 
-Increment 001: local inspection application and upstream data audit. Implementation and independent review complete. Not final project completion.
+Increment002: implemented and reviewed GolfDB research preparation and benchmark contracts. The local inspection app remains available; no trained event or outcome model exists. Not final project completion.
 
-## Working
+## Working and verified
 
-Python3.11.14 project-local environment, uv0.9.8, pinned dependency lock, React/TypeScript/Vite UI, FastAPI upload/inspection/history/video/HTML report/deletion, SQLite single-worker recovery. Seven backend tests pass and Ruff passes. Both servers launched on 127.0.0.1:8000 and :5173 ; browser upload, inspection and H.264 playback readiness verified. No expensive training process exists.
+Immutable actual MAT loading with SHA256/schema/bounds checks; historical trim/source-index mapping; deterministic source-grouped inner validation within all four official outer folds; standard reference PCE including ties, padding exclusion, actual-PTS error and explicit annotation677 anomaly. Preparation CLI saves non-overwriting manifests and data-integrity evidence. Actual local archive includes all1,400 expected clips; all decoded with exact expected counts and strictly increasing PTS. Clips0/677 event contact sheets viewed locally for coarse sanity only.
 
-## Evidence and boundaries
+Current source files and gates: docs/data-contracts.md, docs/experiments.md, docs/model-card.md. Review: autonomy/reports/review-002.md. Validation: autonomy/reports/validation-002.md. Actual data and manifests are ignored under data/golfdb and artifacts/golfdb. No dataset/weights/media committed. Existing backend PID10684 and frontend PID11415 were observed running at start; no training job. Do not start duplicate servers/jobs without inspection. Process identities must be rechecked before reuse.
 
-See autonomy/reports/environment.json, data-audit.md, review-001.md and validation-001.md. Real GolfDB annotations and CaddieSet CSV/paper audited with revisions/fingerprints. No project training, benchmark, pose extraction, event detection or outcome inference completed. Inspection success is not swing-analysis success. Synthetic media validates software only.
+## Next highest-priority increment
 
-## Next increment
+Build shared frozen MobileNetV2 features and frame/BiLSTM heads, device detection, masked sequence handling and provenance-aware cache. Run a CPU training smoke test with finite loss and resumable state before any full real training. Benchmark against the acquired preprocessed dataset using the saved source-disjoint manifests; disclose re-encoded PTS. Freeze selection protocol before outer-test evaluation. One expensive training job at a time.
 
-Implement GolfDB annotation loader and source-grouped internal split manifests, official PCE tests, source/clip index and PTS mapping. Acquire/fingerprint permitted real clip inventory; test actual clip event alignment. Then shared MobileNetV2 frozen features, frame and temporal heads, device detection and CPU smoke test before full training. No dataset blocker should delay independent software work.
+## Exact remaining gates
 
-## Blockers and exact gates
+Original-source equivalence: the public archive is re-encoded. Original YouTube PTS and exact source-image equivalence are not recovered or claimed; need authorized originals with paired frame correspondence. This separate gate blocks original-source precision claims, not research using explicitly identified reference preprocessed clips. Backlog002 acceptance was refined to distinguish these scopes; unverified source equivalence moved to002-source instead of silently marked done.
 
-Event training: no real source/preprocessed video inventory acquired; obtain applicable terms and verify real frame/label alignment before training. Outcome integration: no upstream videos/extraction code, incompatible HRNet versus MediaPipe definitions; full gate in docs/data-contracts.md. Browser event synchronization: test container/audio offset before using first-video-relative timestamps for event markers. Git destination confirmed empty dedicated https://github.com/ryaaners/SwingSync; review complete. Checkpoint branch is agent/swingsync; inspect local/remote SHA on resume; synchronization outcome is reported in chat. No recurring schedule activated.
+Browser event synchronization: test earlier audio/container start before linking PTS to browser currentTime. Pose/coaching remains unavailable pending feature validation, visibility/view gates and event reliability. Outcome integration remains closed: missing upstream extraction materials/paired equivalence and no held-out-golfer generalization evidence. No independent video-to-coaching demonstration or ML résumé result exists.
+
+Media provenance: authors publicly link archive for research; no distinct unrestricted media/weights grant located. Local noncommercial research acquisition is recorded; do not redistribute media or imply broad rights. Original project license is still owner's choice.
+
+## Git and execution
+
+Dedicated remote https://github.com/ryaaners/SwingSync; branch agent/swingsync. Prior commit fedd963 remote CI passed (run41967665483). Current increment checkpoint synchronization reported in chat; inspect actual HEAD/remote and CI at next execution. No recurring automation or training/background agent was activated.

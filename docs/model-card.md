@@ -14,7 +14,7 @@ Planned comparison: shared frozen MobileNetV2 features with a frame classifier a
 
 ## Data provenance
 
-GolfDB annotations inspected at revision `a63b4ce8c0900d09abbe92519223efe16810f5f4`: 1,400 clips, 580 sources, four official folds. No videos or event weights acquired by this audit. Code, media and weights require distinct licensing review. CaddieSet CSV inspected at `3c73d9d40580bb8a5a10711ad1fa10735a205ffe`: 1,757 view records, eight golfers, missing features and spreadsheet errors. No released extraction code or videos found in the inspected tree.
+GolfDB annotations inspected at revision `a63b4ce8c0900d09abbe92519223efe16810f5f4`: 1,400 clips, 580 sources, four official folds. The initial audit acquired no media. Increment002 acquired the authors’ linked preprocessed clip archive for local research and verified decoded clip integrity; no event weights acquired. Original source PTS and exact source-image alignment remain unavailable. Code, media and weights require distinct licensing review. CaddieSet CSV inspected at `3c73d9d40580bb8a5a10711ad1fa10735a205ffe`: 1,757 view records, eight golfers, missing features and spreadsheet errors. No released extraction code or videos found in the inspected tree.
 
 ## Limitations and gates
 

@@ -1,0 +1,99 @@
+{
+  "all_frame_counts_checked": true,
+  "all_pts_strictly_increasing": true,
+  "annotation_order_anomaly_clip_ids": [
+    677
+  ],
+  "annotations": 1400,
+  "archive": {
+    "clips": 1400,
+    "scope": "Inventory and archive hash only; not all clips decoded or CRC checked",
+    "sha256": "e99d4dfc8516656b56d62b95042f959f8a1f892c657093bd8e541229e0f2f053",
+    "uncompressed_bytes": 707946450
+  },
+  "browser_playback_alignment_verified": false,
+  "dataset_sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+  "decoded_clip_count": 1400,
+  "evidence_type": "data-preparation-not-model-performance",
+  "first_inventory_wall_seconds": 16.53577945800498,
+  "inventory_ledger_sha256": "91e3f1097bb4eef5bb380674129faed182a31d3450e3db7061dec64814a509b4",
+  "manifest_sha256": {
+    "fold-1.json": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+    "fold-2.json": "12a5b80d7156de65e7a6f3716d0f60670d36cc50b05fbb5adf91d59f848f4c5a",
+    "fold-3.json": "5fe0225c912b0c18ab494458a7f1d9d1d71a29207f8bf87599d6138f577071d9",
+    "fold-4.json": "3d20ab4b028e77d1cb96cb952fe3c944219ac4ab1f3bc1e697508e13ebe8434d"
+  },
+  "note": "Data integrity only; elapsed time includes extraction and decoding, not inference latency. No model predictions/training.",
+  "numpy": "2.2.5",
+  "official_fold_counts": {
+    "1": 350,
+    "2": 350,
+    "3": 350,
+    "4": 350
+  },
+  "original_source_image_alignment_verified": false,
+  "preparation_summary_sha256": "836fa67d31ca77e462e461deb66a7612296538ef994114693fa42d0f1bddbcfd",
+  "pyav": "16.0.1",
+  "schema_version": 1,
+  "scipy": "1.15.3",
+  "seed": 20261104,
+  "source_recordings": 580,
+  "split_counts": {
+    "1": {
+      "test": {
+        "clips": 350,
+        "sources": 144
+      },
+      "train": {
+        "clips": 840,
+        "sources": 348
+      },
+      "validation": {
+        "clips": 210,
+        "sources": 88
+      }
+    },
+    "2": {
+      "test": {
+        "clips": 350,
+        "sources": 142
+      },
+      "train": {
+        "clips": 836,
+        "sources": 350
+      },
+      "validation": {
+        "clips": 214,
+        "sources": 88
+      }
+    },
+    "3": {
+      "test": {
+        "clips": 350,
+        "sources": 154
+      },
+      "train": {
+        "clips": 839,
+        "sources": 340
+      },
+      "validation": {
+        "clips": 211,
+        "sources": 86
+      }
+    },
+    "4": {
+      "test": {
+        "clips": 350,
+        "sources": 140
+      },
+      "train": {
+        "clips": 853,
+        "sources": 352
+      },
+      "validation": {
+        "clips": 197,
+        "sources": 88
+      }
+    }
+  }
+}

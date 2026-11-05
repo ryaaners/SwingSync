@@ -17,7 +17,8 @@
         "Locked offline uv sync passes; npm audit zero known vulnerabilities",
         "Browser synthetic H.264 upload:60 frames,2s,readyState4; report HTTP200",
         "Independent review resolved orphan-upload finding",
-        "Actual data/schema audits in autonomy/reports/data-audit.md"
+        "Actual data/schema audits in autonomy/reports/data-audit.md",
+        "GitHub Actions run41967665483 succeeded for fedd963"
       ]
     },
     {
@@ -30,10 +31,32 @@
         "Non-mutating annotations and event indices tested",
         "Outer folds preserved; grouped inner manifest saved",
         "Official PCE tolerance and tie policy tested",
-        "Permitted real clip source PTS alignment verified"
+        "Reference preprocessed clips decoded and event-frame sanity check documented; original-source equivalence separately gated"
       ],
-      "status": "pending",
-      "validation_evidence": []
+      "status": "completed",
+      "validation_evidence": [
+        "Actual MAT:1400 clips,580 sources,exact audited fingerprint",
+        "All4 official test folds350 clips; source groups disjoint within each manifest,seed20261104",
+        "All1400 reference clips decoded with exact inclusive frame counts and strictly increasing actual reencoded PTS",
+        "Official PCE parity incl677 annotation anomaly,ties,padding and timestamp tests",
+        "Independent review resolved complex PTS conversion finding; no model performance claim"
+      ]
+    },
+    {
+      "id": "002-source",
+      "title": "Original source-video equivalence (separate precision gate)",
+      "dependencies": [
+        "002"
+      ],
+      "acceptance_criteria": [
+        "Authorized source originals acquired with provenance",
+        "Paired source/preprocessed frame correspondence and source PTS verified"
+      ],
+      "status": "blocked",
+      "validation_evidence": [
+        "Official reference archive is reencoded; does not contain original YouTube timestamps",
+        "Unblock: authorized originals and paired frame correspondence; benchmark research on identified preprocessed data can proceed"
+      ]
     },
     {
       "id": "003",

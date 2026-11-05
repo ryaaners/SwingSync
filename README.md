@@ -37,7 +37,7 @@ Files and SQLite history stay under `data/local` (override `SWINGSYNC_DATA_DIR`)
 
 ```sh
 uv run pytest
-uv run ruff check backend tests
+uv run ruff check backend tests scripts
 cd frontend && npm run build
 ```
 
@@ -45,6 +45,22 @@ Tests generate synthetic clips solely for software validation, never as ML evide
 
 ## Research roadmap
 
-Next: audited GolfDB loader, source-grouped internal validation, shared frozen MobileNetV2 features with frame and temporal heads, CPU smoke training, then real training and official PCE evaluation. Pose measurements follow with view/visibility gates. CaddieSet tabular experiments are independent until feature equivalence and held-out golfer performance pass. No résumé performance bullets are justified yet.
+Implemented: audited immutable GolfDB loader, source-grouped inner validation manifests, reference PCE evaluator, and provenance-aware decoded frame mapping. These are research preparation tools; no model is trained. Next: shared frozen MobileNetV2 features with frame and temporal heads, CPU smoke training, then real training and official PCE evaluation. Pose measurements follow with view/visibility gates. CaddieSet tabular experiments are independent until feature equivalence and held-out golfer performance pass. No résumé performance bullets are justified yet.
 
 Dataset, upstream code and weight licenses are separate; see the audit. No dataset, checkpoint or upstream code is redistributed in this increment. No license from an upstream repository is applied to original SwingSync code. A project license choice remains with the owner.
+
+## Prepare GolfDB research data
+
+Obtain the annotations and preprocessed clips from the [official GolfDB repository](https://github.com/wmcnally/golfdb), observe applicable terms and keep all data outside Git. SciPy is pinned in the project lock. From the repository root:
+
+```sh
+uv run python -m scripts.golfdb_prepare \
+  --annotations data/golfdb/golfDB.mat \
+  --output-dir artifacts/golfdb/my-preparation \
+  --archive data/golfdb/videos_160.zip \
+  --clips-dir data/golfdb/videos_160 --clip-id 0 --clip-id 677
+```
+
+Replace `--clip-id 0 --clip-id 677` with `--all-clips` to validate the full extracted inventory. The archive check validates names and fingerprints; it does not extract files.
+
+The archive and decoded-clip checks are optional; omit their flags to prepare annotations alone. Each run requires a new output directory. Output includes four official outer-fold manifests with source-grouped inner validation, exact fingerprints and evidence boundaries. The default seed is20261104. No model is trained or evaluated by this command. See data-contracts for the preserved annotation677 anomaly and exact official evaluation semantics. Original-source timestamps cannot be inferred from re-encoded clips.
