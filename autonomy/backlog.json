@@ -59,10 +59,31 @@
       ]
     },
     {
+      "id": "003a",
+      "title": "Frozen feature and model pipeline CPU smoke",
+      "dependencies": [
+        "002"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Shared frozen backbone with explicit initialization provenance",
+        "Frame/BiLSTM heads and padding-safe weighted loss",
+        "Versioned integrity/provenance-checked feature cache",
+        "Tracked train-only CPU smoke with exact model/optimizer/RNG checkpoint continuation",
+        "Independent review and software checks"
+      ],
+      "validation_evidence": [
+        "smoke-003-20261105 completed:train clips0/1,462frames,5logicalsteps/head;exactCPUresume",
+        "ImageNetV2 reference initialization,not project backbone training",
+        "autonomy/reports/smoke-003.json,validation-003.md,review-003.md"
+      ]
+    },
+    {
       "id": "003",
       "title": "Reproducible frame and temporal event learning",
       "dependencies": [
-        "002"
+        "002",
+        "003a"
       ],
       "acceptance_criteria": [
         "Same frozen MobileNetV2 backbone",
@@ -71,8 +92,12 @@
         "One tracked resumable real training job",
         "Baseline and temporal outer-test PCE/errors/latency recorded"
       ],
-      "status": "pending",
-      "validation_evidence": []
+      "status": "in_progress",
+      "validation_evidence": [
+        "003a complete:shared frozen backbone,frame/BiLSTM heads,padding-safe loss/cache and exact CPU resume",
+        "Real train-only2clip462frame5step/head smoke completed; no held-out evaluation",
+        "82tests pass with MLextra;56pass4skip base; independent review findings resolved"
+      ]
     },
     {
       "id": "004",

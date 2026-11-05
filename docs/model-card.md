@@ -1,6 +1,6 @@
 # SwingSync model card
 
-Status: MODEL UNAVAILABLE. Updated 2026-11-04.
+Status: VALIDATED EVENT MODEL UNAVAILABLE. Updated 2026-11-05.
 
 ## Intended use
 
@@ -8,9 +8,9 @@ Local analysis of one trimmed golf swing with explicit camera view, handedness a
 
 ## Artifacts and evidence
 
-No SwingSync-trained event checkpoint, pretrained-reference inference result, outcome checkpoint, benchmark, measured model latency or minimum hardware requirement is available yet. Audit metadata and synthetic software fixtures are not model-performance evidence. The ordinary app must say model unavailable until a real artifact is validated.
+No validated SwingSync event checkpoint, pretrained-reference swing inference result, outcome checkpoint, benchmark, measured model latency or minimum hardware requirement is available yet. Local smoke artifacts now contain five optimizer updates for each head on two real training clips; these are not deployable/validated event models. Audit metadata and synthetic software fixtures are not model-performance evidence. The ordinary app must say model unavailable until a real artifact is validated.
 
-Planned comparison: shared frozen MobileNetV2 features with a frame classifier and a bidirectional LSTM temporal head, nine classes including background. Training/evaluation and exact GolfDB PCE are described in [experiments.md](experiments.md) and [data-contracts.md](data-contracts.md). Device selection must detect CUDA/MPS/CPU and support CPU rather than assuming CUDA as the historical reference does.
+Implemented architecture: shared frozen ImageNet V2 MobileNetV2 features with a frame classifier and packed bidirectional LSTM temporal head, nine classes including background. Full comparison is pending. Training/evaluation and exact GolfDB PCE are described in [experiments.md](experiments.md) and [data-contracts.md](data-contracts.md). Device selection detects CUDA/MPS/CPU; CPU smoke passed on Apple M1/8GiB with exact checkpoint resume. No accelerator timing or minimum specification is established.
 
 ## Data provenance
 
@@ -29,3 +29,7 @@ GolfDB annotations inspected at revision `a63b4ce8c0900d09abbe92519223efe16810f5
 ## Required before release claims
 
 Attach final config/seed/split and dataset fingerprints, trained checkpoint hash and provenance, baseline/temporal held-out PCE and timing errors, software and leakage checks, measured local latency, a permitted real-video demonstration and an independent review. Until then, no résumé bullet may claim measured ML performance or completed end-to-end coaching.
+
+## Smoke provenance
+
+See autonomy/reports/smoke-003.json. Reference ImageNet initialization was downloaded from torchvision, not trained here. Event heads received five optimizer steps on fold 1 training clips 0/1; no validation or test partition was evaluated. Training losses and exact CPU resume only demonstrate software operation. No model is enabled in the web app, and no measured shot outcome or coaching advice was added.

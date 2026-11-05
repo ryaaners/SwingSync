@@ -7,6 +7,18 @@ dependencies = [
   "fastapi==0.115.12", "pydantic==2.11.4", "uvicorn==0.34.2",
   "python-multipart==0.0.20", "av==16.0.1", "numpy==2.2.5", "scipy==1.15.3",
 ]
+[project.optional-dependencies]
+ml = ["torch==2.9.1", "torchvision==0.24.1", "pillow==11.3.0"]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform != 'darwin'" }]
+torchvision = [{ index = "pytorch-cpu", marker = "sys_platform != 'darwin'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
 [dependency-groups]
 dev = ["pytest==8.3.5", "httpx==0.28.1", "ruff==0.11.8"]
 [tool.pytest.ini_options]

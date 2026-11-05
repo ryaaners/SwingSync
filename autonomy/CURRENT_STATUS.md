@@ -1,25 +1,29 @@
-# Current status — 2026-11-04
+# Current status — 2026-11-05
 
-Increment002: implemented and reviewed GolfDB research preparation and benchmark contracts. The local inspection app remains available; no trained event or outcome model exists. Not final project completion.
+Increment 003a completed: shared frozen image features, independent frame/BiLSTM heads, provenance-aware caches and an actual resumable CPU pipeline smoke. Parent 003 remains in progress: full training, inner validation/model selection and outer-test metrics are not complete. App remains inspection-only/model unavailable.
 
-## Working and verified
+## Verified capability and evidence
 
-Immutable actual MAT loading with SHA256/schema/bounds checks; historical trim/source-index mapping; deterministic source-grouped inner validation within all four official outer folds; standard reference PCE including ties, padding exclusion, actual-PTS error and explicit annotation677 anomaly. Preparation CLI saves non-overwriting manifests and data-integrity evidence. Actual local archive includes all1,400 expected clips; all decoded with exact expected counts and strictly increasing PTS. Clips0/677 event contact sheets viewed locally for coarse sanity only.
+Optional torch2.9.1/torchvision0.24.1 CPU stack; frozen ImageNet V2 MobileNetV2, packed temporal head, valid-only weighted CE and device detection. Exact cache identity includes media/annotations/events, weights, deterministic transform, dependency versions, source/runtime implementation and device. Source PTS provenance remains explicit.
 
-Current source files and gates: docs/data-contracts.md, docs/experiments.md, docs/model-card.md. Review: autonomy/reports/review-002.md. Validation: autonomy/reports/validation-002.md. Actual data and manifests are ignored under data/golfdb and artifacts/golfdb. No dataset/weights/media committed. Existing backend PID10684 and frontend PID11415 were observed running at start; no training job. Do not start duplicate servers/jobs without inspection. Process identities must be rechecked before reuse.
+Run artifacts/training/smoke-003-20261105/run.json is COMPLETED, not merely launched. Seed20261105, CPU, one thread, fold 1 training clips 0/1,462 frames,5 logical optimizer steps per head plus checkpoint replay verification. Both model/Adam/RNG restores match CPU continuation exactly. Training losses finite; no held-out metric. Apple M1/8GiB observed; CUDA false,MPS true, acceleration unbenchmarked.37.516 seconds total includes initialization/extraction/checkpoint work, not inference latency. Do not enable serving from smoke artifacts.
 
-## Next highest-priority increment
+Evidence: autonomy/reports/smoke-003.json, validation-003.md, review-003.md.82 tests pass with ML extra; ordinary locked environment56 pass / 4 explicit optional skips. Ruff and frontend clean install/typecheck/build pass. Reviewer cache-implementation identity issue resolved and independently verified persisted artifacts. Data,caches,weights,checkpoints remain ignored.
 
-Build shared frozen MobileNetV2 features and frame/BiLSTM heads, device detection, masked sequence handling and provenance-aware cache. Run a CPU training smoke test with finite loss and resumable state before any full real training. Benchmark against the acquired preprocessed dataset using the saved source-disjoint manifests; disclose re-encoded PTS. Freeze selection protocol before outer-test evaluation. One expensive training job at a time.
+## Next highest-priority unblocked increment
 
-## Exact remaining gates
+Preregister full baseline/temporal configuration and budgets using grouped inner validation only. Implement resumable dataset feature preparation with per-clip progress/cache checks and safe job identity; add appropriate sequence sampling and temporally consistent augmentation only if enabled (current deterministic frozen pipeline has no augmentation). Then run baseline/temporal training one at a time, select on internal validation and evaluate finalized outer test. Record full-train class counts, exact feature/decoder/backbone/split fingerprints and all departures from reference64-frame context. Do not tune on outer test.
 
-Original-source equivalence: the public archive is re-encoded. Original YouTube PTS and exact source-image equivalence are not recovered or claimed; need authorized originals with paired frame correspondence. This separate gate blocks original-source precision claims, not research using explicitly identified reference preprocessed clips. Backlog002 acceptance was refined to distinguish these scopes; unverified source equivalence moved to002-source instead of silently marked done.
+## Existing jobs and scheduling
 
-Browser event synchronization: test earlier audio/container start before linking PTS to browser currentTime. Pose/coaching remains unavailable pending feature validation, visibility/view gates and event reliability. Outcome integration remains closed: missing upstream extraction materials/paired equivalence and no held-out-golfer generalization evidence. No independent video-to-coaching demonstration or ML résumé result exists.
+At execution start actual server PIDs10684(backend8000)/11415(frontend5173) existed; no training job. Smoke PID16282 completed and released training-root lock. Always recheck PIDs/start identities before later work. User separately authorized daily continuation at1:30a.m. Toronto and this one-time00:07run; daily schedule remains active, one-time schedule should be removed after this completion. Schedules are not a continuously running agent; computer/app must remain available.
 
-Media provenance: authors publicly link archive for research; no distinct unrestricted media/weights grant located. Local noncommercial research acquisition is recorded; do not redistribute media or imply broad rights. Original project license is still owner's choice.
+## Preserved gates
 
-## Git and execution
+Original source equivalence remains blocked pending authorized originals and paired source correspondence. Re-encoded reference-clip research may proceed with disclosed provenance. Browser event synchronization with earlier audio/container start is unverified. No pose feature validation, coaching reliability, real video-to-coaching demonstration or held-out event performance yet. Outcome integration remains closed pending upstream extraction/paired feature equivalence and grouped generalization. No ML résumé performance claim is supported.
 
-Dedicated remote https://github.com/ryaaners/SwingSync; branch agent/swingsync. Prior commit fedd963 remote CI passed (run41967665483). Current increment checkpoint synchronization reported in chat; inspect actual HEAD/remote and CI at next execution. No recurring automation or training/background agent was activated.
+Media/weight access for local research is distinct from redistribution rights; do not publish raw clips/weights or apply upstream licenses to original code. See docs/data-contracts.md and model-card.md.
+
+## Git
+
+Dedicated remote https://github.com/ryaaners/SwingSync; branch agent/swingsync. Previous 6df193c remote CI passed(run41968842615). This increment checkpoint SHA and remote verification reported in chat; inspect actual HEAD/remote/CI on resume.

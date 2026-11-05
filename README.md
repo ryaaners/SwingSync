@@ -45,7 +45,7 @@ Tests generate synthetic clips solely for software validation, never as ML evide
 
 ## Research roadmap
 
-Implemented: audited immutable GolfDB loader, source-grouped inner validation manifests, reference PCE evaluator, and provenance-aware decoded frame mapping. These are research preparation tools; no model is trained. Next: shared frozen MobileNetV2 features with frame and temporal heads, CPU smoke training, then real training and official PCE evaluation. Pose measurements follow with view/visibility gates. CaddieSet tabular experiments are independent until feature equivalence and held-out golfer performance pass. No résumé performance bullets are justified yet.
+Implemented: audited immutable GolfDB loader, source-grouped inner validation manifests, reference PCE evaluator, and provenance-aware decoded frame mapping. Shared frozen MobileNetV2 features, frame/BiLSTM heads and resumable CPU smoke are implemented. Two real training clips completed five optimizer steps per head, which is not a validated event model. Next: full feature preparation, training/inner validation and official held-out PCE evaluation. Pose measurements follow with view/visibility gates. CaddieSet tabular experiments are independent until feature equivalence and held-out golfer performance pass. No résumé performance bullets are justified yet.
 
 Dataset, upstream code and weight licenses are separate; see the audit. No dataset, checkpoint or upstream code is redistributed in this increment. No license from an upstream repository is applied to original SwingSync code. A project license choice remains with the owner.
 
@@ -64,3 +64,21 @@ uv run python -m scripts.golfdb_prepare \
 Replace `--clip-id 0 --clip-id 677` with `--all-clips` to validate the full extracted inventory. The archive check validates names and fingerprints; it does not extract files.
 
 The archive and decoded-clip checks are optional; omit their flags to prepare annotations alone. Each run requires a new output directory. Output includes four official outer-fold manifests with source-grouped inner validation, exact fingerprints and evidence boundaries. The default seed is20261104. No model is trained or evaluated by this command. See data-contracts for the preserved annotation677 anomaly and exact official evaluation semantics. Original-source timestamps cannot be inferred from re-encoded clips.
+
+## Run the model pipeline smoke
+
+Install the optional locked ML stack (CPU wheels on Linux/Windows; macOS supports detected MPS, although this smoke deliberately uses CPU):
+
+```sh
+uv sync --locked --extra ml
+uv run --extra ml pytest
+uv run --extra ml python -m scripts.run_ml_smoke \
+  --annotations data/golfdb/golfDB.mat \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --clips-dir data/golfdb/videos_160 \
+  --run-dir artifacts/training/my-new-smoke --clips 2
+```
+
+Use a fresh run directory; the CLI refuses duplicate state. It selects only training IDs from an exactly validated manifest, records its identity before work, downloads official ImageNet V2 initialization if missing, caches frozen features, and checks exact CPU checkpoint resume for both heads. This explicit setup download needs internet once; model computation is local. Set TORCH_HOME to choose weight storage (default data/torch). Keep generated caches/checkpoints outside Git.
+
+The completed smoke ran on an Apple M1 with 8GiB RAM. That is observed hardware, not an established minimum. CUDA/MPS availability is detected, but this lock installs CPU packages on non-macOS; a CUDA build requires a separately tested environment. Full training, held-out accuracy, inference latency and coaching validity remain unmeasured. Ordinary `uv sync --locked` keeps ML dependencies out of the inspection app; optional tests then skip explicitly. CI has a separate CPU ML-contract job without datasets or pretrained downloads. See autonomy/reports/validation-003.md and docs/experiments.md for evidence.

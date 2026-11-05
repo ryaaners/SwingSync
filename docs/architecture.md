@@ -21,3 +21,7 @@ Bind to loopback only. This local single-user application has no authentication 
 ## Offline research preparation (increment 002)
 
 MAT loader -> immutable annotations + exact bytes fingerprint -> deterministic source-grouped inner partitions preserving each official outer fold. Read-only evaluation helpers implement the upstream full-clip protocol, including chronological target-slot behavior on anomaly677. Timeline inspection decodes exact contiguous frames without FPS guessing, records real PTS and provenance, and never calls re-encoded clip time original-source time. This module is not wired to user-facing model inference. Padding is excluded in evaluation; model/augmentation/feature-cache contracts remain future work.
+
+## Model smoke infrastructure (003a)
+
+Optional ML dependencies support FrozenMobileNetV2 -> provenance-checked full-clip feature cache -> independent frame or packed BiLSTM head. Weighted CE uses valid-prefix masks; no padding loss or backward-context leakage. CPU checkpoints restore model/Adam/RNG/provenance with weights_only loading and atomic no-overwrite publication. A durable smoke-run record precedes work and a training-root lock prevents duplicates; failed/unfinished state is not automatically called complete. The user-facing backend remains disconnected from these smoke artifacts until full training/evaluation and inference gates pass.
