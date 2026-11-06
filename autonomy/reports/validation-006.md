@@ -23,3 +23,7 @@ Material findings fixed and independently retested: operational latency contract
 ## Boundaries
 
 No real held-out score, four-fold result, uploaded-video inference, pose accuracy, coaching efficacy or shot-outcome integration is established. Source-original/browser synchronization and cross-platform artifact reproduction remain unverified. Datasets/media/caches/checkpoints/full operational job state remain ignored. Only coordinator commits/pushes; exact final commit/remoteSHA/CI outcome reported in chat and inspected next execution.
+
+## Linux CI fixture follow-up
+
+Initial checkpoint61ea237 CI [42264242421](https://github.com/ryaaners/SwingSync/actions/runs/42264242421) passed backend/frontend but failed7of201MLtests. Synthetic held-out fixtures copied the concrete Mac Torch2.9.1 metadata while Linux correctly installs the pinned2.9.1+cpu wheel; the production runtime gate correctly refused the mismatch. Only test fixture metadata/registration was made runtime-specific, with an alternate-build matching/admission and explicit mismatch-rejection regression. Actual experiment registration, lock, pipelines and timing/worker source fingerprints are unchanged. Fresh independent review passed; targeted25tests and final full202tests passed (10.34s), Ruff clean. Final checkpoint CI is checked and reported in chat.

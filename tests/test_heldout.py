@@ -33,12 +33,20 @@ def dump(path, value):
 
 
 @pytest.fixture
-def admitted(tmp_path, monkeypatch, experiment_inputs):  # noqa: F811
+def admitted(tmp_path, monkeypatch, experiment_inputs, request):  # noqa: F811
     dataset, manifest, paths = experiment_inputs
+    if getattr(request, 'param', None) == 'alternate-build':
+        # Exercise build-local version metadata without changing installed code.
+        version = str(torch.__version__).split('+')[0] + '+fixture.cpu'
+        monkeypatch.setattr(torch, '__version__', version)
     monkeypatch.setattr(heldout, 'load_annotations', lambda _: dataset)
     monkeypatch.setattr(heldout, '_git_base_commit', lambda: 'synthetic-software-revision')
     monkeypatch.setattr(heldout, 'DEFAULT_LOCK_PATH', tmp_path / 'shared.lock')
     pipeline = deepcopy(json.loads(Path('experiments/event-v1.json').read_text())['feature_pipeline'])
+    # This is mocked metadata for synthetic tensors, not the real Mac artifact.
+    # Linux CPU wheels legitimately carry a +cpu local version in their runtime.
+    pipeline.update(torch=str(torch.__version__), numpy=np.__version__)
+    pipeline['backbone_provenance']['torch'] = str(torch.__version__)
     for path in paths.values():
         with np.load(path, allow_pickle=False) as data:
             arrays = {key: data[key] for key in data.files}
@@ -51,7 +59,8 @@ def admitted(tmp_path, monkeypatch, experiment_inputs):  # noqa: F811
     dump(manifest_path, manifest)
     registration = deepcopy(json.loads(Path('experiments/event-v1.json').read_text()))
     registration.update(dataset_sha256=dataset.sha256, manifest_sha256=sha(manifest_path),
-                        outer_test_clips=len(manifest['partitions']['test']['clip_ids']), config_sha256={})
+                        outer_test_clips=len(manifest['partitions']['test']['clip_ids']), config_sha256={},
+                        feature_pipeline=deepcopy(pipeline))
     config_paths = {}
     for model in ('frame', 'temporal'):
         config = ExperimentConfig(model=model, epochs=2, batch_size=3, hidden_size=4)
@@ -357,3 +366,13 @@ def test_live_source_and_runtime_drift_refuses_row_publication(admitted, monkeyp
         torch.set_num_threads(1)
     state = json.loads((admitted.root / 'run.json').read_text())
     assert state['state'] == 'failed' and state['completed'] == {} and state['summary'] is None
+
+
+@pytest.mark.parametrize('admitted', ['alternate-build'], indirect=True)
+def test_fixture_accepts_matching_build_metadata_and_refuses_runtime_mismatch(admitted, monkeypatch):
+    validated = heldout.validate_contract(admitted.contract_path, admitted.annotations, admitted.manifest_path)
+    assert validated['contract']['feature_pipeline']['torch'] == str(torch.__version__)
+    assert str(torch.__version__).endswith('+fixture.cpu')
+    monkeypatch.setattr(torch, '__version__', str(torch.__version__) + '.changed')
+    with pytest.raises(ValueError, match='feature pipeline/runtime'):
+        heldout.validate_contract(admitted.contract_path, admitted.annotations, admitted.manifest_path)

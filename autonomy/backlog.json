@@ -150,9 +150,10 @@
       ],
       "validation_evidence": [
         "Prospective contract641fe51 pushed before outer extraction; SHA4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008",
-        "201MLtests/107base9skip;Ruff/frontend clean;review-006.md resolved material findings",
+        "202MLtests/107base9skip;Ruff/frontend clean;review-006.md resolved material findings",
         "Actual476frame test-cache proof independently audited;partial admission refused before inference",
-        "Actual462TRAINframe timing58.154366ms/frame shared feature pipeline onM1CPU1thread;latency-006.json;not generalization/app latency"
+        "Actual462TRAINframe timing58.154366ms/frame shared feature pipeline onM1CPU1thread;latency-006.json;not generalization/app latency",
+        "CI42264242421 caught LinuxCPU mock-version mismatch; fixture-only build metadata fix plus mismatch regression reviewed;202localtests;productionbindings unchanged"
       ]
     },
     {
