@@ -136,6 +136,45 @@
       ]
     },
     {
+      "id": "003e",
+      "title": "Finalized held-out evaluator and scoped CPU timing software",
+      "dependencies": [
+        "003d"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Prospective hash-bound selected-checkpoint contract registered before outer processing",
+        "Reference64 reset and separately disclosed fullclip evaluation; exact test-only coverage and actual PTS admission",
+        "Atomic perclip recovery; no partial aggregate; live provenance drift fails closed",
+        "Actual fixed training-clip CPU timing and fresh independent review"
+      ],
+      "validation_evidence": [
+        "Prospective contract641fe51 pushed before outer extraction; SHA4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008",
+        "201MLtests/107base9skip;Ruff/frontend clean;review-006.md resolved material findings",
+        "Actual476frame test-cache proof independently audited;partial admission refused before inference",
+        "Actual462TRAINframe timing58.154366ms/frame shared feature pipeline onM1CPU1thread;latency-006.json;not generalization/app latency"
+      ]
+    },
+    {
+      "id": "003f",
+      "title": "Complete fixed fold-1 held-out preparation and model evaluation",
+      "dependencies": [
+        "003e"
+      ],
+      "status": "in_progress",
+      "acceptance_criteria": [
+        "Actual complete350test caches admitted against frozen contract",
+        "Both fixed selected heads evaluated once in both declared contexts; no test tuning",
+        "Overall/per-event official PCE plus frames/actualPTS-ms errors with anomaly handling",
+        "Independent completed-artifact review; results kept separate from coaching efficacy"
+      ],
+      "validation_evidence": [
+        "Bounded proof2/350 then full explicitresume job833e9ffe5592457f9257a46474c72153;inspect actualstate/process before work",
+        "ActualworkerPID40807/start2026-11-06 12:38:35Toronto observedrunning;no outer predictions or completedbenchmark",
+        "Artifacts/features/fold1-test-job-v1/job.json and launch-full-006.json;one shared expensive-work lock"
+      ]
+    },
+    {
       "id": "003",
       "title": "Reproducible frame and temporal event learning",
       "dependencies": [
@@ -143,7 +182,9 @@
         "003a",
         "003b",
         "003c",
-        "003d"
+        "003d",
+        "003e",
+        "003f"
       ],
       "acceptance_criteria": [
         "Same frozen MobileNetV2 backbone",
@@ -158,7 +199,8 @@
         "Real train-only2clip462frame5step/head smoke completed; no held-out evaluation",
         "82tests pass with MLextra;56pass4skip base; independent review findings resolved",
         "003b:registered configs,cache resume and head driver implemented;110tests;full preparation observed running,not completed",
-        "003c/003d completed:1050realcaches;both20epoch4200updateheads;independentselectedINNERreplay;noouterresult/latency/servingvalidation"
+        "003c/003d completed:1050realcaches;both20epoch4200updateheads;independentselectedINNERreplay;noouterresult/latency/servingvalidation",
+        "003e complete:fixed heldout software,201tests,reviewedactualCPUtiming;003f activefeatureprep only;heldout metrics unavailable"
       ]
     },
     {

@@ -121,3 +121,47 @@ For long local jobs, use an isolated locked environment so ordinary app setup ca
 ## Current full-training evidence
 
 The first source-grouped feature inventory is complete and independently audited: 1,050 training/inner-validation clips, 295,221 frames. The frame head completed the registered 20-epoch budget and selected epoch 19 at 41.96% **inner-validation PCE**. This is model-selection evidence, not a final held-out accuracy claim. The temporal head also completed 20 epochs, selecting epoch 20 at 64.58% inner-validation PCE. No outer-test results are available yet. The app remains inspection-only until model/input/measurement gates pass. See docs/model-card.md, docs/experiments.md and current durable status for completed run identities and next validation gates.
+
+## Fixed held-out evaluation and CPU timing
+
+The reviewed prospective contract [heldout-v1.json](experiments/heldout-v1.json) binds the already selected checkpoints before test processing. See [the evaluation protocol](docs/heldout-evaluation.md) for the reference 64-frame reset and separately reported full-clip context. Both are fixed comparisons; no test-driven tuning is allowed.
+
+After verifying the contract/checkpoint hashes and checking the shared job lock, prepare the **separate test-only** cache inventory:
+
+```sh
+uv run --extra ml python -m scripts.prepare_feature_cache \
+  --annotations data/golfdb/golfDB.mat \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --clips-dir data/golfdb/videos_160 \
+  --job-dir artifacts/features/fold1-test-job-v1 \
+  --cache-dir artifacts/features/fold1-test-v1 \
+  --partitions test --allow-test --device cpu --batch-size 16
+```
+
+Use `--resume` for an existing job after verifying its process identity; `--max-new-clips 2` bounds extraction without evaluating anything. Do not repeat the preparation or train another head while the shared lock is held. Use the isolated ML environment for long jobs as described above.
+
+Only a completed exact test inventory is admitted:
+
+```sh
+uv run --extra ml python -m scripts.evaluate_event_heads \
+  --contract experiments/heldout-v1.json \
+  --annotations data/golfdb/golfDB.mat \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --cache-job artifacts/features/fold1-test-job-v1/job.json \
+  --run-dir artifacts/evaluation/fold1-v1
+```
+
+Interrupted evaluation needs explicit `--resume` with identical inputs/code. Per-clip results persist without publishing aggregate scores until coverage is complete. A completed run is verified and returned on resume, without repeat inference. Partial feature preparation is not a held-out result.
+
+The separately scoped latency command uses only fixed training clips 0/1 and requires local ImageNet weights; it never downloads them:
+
+```sh
+uv run --extra ml python -m scripts.benchmark_event_pipeline \
+  --contract experiments/heldout-v1.json \
+  --annotations data/golfdb/golfDB.mat \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --clips-dir data/golfdb/videos_160 \
+  --output artifacts/latency/fold1-train-v1-final.json
+```
+
+Timing output is exclusive: an existing output/state is refused. Initialization, warmup, decode, preprocessing, backbone and each head/context have explicit scopes; composed variant time shares one feature pass. These research commands do not enable app inference or advice.

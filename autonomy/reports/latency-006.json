@@ -1,0 +1,320 @@
+{
+  "artifact": {
+    "path": "artifacts/latency/fold1-train-v1-final.json",
+    "sha256": "47cd4c4851f6cf6ddd8c464b37bd485102988bed656392a951d5a6c0cc24d72c"
+  },
+  "evidence_type": "actual-two-training-clip-CPU-timing-not-generalization",
+  "historical_attempt": {
+    "path": "artifacts/latency/fold1-train-v1.json",
+    "reason": "Shared helper source changed during the preliminary invocation; preserved as historical evidence. Final run uses reviewed pre/post source-integrity guards; not selected for speed.",
+    "sha256": "6e294055806dd009875fadc0650e027b2b196e9b68f6bc04134875fe931679ef",
+    "status": "excluded from final metrics"
+  },
+  "result": {
+    "accuracy_metrics_computed": false,
+    "clips": [
+      {
+        "backbone": {
+          "mean_seconds": 0.8492082268930972,
+          "p50_seconds": 0.9347937093116343,
+          "p95_seconds": 0.9422983246855438,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 9,
+          "sample_unit": "forward batch including stack/output transfer",
+          "total_seconds": 7.6428740420378745
+        },
+        "batch_frame_counts": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          10
+        ],
+        "clip_id": 0,
+        "container_open_seconds": 0.000264500267803669,
+        "decode": {
+          "mean_seconds": 4.642513121707716e-05,
+          "p50_seconds": 3.8937199860811234e-05,
+          "p95_seconds": 0.00011843093670904642,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 138,
+          "sample_unit": "successful decoded frame retrieval",
+          "total_seconds": 0.006406668107956648
+        },
+        "decoder_eof_drain_seconds": 5.024997517466545e-05,
+        "feature_extraction_wall_seconds": 7.776175749953836,
+        "first_pts_seconds": 0.0,
+        "frame_count": 138,
+        "heads": {
+          "frame": {
+            "full-clip": {
+              "composed_video_pipeline_seconds": 7.776945124845952,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.000769374892115593
+            },
+            "reference-64-reset": {
+              "composed_video_pipeline_seconds": 7.777396458666772,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.0012207087129354477
+            }
+          },
+          "temporal": {
+            "full-clip": {
+              "composed_video_pipeline_seconds": 7.779305125121027,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.0031293751671910286
+            },
+            "reference-64-reset": {
+              "composed_video_pipeline_seconds": 7.781149125192314,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.004973375238478184
+            }
+          }
+        },
+        "last_pts_seconds": 4.570018013209687,
+        "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+        "measured_clip_wall_seconds": 7.788152374792844,
+        "preprocessing": {
+          "mean_seconds": 0.000907382563404415,
+          "p50_seconds": 0.0008882493712007999,
+          "p95_seconds": 0.0010237536625936627,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 138,
+          "sample_unit": "frame RGB conversion plus transform",
+          "total_seconds": 0.12521879374980927
+        },
+        "pts_sha256": "cc6e43695a08cf12f310b4509f34fdb1a890432eb1eb2b5d0599f3cda78ab1b1",
+        "source_id": "f1BWA5F87Jc",
+        "timestamp_provenance": "reencoded-clip-pts",
+        "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0"
+      },
+      {
+        "backbone": {
+          "mean_seconds": 0.8942162657954863,
+          "p50_seconds": 0.9333354588598013,
+          "p95_seconds": 0.9460099171847105,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 21,
+          "sample_unit": "forward batch including stack/output transfer",
+          "total_seconds": 18.778541581705213
+        },
+        "batch_frame_counts": [
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          16,
+          4
+        ],
+        "clip_id": 1,
+        "container_open_seconds": 0.0004464169032871723,
+        "decode": {
+          "mean_seconds": 3.733769070679023e-05,
+          "p50_seconds": 2.7354108169674873e-05,
+          "p95_seconds": 0.00011586295440793034,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 324,
+          "sample_unit": "successful decoded frame retrieval",
+          "total_seconds": 0.012097411789000034
+        },
+        "decoder_eof_drain_seconds": 9.079184383153915e-05,
+        "feature_extraction_wall_seconds": 19.091141249984503,
+        "first_pts_seconds": 0.0,
+        "frame_count": 324,
+        "heads": {
+          "frame": {
+            "full-clip": {
+              "composed_video_pipeline_seconds": 19.09283574996516,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.0016944999806582928
+            },
+            "reference-64-reset": {
+              "composed_video_pipeline_seconds": 19.093510665930808,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.002369415946304798
+            }
+          },
+          "temporal": {
+            "full-clip": {
+              "composed_video_pipeline_seconds": 19.098167084157467,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.007025834172964096
+            },
+            "reference-64-reset": {
+              "composed_video_pipeline_seconds": 19.099928041920066,
+              "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+              "head_seconds": 0.008786791935563087
+            }
+          }
+        },
+        "last_pts_seconds": 10.774568016545466,
+        "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+        "measured_clip_wall_seconds": 19.112917124759406,
+        "preprocessing": {
+          "mean_seconds": 0.0009168576388792307,
+          "p50_seconds": 0.0008874374907463789,
+          "p95_seconds": 0.0010374483419582246,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 324,
+          "sample_unit": "frame RGB conversion plus transform",
+          "total_seconds": 0.29706187499687076
+        },
+        "pts_sha256": "0b555b61f88ff08a155f8ab2cd9b498e77034037e83072f5976d4f053fae485b",
+        "source_id": "f1BWA5F87Jc",
+        "timestamp_provenance": "reencoded-clip-pts",
+        "video_sha256": "266bcbdcaab4f9ca90fbc0112e5da84d31c76bc978eaf9ae230021fe6dc2393b"
+      }
+    ],
+    "config": {
+      "batch_size": 16,
+      "clip_ids": [
+        0,
+        1
+      ],
+      "contexts": [
+        "reference-64-reset",
+        "full-clip"
+      ],
+      "repetitions": 1,
+      "warmup_frames": 16
+    },
+    "ended_at": "2026-11-06T17:37:03.755352+00:00",
+    "evidence_type": "local-CPU-latency-not-accuracy",
+    "feature_wall_seconds_per_frame": 0.058154365800732334,
+    "frame_count": 462,
+    "git_base_commit": "641fe51c254bdfba88e7d51bb148d1f07686d723",
+    "head_sequence_timings": {
+      "frame": {
+        "full-clip": {
+          "mean_seconds": 0.0012319374363869429,
+          "p50_seconds": 0.0012319374363869429,
+          "p95_seconds": 0.0016482437262311576,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 2,
+          "sample_unit": "one complete clip head call",
+          "total_seconds": 0.0024638748727738857
+        },
+        "reference-64-reset": {
+          "mean_seconds": 0.001795062329620123,
+          "p50_seconds": 0.001795062329620123,
+          "p95_seconds": 0.0023119805846363306,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 2,
+          "sample_unit": "one complete clip head call",
+          "total_seconds": 0.003590124659240246
+        }
+      },
+      "temporal": {
+        "full-clip": {
+          "mean_seconds": 0.005077604670077562,
+          "p50_seconds": 0.005077604670077562,
+          "p95_seconds": 0.006831011222675443,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 2,
+          "sample_unit": "one complete clip head call",
+          "total_seconds": 0.010155209340155125
+        },
+        "reference-64-reset": {
+          "mean_seconds": 0.006880083587020636,
+          "p50_seconds": 0.006880083587020636,
+          "p95_seconds": 0.008596121100708842,
+          "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+          "sample_count": 2,
+          "sample_unit": "one complete clip head call",
+          "total_seconds": 0.013760167174041271
+        }
+      }
+    },
+    "immutable": {
+      "contract_sha256": "4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008",
+      "dataset_sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+      "dependency_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+      "evaluation_cli_sha256": "89b751aaaaa507fd816d9e7b2b1b028cee598c148fc83223cf45bcca82929c02",
+      "evaluator_sha256": "259346d903d25328b0d2c0c54db7406be13619d960d36cb840bfdc0049a57a09",
+      "manifest_sha256": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+      "runtime": {
+        "deterministic_algorithms": true,
+        "machine": "arm64",
+        "numpy": "2.2.5",
+        "platform": "macOS-26.3-arm64-arm-64bit",
+        "python": "3.11.14",
+        "torch": "2.9.1",
+        "torch_num_threads": 1
+      },
+      "training_implementation_sha256": {
+        "evaluation.py": "fe5c6f49282b4f6782181badad47948ca0b9545a6be7a0d878899d898e9a0f19",
+        "experiment.py": "cb16092361486cf911bff9dc4deb8aa0e72f3a62a713e63a950cf05aae28841d",
+        "features.py": "0319843f83bf6453eefeadd431a88c6d42186b6a94e541d70672f272be53204d",
+        "golfdb.py": "5d1cb1e60165e1c62c7df2ff6241b307c192d00a244fe7270f16ae4d38369b70",
+        "models.py": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+        "timeline.py": "0d573f013bc5df27481d18bf50eb321bca5bd4aae94968fd4a521019cfd1da4a",
+        "training.py": "e835d790866a75c1d39e36c7522809ccc98dcfc5950dced3ceba53e9c5b7ea0d"
+      }
+    },
+    "initialization_scope": "contract/checkpoint admission, local backbone load, media/PTS preflight",
+    "initialization_seconds": 0.32916474994271994,
+    "limitations": [
+      "Two training clips, one repetition; not a population latency guarantee",
+      "Source media are re-encoded; not original-source or browser timestamps",
+      "No minimum hardware, accelerator latency, event accuracy or coaching claim",
+      "Composed variant times share one feature pass; whole-clip wall includes all variants"
+    ],
+    "outer_test_evaluated": false,
+    "output": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/latency/fold1-train-v1-final.json",
+    "partition": "train-only-timing",
+    "pid": 40739,
+    "process_start_identity": "Fri Nov  6 12:36:33 2026",
+    "reference_weight_path": "/Users/ryaanmahmood/Downloads/SwingSync/data/torch/hub/checkpoints/mobilenet_v2-7ebf99e0.pth",
+    "reference_weight_sha256": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f",
+    "runtime": {
+      "deterministic_algorithms": true,
+      "devices": {
+        "cpu": true,
+        "cuda": false,
+        "mps": true
+      },
+      "hardware": {
+        "logical_cpu_count": 8,
+        "machine": "arm64",
+        "physical_memory_bytes": 8589934592,
+        "processor": "Apple M1"
+      },
+      "numpy": "2.2.5",
+      "platform": "macOS-26.3-arm64-arm-64bit",
+      "torch": "2.9.1",
+      "torch_num_threads": 1
+    },
+    "schema_version": 1,
+    "stage_scope": "CPU synchronized perf_counter; decode excludes RGB conversion; no disk cold-cache claim",
+    "started_at": "2026-11-06T17:36:35.349600+00:00",
+    "state": "completed",
+    "timing_implementation_sha256": {
+      "benchmark_event_pipeline.py": "7fe9cd3808f1ae3dee726be346206e2901f59082ecbeee8b2c0fd0faa1f8e26e",
+      "latency.py": "1ba9aac78f071fc77c2314f9f711a7cf5f56ab86be574a632a55f38b1f43b5c7"
+    },
+    "validated_for_serving": false,
+    "warmup_frame_count": 16,
+    "warmup_scope": "sixteen frames of first training clip plus both heads/contexts; excluded",
+    "warmup_seconds": 1.1240542912855744
+  },
+  "schema_version": 1
+}

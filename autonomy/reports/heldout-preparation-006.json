@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "evidence_type": "bounded-real-outer-feature-preparation-not-evaluation",
+  "contract_sha256": "4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008",
+  "prospective_commit": "641fe51c254bdfba88e7d51bb148d1f07686d723",
+  "job_id": "833e9ffe5592457f9257a46474c72153",
+  "job_fingerprint": "d565f881e53124f05a405f8e89b203f95dc9309f5704a10faca25306ad0b75ed",
+  "state_at_proof": "partial",
+  "completed_clips": 2,
+  "target_clips": 350,
+  "completed_frames": 476,
+  "attempt": {
+    "attempt": 1,
+    "elapsed_seconds": 28.339976416900754,
+    "ended_at": "2026-11-06T17:25:42.760333+00:00",
+    "max_new_clips": 2,
+    "newly_extracted": 2,
+    "pid": 39845,
+    "process_start_identity": "Fri Nov  6 12:25:12 2026",
+    "reused_cache": 0,
+    "started_at": "2026-11-06T17:25:14.411215+00:00",
+    "state": "partial"
+  },
+  "proof_artifact": "artifacts/features/fold1-test-job-v1/proof-two-clips-006.json",
+  "proof_sha256": "5a618321eca6bd6899499810aec758c6ca1def78844d25c14d2af09d04ff7346",
+  "completed": {
+    "10": {
+      "cache_key": "0410917cd6418cab670c27aa7753704d15cab05244a5e5cfe4c533c6e89b5fa3",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/fold1-test-v1/0410917cd6418cab670c27aa7753704d15cab05244a5e5cfe4c533c6e89b5fa3.npz",
+      "cache_sha256": "25c51f73c000aef4688b75da58e637a8c2c9bcb19a32c5097f863f184bb163b2",
+      "clip_id": 10,
+      "completed_at": "2026-11-06T17:25:24.419100+00:00",
+      "frames": 169,
+      "partition": "test",
+      "reused": false,
+      "source_id": "gOBVh7fzyZo"
+    },
+    "11": {
+      "cache_key": "85984d26ef3303b1e349ef273c9e46633cada3a48aaed5b2d2f93a019576765e",
+      "cache_path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/features/fold1-test-v1/85984d26ef3303b1e349ef273c9e46633cada3a48aaed5b2d2f93a019576765e.npz",
+      "cache_sha256": "0a6c12011580a0a3459ae6280055aa47c0381a67fa35f9395edfe2008c37d45a",
+      "clip_id": 11,
+      "completed_at": "2026-11-06T17:25:42.748107+00:00",
+      "frames": 307,
+      "partition": "test",
+      "reused": false,
+      "source_id": "gOBVh7fzyZo"
+    }
+  },
+  "outer_predictions_computed": false,
+  "aggregate_benchmark_available": false,
+  "independent_review": "review-006.md",
+  "partial_inventory_cli_rejected": true,
+  "evaluation_run_created": false
+}

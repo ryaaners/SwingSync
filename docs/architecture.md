@@ -33,3 +33,7 @@ A resumable feature job validates an immutable full media inventory and selected
 ## Movement contract and calculations (004a)
 
 An independent NumPy module accepts explicitly supplied MediaPipe-anatomical landmarks and event timestamps, produces six descriptive values with evidence or unavailable reasons, and always suppresses advice. It does not load a pose model or connect unvalidated calculations to the user app. Geometry is aspect-correct, view-scoped, normalized to an address torso reference, and does not use monocular z. See movement-measurements.md for exact formulas, quality policies and empirical-validation gates. It is isolated from the frozen event-training source and dependency lock.
+
+## Fixed held-out evaluation and latency (006)
+
+A prospective hash-bound contract admits completed selected heads from the original immutable training catalog. An independent test-only feature job preserves the same pipeline. Evaluation checks exact source-disjoint coverage and fresh decoded PTS, persists both heads/contexts per clip, and publishes overall/per-event results only after complete coverage. Explicit resume validates prior input/result hashes and arithmetic without repeating durable clip inference. A separate train-only CPU timing tool measures actual streaming extraction and selected heads, with initialization/warmup separated from measured stages. Neither tool changes the application's unavailable-model state. See heldout-evaluation.md for the fixed protocol.

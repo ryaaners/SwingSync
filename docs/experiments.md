@@ -17,8 +17,8 @@ Each run must write: run ID, process identity/start time, state, config, seed, G
 
 | Model | Evidence type | Outer fold | PCE | Timing error | Latency |
 | --- | --- | --- | --- | --- | --- |
-| SwingSync frame baseline | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Inference latency unavailable |
-| SwingSync temporal | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Inference latency unavailable |
+| SwingSync frame baseline | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Two-train-clip CPU timing; see 006 |
+| SwingSync temporal | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Two-train-clip CPU timing; see 006 |
 
 No upstream performance numbers are used as project results. Upstream source/code details and exact tolerance are recorded in [data-contracts.md](data-contracts.md).
 
@@ -105,3 +105,24 @@ Elapsed times include CPU head training, validation, persistence and preflight w
 PTS errors refer to re-encoded recording time, not original-source or physical swing time. Full-clip context differs from reference 64-frame recurrent resets. The higher temporal inner PCE does not justify selecting another configuration using outer data. Address and Finish remain weak even on the selection partition. Standard independent decoding was used; no order constraints.
 
 Final checkpoint hashes and all epoch aggregates are in `frame-training-005.json` and `temporal-training-005.json`. Use **best_model** inside the final continuation checkpoint, not last-epoch **model**, for selected-head evaluation. Independent review is in `review-005.md`. Next: finalize a separate held-out evaluation contract before test feature extraction/predictions; report reference 64-frame and full-clip protocols separately, without tuning against either test result. The app remains model unavailable.
+
+## Execution 006 — fixed held-out software and measured CPU timing
+
+The prospective `experiments/heldout-v1.json` was independently reviewed and committed/pushed as 641fe51 **before outer-test extraction**. SHA256 `4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008` binds the original registration, manifest, runtime and final selected checkpoints. It is unchanged. Reference 64-frame resets and registered full-clip context are fixed, separately reported comparisons; no context or model is selected from test scores. Protocol: [heldout-evaluation.md](heldout-evaluation.md).
+
+The evaluator requires complete exact test-only caches, fresh decoded PTS and matching source/annotation/feature/checkpoint provenance. Actual partial 2/350 admission was rejected before inference or run creation. Bounded real preparation produced clips 10/11, 476 frames; an independent audit verified every byte/PTS/label/source/pipeline field. This is software/preparation evidence, **not a held-out score**. Full preparation is an actual resumed job; read CURRENT_STATUS and its live ledger. No outer-test prediction or aggregate result has completed in this execution.
+
+### Actual CPU timing on fixed training clips
+
+Apple M1 / 8 GiB, CPU one Torch thread; CUDA unavailable, MPS available but unused. Final one-pass benchmark used fixed TRAIN clips 0/1, after one 16-frame warmup. There was no simultaneous training/cache worker during measurement. No event accuracy was computed. The two-clip sample is not a population latency guarantee, minimum hardware specification or measured user-app latency.
+
+Initialization/preflight **0.329s**; warmup **1.124s**, both excluded from measured feature throughput. Shared feature extraction took **26.867317s / 462 frames = 58.154366 ms/frame**. It includes actual sequential video decode, RGB transform and backbone, with bounded 16-frame RGB batches. Head timing is separate.
+
+| Training clip | Frames | Feature wall seconds | Frame reference64 head ms | Temporal reference64 head ms | Temporal full-clip head ms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 0 | 138 | 7.776176 | 1.221 | 4.973 | 3.129 |
+| 1 | 324 | 19.091141 | 2.369 | 8.787 | 7.026 |
+
+Per-frame decode/preprocessing and per-forward-batch quantiles, head/context times, actual PTS hashes, hardware/runtime and immutable source/input hashes are in `autonomy/reports/latency-006.json`. A composed single-variant duration sums shared feature wall plus that head; it is not a separately replayed video pipeline. Observed clip wall includes all four head/context calls. No browser/render/pose/report latency is included. One repetition and two clips cannot establish confidence bounds.
+
+A preliminary timing invocation overlapped a helper-source edit and is excluded from final metrics. Its artifact remains ignored and hash-bound in the report. Source-integrity guards now fail closed before/after work/publication; the final run was taken after fixes and freeze, not chosen for speed. Independent review verified final output/state/source/media/PTS/timing arithmetic. 201 full ML tests pass; synthetic fixtures validate mechanics only.
