@@ -17,8 +17,8 @@ Each run must write: run ID, process identity/start time, state, config, seed, G
 
 | Model | Evidence type | Outer fold | PCE | Timing error | Latency |
 | --- | --- | --- | --- | --- | --- |
-| SwingSync frame baseline | Not trained | — | Unavailable | Unavailable | Unavailable |
-| SwingSync temporal | Not trained | — | Unavailable | Unavailable | Unavailable |
+| SwingSync frame baseline | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Inference latency unavailable |
+| SwingSync temporal | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Inference latency unavailable |
 
 No upstream performance numbers are used as project results. Upstream source/code details and exact tolerance are recorded in [data-contracts.md](data-contracts.md).
 
@@ -77,3 +77,31 @@ The feature job selects exactly840training+210 inner-validation clips and exclud
 Real bounded resume proof: job 184c02b4709746b79f15a8976399101f reused the two earlier caches and extracted two new clips in attempt1; attempt2 revalidated those four and extracted one additional clip. Final proof snapshot is PARTIAL5/1050, not completed preparation or training. Exact measured times, hashes, clip/source membership and frames are in autonomy/reports/cache-resume-004.json. The real training CLI was exercised against this partial job and refused before creating a head run. Full preparation launch/progress, if any, must be read from the actual job.json and process; never inferred from a command being issued.
 
 The head driver is implemented and tested with explicitly synthetic tensors for deterministic shuffle, packed padding, complete train/validation coverage, train-only class counts, mid-epoch/epoch-boundary resume and validation-only selection. These unit-test validation scores are not real GolfDB results and do not populate the model-performance table. No full real head training or held-out metric is claimed by this increment.
+
+## Completed preparation and real head comparison — increment 005
+
+An independent full audit passed for all 1,050 registered train/inner-validation caches: 295,221 frames, exact decoded re-encoded PTS, correct labels/source mapping and zero outer-test inputs. Frozen catalog SHA256: `daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e`. Aggregate audit: `autonomy/reports/cache-completion-005`; full per-clip witness remains ignored under `artifacts/features/fold1-job-v1`.
+
+Both heads completed the fixed 20 epochs and 4,200 Adam updates on the same 840 training clips. The frame run explicitly resumed its initial 25-batch checkpoint. Selection used only 210 inner-validation clips, retaining the earliest maximum PCE. These are **inner-validation/model-selection results**, not outer-test performance, unseen-golfer generalization or coaching evidence. No outer-test predictions were made.
+
+| Head | Selected epoch | Inner PCE (%) | MAE frames | MAE ms | Summed attempt seconds |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| frame | 19 | 41.96 | 26.867 | 896.339 | 144.765 |
+| temporal | 20 | 64.58 | 9.938 | 331.552 | 688.022 |
+
+Elapsed times include CPU head training, validation, persistence and preflight work; they exclude the prior feature extraction and are not video inference latency. Hardware: Apple M1 / 8 GiB, one CPU Torch thread, deterministic algorithms; MPS was available but unused.
+
+| Event | Frame inner PCE (%) | Temporal inner PCE (%) | Frame MAE frames / ms | Temporal MAE frames / ms |
+| --- | ---: | ---: | ---: | ---: |
+| Address | 8.10 | 29.52 | 61.514 / 2052.292 | 19.814 / 661.070 |
+| Toe-up | 47.14 | 70.95 | 26.057 / 869.293 | 5.505 / 183.657 |
+| Mid-backswing | 47.14 | 66.67 | 25.043 / 835.509 | 9.857 / 328.883 |
+| Top | 32.38 | 62.86 | 15.390 / 513.441 | 7.833 / 261.342 |
+| Mid-downswing | 57.14 | 92.86 | 16.962 / 565.895 | 6.019 / 200.798 |
+| Impact | 68.10 | 94.76 | 32.157 / 1072.890 | 6.552 / 218.592 |
+| Mid-follow-through | 66.67 | 86.19 | 16.310 / 544.133 | 7.119 / 237.499 |
+| Finish | 9.05 | 12.86 | 21.500 / 717.263 | 16.805 / 560.573 |
+
+PTS errors refer to re-encoded recording time, not original-source or physical swing time. Full-clip context differs from reference 64-frame recurrent resets. The higher temporal inner PCE does not justify selecting another configuration using outer data. Address and Finish remain weak even on the selection partition. Standard independent decoding was used; no order constraints.
+
+Final checkpoint hashes and all epoch aggregates are in `frame-training-005.json` and `temporal-training-005.json`. Use **best_model** inside the final continuation checkpoint, not last-epoch **model**, for selected-head evaluation. Independent review is in `review-005.md`. Next: finalize a separate held-out evaluation contract before test feature extraction/predictions; report reference 64-frame and full-clip protocols separately, without tuning against either test result. The app remains model unavailable.

@@ -1,6 +1,6 @@
 # SwingSync model card
 
-Status: VALIDATED EVENT MODEL UNAVAILABLE. Updated 2026-11-05.
+Status: VALIDATED EVENT MODEL UNAVAILABLE. Updated 2026-11-06.
 
 ## Intended use
 
@@ -8,9 +8,9 @@ Local analysis of one trimmed golf swing with explicit camera view, handedness a
 
 ## Artifacts and evidence
 
-No validated SwingSync event checkpoint, pretrained-reference swing inference result, outcome checkpoint, benchmark, measured model latency or minimum hardware requirement is available yet. Local smoke artifacts now contain five optimizer updates for each head on two real training clips; these are not deployable/validated event models. Audit metadata and synthetic software fixtures are not model-performance evidence. The ordinary app must say model unavailable until a real artifact is validated.
+No validated SwingSync event checkpoint, pretrained-reference swing inference result, outcome checkpoint, benchmark, measured model latency or minimum hardware requirement is available yet. Both event heads completed 20 registered epochs. Selected inner-validation PCE is 41.96% for the frame head (epoch 19) and 64.58% for the temporal head (epoch 20), not outer-test performance. Historical five-step smoke artifacts are distinct from these full-training artifacts. No head is yet validated for serving. Audit metadata and synthetic software fixtures are not model-performance evidence. The ordinary app must say model unavailable until a real artifact is validated.
 
-Implemented architecture: shared frozen ImageNet V2 MobileNetV2 features with a frame classifier and packed bidirectional LSTM temporal head, nine classes including background. Full comparison is pending. Training/evaluation and exact GolfDB PCE are described in [experiments.md](experiments.md) and [data-contracts.md](data-contracts.md). Device selection detects CUDA/MPS/CPU; CPU smoke passed on Apple M1/8GiB with exact checkpoint resume. No accelerator timing or minimum specification is established.
+Implemented architecture: shared frozen ImageNet V2 MobileNetV2 features with a frame classifier and packed bidirectional LSTM temporal head, nine classes including background. Held-out comparison is pending. Training/evaluation and exact GolfDB PCE are described in [experiments.md](experiments.md) and [data-contracts.md](data-contracts.md). Device selection detects CUDA/MPS/CPU; CPU smoke passed on Apple M1/8GiB with exact checkpoint resume. No accelerator timing or minimum specification is established.
 
 ## Data provenance
 
@@ -36,4 +36,10 @@ See autonomy/reports/smoke-003.json. Reference ImageNet initialization was downl
 
 ## Dataset preparation and full-training status (003b)
 
-A fixed first comparison is now registered, and resumable full feature preparation is running for training plus inner validation only. Completion is not inferred from launch. The complete-cache training/selection driver is implemented and software-tested, but has not trained a full real model. The web app remains model unavailable. See validation-004 and current job state before making any completion or performance claim.
+A fixed first comparison was registered before training. Feature preparation and both registered head runs have now completed; historical launch and bounded-proof evidence remains separately recorded. The web app remains model unavailable. See validation-004 and current job state before making any completion or performance claim.
+
+## Completed cache and real training (005)
+
+All 1,050 train/inner-validation feature caches passed an independent full audit (295,221 frames; zero outer-test cache). Frame training completed 20 epochs/4,200 updates and selected epoch 19 using inner validation only; selected weights independently reproduced all recorded inner metrics. They are stored as best_model inside the final continuation checkpoint, distinct from last-epoch model weights. Never substitute the last epoch at evaluation by accident. Temporal training completed 20 epochs/4,200 updates with selected epoch 20 at 64.58% inner-validation PCE. Finalized outer evaluation, latency, input-pipeline generalization and empirical event reliability still require evidence. Neither trained weights nor an inner-validation score alone enables normal video coaching.
+
+The movement-calculation module is separate pure arithmetic on supplied landmarks/events. It performs no pose inference, has no empirical accuracy calibration and generates no advice. It has not established CaddieSet feature equivalence.

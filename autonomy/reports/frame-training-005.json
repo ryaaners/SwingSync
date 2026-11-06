@@ -1,0 +1,411 @@
+{
+  "attempts": [
+    {
+      "elapsed_seconds": 6.406589959282428,
+      "ended_at": "2026-11-06T06:33:37.886049+00:00",
+      "pid": 36038,
+      "process_start_identity": "Fri Nov  6 01:33:28 2026",
+      "started_at": "2026-11-06T06:33:31.479422+00:00",
+      "state": "partial"
+    },
+    {
+      "elapsed_seconds": 138.358669874724,
+      "ended_at": "2026-11-06T06:37:06.874470+00:00",
+      "pid": 36100,
+      "process_start_identity": "Fri Nov  6 01:34:45 2026",
+      "started_at": "2026-11-06T06:34:48.515596+00:00",
+      "state": "completed"
+    }
+  ],
+  "checkpoint_count": 168,
+  "class_counts_train_only": [
+    840,
+    840,
+    840,
+    840,
+    840,
+    840,
+    840,
+    840,
+    229368
+  ],
+  "completed_epochs": 20,
+  "config": {
+    "augmentation": "none",
+    "batch_size": 4,
+    "context": "full-clip",
+    "device": "cpu",
+    "epochs": 20,
+    "hidden_size": 64,
+    "learning_rate": 0.001,
+    "model": "frame",
+    "schema_version": 1,
+    "seed": 20261105,
+    "selection_metric": "validation_pce"
+  },
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "training_loss": 1.67536866313104,
+      "validation": {
+        "loss": 1.475310164233793,
+        "mae_frames": 34.93809523809524,
+        "mae_ms": 1165.6101017781998,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.32142857142857145,
+        "pce_percent": 32.142857142857146
+      }
+    },
+    {
+      "epoch": 2,
+      "training_loss": 1.3329145711936459,
+      "validation": {
+        "loss": 1.3648320354151924,
+        "mae_frames": 31.40654761904762,
+        "mae_ms": 1047.789459302968,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.35773809523809524,
+        "pce_percent": 35.773809523809526
+      }
+    },
+    {
+      "epoch": 3,
+      "training_loss": 1.2115203390774856,
+      "validation": {
+        "loss": 1.29182684935413,
+        "mae_frames": 29.78095238095238,
+        "mae_ms": 993.5637316234951,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.37797619047619047,
+        "pce_percent": 37.797619047619044
+      }
+    },
+    {
+      "epoch": 4,
+      "training_loss": 1.1363515161097535,
+      "validation": {
+        "loss": 1.2592610088483889,
+        "mae_frames": 29.304761904761904,
+        "mae_ms": 977.6829178644597,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.39166666666666666,
+        "pce_percent": 39.166666666666664
+      }
+    },
+    {
+      "epoch": 5,
+      "training_loss": 1.081443088499784,
+      "validation": {
+        "loss": 1.2433392170280253,
+        "mae_frames": 28.991071428571427,
+        "mae_ms": 967.2168115029098,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.3964285714285714,
+        "pce_percent": 39.64285714285714
+      }
+    },
+    {
+      "epoch": 6,
+      "training_loss": 1.0373233383341212,
+      "validation": {
+        "loss": 1.2183736072552764,
+        "mae_frames": 28.679761904761904,
+        "mae_ms": 956.8290151732009,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.39940476190476193,
+        "pce_percent": 39.94047619047619
+      }
+    },
+    {
+      "epoch": 7,
+      "training_loss": 1.0009572192907938,
+      "validation": {
+        "loss": 1.2083124575712672,
+        "mae_frames": 28.039285714285715,
+        "mae_ms": 935.4645835026482,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4041666666666667,
+        "pce_percent": 40.416666666666664
+      }
+    },
+    {
+      "epoch": 8,
+      "training_loss": 0.9711880310069895,
+      "validation": {
+        "loss": 1.1962497483057104,
+        "mae_frames": 28.792857142857144,
+        "mae_ms": 960.6083268140919,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4005952380952381,
+        "pce_percent": 40.05952380952381
+      }
+    },
+    {
+      "epoch": 9,
+      "training_loss": 0.9434706714673284,
+      "validation": {
+        "loss": 1.1927212998879868,
+        "mae_frames": 27.79642857142857,
+        "mae_ms": 927.36239199357,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4029761904761905,
+        "pce_percent": 40.29761904761905
+      }
+    },
+    {
+      "epoch": 10,
+      "training_loss": 0.9199285922579721,
+      "validation": {
+        "loss": 1.1968563980725486,
+        "mae_frames": 27.770238095238096,
+        "mae_ms": 926.4894720008692,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.40714285714285714,
+        "pce_percent": 40.714285714285715
+      }
+    },
+    {
+      "epoch": 11,
+      "training_loss": 0.8974232646675235,
+      "validation": {
+        "loss": 1.1990903635830714,
+        "mae_frames": 27.929761904761904,
+        "mae_ms": 931.8105532673881,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.40476190476190477,
+        "pce_percent": 40.476190476190474
+      }
+    },
+    {
+      "epoch": 12,
+      "training_loss": 0.879067355729423,
+      "validation": {
+        "loss": 1.186205761916789,
+        "mae_frames": 27.53392857142857,
+        "mae_ms": 918.6025290895399,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.40773809523809523,
+        "pce_percent": 40.773809523809526
+      }
+    },
+    {
+      "epoch": 13,
+      "training_loss": 0.8619238544052262,
+      "validation": {
+        "loss": 1.1886642137174601,
+        "mae_frames": 27.310119047619047,
+        "mae_ms": 911.1368904431048,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4095238095238095,
+        "pce_percent": 40.95238095238095
+      }
+    },
+    {
+      "epoch": 14,
+      "training_loss": 0.8460843256150782,
+      "validation": {
+        "loss": 1.1912034233237427,
+        "mae_frames": 27.229761904761904,
+        "mae_ms": 908.4560189259737,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4107142857142857,
+        "pce_percent": 41.07142857142857
+      }
+    },
+    {
+      "epoch": 15,
+      "training_loss": 0.8305037003999446,
+      "validation": {
+        "loss": 1.185793605150217,
+        "mae_frames": 27.28690476190476,
+        "mae_ms": 910.3630095003487,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.41369047619047616,
+        "pce_percent": 41.36904761904761
+      }
+    },
+    {
+      "epoch": 16,
+      "training_loss": 0.8157484598492988,
+      "validation": {
+        "loss": 1.1920064105906565,
+        "mae_frames": 27.520833333333332,
+        "mae_ms": 918.1691057921693,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4148809523809524,
+        "pce_percent": 41.48809523809524
+      }
+    },
+    {
+      "epoch": 17,
+      "training_loss": 0.8041907539732981,
+      "validation": {
+        "loss": 1.1858722299049531,
+        "mae_frames": 28.648809523809526,
+        "mae_ms": 955.8006776671042,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.40773809523809523,
+        "pce_percent": 40.773809523809526
+      }
+    },
+    {
+      "epoch": 18,
+      "training_loss": 0.7912585808614815,
+      "validation": {
+        "loss": 1.1907020260287386,
+        "mae_frames": 28.482142857142858,
+        "mae_ms": 950.2385521480843,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4113095238095238,
+        "pce_percent": 41.13095238095238
+      }
+    },
+    {
+      "epoch": 19,
+      "training_loss": 0.7794315078095287,
+      "validation": {
+        "loss": 1.1998143190049877,
+        "mae_frames": 26.866666666666667,
+        "mae_ms": 896.3394565760101,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.41964285714285715,
+        "pce_percent": 41.964285714285715
+      }
+    },
+    {
+      "epoch": 20,
+      "training_loss": 0.7688085845183049,
+      "validation": {
+        "loss": 1.1993371670537776,
+        "mae_frames": 27.322619047619046,
+        "mae_ms": 911.5518201571089,
+        "outer_test_evaluated": false,
+        "partition": "inner-validation-only",
+        "pce": 0.4160714285714286,
+        "pce_percent": 41.60714285714286
+      }
+    }
+  ],
+  "evidence_type": "real-project-trained-frame-head-inner-validation-only",
+  "final_checkpoint": {
+    "optimizer_steps": 4200,
+    "path": "/Users/ryaanmahmood/Downloads/SwingSync/artifacts/training/frame-v1/step-0004200.pt",
+    "sha256": "8203c5f5d2d84d2fb8519dffa5d053932cfe353069f145d54b17ff28ce5a2431"
+  },
+  "git_base_commit": "45b96c0a81290f56ca242adf7196a7559fe28dd9",
+  "immutable": {
+    "cache_job_sha256": "daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e",
+    "cli_sha256": "8fc9a6358864ae498a1eb62c132ddb9c9897754c5ea600cf3bac3fa2ea9c407b",
+    "config_sha256": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+    "dependency_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+    "manifest_sha256": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+    "registration_sha256": "0af432a6f938422cb9995513e026160a47c2f0bd516c5d7245223d3579cc7c3e"
+  },
+  "limitations": [
+    "Selection results on inner validation, not final benchmark or unseen-golfer evidence",
+    "Full-clip context differs from reference 64-frame resets",
+    "Frozen ImageNet backbone is pretrained reference initialization; event head trained in project",
+    "Training elapsed time includes checkpoint/validation work; not inference latency",
+    "No pose/coaching/shot-outcome efficacy established"
+  ],
+  "model": "frame",
+  "optimizer_steps": 4200,
+  "outer_test_evaluated": false,
+  "run_directory": "artifacts/training/frame-v1",
+  "run_record_sha256": "e1281abbcdfd77f844359aaecb8d153b3085545beb155f09946c295adc82cf13",
+  "runtime": {
+    "deterministic_algorithms": true,
+    "machine": "arm64",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "torch_num_threads": 1
+  },
+  "selected_epoch": 19,
+  "selected_inner_validation": {
+    "annotation_order_anomaly_count": 0,
+    "clip_count": 210,
+    "loss": 1.1998143190049877,
+    "mae_frames": 26.866666666666667,
+    "mae_ms": 896.3394565760101,
+    "numpy_version": "2.2.5",
+    "order_constrained_decoding": false,
+    "outer_test_evaluated": false,
+    "partition": "inner-validation-only",
+    "pce": 0.41964285714285715,
+    "pce_percent": 41.964285714285715,
+    "per_event": {
+      "Address": {
+        "mae_frames": 61.51428571428571,
+        "mae_ms": 2052.292084108652,
+        "pce": 0.08095238095238096,
+        "pce_percent": 8.095238095238095
+      },
+      "Finish": {
+        "mae_frames": 21.5,
+        "mae_ms": 717.2627086296004,
+        "pce": 0.09047619047619047,
+        "pce_percent": 9.047619047619047
+      },
+      "Impact": {
+        "mae_frames": 32.15714285714286,
+        "mae_ms": 1072.8896123180107,
+        "pce": 0.680952380952381,
+        "pce_percent": 68.0952380952381
+      },
+      "Mid-backswing": {
+        "mae_frames": 25.042857142857144,
+        "mae_ms": 835.5091534912042,
+        "pce": 0.4714285714285714,
+        "pce_percent": 47.14285714285714
+      },
+      "Mid-downswing": {
+        "mae_frames": 16.961904761904762,
+        "mae_ms": 565.8952455228716,
+        "pce": 0.5714285714285714,
+        "pce_percent": 57.14285714285714
+      },
+      "Mid-follow-through": {
+        "mae_frames": 16.30952380952381,
+        "mae_ms": 544.133403414633,
+        "pce": 0.6666666666666666,
+        "pce_percent": 66.66666666666666
+      },
+      "Toe-up": {
+        "mae_frames": 26.057142857142857,
+        "mae_ms": 869.2927777440461,
+        "pce": 0.4714285714285714,
+        "pce_percent": 47.14285714285714
+      },
+      "Top": {
+        "mae_frames": 15.39047619047619,
+        "mae_ms": 513.4406673790634,
+        "pce": 0.3238095238095238,
+        "pce_percent": 32.38095238095238
+      }
+    },
+    "protocol": "golfdb-independent-events-v1",
+    "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+    "temporal_context": "full-clip",
+    "tie_policy": "numpy-default-argsort-last-index"
+  },
+  "state": "completed",
+  "validated_for_serving": false
+}

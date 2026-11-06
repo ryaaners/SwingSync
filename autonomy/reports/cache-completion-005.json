@@ -1,0 +1,246 @@
+{
+  "annotations": {
+    "clips": 1400,
+    "path": "data/golfdb/golfDB.mat",
+    "sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+    "sources": 580
+  },
+  "audit_type": "independent-completed-feature-inventory-not-model-evaluation",
+  "audited_at": "2026-11-06T06:32:02.870685+00:00",
+  "auditor_role": "data_ml",
+  "checks": {
+    "all_actual_frame_counts_match_ledger_and_mat": 1050,
+    "all_annotation_events_labels_source_indices_match_actual_mat_records": 1050,
+    "all_decoded_pts_match_every_cached_pts_exactly": 1050,
+    "all_npz_file_hashes_match_completed_ledger": 1050,
+    "all_npz_pickle_free_semantic_and_array_hash_validation": 1050,
+    "all_pipeline_signatures_match_registered_experiment": 1050,
+    "all_video_bytehashes_match_job_inventory_and_cache_identity_and_previous_inventory": 1050,
+    "cache_paths_keys_and_exact_coverage": true,
+    "config_dependency_implementation_and_job_fingerprints": true,
+    "config_hashes_match_registration": true,
+    "frozen_completed_catalog_matches_original_and_audited_job_hash": true,
+    "pipeline_config_dependency_sources_unchanged_after_audit": true,
+    "reference_backbone_tensor_bytes_match_registration": true,
+    "report_totals_recomputed_from_per_clip_audit_rows": true
+  },
+  "class_counts_train_only": [
+    840,
+    840,
+    840,
+    840,
+    840,
+    840,
+    840,
+    840,
+    229368
+  ],
+  "class_names": [
+    "Address",
+    "Toe-up",
+    "Mid-backswing",
+    "Top",
+    "Mid-downswing",
+    "Impact",
+    "Mid-follow-through",
+    "Finish",
+    "Background"
+  ],
+  "clip_audit_rows": 1050,
+  "committed_source_evidence": {
+    "confirmation_source": "Coordinator read-only Git check supplied to independent auditor",
+    "current_pipeline_lock_and_experiment_files_match_committed_head": true,
+    "head": "45b96c0a81290f56ca242adf7196a7559fe28dd9",
+    "independent_current_bytehash_checks_passed": true
+  },
+  "elapsed_seconds": 17.96099912468344,
+  "feature_dimension": 1280,
+  "feature_dtype": "float32",
+  "fingerprints": {
+    "audit_rows_sha256": "8d4a34f3cbcdc4cbdf26bfa766eb99751007a0ca1f5404a8e0c6eb809b2918d5",
+    "dependency_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+    "extractor_module_sha256": "0319843f83bf6453eefeadd431a88c6d42186b6a94e541d70672f272be53204d",
+    "extractor_runtime_code_sha256": "d00d4265128cc73cc2f7753c2a57a31dfa1257275c5b297706dc6a1aef39345a",
+    "frame_config_sha256": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+    "job_implementation_sha256": "d1d92638c45b01410ef77744017242f403674688fb157815efa28aad460954d7",
+    "reference_weight_file_sha256": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f",
+    "registered_model_identity": {
+      "backbone_class": "backend.swingsync.research.models.FrozenMobileNetV2",
+      "backbone_provenance": {
+        "architecture": "torchvision.mobilenet_v2.features-global-average-pool",
+        "feature_dim": 1280,
+        "swingsync_event_training": false,
+        "torch": "2.9.1",
+        "torchvision": "0.24.1",
+        "weights": "IMAGENET1K_V2",
+        "weights_url": "https://download.pytorch.org/models/mobilenet_v2-7ebf99e0.pth"
+      },
+      "backbone_state_sha256": "46cd17dc0b0bbf24bdf5f26a1f20a82f96cc2f5c863fa2fcd87856b5518971be",
+      "extraction_device": "cpu",
+      "ffmpeg_libraries": {
+        "libavcodec": [
+          62,
+          11,
+          100
+        ],
+        "libavdevice": [
+          62,
+          1,
+          100
+        ],
+        "libavfilter": [
+          11,
+          4,
+          100
+        ],
+        "libavformat": [
+          62,
+          3,
+          100
+        ],
+        "libavutil": [
+          60,
+          8,
+          100
+        ],
+        "libswresample": [
+          6,
+          1,
+          100
+        ],
+        "libswscale": [
+          9,
+          1,
+          100
+        ]
+      },
+      "implementation_sha256": {
+        "backbone_forward_code": "cb1f9f1a590d0fa80415615159e50ac13a4c5129fd3ad16fb0f043b0a77b4d1e",
+        "backbone_module": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+        "features.py": "0319843f83bf6453eefeadd431a88c6d42186b6a94e541d70672f272be53204d",
+        "golfdb.py": "5d1cb1e60165e1c62c7df2ff6241b307c192d00a244fe7270f16ae4d38369b70",
+        "models.py": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+        "timeline.py": "0d573f013bc5df27481d18bf50eb321bca5bd4aae94968fd4a521019cfd1da4a"
+      },
+      "numpy": "2.2.5",
+      "pyav": "16.0.1",
+      "python": "3.11.14",
+      "torch": "2.9.1",
+      "torchvision": "0.24.1",
+      "transform": {
+        "antialias": true,
+        "center_crop": 224,
+        "input": "RGB-uint8-CHW",
+        "interpolation": "bilinear",
+        "mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "name": "torchvision-MobileNet_V2_Weights.IMAGENET1K_V2.transforms-tensor",
+        "output": "float32-normalized",
+        "resize_short_edge": 232,
+        "std": [
+          0.229,
+          0.224,
+          0.225
+        ],
+        "stochastic": false
+      }
+    },
+    "registry_sha256": "0af432a6f938422cb9995513e026160a47c2f0bd516c5d7245223d3579cc7c3e",
+    "temporal_config_sha256": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1"
+  },
+  "full_audit_artifact": {
+    "path": "artifacts/features/fold1-job-v1/cache-completion-005-full-audit.json",
+    "scope": "Full1050 per-clip witness kept outside Git; summary and transcript digest retained",
+    "sha256": "da2dc42d53e96adfb557b1ee25b8a2bffeecd65434a96a912203ee899e92534f"
+  },
+  "job": {
+    "completed_clips": 1050,
+    "config_sha256": "23c9becd76a48727fd19bf61ce71b1f71d5599b5cc4d470eed7b0e05df0f4260",
+    "final_attempt": {
+      "attempt": 4,
+      "elapsed_seconds": 18453.692454708274,
+      "ended_at": "2026-11-06T03:57:10.551306+00:00",
+      "max_new_clips": null,
+      "newly_extracted": 1039,
+      "pid": 21311,
+      "process_start_identity": "Thu Nov  5 01:53:08 2026",
+      "reused_cache": 0,
+      "started_at": "2026-11-05T06:53:11.317770+00:00",
+      "state": "completed"
+    },
+    "frozen_catalog_byte_identical_to_completed_job": true,
+    "frozen_catalog_path": "artifacts/features/fold1-job-v1/completed-catalog-v1.json",
+    "frozen_catalog_sha256": "daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e",
+    "git_base_commit_at_job_creation": "6aa43210b95ec535d066ea1b370b043f930bddd2",
+    "job_fingerprint": "c670683a50a968fdf06bdf16d22aef92846f5f9286262e48ea9a7ee87c69886b",
+    "job_id": "184c02b4709746b79f15a8976399101f",
+    "path": "artifacts/features/fold1-job-v1/job.json",
+    "recorded_worker_pid_state": "absent",
+    "sha256": "daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e",
+    "shared_lock_at_start": "available",
+    "state": "completed",
+    "target_clips": 1050
+  },
+  "limitations": [
+    "Frozen reference ImageNet features are not a project-trained event checkpoint.",
+    "Readiness applies only to registered fold1 head training and inner selection; no outer-test result, serving, browser synchronization, source-original equivalence or coaching reliability is established.",
+    "Committed-byte equality was confirmed by the coordinator because this role performs no Git operations."
+  ],
+  "manifest": {
+    "clip_overlap": 0,
+    "outer_fold": 1,
+    "outer_test_clips_excluded": 350,
+    "path": "artifacts/golfdb/preparation-002-all/fold-1.json",
+    "regenerated_exactly": true,
+    "seed": 20261104,
+    "sha256": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+    "source_overlap": 0,
+    "train_clips": 840,
+    "validation_clips": 210
+  },
+  "method": "Stream one NPZ and one sequentially decoded reference clip at a time; arrays discarded after each clip. Existing ImageNet checkpoint loaded read-only; no feature extraction or model inference. Audit row digest is sorted clip-ID compact JSON plus newline.",
+  "original_source_pts_or_frame_equivalence_verified": false,
+  "partition_totals": {
+    "train": {
+      "clips": 840,
+      "first_pts_max": 0.0,
+      "first_pts_min": 0.0,
+      "frames": 236088,
+      "last_pts_max": 36.97030363697031,
+      "last_pts_min": 2.301150575287644,
+      "max_frames": 1109,
+      "min_frames": 70,
+      "pts_step_max": 0.033391211433151824,
+      "pts_step_min": 0.033284516043135426,
+      "sources": 348
+    },
+    "validation": {
+      "clips": 210,
+      "first_pts_max": 0.0,
+      "first_pts_min": 0.0,
+      "frames": 59133,
+      "last_pts_max": 42.54254254254254,
+      "last_pts_min": 2.8695362028695364,
+      "max_frames": 1276,
+      "min_frames": 87,
+      "pts_step_max": 0.03337783711615572,
+      "pts_step_min": 0.0332911645249343,
+      "sources": 88
+    }
+  },
+  "schema_version": 1,
+  "scope": "All 1050 registered fold1 train and inner-validation caches; no extraction, training, benchmark or outer-test evaluation",
+  "selected_sources": 436,
+  "shared_cache_directory": {
+    "extra_non_outer_cache_files": [],
+    "npz_files": 1050,
+    "outer_test_cache_files": 0,
+    "selected_cache_files": 1050
+  },
+  "status": "passed",
+  "timestamp_provenance": "reencoded-clip-pts",
+  "total_frames": 295221
+}

@@ -29,3 +29,7 @@ Optional ML dependencies support FrozenMobileNetV2 -> provenance-checked full-cl
 ## Dataset preparation and full-head driver (003b)
 
 A resumable feature job validates an immutable full media inventory and selected source partitions, atomically publishes each cache+ledger progress, and explicitly distinguishes partial/interrupted/failed/completed. Registered training admission requires complete matching caches; the CPU driver shuffles whole clips deterministically, uses all training labels for weights, and selects only on complete inner-validation epochs. Data cursor/order, RNG, optimizer and selection survive checkpoint resume. One repository lock serializes cache, smoke and head CLIs. No feature-preparation state or synthetic validation score enables user inference.
+
+## Movement contract and calculations (004a)
+
+An independent NumPy module accepts explicitly supplied MediaPipe-anatomical landmarks and event timestamps, produces six descriptive values with evidence or unavailable reasons, and always suppresses advice. It does not load a pose model or connect unvalidated calculations to the user app. Geometry is aspect-correct, view-scoped, normalized to an address torso reference, and does not use monocular z. See movement-measurements.md for exact formulas, quality policies and empirical-validation gates. It is isolated from the frozen event-training source and dependency lock.

@@ -104,16 +104,35 @@
       "dependencies": [
         "003b"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "All1050selectedclip caches verified; no outertest cache",
         "Job actually completed with fingerprints and frame totals",
         "Independent completed-inventory audit before head training"
       ],
       "validation_evidence": [
-        "Job184c02b4709746b79f15a8976399101f running in isolatedMLruntime PID21311,start01:53:08Toronto;verify actualstate",
-        "Proofsnapshot5/1050 then continuation11/1050 observed;not completed",
-        "Actual launch/log/state under artifacts/features/fold1-job-v1"
+        "Actual job184c02b4709746b79f15a8976399101f completed1050clips/295221frames at2026-11-06T03:57:10UTC; worker ended",
+        "Independent full1050NPZ/video/PTS/source/registered-pipeline audit passed;840train/210inner;zerooutercache",
+        "Frozen completed catalog SHA256daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e;cache-completion-005.json/.md"
+      ]
+    },
+    {
+      "id": "003d",
+      "title": "Registered real head training and inner-validation selection",
+      "dependencies": [
+        "003c"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Both registered heads actually finish20epochs without outer-test access",
+        "Immutable fingerprints and resumable checkpoint identities saved",
+        "Independent checkpoint integrity and selected inner-metric replay"
+      ],
+      "validation_evidence": [
+        "frame-v1 and temporal-v1 completed20epochs/4200updates sequentially on840trainclips;seed20261105",
+        "Selected210clip INNER PCE41.9643%frame(epoch19),64.5833%temporal(epoch20);NOToutermetrics",
+        "All168checkpoint hashes/head and everyselectedinner-summaryfield independently verified;review-005.md",
+        "frame-training-005.json and temporal-training-005.json;largeweights ignored"
       ]
     },
     {
@@ -122,7 +141,9 @@
       "dependencies": [
         "002",
         "003a",
-        "003b"
+        "003b",
+        "003c",
+        "003d"
       ],
       "acceptance_criteria": [
         "Same frozen MobileNetV2 backbone",
@@ -136,7 +157,27 @@
         "003a complete:shared frozen backbone,frame/BiLSTM heads,padding-safe loss/cache and exact CPU resume",
         "Real train-only2clip462frame5step/head smoke completed; no held-out evaluation",
         "82tests pass with MLextra;56pass4skip base; independent review findings resolved",
-        "003b:registered configs,cache resume and head driver implemented;110tests;full preparation observed running,not completed"
+        "003b:registered configs,cache resume and head driver implemented;110tests;full preparation observed running,not completed",
+        "003c/003d completed:1050realcaches;both20epoch4200updateheads;independentselectedINNERreplay;noouterresult/latency/servingvalidation"
+      ]
+    },
+    {
+      "id": "004a",
+      "title": "Pure descriptive landmark measurement contract and arithmetic",
+      "dependencies": [
+        "002"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Explicit PTS/view/anatomical handedness/mirror/visibility contracts",
+        "Aspect-correct tempo/head displacement/projected elbow outputs with evidence",
+        "Missing and unreliable inputs fail closed;advice suppressed",
+        "Independent arithmetic/contract review and tests"
+      ],
+      "validation_evidence": [
+        "51syntheticgeometry/contracts tests;manual correction recomputation retains provenance",
+        "161fullMLtests;107basepass/7explicitMLskips;Ruff/frontendbuild pass",
+        "review-005.md;docs/movement-measurements.md;no pose-inference or empirical efficacy claim"
       ]
     },
     {
@@ -151,8 +192,11 @@
         "Manual event corrections recompute with provenance",
         "Unsupported feedback suppressed"
       ],
-      "status": "pending",
-      "validation_evidence": []
+      "status": "in_progress",
+      "validation_evidence": [
+        "004a pure supplied-landmark arithmetic complete;51syntheticcontract/geometry/suppressiontests;independentreview",
+        "MediaPipe adapter,real-media empirical validation,app correction interface and coaching reliability remain pending;advice empty"
+      ]
     },
     {
       "id": "005",

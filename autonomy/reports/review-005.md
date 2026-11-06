@@ -1,0 +1,77 @@
+# Independent review 005 — completed-cache admission and movement arithmetic
+
+Review date: 2026-11-06. Reviewer owns only this report; no implementation edits, Git operations, extraction, real training, outer-test evaluation, or package changes were performed. Scope: frozen completed-feature catalog and registered head-training admission/provenance, plus NumPy-only movement contracts and measurements. Movement review and completed real frame/temporal training reviews are complete. Reviewer performed read-only inner-validation inference on both selected heads, without fitting or launching a training job.
+
+## Findings
+
+Independent review verifies completed registered training and inner-validation selection for both frame and temporal heads, with no unresolved material findings in those runs, completed-catalog admission or movement arithmetic. Outer-test benchmarking, application serving and coaching remain unvalidated and are not approved by this review.
+
+## Completed feature catalog and admission evidence
+
+- Read project instructions, reviewer role, current status/backlog, previous independent review, fixed protocol/configurations, head CLI/driver, movement contracts and measurements.
+- `artifacts/features/fold1-job-v1/job.json` records completed state, 1,050 completed rows and 295,221 frames. Attempt 4 ended at `2026-11-06T03:57:10.551306+00:00`; feature preparation is distinct from model training.
+- Frozen `completed-catalog-v1.json` exactly matches that completed ledger. Independently computed SHA256: `daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e`. Its pipeline equals the registered pipeline; its dependency-lock hash equals the current `uv.lock` hash `8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc`.
+- Actual frame/temporal config byte hashes match registration: `a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860` and `d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1`.
+- CLI source SHA256 at review: `8fc9a6358864ae498a1eb62c132ddb9c9897754c5ea600cf3bac3fa2ea9c407b`. The CLI checks completed coverage and registered feature identity before creating a run, hashes the immutable catalog/config/registration/manifest/lock/CLI, and refuses changed provenance on explicit resume. The driver separately validates actual cache signatures and audited annotation/source/PTS semantics.
+- A short nonblocking shared-lock probe succeeded and immediately released the lock before training launch. `ps -axo pid,lstart,command` was denied by the sandbox; reviewer did not infer process identity from a stale PID.
+- Reproduction: `.venv/bin/python -m pytest -q tests/test_head_cli.py tests/test_experiment.py tests/test_cache_job.py` — **28 passed in 4.85 seconds**. These use synthetic software fixtures, not performance evidence.
+- The separate data auditor owns the full 1,050-cache integrity audit in `cache-completion-005.json`; its final checks report all 1,050 file hashes, semantic loads, video hashes, MAT semantics, exact decoded PTS and registered pipeline signatures passed. It records 840 train/210 inner-validation clips, zero source or clip overlap and zero outer-test caches. Its frozen-catalog/source recheck also passed. This reviewer inspected the audit summary and totals; this report does not duplicate or substitute for that audit.
+
+## Movement review evidence
+
+- Contracts use actual strictly increasing PTS, explicit view/handedness/mirroring, anatomical landmark indices, owned read-only array copies, NaN missing values and rejected infinities.
+- Measurement implementation uses pixel-scaled x/y for aspect-correct projected geometry, reflects only x for mirrored coordinates, and selects the anatomical lead arm from handedness. It does not use z, guess identity, smooth/interpolate missing samples or infer 3D motion.
+- Event-based durations retain supplied timestamps and manual/predicted source/confidence. Pose-dependent quantities require a matching observed PTS, finite visible in-image landmarks, and a sampled head interval within the gap budget. Unsupported output receives an explicit unavailable reason. Advice remains empty and reliability explicitly unvalidated.
+- Verified anatomical indices and independent width/height normalization against the official [PoseLandmark API](https://ai.google.dev/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmark) and [Pose Landmarker coordinate documentation](https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker). These sources define coordinates and indices; they do not validate golf measurements or coaching.
+- Reproduction: `.venv/bin/python -m pytest -q tests/test_measurements.py tests/test_movement_contracts.py` — **51 passed in 0.08 seconds**. Independently reviewed the final tests for non-square aspect ratios, known projected angles, uniform resize, both handedness/mirror combinations, variable PTS, absent/invisible/offscreen landmarks, degenerate baselines/arms, trajectory gaps, unknown view, off-sample events, duplicate/reordered/missing events and manual correction with retained prior evidence.
+- `.venv/bin/python -m ruff check backend/swingsync/movement tests/test_measurements.py tests/test_movement_contracts.py` — **all checks passed**.
+
+## First real frame checkpoint
+
+The coordinator's bounded frame attempt ended partial at `2026-11-06T06:33:37.886049+00:00`, PID 36038/start identity `Fri Nov  6 01:33:28 2026`. Its ledger records the exact frozen-catalog SHA256 and registered config/registration/manifest/lock/CLI hashes before model construction. Reviewer loaded the completed immutable checkpoint read-only using `.tools/ml-runtime/bin/python` and `torch.load(..., map_location='cpu', weights_only=True)`; no driver, restore, optimizer step or inference was invoked.
+
+- `artifacts/training/frame-v1/step-0000025.pt` SHA256 `a8e19f85fd88866acade9de60034b66ae0c33679d0891292fbf3df5ade3105bc` matches the durable run ledger.
+- Checkpoint config exactly equals registered `frame-v1.json`; all 1,050 cache keys/file hashes exactly equal the frozen catalog, with zero outer-test IDs. Feature-pipeline fields equal registration; every recorded ML implementation hash matches current source bytes.
+- Class counts are exactly `[840,840,840,840,840,840,840,840,229368]`, matching the independently audited training partition only. Classifier tensors have the expected `[9,1280]` weights and `[9]` bias, all finite, with two Adam state entries.
+- Epoch 0, cursor 100, optimizer steps 25; validation history is empty and selected weights/best epoch are absent. This correctly avoids claiming a complete epoch or model selection. Run and checkpoint record outer-test evaluation false; run records serving validation false.
+- Runtime is Torch 2.9.1/NumPy 2.2.5, one CPU Torch thread and deterministic algorithms on arm64 macOS. Explicit `--resume` with unchanged inputs is admissible; this review did not launch it.
+
+Reproduction: read `frame-v1/run.json`; SHA256 its referenced checkpoint; load it with `weights_only=True`; compare `provenance.config` with `frame-v1.json`, `provenance.cache_fingerprints` with every frozen-catalog cache-key/hash pair, `feature_pipeline` with registration, `implementation_sha256` with actual ML source bytes, and `progress` with the durable summary. Assert no test IDs, no selected model and the counts/epoch/cursor/steps above.
+
+## Completed real frame baseline and independent inner-validation replay
+
+Inspected `artifacts/training/frame-v1/run.json` after its second attempt ended **completed** at `2026-11-06T06:37:06.874470+00:00`, PID 36100/start identity `Fri Nov  6 01:34:45 2026`, elapsed 138.3587 seconds for that continuation. The prior bounded attempt remains recorded separately. The temporal ledger's first attempt started later at `2026-11-06T06:39:26.440794+00:00`; it was initially observed running/partial, then independently reviewed as completed below.
+
+Independent artifact assertions using `.tools/ml-runtime/bin/python` passed:
+
+- All **168** durable checkpoint references, exactly steps 25 through 4,200 in increments of 25, match actual file SHA256 values. Final `step-0004200.pt` SHA256 is `8203c5f5d2d84d2fb8519dffa5d053932cfe353069f145d54b17ff28ce5a2431`.
+- Every run-level immutable hash matches current catalog/config/registration/manifest/dependency-lock/CLI bytes. Final checkpoint ML implementation hashes match current source bytes; all 1,050 cache keys/hashes equal the audited frozen catalog, with exact registered feature identity and configuration.
+- Independently regenerated the manifest from actual MAT annotations. Its 348 train, 88 inner-validation and 144 test source groups are pairwise disjoint; checkpoint cache IDs exclude all test IDs. Training class counts remain exactly `[840,840,840,840,840,840,840,840,229368]`.
+- Final progress is **20 complete epochs, 4,200 optimizer steps, cursor 0**, with zero partial-epoch loss accumulators and the exact deterministic epoch-20 order. All 20 history entries match the durable summary, use inner validation only and contain finite training/validation losses.
+- Both final and selected model tensors are finite and have expected frame-classifier keys/shapes. Both Adam parameter states contain finite moments and step 4,200; learning rate remains 0.001. Python/NumPy/Torch RNG states were accepted by isolated local RNG objects, without restoring or advancing a training driver.
+- Recomputing the earliest maximum across all 20 stored validation scores selects **epoch 19**, inner-validation PCE **0.41964285714285715** (41.9643%). The final selected tensors exactly match the stored selected tensors in `step-0004000.pt`, the first saved checkpoint after epoch 19. Epoch 20's inner PCE is lower, 0.4160714285714286.
+
+For an independent check that selected tensors actually reproduce the selected history, reviewer constructed only `FrameClassifier`, loaded `best_model` from the final checkpoint and ran inference on exactly the **210 inner-validation clips**. Each input NPZ hash was checked against the frozen catalog before semantic loading. With one CPU thread and deterministic algorithms, `evaluate_clip` plus `summarize_evaluations` reproduced **every evaluation-summary field** stored for epoch 19 exactly, including PCE 0.41964285714285715. **Zero outer-test clips were loaded or evaluated.** This was read-only inference, not retraining or a new selection/tuning attempt.
+
+Reproduction: hash all `run.json.checkpoints[*].path` files; load the final checkpoint with `torch.load(..., map_location='cpu', weights_only=True)`; compare its provenance/progress as above; calculate `scores.index(max(scores))+1`; compare final `best_model` tensors to the selected state in step 4,000. For metric replay, load final `best_model` into `FrameClassifier`, iterate only `manifest.partitions.validation.clip_ids`, verify/load their catalog caches, apply softmax and `evaluate_clip(..., timestamps_seconds=clip.pts_seconds)`, and assert every key returned by `summarize_evaluations` equals `progress.history[18].validation`.
+
+## Completed real temporal head and independent inner-validation replay
+
+Inspected `artifacts/training/temporal-v1/run.json` after its first attempt ended **completed** at `2026-11-06T06:50:54.455388+00:00`, PID 36179/start identity `Fri Nov  6 01:39:23 2026`, elapsed 688.0217 seconds. These are recorded training-attempt times, not inference-latency measurements. Its start follows the completed frame attempt; reviewer launched no extraction or training.
+
+Independent artifact assertions using `.tools/ml-runtime/bin/python` passed:
+
+- All **168** checkpoint byte hashes match the ledger, with exactly steps 25 through 4,200 in increments of 25. Final `step-0004200.pt` SHA256 is `910f6d06a253e8117e825f5d625a1dcc11fe6db61344d169daac3fd973ceb5c3`.
+- All current immutable catalog/CLI/registered-temporal-config/dependency-lock/manifest/registration hashes match run provenance. Final checkpoint pipeline/configuration and all 1,050 cache keys/hashes match registration and the same frozen catalog used by the frame run. Every recorded ML implementation hash matches current source bytes.
+- Manifest regeneration from actual MAT annotations still matches exactly, with pairwise-disjoint train/inner-validation/test source groups and no test cache IDs. Train-only counts remain `[840,840,840,840,840,840,840,840,229368]`.
+- Final progress is **20 complete epochs, 4,200 optimizer steps, cursor 0**, exact deterministic epoch-20 order and zero partial-epoch loss accumulators. All 20 history records match the durable summary, use inner validation only and have finite training/validation losses.
+- All final/selected BiLSTM and classifier tensors are finite; strict loading into `TemporalClassifier(hidden_size=64)` succeeds. Input/recurrent matrices are `[256,1280]`/`[256,64]` in each direction and classifier weights are `[9,128]`. All ten Adam parameter states have finite moments and step 4,200, with learning rate 0.001. Isolated Python/NumPy/Torch RNG objects accept the saved RNG states.
+- The earliest highest recorded inner-validation PCE selects **epoch 20**, **0.6458333333333334** (64.5833%). Final `best_model` tensors equal final model tensors exactly, consistent with selecting the final epoch. Run and validation histories record no outer-test evaluation and serving remains unvalidated.
+
+Reviewer loaded only the final selected `best_model` into `TemporalClassifier(hidden_size=64)` and replayed exactly the **210 inner-validation clips**, checking each NPZ file hash before semantic loading. One CPU Torch thread and deterministic algorithms reproduced **every evaluation-summary field and the weighted validation loss exactly** against `progress.history[19].validation`. PCE was 0.6458333333333334. **Zero outer-test clips were loaded or evaluated**; no optimizer, fit, training driver or new selection decision was run.
+
+Reproduction follows the frame procedure with `temporal-v1`, the registered temporal configuration and `TemporalClassifier(hidden_size=64)`: verify all 168 hashes and immutable provenance, assert epoch/cursor/update/order/history/RNG/Adam integrity, compute `scores.index(max(scores))+1 == 20`, and require tensor equality between final model and selected model. Iterate only `manifest.partitions.validation.clip_ids`, verify/load catalog caches, collate one clip at a time, apply the selected head/softmax and `evaluate_clip` with actual cached PTS. Require all summarized evaluation fields to equal history index 19. For loss, use the saved train-only class weights with `masked_cross_entropy`; aggregate per-clip losses using the sum of valid-label weights, exactly as the audited driver does.
+
+## Limits
+
+This review establishes full registered frame/temporal head training and reviewed inner-validation selection only. Inner-validation PCE is used for selection and does not establish held-out outer-test performance. Outer-test performance, inference latency, original-source timestamp equivalence, browser synchronization, empirical pose/event-error calibration and coaching reliability remain unestablished. The full-clip context differs from the reference's 64-frame recurrent evaluation; this is a fold-1 comparison and supports no four-fold claim. The application must remain model unavailable until its separate evaluation/integration gates pass; pure measurement arithmetic does not enable MediaPipe inference or advice.

@@ -99,17 +99,25 @@ uv run --extra ml python -m scripts.prepare_feature_cache \
 
 Use --resume for every later invocation of the same job. Omit --max-new-clips to process all remaining selected clips. The default selects all 840 training and210 inner-validation clips; outer-test clips require separate explicit permission. A bounded job is partial until all 1,050 clips are validated. Resume checks media inventory, exact model/pipeline/config fingerprints, existing cache bytes and prior process identity. Never launch a second process for a running job; inspect job.json and actual PID/start identity first. All feature/head/smoke CLIs use the same absolute repository training lock even if output directories differ. Corrupt or changed artifacts fail closed and require investigation; they are not overwritten silently.
 
-Only after the matching cache job is completed:
+Only after the matching cache job is completed, preserve a byte-identical snapshot as `completed-catalog-v1.json` (copy once for a new experiment; never overwrite a catalog bound to an existing run). Use that immutable snapshot for both heads and every resume:
 
 ```sh
 uv run --extra ml python -m scripts.train_event_head \
   --config experiments/frame-v1.json \
   --annotations data/golfdb/golfDB.mat \
   --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
-  --cache-job artifacts/features/fold1-job-v1/job.json \
+  --cache-job artifacts/features/fold1-job-v1/completed-catalog-v1.json \
   --run-dir artifacts/training/frame-v1
 ```
 
 Repeat sequentially for experiments/temporal-v1.json in its own run directory. A started run needs --resume; --max-batches bounds additional work and --checkpoint-batches controls persistence intervals (default 25). Checkpoints store model/Adam/RNG, clip order/cursor and best inner-validation selection. A single checkpoint published just before a crash but absent from the ledger is provenance-validated and adopted on resume. The driver rejects partial jobs, outer-test caches, unregistered configs/pipelines, changed artifact bytes and runtime changes. It computes weights from all training labels only. Selected weights remain gated from serving and require a separate finalized outer evaluation. This CLI does not evaluate the outer test.
 
-For long local jobs, use an isolated locked environment so ordinary app setup cannot remove its ML dependencies: set `UV_PROJECT_ENVIRONMENT=.tools/ml-runtime`, run `uv sync --locked --extra ml`, and keep that environment setting for its `uv run --extra ml ...` commands. The current background preparation uses this isolated runtime. Keep the computer awake; inspect its recorded process and job.json before resuming. The schedule itself is not a continuously running agent.
+For long local jobs, use an isolated locked environment so ordinary app setup cannot remove its ML dependencies: set `UV_PROJECT_ENVIRONMENT=.tools/ml-runtime`, run `uv sync --locked --extra ml`, and keep that environment setting for its `uv run --extra ml ...` commands. The completed preparation and head runs used this isolated runtime. Keep the computer awake; inspect its recorded process and job.json before resuming. The schedule itself is not a continuously running agent.
+
+## Movement calculation library
+
+`backend/swingsync/movement` now provides explicit pose/event contracts and six descriptive calculations (tempo, normalized sampled head motion and projected elbow angles). It consumes supplied landmarks, preserves evidence and unvalidated reliability, and emits no advice. It is not yet a MediaPipe video-inference pipeline or a user-facing coaching feature. See [measurement definitions and remaining validation](docs/movement-measurements.md). No root dependency or active ML-runtime changes are required for this NumPy-only module.
+
+## Current full-training evidence
+
+The first source-grouped feature inventory is complete and independently audited: 1,050 training/inner-validation clips, 295,221 frames. The frame head completed the registered 20-epoch budget and selected epoch 19 at 41.96% **inner-validation PCE**. This is model-selection evidence, not a final held-out accuracy claim. The temporal head also completed 20 epochs, selecting epoch 20 at 64.58% inner-validation PCE. No outer-test results are available yet. The app remains inspection-only until model/input/measurement gates pass. See docs/model-card.md, docs/experiments.md and current durable status for completed run identities and next validation gates.
