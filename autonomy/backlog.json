@@ -172,7 +172,8 @@
       "validation_evidence": [
         "Bounded proof2/350 then full explicitresume job833e9ffe5592457f9257a46474c72153;inspect actualstate/process before work",
         "ActualworkerPID40807/start2026-11-06 12:38:35Toronto observedrunning;no outer predictions or completedbenchmark",
-        "Artifacts/features/fold1-test-job-v1/job.json and launch-full-006.json;one shared expensive-work lock"
+        "Artifacts/features/fold1-test-job-v1/job.json and launch-full-006.json;one shared expensive-work lock",
+        "Execution007 observed sameworkerPID40807 running 310/350 at2026-11-07T09:02:56.408305+00:00;no duplicate/evaluation launched"
       ]
     },
     {
@@ -224,6 +225,46 @@
       ]
     },
     {
+      "id": "004b",
+      "title": "Manual event review with canonical frame and correction-report evidence",
+      "dependencies": [
+        "004a"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "User marks partial/full events by exact decoded frame index with actual native/relative PTS",
+        "Transactional revisions reject stale edits and preserve correction history through clear/delete/restart",
+        "Canonical bounded PNG frames and self-contained report retain current evidence and recording identity",
+        "Manual descriptive timing only; explicit unvalidated reliability, no model/advice claim",
+        "Frontend draft conflict/polling checks, browser software QA and fresh independent review"
+      ],
+      "validation_evidence": [
+        "223fullMLtests;128basepass9optionalMLskips;Ruffclean;4frontendtests+cleaninstall/typecheck/build",
+        "Synthetic9frame native5sVFR browser flow:manualmarks/correction/reload/concurrentconflict/explicitreload/reportdownload/restartverified",
+        "Independent exactRGB match all3reportPNGs to sourceframes0/5/8;manual-review-007.json and review-007.md",
+        "All3P2findings resolved:clearhistory export,nonfinite422serialization,poseauditMacminimum;modelunavailable/adviceempty"
+      ]
+    },
+    {
+      "id": "004c",
+      "title": "Audit compatible local pose runtime, source, model availability and time contract",
+      "dependencies": [
+        "004a"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Exact official wheel/source metadata and separate code/model license evidence",
+        "Root NumPy compatibility and isolated lock proposal documented",
+        "ActualPTS versus integer-ms API clock and identity/view/visibility limits audited",
+        "Explicit no-install/no-model-acquisition/no-inference/accuracy claims; independent review"
+      ],
+      "validation_evidence": [
+        "docs/pose-runtime-audit.md;pose-audit-007.json;7exactMETADATAsidecars+pinnedsourcereviewed",
+        "CandidateMediaPipe1.2.2/NumPy2.2.5/OpenCV4.12/PyAV16 metadataonly;fullbinarycandidateMacminimum14",
+        "Legacy0.10.21 NumPy<2 conflict confirmed;modelHEADonly, modelSHAunavailable;rootlock/MLsourceunchanged"
+      ]
+    },
+    {
       "id": "004",
       "title": "Local pose measurements and evidence rules",
       "dependencies": [
@@ -238,7 +279,9 @@
       "status": "in_progress",
       "validation_evidence": [
         "004a pure supplied-landmark arithmetic complete;51syntheticcontract/geometry/suppressiontests;independentreview",
-        "MediaPipe adapter,real-media empirical validation,app correction interface and coaching reliability remain pending;advice empty"
+        "MediaPipe adapter,real-media empirical validation,app correction interface and coaching reliability remain pending;advice empty",
+        "004b complete:manualeventcorrectionUI/API/canonicalframes/report/tempo,softwareonly223tests+browserQA",
+        "004c complete:posepackage/source/license/timecontract audit only;separate resolvedlock+asset acquisition+actualadapter stillpending"
       ]
     },
     {

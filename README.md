@@ -2,7 +2,7 @@
 
 Local golf video inspection, with a staged path to reproducible swing-event learning and defensible movement feedback. No paid API or cloud inference.
 
-**Current release: inspection only.** Upload a trimmed video, record camera setup, inspect real frame timestamps, play it back, export an HTML inspection report, and delete local history. There is no trained event checkpoint, pose extraction, coaching or shot prediction yet. A completed job means video inspection completed. No ML accuracy or training result is claimed.
+**Current release: video inspection and manual event review.** Upload a trimmed video, select verified decoded frames for eight events, correct saved marks, review descriptive recording-time tempo, and export an HTML report with images and revision history. Files stay local and can be deleted. Automatic event inference, pose extraction, coaching and shot prediction remain unavailable. Real research event heads are trained, but held-out evaluation and app-inference validation are unfinished. See [manual review and its limits](docs/manual-event-review.md).
 
 ## Setup and run
 
@@ -38,14 +38,14 @@ Files and SQLite history stay under `data/local` (override `SWINGSYNC_DATA_DIR`)
 ```sh
 uv run pytest
 uv run ruff check backend tests scripts
-cd frontend && npm run build
+cd frontend && npm test && npm run build
 ```
 
 Tests generate synthetic clips solely for software validation, never as ML evidence. CI checks software without datasets or retraining. See [architecture](docs/architecture.md), [data contracts](docs/data-contracts.md), [experiment ledger](docs/experiments.md), [model card](docs/model-card.md) and [saved status](autonomy/CURRENT_STATUS.md).
 
 ## Research roadmap
 
-Implemented: audited immutable GolfDB loader, source-grouped inner validation manifests, reference PCE evaluator, and provenance-aware decoded frame mapping. Shared frozen MobileNetV2 features, frame/BiLSTM heads and resumable CPU smoke are implemented. Two real training clips completed five optimizer steps per head, which is not a validated event model. Next: full feature preparation, training/inner validation and official held-out PCE evaluation. Pose measurements follow with view/visibility gates. CaddieSet tabular experiments are independent until feature equivalence and held-out golfer performance pass. No résumé performance bullets are justified yet.
+Implemented: audited GolfDB annotations/source-grouped splits, frozen MobileNetV2 features, two genuinely trained event heads with reproducible inner selection, and a fixed prospective held-out evaluator. The single outer-test cache job is still preparing its350clips; no held-out prediction or score is claimed. Manual events/timing are usable independently. Pure pose-measurement arithmetic and an upstream runtime audit are complete, while real pose extraction/validation are pending. CaddieSet tabular research stays separate until feature equivalence and held-out-golfer performance pass. No résumé accuracy/coaching claim is justified.
 
 Dataset, upstream code and weight licenses are separate; see the audit. No dataset, checkpoint or upstream code is redistributed in this increment. No license from an upstream repository is applied to original SwingSync code. A project license choice remains with the owner.
 
@@ -165,3 +165,7 @@ uv run --extra ml python -m scripts.benchmark_event_pipeline \
 ```
 
 Timing output is exclusive: an existing output/state is refused. Initialization, warmup, decode, preprocessing, backbone and each head/context have explicit scopes; composed variant time shares one feature pass. These research commands do not enable app inference or advice.
+
+## Local pose runtime audit
+
+[Pose runtime audit](docs/pose-runtime-audit.md) records exact official package/source/license/model-availability evidence. The proposed isolated MediaPipe1.2.2 /NumPy2.2.5 /OpenCV4.12 /PyAV16 stack is metadata-compatible only; full dependency locking, installation, model acquisition and actual pose inference have not run. The concrete binary candidate needs macOS14 on Apple Silicon. Root ML dependencies remain unchanged. Never install legacy MediaPipe0.10.21 into the current NumPy2 environment or treat similarly named CaddieSet measurements as equivalent.

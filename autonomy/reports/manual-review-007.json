@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "scope": "Synthetic software/UI workflow only; no golf-model, pose, event-accuracy, coaching or user-testing evidence",
+  "analysis_id": "3d22b62890ba4a328f33558248d47838",
+  "synthetic_media": {
+    "path": "artifacts/qa-007/synthetic-vfr.mp4",
+    "sha256": "f044d7d2c4b126c9f750908bb5791bfd3fd476d6f935b095ceecc38036fbb220",
+    "frame_count": 9,
+    "source_start_seconds": 5.0,
+    "relative_pts_seconds": [
+      0.0,
+      0.040000000000000036,
+      0.09999999999999964,
+      0.17999999999999972,
+      0.29000000000000004,
+      0.41000000000000014,
+      0.5899999999999999,
+      0.8300000000000001,
+      1.0999999999999996
+    ]
+  },
+  "browser_actions": [
+    "Upload and inspect synthetic VFR H264 video",
+    "Mark Address0/Top3/Impact8;save revision1;tempos .18/.92",
+    "Correct Top5;save revision2;tempos .41/.69;reload persists",
+    "Unsaved Top6 retained across concurrent API Top7 revision3; save and mark disabled with explicit conflict",
+    "Reload saved events through GET; restore Top5;save revision4",
+    "Click marker updates canonical frame panel; browser seeking remains unverified",
+    "Download report through browser downloadMedia; 3 PNGs/manual history verified",
+    "Restart isolated backend; revision4 and four historical snapshots retained; final API report includes media SHA and analysisid"
+  ],
+  "revision": 4,
+  "event_frame_indices": [
+    0,
+    5,
+    8
+  ],
+  "measurements": [
+    {
+      "name": "backswing_duration_seconds",
+      "value": 0.41000000000000014,
+      "source": "manual",
+      "reliability": "Unvalidated manual annotation; no event-accuracy or coaching calibration."
+    },
+    {
+      "name": "downswing_duration_seconds",
+      "value": 0.6899999999999995,
+      "source": "manual",
+      "reliability": "Unvalidated manual annotation; no event-accuracy or coaching calibration."
+    },
+    {
+      "name": "backswing_downswing_ratio",
+      "value": 0.5942028985507253,
+      "source": "manual",
+      "reliability": "Unvalidated manual annotation; no event-accuracy or coaching calibration."
+    }
+  ],
+  "model_status": "unavailable",
+  "advice": [],
+  "artifacts": {
+    "manual-review-desktop.jpg": {
+      "path": "artifacts/qa-007/manual-review-desktop.jpg",
+      "sha256": "7ea6cb3ab89516585ecfcb878fb18d9d4ceee43fe3a4180bf6566a78ce384bda"
+    },
+    "conflict.jpg": {
+      "path": "artifacts/qa-007/conflict.jpg",
+      "sha256": "e42f15ea7eaf6e67d07e27be2cb0849b6d56449a70f0f828f029a0580d454d97"
+    },
+    "browser-manual-report.html": {
+      "path": "artifacts/qa-007/browser-manual-report.html",
+      "sha256": "77242b5fc1df7bd3dbfdbf484062f2b4d4d9177e10da8d3b8c0e9a651bbe270c"
+    },
+    "manual-report.html": {
+      "path": "artifacts/qa-007/manual-report.html",
+      "sha256": "b079afc4cb6dc8f4696d13ad469433ac8824a0c69c2ac0ea8a6db9b2eb093e7e"
+    }
+  },
+  "limitations": [
+    "Only synthetic media; not trained-model or permitted-real-golf demo",
+    "Browser/native PTS correspondence remains unvalidated; canonical decoded panel is evidence",
+    "Default browser viewport only; no mobile-device test",
+    "Pose runtime audited only; not installed or inferred"
+  ],
+  "independent_review": "autonomy/reports/review-007.md"
+}

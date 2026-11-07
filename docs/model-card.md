@@ -1,6 +1,6 @@
 # SwingSync model card
 
-Status: VALIDATED EVENT MODEL UNAVAILABLE. Updated 2026-11-06.
+Status: VALIDATED EVENT MODEL UNAVAILABLE. Updated 2026-11-07.
 
 ## Intended use
 
@@ -51,3 +51,9 @@ A prospective hash-bound fold-1 contract and complete-test-only evaluator are im
 A reviewed one-pass CPU timing run on training clips 0/1 (462 frames) measured shared decode/transform/backbone extraction at **58.15 ms/frame** on Apple M1 / 8 GiB, one CPU thread. Initialization and warmup were excluded and recorded separately, with per-head/context time and precise composed-versus-observed scopes. This is research pipeline timing on two clips, not validated app latency, representative-user performance or a hardware minimum. Full evidence/limits: `autonomy/reports/latency-006.json` and [experiments.md](experiments.md). No pose, coaching or shot-outcome gate changed.
 
 The concrete historical contract requires its local ignored artifacts and exact runtime/source fingerprints. Relocation/cross-platform experiment reproduction has not been verified. A new environment needs an explicitly registered matching experiment before training; do not rewrite this historical contract or retune using its test results.
+
+## Manual review and pose audit (007)
+
+The web app now allows explicit manual frame annotations and descriptive recording-time tempo, with canonical decoded images, timestamp/recording-hash evidence and retained correction history. These are user-supplied marks, not predictions or model validation. Reliability is unvalidated; no ideal thresholds, pose estimates, outcomes or practice advice are generated. Browser playback synchronization and stored-orientation agreement remain unverified and are visible limitations. Synthetic UI/report tests are software evidence only.
+
+The current MediaPipe package/model/runtime audit is documented separately. Its proposed isolated stack is not installed or runtime-validated; no model bundle was acquired and no empirical pose accuracy was measured. The active event feature worker and original ML dependencies/configurations/checkpoints were not changed.

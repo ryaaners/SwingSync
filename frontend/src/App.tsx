@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 
-type Analysis = {
-  id: string; status: 'queued' | 'processing' | 'completed' | 'failed' | 'interrupted'; progress: number;
-  error?: string; created_at?: string;
-  metadata?: { camera_view?: string; handedness?: string; club?: string; mirrored?: boolean; original_filename?: string };
-  video?: { duration_seconds: number; frame_count: number; width: number; height: number; timestamps_seconds?: number[] };
-  model?: { status: string; reason?: string };
-};
+import type { Analysis } from './analysisTypes.ts';
+import EventReview from './EventReview.tsx';
+import { newerAnalysis } from './manualEvents.ts';
+
 const active = (item: Analysis) => ['queued', 'processing'].includes(item.status);
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(path, options);
@@ -28,6 +25,7 @@ export default function App() {
   const [connected, setConnected] = useState(false);
   const [dragging, setDragging] = useState(false);
   const input = useRef<HTMLInputElement>(null);
+  const videoPlayer = useRef<HTMLVideoElement>(null);
   const selectionId = useRef<string | null>(null);
   const [view, setView] = useState('face-on');
   const [handedness, setHandedness] = useState('right');
@@ -44,7 +42,7 @@ export default function App() {
         if (selectionId.current) {
           const id = selectionId.current;
           const detail = await request<Analysis>(`/api/analyses/${encodeURIComponent(id)}`);
-          if (!cancelled && selectionId.current === id) setSelected(detail);
+          if (!cancelled && selectionId.current === id) setSelected(previous => newerAnalysis(previous, detail));
         }
       } catch { if (!cancelled) setConnected(false); }
     };
@@ -54,10 +52,10 @@ export default function App() {
   }, []);
 
   async function choose(item: Analysis) {
-    selectionId.current = item.id; setSelected(item); setError('');
+    selectionId.current = item.id; setSelected(previous => newerAnalysis(previous, item)); setError('');
     try {
       const detail = await request<Analysis>(`/api/analyses/${encodeURIComponent(item.id)}`);
-      if (selectionId.current === item.id) setSelected(detail);
+      if (selectionId.current === item.id) setSelected(previous => newerAnalysis(previous, detail));
     } catch (e) { setError((e as Error).message); }
   }
   function acceptFile(value?: File) {
@@ -88,6 +86,26 @@ export default function App() {
     } catch (e) { setError((e as Error).message); }
   }
 
+  async function saveEvents(payload: { expected_revision: number; events: { name: string; frame_index: number }[] }) {
+    const id = selectionId.current;
+    if (!id) throw new Error('Select a recording before saving events.');
+    const result = await request<Analysis>(`/api/analyses/${encodeURIComponent(id)}/events`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    if (selectionId.current === id) setSelected(previous => newerAnalysis(previous, result));
+    setItems(previous => previous.map(item => item.id === id ? newerAnalysis(item, result) : item));
+    return result;
+  }
+  async function reloadEvents() {
+    const id = selectionId.current;
+    if (!id) throw new Error('Select a recording before reloading events.');
+    const result = await request<Analysis>(`/api/analyses/${encodeURIComponent(id)}`);
+    if (selectionId.current === id) setSelected(previous => newerAnalysis(previous, result));
+    return result;
+  }
+  function seekPreview(seconds: number) {
+    if (!videoPlayer.current || !Number.isFinite(seconds)) return;
+    videoPlayer.current.currentTime = seconds;
+  }
+
   return <div className="app-shell">
     <aside className="sidebar">
       <a className="brand" href="#"><span className="brand-mark" aria-hidden="true">S<span>↗</span></span>SwingSync</a>
@@ -106,12 +124,14 @@ export default function App() {
         {!connected && <div className="notice warning" role="status">The local service is unavailable. Start the SwingSync backend, then this page will reconnect automatically.</div>}
         {error && <div className="notice error" role="alert">{error}</div>}
         {selected ? <section className="review-layout">
-          <div className="card video-card"><div className="card-heading"><span className="step">01</span><h2>{label(selected)}</h2><span className="badge">{selected.status === 'completed' ? 'Inspected' : selected.status}</span></div>
-            {selected.status === 'completed' ? <video key={selected.id} src={`/api/analyses/${encodeURIComponent(selected.id)}/video`} controls preload="metadata" aria-label="Uploaded swing recording" onError={() => setError('This browser cannot play the uploaded format. The recording may still be valid; try an MP4 encoded with H.264 for playback.')} /> : <div className="processing" role="status"><div className="processing-ring" aria-hidden="true">{active(selected) ? '↻' : '!'}</div><h3>{active(selected) ? 'Inspecting your recording' : 'Recording could not be inspected'}</h3><p>{selected.error || 'Checking video frames and preserving their recorded timestamps.'}</p>{active(selected) && <progress max="100" value={selected.progress || 0} />}</div>}
+          <div className="review-media"><div className="card video-card"><div className="card-heading"><span className="step">01</span><h2>{label(selected)}</h2><span className="badge">{selected.status === 'completed' ? 'Inspected' : selected.status}</span></div>
+            {selected.status === 'completed' ? <video ref={videoPlayer} key={selected.id} src={`/api/analyses/${encodeURIComponent(selected.id)}/video`} controls preload="metadata" aria-label="Uploaded swing recording" onError={() => setError('This browser cannot play the uploaded format. The recording may still be valid; try an MP4 encoded with H.264 for playback.')} /> : <div className="processing" role="status"><div className="processing-ring" aria-hidden="true">{active(selected) ? '↻' : '!'}</div><h3>{active(selected) ? 'Inspecting your recording' : 'Recording could not be inspected'}</h3><p>{selected.error || 'Checking video frames and preserving their recorded timestamps.'}</p>{active(selected) && <progress max="100" value={selected.progress || 0} />}</div>}
             <div className="video-caption"><span>Original recording · {selected.metadata?.camera_view?.replaceAll('-', ' ') || view}</span><span>{selected.metadata?.handedness || handedness}-handed</span></div>
           </div>
+          {selected.status === 'completed' && <EventReview key={selected.id} analysis={selected} onSave={saveEvents} onSeek={seekPreview} onReload={reloadEvents} />}
+          </div>
           <aside className="review-details"><section className="card details-card"><p className="eyebrow">RECORDING DETAILS</p><h2>What we can verify</h2>{selected.video ? <dl><div><dt>Duration</dt><dd>{selected.video.duration_seconds.toFixed(2)} s</dd></div><div><dt>Decoded frames</dt><dd>{selected.video.frame_count.toLocaleString()}</dd></div><div><dt>Resolution</dt><dd>{selected.video.width} × {selected.video.height}</dd></div><div><dt>Club</dt><dd>{selected.metadata?.club || 'Not specified'}</dd></div><div><dt>Mirrored recording</dt><dd>{selected.metadata?.mirrored ? 'Yes' : 'No'}</dd></div></dl> : <p className="muted">Details appear after the video is inspected.</p>}</section>
-            <section className="capability"><span className="small-icon" aria-hidden="true">◷</span><h3>Swing analysis unavailable</h3><p>{selected.model?.reason || 'A validated swing-event model is not installed yet.'}</p><p>Event markers, pose measurements and coaching observations will appear only when their required models and checks are ready. No shot predictions are enabled.</p></section>
+            <section className="capability"><span className="small-icon" aria-hidden="true">◷</span><h3>Swing analysis unavailable</h3><p>{selected.model?.reason || 'A validated swing-event model is not installed yet.'}</p><p>You can mark events yourself using decoded frames. Automatic events, pose measurements and coaching still require validation. No shot predictions are enabled.</p></section>
             <div className="review-actions">{selected.status === 'completed' && <a className="button primary" href={`/api/analyses/${encodeURIComponent(selected.id)}/report`} target="_blank" rel="noreferrer">Open local report <span aria-hidden="true">↗</span></a>}<button className="button subtle danger" disabled={active(selected)} title={active(selected) ? 'Wait for video inspection to finish before deleting.' : undefined} onClick={() => void remove(selected)}>Delete recording</button></div>
           </aside>
         </section> : <div className="upload-layout">

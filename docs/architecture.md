@@ -1,14 +1,14 @@
-# Architecture — increment 1
+# Architecture
 
 React/TypeScript client -> same-origin `/api` (Vite development proxy) -> FastAPI -> SQLite and local video files. One lifespan-owned worker processes persisted queued jobs. Interrupted processing is marked interrupted at startup, never automatically repeated. Start exactly one Uvicorn worker. No remote inference, accounts, queues or external service.
 
-This increment inspects video, preserves presentation timestamps, and provides playback/history/deletion/HTML report. `completed` means inspection finished, not trained swing analysis. Models, event timelines, pose measurements and coaching are unavailable. No fabricated results are emitted.
+This increment inspects video, preserves presentation timestamps, and provides playback/history/deletion/HTML report. `completed` means inspection finished, not trained swing analysis. Automatic event models, pose measurements and coaching are unavailable; manual event review is now provided below. No fabricated results are emitted.
 
 ## Shared API
 
 GET/POST `/api/analyses`; multipart `file`, `camera_view` (face-on/down-the-line), `handedness` (right/left), `club`, `mirrored`. GET `/api/analyses/{id}`, `/video`, `/report`; DELETE `/api/analyses/{id}`. GET `/api/health`.
 
-Records contain id, status, progress, error, metadata, video, empty events/measurements/observations, and explicit model availability. Source PTS and playback-relative times must remain distinct. Browser video codec support is independent from decoder support; rejected playback must have a useful message.
+Records contain id, status, progress, error, metadata, video, explicit model availability, manual events/recording-time measurements when marked, and empty coaching observations. Source PTS and playback-relative times must remain distinct. Browser video codec support is independent from decoder support; rejected playback must have a useful message.
 
 ## Planned research boundaries
 
@@ -37,3 +37,9 @@ An independent NumPy module accepts explicitly supplied MediaPipe-anatomical lan
 ## Fixed held-out evaluation and latency (006)
 
 A prospective hash-bound contract admits completed selected heads from the original immutable training catalog. An independent test-only feature job preserves the same pipeline. Evaluation checks exact source-disjoint coverage and fresh decoded PTS, persists both heads/contexts per clip, and publishes overall/per-event results only after complete coverage. Explicit resume validates prior input/result hashes and arithmetic without repeating durable clip inference. A separate train-only CPU timing tool measures actual streaming extraction and selected heads, with initialization/warmup separated from measured stages. Neither tool changes the application's unavailable-model state. See heldout-evaluation.md for the fixed protocol.
+
+## Manual annotations and canonical evidence (007)
+
+User-selected decoded frame indices map to inspected relative/native PTS and produce only three descriptive tempo quantities. Each explicit save transactionally checks a revision and stores the full manual event snapshot, preventing stale overwrite/deletion resurrection. React retains dirty drafts across polling, explicitly reloads conflicts and prevents old responses undoing newer saves. Canonical frame PNGs and report images verify original upload SHA256 and full decoded PTS through a bounded subprocess, use coded orientation and two shared decoder slots, and never come from an unverified browser canvas. Reports retain current/superseded revisions, images and recording identity. No derived images persist server-side. See manual-event-review.md for API, storage, timestamp and reliability contracts.
+
+Pose runtime selection is separately audited in pose-runtime-audit.md. No dependency/model acquisition or actual pose adapter was added, and root uv.lock plus all active feature/training implementation fingerprints remain unchanged.

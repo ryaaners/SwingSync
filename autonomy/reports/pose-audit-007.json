@@ -1,0 +1,512 @@
+{
+  "schema_version": 1,
+  "audit_id": "pose-audit-007",
+  "audited_at_utc": "2026-11-07T08:43:09.417193+00:00",
+  "scope": "Read-only official documentation/source/PyPI metadata audit; no package installation, model acquisition, inference, training or Git operations. Only assigned audit artifacts written.",
+  "empirical_pose_validation": false,
+  "advice_validated": false,
+  "active_job_ledger_snapshot": {
+    "job_id": "833e9ffe5592457f9257a46474c72153",
+    "state": "running",
+    "completed_clip_count": 247,
+    "target_clip_count": 350,
+    "updated_at": "2026-11-07T08:42:58.948026+00:00",
+    "pid": 40807,
+    "process_start_identity": "Fri Nov  6 12:38:35 2026"
+  },
+  "process_inspection": "Sandbox ps was denied operation not permitted; coordinator owns OS process identity check. Ledger snapshot is not independent liveness proof.",
+  "repository_contract": {
+    "pose": "float64 actual decoded PTS seconds and [T,33,4] normalized image x/y, unused z, visibility; anatomical indices unchanged",
+    "root_python": ">=3.11,<3.12",
+    "root_numpy": "2.2.5",
+    "root_av": "16.0.1",
+    "root_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc"
+  },
+  "recommended_candidate": {
+    "status": "metadata-compatible, not installed or runtime-validated",
+    "isolation": "Separate non-workspace Python subproject and committed lock; separate .venv; do not alter root uv.lock or .tools/ml-runtime",
+    "python": "3.11",
+    "direct_pins": [
+      "mediapipe==1.2.2",
+      "numpy==2.2.5",
+      "opencv-contrib-python==4.12.0.88",
+      "av==16.0.1"
+    ],
+    "platforms": [
+      "macOS Apple Silicon >=14; MediaPipe wheel minimum11, OpenCV contrib minimum13, PyAV16.0.1 CP311 wheel minimum14",
+      "Linux x86_64/aarch64 glibc>=2.28"
+    ],
+    "full_transitive_lock": "Coordinator must resolve, commit, and verify separately; not produced by this audit",
+    "older_macos_gate": "No older-macOS compatible CP311 Mac ARM PyAV16.0.1 release wheel identified; require a separately pinned compatible PyAV release/wheel or explicitly tested source build and distinct lock/provenance contract."
+  },
+  "packages": [
+    {
+      "name": "mediapipe",
+      "version": "1.2.2",
+      "pypi_json_url": "https://pypi.org/pypi/mediapipe/1.2.2/json",
+      "pypi_json_sha256": "c030719af16d1b19921cf32d06201e7671966ee9c11ae88900a972deb4aa4a9d",
+      "requires_dist": [
+        "absl-py~=2.3",
+        "certifi",
+        "numpy",
+        "sounddevice~=0.5",
+        "flatbuffers~=25.9",
+        "opencv-contrib-python",
+        "matplotlib"
+      ],
+      "requires_python": null,
+      "files": [
+        {
+          "filename": "mediapipe-1.2.2-py3-none-macosx_11_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/a3/5c/ce8750cfe2de42ab2433b2d6445f4a16225a63412d991b2970204b047d73/mediapipe-1.2.2-py3-none-macosx_11_0_arm64.whl",
+          "size": 39597352,
+          "upload_time_iso_8601": "2026-11-03T17:51:55.173995Z",
+          "sha256": "d3bb50923652182344ad31cfd2a09697e52952bd4bca2384ecabc90e21db9a5f",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/a3/5c/ce8750cfe2de42ab2433b2d6445f4a16225a63412d991b2970204b047d73/mediapipe-1.2.2-py3-none-macosx_11_0_arm64.whl.metadata",
+            "sha256": "ef7f6ef0b374c46b2490cfea333db8f0729648c1dfd56c627b4bdc6d06dc0053",
+            "requires_dist": [
+              "absl-py~=2.3",
+              "certifi",
+              "numpy",
+              "sounddevice~=0.5",
+              "flatbuffers~=25.9",
+              "opencv-contrib-python",
+              "matplotlib"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE",
+              "NOTICE"
+            ]
+          }
+        },
+        {
+          "filename": "mediapipe-1.2.2-py3-none-manylinux_2_28_aarch64.whl",
+          "url": "https://files.pythonhosted.org/packages/50/0d/02afdfe0e2c4c1d9a80b7a2d65951cdb82438a22ea76bb0a65e0c3d8a36f/mediapipe-1.2.2-py3-none-manylinux_2_28_aarch64.whl",
+          "size": 40251116,
+          "upload_time_iso_8601": "2026-11-03T17:51:59.185634Z",
+          "sha256": "9837dc18ac903a34b4e46aa56eadbdb2648a8b66ab9d73202118e77e893edcb8",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/50/0d/02afdfe0e2c4c1d9a80b7a2d65951cdb82438a22ea76bb0a65e0c3d8a36f/mediapipe-1.2.2-py3-none-manylinux_2_28_aarch64.whl.metadata",
+            "sha256": "ef7f6ef0b374c46b2490cfea333db8f0729648c1dfd56c627b4bdc6d06dc0053",
+            "requires_dist": [
+              "absl-py~=2.3",
+              "certifi",
+              "numpy",
+              "sounddevice~=0.5",
+              "flatbuffers~=25.9",
+              "opencv-contrib-python",
+              "matplotlib"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE",
+              "NOTICE"
+            ]
+          }
+        },
+        {
+          "filename": "mediapipe-1.2.2-py3-none-manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/86/67/717b257855c5550a3449907e110954506a306bf3e127717f7ab45450f0da/mediapipe-1.2.2-py3-none-manylinux_2_28_x86_64.whl",
+          "size": 42910755,
+          "upload_time_iso_8601": "2026-11-03T17:52:02.721994Z",
+          "sha256": "c0b641bf1515dd186036da711df597a514466c0ba97a138f35b698ecc0411a61",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/86/67/717b257855c5550a3449907e110954506a306bf3e127717f7ab45450f0da/mediapipe-1.2.2-py3-none-manylinux_2_28_x86_64.whl.metadata",
+            "sha256": "ef7f6ef0b374c46b2490cfea333db8f0729648c1dfd56c627b4bdc6d06dc0053",
+            "requires_dist": [
+              "absl-py~=2.3",
+              "certifi",
+              "numpy",
+              "sounddevice~=0.5",
+              "flatbuffers~=25.9",
+              "opencv-contrib-python",
+              "matplotlib"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE",
+              "NOTICE"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "mediapipe",
+      "version": "0.10.32",
+      "pypi_json_url": "https://pypi.org/pypi/mediapipe/0.10.32/json",
+      "pypi_json_sha256": "68a9de15e8721c3ef6838c33e6387dca4666159b1414b72b14ec052544a2b3d0",
+      "requires_dist": [
+        "absl-py~=2.3",
+        "numpy",
+        "sounddevice~=0.5",
+        "flatbuffers~=25.9",
+        "opencv-contrib-python",
+        "matplotlib"
+      ],
+      "requires_python": null,
+      "files": [
+        {
+          "filename": "mediapipe-0.10.32-py3-none-macosx_11_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/24/d9/ca1be234911c76ccd87a9e0d8210394153cb6ad9b5da65a231aff8769d6f/mediapipe-0.10.32-py3-none-macosx_11_0_arm64.whl",
+          "size": 19386286,
+          "upload_time_iso_8601": "2026-01-22T16:15:01.042413Z",
+          "sha256": "b62178b7585e0bb8789075c43bbb3e352fbc4a8f765797fded509f86a098b29b",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/24/d9/ca1be234911c76ccd87a9e0d8210394153cb6ad9b5da65a231aff8769d6f/mediapipe-0.10.32-py3-none-macosx_11_0_arm64.whl.metadata",
+            "sha256": "b0835e38c742ffe7181f1295a6126cb65e3f6de84315fb3d9d59f3f5f3a22fce",
+            "requires_dist": [
+              "absl-py~=2.3",
+              "numpy",
+              "sounddevice~=0.5",
+              "flatbuffers~=25.9",
+              "opencv-contrib-python",
+              "matplotlib"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE"
+            ]
+          }
+        },
+        {
+          "filename": "mediapipe-0.10.32-py3-none-manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/e3/98/00cd8b2dcb563f2298655633e6611a791b2c1a7df1dae064b2b96084f1bf/mediapipe-0.10.32-py3-none-manylinux_2_28_x86_64.whl",
+          "size": 10331072,
+          "upload_time_iso_8601": "2026-01-22T16:15:04.747798Z",
+          "sha256": "4b0941fbbbce41862f13cb1850c4878c13dbc62cd5e81e74880051b7a20ce3b6",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/e3/98/00cd8b2dcb563f2298655633e6611a791b2c1a7df1dae064b2b96084f1bf/mediapipe-0.10.32-py3-none-manylinux_2_28_x86_64.whl.metadata",
+            "sha256": "b0835e38c742ffe7181f1295a6126cb65e3f6de84315fb3d9d59f3f5f3a22fce",
+            "requires_dist": [
+              "absl-py~=2.3",
+              "numpy",
+              "sounddevice~=0.5",
+              "flatbuffers~=25.9",
+              "opencv-contrib-python",
+              "matplotlib"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "mediapipe",
+      "version": "0.10.21",
+      "pypi_json_url": "https://pypi.org/pypi/mediapipe/0.10.21/json",
+      "pypi_json_sha256": "83c036ed747e8c6770933565b6aa70efc0cf49a2a5dcf679e681ad6f015261b9",
+      "requires_dist": [
+        "absl-py",
+        "attrs>=19.1.0",
+        "flatbuffers>=2.0",
+        "jax",
+        "jaxlib",
+        "matplotlib",
+        "numpy<2",
+        "opencv-contrib-python",
+        "protobuf<5,>=4.25.3",
+        "sounddevice>=0.4.4",
+        "sentencepiece"
+      ],
+      "requires_python": null,
+      "files": [
+        {
+          "filename": "mediapipe-0.10.21-cp311-cp311-macosx_11_0_universal2.whl",
+          "url": "https://files.pythonhosted.org/packages/6e/37/bd9a3cc4d9b8af54fe40a4858ddd7397e163e079dd67eccec7a948f598a9/mediapipe-0.10.21-cp311-cp311-macosx_11_0_universal2.whl",
+          "size": 49160845,
+          "upload_time_iso_8601": "2025-02-06T19:06:32.207417Z",
+          "sha256": "b4946abad54d62812ce4c543187373a4872985fd66cd43fe7437f4b95d53d9ec",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/6e/37/bd9a3cc4d9b8af54fe40a4858ddd7397e163e079dd67eccec7a948f598a9/mediapipe-0.10.21-cp311-cp311-macosx_11_0_universal2.whl.metadata",
+            "sha256": "fc7f6b92ccdf6638d716360a38ab398a25a3194d8a1d2871a39e9df00ac72de1",
+            "requires_dist": [
+              "absl-py",
+              "attrs>=19.1.0",
+              "flatbuffers>=2.0",
+              "jax",
+              "jaxlib",
+              "matplotlib",
+              "numpy<2",
+              "opencv-contrib-python",
+              "protobuf<5,>=4.25.3",
+              "sounddevice>=0.4.4",
+              "sentencepiece"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE"
+            ]
+          }
+        },
+        {
+          "filename": "mediapipe-0.10.21-cp311-cp311-manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/ad/83/56f760fecdc60de84c529d6c05c9dfc7d972617c6632bd254d5e021e5b16/mediapipe-0.10.21-cp311-cp311-manylinux_2_28_x86_64.whl",
+          "size": 35622638,
+          "upload_time_iso_8601": "2025-02-06T19:06:45.952545Z",
+          "sha256": "05dc4a9e593655a79558d05d6227d31018c2537a4bd3362b51e230cf22aecfe3",
+          "wheel_metadata": {
+            "url": "https://files.pythonhosted.org/packages/ad/83/56f760fecdc60de84c529d6c05c9dfc7d972617c6632bd254d5e021e5b16/mediapipe-0.10.21-cp311-cp311-manylinux_2_28_x86_64.whl.metadata",
+            "sha256": "b72de4a6e099e64941a22f0a89e935c101880950f4cdb729d61b289ba6a767d1",
+            "requires_dist": [
+              "absl-py",
+              "attrs>=19.1.0",
+              "flatbuffers>=2.0",
+              "jax",
+              "jaxlib",
+              "matplotlib",
+              "numpy<2",
+              "opencv-contrib-python",
+              "protobuf<5,>=4.25.3",
+              "sounddevice>=0.4.4",
+              "sentencepiece"
+            ],
+            "requires_python": null,
+            "license": "Apache 2.0",
+            "license_files": [
+              "LICENSE"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "opencv-contrib-python",
+      "version": "4.12.0.88",
+      "pypi_json_url": "https://pypi.org/pypi/opencv-contrib-python/4.12.0.88/json",
+      "pypi_json_sha256": "4a7375ebac6abe52b3bd21b54c00c099e42493b6e258a04665dcc754425942c8",
+      "requires_dist": [
+        "numpy<2.0; python_version < \"3.9\"",
+        "numpy<2.3.0,>=2; python_version >= \"3.9\""
+      ],
+      "requires_python": ">=3.6",
+      "files": [
+        {
+          "filename": "opencv_contrib_python-4.12.0.88-cp37-abi3-macosx_13_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/26/c7/7cc80acd8a1ef9438542364b41751ecea2e95cf16b8ac4e48ebca643b203/opencv_contrib_python-4.12.0.88-cp37-abi3-macosx_13_0_arm64.whl",
+          "size": 46854784,
+          "upload_time_iso_8601": "2025-07-07T09:16:09.739165Z",
+          "sha256": "decc3a2627e03e61ec398919a8647b7f78315bf285e64bcd7dd4501b653f22bc"
+        },
+        {
+          "filename": "opencv_contrib_python-4.12.0.88-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+          "url": "https://files.pythonhosted.org/packages/aa/30/0829882b280f40544a83c69312da4d935ff3d6086c10351c7b1659107b5c/opencv_contrib_python-4.12.0.88-cp37-abi3-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+          "size": 51290366,
+          "upload_time_iso_8601": "2025-07-07T09:16:33.078107Z",
+          "sha256": "7b3b834d5a2b84f26e5b62ff9ae07a287ab668d2343773372c3b97a335cd7c4f"
+        },
+        {
+          "filename": "opencv_contrib_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/6a/67/905c2c9364dcd450a0997a489fd3976a10a83cd1ebcbd3d039bb2525b54c/opencv_contrib_python-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+          "size": 73160002,
+          "upload_time_iso_8601": "2025-07-07T09:16:45.815900Z",
+          "sha256": "ac2627dcdf5bd625706949ada7994524320b656a991315ff6ae70043fc983689"
+        }
+      ]
+    },
+    {
+      "name": "opencv-contrib-python",
+      "version": "4.11.0.86",
+      "pypi_json_url": "https://pypi.org/pypi/opencv-contrib-python/4.11.0.86/json",
+      "pypi_json_sha256": "86682d7a499f81cc12091718ee4e5b23fdb9629ef8db5af9c3b9d1a6fadafc2e",
+      "requires_dist": [
+        "numpy>=1.13.3; python_version < \"3.7\"",
+        "numpy>=1.21.0; python_version <= \"3.9\" and platform_system == \"Darwin\" and platform_machine == \"arm64\"",
+        "numpy>=1.21.2; python_version >= \"3.10\"",
+        "numpy>=1.21.4; python_version >= \"3.10\" and platform_system == \"Darwin\"",
+        "numpy>=1.23.5; python_version >= \"3.11\"",
+        "numpy>=1.26.0; python_version >= \"3.12\"",
+        "numpy>=1.19.3; python_version >= \"3.6\" and platform_system == \"Linux\" and platform_machine == \"aarch64\"",
+        "numpy>=1.17.0; python_version >= \"3.7\"",
+        "numpy>=1.17.3; python_version >= \"3.8\"",
+        "numpy>=1.19.3; python_version >= \"3.9\""
+      ],
+      "requires_python": ">=3.6",
+      "files": [
+        {
+          "filename": "opencv_contrib_python-4.11.0.86-cp37-abi3-macosx_13_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/f3/78/b504ca8f7a312918d184e0b8093c62bc9a110d8154f658b591ef5c020d65/opencv_contrib_python-4.11.0.86-cp37-abi3-macosx_13_0_arm64.whl",
+          "size": 46276766,
+          "upload_time_iso_8601": "2025-01-16T13:52:46.131671Z",
+          "sha256": "d911cedc511d98f79994580b245d59fc97f57f0f9923a99945d8b92c7ac671f6"
+        },
+        {
+          "filename": "opencv_contrib_python-4.11.0.86-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "url": "https://files.pythonhosted.org/packages/ae/7b/7e1471aa92f9f3c1bd8dbe624622b62add6f734db34fbbb9974e2ec70c34/opencv_contrib_python-4.11.0.86-cp37-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "size": 47870560,
+          "upload_time_iso_8601": "2025-01-16T13:51:48.592148Z",
+          "sha256": "f21034bc8b00eb286a0a0a92b99767bf596bfe426cf4bc2e79647d64ad0dd6da"
+        },
+        {
+          "filename": "opencv_contrib_python-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/f7/13/756b13b8d5d417a0b4c3bf6ceafb59df0ed05cec7fedc2490bbbf5e60ebc/opencv_contrib_python-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "size": 69098423,
+          "upload_time_iso_8601": "2025-01-16T13:52:46.840938Z",
+          "sha256": "c47c0ef1098461cdc6fa1cdce4c942b8ec974c87423f4b5951443d26bb9ae407"
+        }
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.5",
+      "pypi_json_url": "https://pypi.org/pypi/numpy/2.2.5/json",
+      "pypi_json_sha256": "c36b20eb2c4bcb186193d34051ff434fc143143df1a5afaa1f3511f0d3d5c2fb",
+      "requires_dist": null,
+      "requires_python": ">=3.10",
+      "files": [
+        {
+          "filename": "numpy-2.2.5-cp311-cp311-macosx_11_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/81/32/dd1f7084f5c10b2caad778258fdaeedd7fbd8afcd2510672811e6138dfac/numpy-2.2.5-cp311-cp311-macosx_11_0_arm64.whl",
+          "size": 14461474,
+          "upload_time_iso_8601": "2025-04-19T22:34:46.578484Z",
+          "sha256": "498815b96f67dc347e03b719ef49c772589fb74b8ee9ea2c37feae915ad6ebda"
+        },
+        {
+          "filename": "numpy-2.2.5-cp311-cp311-macosx_14_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/0e/65/937cdf238ef6ac54ff749c0f66d9ee2b03646034c205cea9b6c51f2f3ad1/numpy-2.2.5-cp311-cp311-macosx_14_0_arm64.whl",
+          "size": 5426875,
+          "upload_time_iso_8601": "2025-04-19T22:34:56.281855Z",
+          "sha256": "6411f744f7f20081b1b4e7112e0f4c9c5b08f94b9f086e6f0adf3645f85d3a4d"
+        },
+        {
+          "filename": "numpy-2.2.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "url": "https://files.pythonhosted.org/packages/e5/32/a66db7a5c8b5301ec329ab36d0ecca23f5e18907f43dbd593c8ec326d57c/numpy-2.2.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "size": 14374850,
+          "upload_time_iso_8601": "2025-04-19T22:35:31.347897Z",
+          "sha256": "369e0d4647c17c9363244f3468f2227d557a74b6781cb62ce57cf3ef5cc7c610"
+        },
+        {
+          "filename": "numpy-2.2.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/ad/c9/1bf6ada582eebcbe8978f5feb26584cd2b39f94ededeea034ca8f84af8c8/numpy-2.2.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "size": 16430306,
+          "upload_time_iso_8601": "2025-04-19T22:35:57.573792Z",
+          "sha256": "262d23f383170f99cd9191a7c85b9a50970fe9069b2f8ab5d786eca8a675d60b"
+        }
+      ]
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4",
+      "pypi_json_url": "https://pypi.org/pypi/numpy/1.26.4/json",
+      "pypi_json_sha256": "6c21b66b5bee58d30d9a317e2a7be61c873d5c62ce0bbca553e2fb31228ad3bf",
+      "requires_dist": null,
+      "requires_python": ">=3.9",
+      "files": [
+        {
+          "filename": "numpy-1.26.4-cp311-cp311-macosx_11_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/1a/2e/151484f49fd03944c4a3ad9c418ed193cfd02724e138ac8a9505d056c582/numpy-1.26.4-cp311-cp311-macosx_11_0_arm64.whl",
+          "size": 13997127,
+          "upload_time_iso_8601": "2024-02-05T23:52:15.314050Z",
+          "sha256": "edd8b5fe47dab091176d21bb6de568acdd906d1887a4584a15a9a96a1dca06ef"
+        },
+        {
+          "filename": "numpy-1.26.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "url": "https://files.pythonhosted.org/packages/79/ae/7e5b85136806f9dadf4878bf73cf223fe5c2636818ba3ab1c585d0403164/numpy-1.26.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+          "size": 14222994,
+          "upload_time_iso_8601": "2024-02-05T23:52:47.569134Z",
+          "sha256": "7ab55401287bfec946ced39700c053796e7cc0e3acbef09993a9ad2adba6ca6e"
+        },
+        {
+          "filename": "numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/3a/d0/edc009c27b406c4f9cbc79274d6e46d634d139075492ad055e3d68445925/numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+          "size": 18252005,
+          "upload_time_iso_8601": "2024-02-05T23:53:15.637779Z",
+          "sha256": "666dbfb6ec68962c033a450943ded891bed2d54e6755e35e5835d63f4f6931d5"
+        }
+      ]
+    },
+    {
+      "name": "av",
+      "version": "16.0.1",
+      "pypi_json_url": "https://pypi.org/pypi/av/16.0.1/json",
+      "pypi_json_sha256": "0b91c303c3b69c272a9c6a1cb5fcacd34c2389aabc54b033e92f7a60aa85d57d",
+      "requires_dist": null,
+      "requires_python": ">=3.10",
+      "files": [
+        {
+          "filename": "av-16.0.1-cp311-cp311-macosx_14_0_arm64.whl",
+          "url": "https://files.pythonhosted.org/packages/e0/39/dff28bd252131b3befd09d8587992fe18c09d5125eaefc83a6434d5f56ff/av-16.0.1-cp311-cp311-macosx_14_0_arm64.whl",
+          "size": 21760305,
+          "upload_time_iso_8601": "2025-10-13T12:25:14.882315Z",
+          "sha256": "2f4b357e5615457a84e6b6290916b22864b76b43d5079e1a73bc27581a5b9bac"
+        },
+        {
+          "filename": "av-16.0.1-cp311-cp311-manylinux_2_28_aarch64.whl",
+          "url": "https://files.pythonhosted.org/packages/4a/4d/2312d50a09c84a9b4269f7fea5de84f05dd2b7c7113dd961d31fad6c64c4/av-16.0.1-cp311-cp311-manylinux_2_28_aarch64.whl",
+          "size": 38691616,
+          "upload_time_iso_8601": "2025-10-13T12:25:20.063551Z",
+          "sha256": "286665c77034c3a98080169b8b5586d5568a15da81fbcdaf8099252f2d232d7c"
+        },
+        {
+          "filename": "av-16.0.1-cp311-cp311-manylinux_2_28_x86_64.whl",
+          "url": "https://files.pythonhosted.org/packages/15/9a/3d2d30b56252f998e53fced13720e2ce809c4db477110f944034e0fa4c9f/av-16.0.1-cp311-cp311-manylinux_2_28_x86_64.whl",
+          "size": 40216464,
+          "upload_time_iso_8601": "2025-10-13T12:25:24.848507Z",
+          "sha256": "f88de8e5b8ea29e41af4d8d61df108323d050ccfbc90f15b13ec1f99ce0e841e"
+        }
+      ]
+    }
+  ],
+  "upstream_source": {
+    "tag": "v1.2.2",
+    "commit": "2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f",
+    "url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/python/vision/pose_landmarker.py",
+    "sha256": "bb49f0c12742e982130765720471d7963692f53e0b02c8df44419fb765d1eb79"
+  },
+  "model_provenance": {
+    "candidate": "Pose Landmarker full float16 version1",
+    "url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task",
+    "head_response": "HTTP/2 200 \r\nx-guploader-uploadid: AFy3sg1eCEA48fENgD82PUPvGkIWV7IEiuVA8PKCjus5Hw6Tt96YdNxUe88b9nYkUHKTxoJ0IJcxWqw\r\nx-goog-generation: 1682642785209422\r\nx-goog-metageneration: 1\r\nx-goog-stored-content-encoding: identity\r\nx-goog-stored-content-length: 9398198\r\nx-goog-hash: crc32c=3AUZ9Q==\r\nx-goog-hash: md5=g4eWidNz0UO+CUyXI1Xkjg==\r\nx-goog-storage-class: STANDARD\r\naccept-ranges: bytes\r\ncontent-length: 9398198\r\naccess-control-allow-origin: *\r\naccess-control-expose-headers: Access-Control-Allow-Origin, Content-Length, Content-Type, Date, Server, Transfer-Encoding, X-GUploader-UploadID, X-Google-Trace\r\nserver: UploadServer\r\ndate: Sat, 07 Nov 2026 08:43:09 GMT\r\nexpires: Sat, 07 Nov 2026 09:43:09 GMT\r\ncache-control: public, max-age=3600\r\nlast-modified: Fri, 28 Apr 2023 00:46:25 GMT\r\netag: \"83879689d373d143be094c972355e48e\"\r\ncontent-type: application/octet-stream\r\nage: 0\r\nalt-svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\n\r\n",
+    "downloaded": false,
+    "sha256": null,
+    "bundle_members": null,
+    "code_license": "Apache2.0; wheel LICENSE and NOTICE listed separately",
+    "model_card": {
+      "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+      "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+      "license_statement": "Apache License Version2.0, page2",
+      "scope": "Historical BlazePose GHUM card linked from current Tasks model table; does not prove every uninspected bundle member license or bit-identical weights"
+    }
+  },
+  "references": [
+    "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker?tab=Python",
+    "https://ai.google.dev/edge/api/mediapipe/python/mp/tasks/vision/PoseLandmarker",
+    "https://developers.google.com/edge/mediapipe/solutions/setup_python",
+    "https://arxiv.org/abs/2006.10204",
+    "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/LICENSE"
+  ],
+  "gates": [
+    "Independent review of audit and adapter policy",
+    "Isolated hash-locked install/import/close smoke on each claimed platform",
+    "Explicit local model acquisition, SHA256, bundle inventory and separate member/notice review before inference",
+    "One-expensive-job rule before actual inference/timing; shared job lock",
+    "Actual float64 PTS retained, recorded integer-ms clock mapping, reject non-increasing quantized clock without silent jitter",
+    "Explicit orientation/mirror/handedness and fail-closed missing/multiple/unknown identity",
+    "Permitted real-video measurement/event reliability and coaching validation remain closed"
+  ],
+  "verification": {
+    "checked_at_utc": "2026-11-07T08:50:22.334823+00:00",
+    "checks": [
+      "JSON parses; 8 package releases and 23 wheel records",
+      "Wheel-METADATA sidecar requirements match release JSON for every recorded MediaPipe wheel",
+      "Recorded root uv.lock SHA256 still matches current bytes",
+      "No model acquisition/hash and no empirical pose/advice validation asserted",
+      "Documented relative PTS [0,0.0004,0.0011] rounds to colliding integer clocks [0,0,1]",
+      "Independent review platform finding corrected: all PyAV16.0.1 CP311 Mac ARM release tags independently refetched; sole wheel minimum macOS14 determines full binary stack minimum"
+    ],
+    "audit_doc_sha256": "c95588b42c5deba6bc0047a4953f51288d8b1da1cdfded412f0a3731b1f74837",
+    "integration_checks": "Not run by audit owner: documentation/metadata only, no install allowed; coordinator owns project checks",
+    "independent_review": "Reviewer007 independently verified the macOS>=14 correction and doc/root-lock digests; refetched all seven recorded MediaPipe wheel METADATA sidecars and pinned pose source, matching SHA256/Requires-Dist/integer video API. No unresolved material audit finding reported. Review covers metadata/source/policy only; install/model acquisition/inference/reliability gates remain closed."
+  }
+}
