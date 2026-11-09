@@ -312,9 +312,10 @@
       "id": "004e",
       "title": "Pose coordinate, identity and measurement admission on permitted media",
       "dependencies": [
-        "004d"
+        "004d",
+        "004e1"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Prospectively define scoped manual reference annotations and agreement measures before evaluating pose coordinates or tuning filters",
         "Resolve/document projected-coordinate and non-square-raster NORM_RECT warning with authoritative source and independent geometry/image checks",
@@ -323,7 +324,48 @@
       ],
       "validation_evidence": [
         "004d demonstrates local execution/framecorrespondence only;no landmark groundtruth/identity accuracy or empirical measurement reliability",
-        "The actual native projection warning and single-pose identity limitations are recorded in pose-smoke-009.json;advice and productpose remain disabled"
+        "The actual native projection warning and single-pose identity limitations are recorded in pose-smoke-009.json;advice and productpose remain disabled",
+        "010 completed004e1:authenticatedall138PTS/fiveexactRGBreviewpages+clean165slotannotation/export+conditionalagreementCLI;102newtests;nohumanlabels/accuracyresult",
+        "Pinnedsource+syntheticgeometryexplainprojectionwarningbranch/squarephysicalROI;notcompilednativeROIorlandmarkaccuracyvalidation",
+        "004e2 remainsblockedonindependentmanualreferences/repeateddisagreementandbroaderpermittedsources;templatedraftsarenotlabels;advice/productintegrationremainfalse"
+      ]
+    },
+    {
+      "id": "004e1",
+      "title": "Authenticated pose evidence, reference annotation and agreement workbench",
+      "dependencies": [
+        "004d"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Known-SHA completed pose ledger/result and fresh source PTS/raster authenticated before rendering",
+        "Self-contained paired diagnostic overlays and separate clean model-data-free annotation/export page",
+        "Strict explicit units/anatomical/visibility/reference identity and conditional agreement/coverage/abstention; no fabricated reference labels",
+        "Pinned projection-source audit, software/raster/browser checks, source/protocol drift prevention and independent review"
+      ],
+      "validation_evidence": [
+        "ActualTRAINclip0:all138PTS independentlychecked;all5canonicalPNGs exactRGB;165unreviewed/nullslots;falseattestations;noaccuracylabelscreated",
+        "Browserclick80.23/79.92px,frame37/backpersistence,clear/exportdraft validated;unreviewedscoringrefusedwithoutoutput",
+        "ManifestSHA47d5141ec64c6ea29bebf64a2524422fcf243ac374abd54aef0c90069f9215f0;all9derivationinputsbound;pose-review-010.json",
+        "448ML/351base11skip,102newtests,Ruff/frontend4/buildpass;review010threeP2findingsresolved;oldlocks/extractionunchanged"
+      ]
+    },
+    {
+      "id": "004e2",
+      "title": "Independent empirical pose coordinate/identity/measurement references",
+      "dependencies": [
+        "004e1"
+      ],
+      "status": "blocked",
+      "acceptance_criteria": [
+        "Prospective broader permitted source/view/identity study defined before scoring/tuning",
+        "Truthfully model-blinded independent manual landmarks and repeat-annotation disagreement available; document ambiguity/missingness",
+        "Report empirical coordinate/identity/view-specific measurement agreement with coverage and explicit limits before any reliability/advice admission"
+      ],
+      "validation_evidence": [
+        "Exact unblock:independent reviewed reference annotations and broader permitted recordings with known camera/hand/mirror/identity conventions;currentpilot165emptytemplatesisnotlabeleddata",
+        "010 tools collect and validate references but createzeroempiricalcoordinates;sourcegeometry/projectionformula tests donotestablishnativeaccuracy",
+        "Continue006groupedtabularresearchindependently;do notgeneratefakehumanlabelsorclaimcoachingreliability"
       ]
     },
     {
@@ -344,7 +386,8 @@
         "MediaPipe adapter,real-media empirical validation,app correction interface and coaching reliability remain pending;advice empty",
         "004b complete:manualeventcorrectionUI/API/canonicalframes/report/tempo,softwareonly223tests+browserQA",
         "004c complete:posepackage/source/license/timecontract audit only;separate resolvedlock+asset acquisition+actualadapter stillpending",
-        "004dcomplete:realisolatedofflineCPUobservations+60softwaretests;138frameTRAINsmokenotaccuracy;empiricalcoordinate/identity/measurementvalidation004eremainsbeforeappspatialintegration"
+        "004dcomplete:realisolatedofflineCPUobservations+60softwaretests;138frameTRAINsmokenotaccuracy;empiricalcoordinate/identity/measurementvalidation004eremainsbeforeappspatialintegration",
+        "004e1 complete:offlinepose review/cleanreferencecollection andsource-projectionaudit;empirical004e2/productposeintegrationpending"
       ]
     },
     {
@@ -376,7 +419,9 @@
         "Feature equivalence gate remains closed unless evidence passes"
       ],
       "status": "pending",
-      "validation_evidence": []
+      "validation_evidence": [
+        "Next independent unblocked implementation after010;pose empirical reference gate recorded separately, no reason to delay grouped tabular research"
+      ]
     },
     {
       "id": "007",

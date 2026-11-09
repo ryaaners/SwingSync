@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "study_id": "pose-validation-v1",
+  "purpose": "software_pilot_not_accuracy",
+  "status": "registered_without_reference_annotations",
+  "coordinate_system": "image-edge-pixels-v1",
+  "artifact": {
+    "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+    "run_sha256": "772ab832647ccede39291b95b0179e54f5cf84e67c4af86980e1c1bf5691fb65",
+    "result_sha256": "e972b761bc519b7544f85fc1a19224d6e9c8d39d3c2caa6d246de1ec9c432ba1",
+    "source_recording_id": "f1BWA5F87Jc",
+    "dataset": "GolfDB authors preprocessed clip 0, TRAIN in registered outer fold 1",
+    "frame_indices": [0, 37, 68, 87, 137],
+    "width": 160,
+    "height": 160,
+    "context": {"camera_view": "down-the-line", "handedness": "right", "mirrored": false}
+  },
+  "landmark_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32],
+  "visibility_floor": 0.5,
+  "selection": "Fixed five frame indices before new diagnostic rendering; no event labels or accuracy-based selection implied",
+  "reference_plan": {
+    "states": ["visible", "occluded", "out_of_frame", "unreviewed"],
+    "visible_coordinates": "Continuous image-edge pixels: x in [0,width], y in [0,height]; pixel centers at 0.5 through width-0.5/height-0.5",
+    "nonvisible_coordinates": "Both coordinates null; do not invent occluded joint locations",
+    "blinding": "Clean reference page contains no model coordinates; scorer requires manual model-blinded and independent attestations plus annotator identifier",
+    "coverage": "All 33 anatomical indices at every registered frame, including explicit unreviewed entries; report every reference state and model abstention",
+    "uncertainty": "A single operator reference is not ground truth; future accuracy study needs independent repeat annotations, disagreement analysis and broader source/view coverage"
+  },
+  "metrics": {
+    "pixels": "Per-joint radial Euclidean pixel error, mean/median/RMSE/max among eligible visible reference points, with scored and abstention counts",
+    "normalized": "Same radial error divided by independently annotated shoulder-midpoint to hip-midpoint length in the SAME frame; missing/degenerate reference scale remains unavailable",
+    "engineering_filter": "Use saved presence-filtered landmarks and visibility >=0.5; do not tune this floor from the pilot",
+    "identity": "Any multiple-pose observation anywhere in the sequence abstains on all eligible reference points",
+    "independence": "One source recording; never report selected frames as independent golfers or population evidence"
+  },
+  "gate": {
+    "empirical_accuracy_study_completed": false,
+    "model_selection_permitted": false,
+    "app_integration_permitted": false,
+    "coaching_permitted": false,
+    "outcome_integration_permitted": false
+  },
+  "limitations": [
+    "The existing pose output was already observed in execution009, so this pilot is not a blinded model-evaluation registration",
+    "No manual reference coordinates have been created or accuracy results measured at registration",
+    "Operator handedness/mirror/identity assumptions and reencoded timestamps do not establish anatomical correctness or original recording time",
+    "Projected coordinate arithmetic and visual overlays do not validate physical joint angles, calibrated 3D or coaching",
+    "A future empirical study requires a separate prospective media/reference agreement protocol before model/threshold selection"
+  ]
+}

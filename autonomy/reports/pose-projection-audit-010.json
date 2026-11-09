@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "execution": "010",
+  "audit_date": "2026-11-09",
+  "scope": "Pinned public-source and synthetic image-plane geometry audit; no native inference or empirical landmark accuracy evaluation",
+  "source_revision": "2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f",
+  "primary_sources": [
+    {
+      "url": "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/calculators/util/landmark_projection_calculator.cc",
+      "raw_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/calculators/util/landmark_projection_calculator.cc",
+      "local_ignored_path": "artifacts/pose-projection-010/landmark_projection_calculator.cc",
+      "size_bytes": 6944,
+      "sha256": "c78a11917b540d1d5a44b5dbf4c5d04feba6a49cacfb4dc4692d049912767575"
+    },
+    {
+      "url": "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/calculators/util/landmark_projection_calculator_test.cc",
+      "raw_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/calculators/util/landmark_projection_calculator_test.cc",
+      "local_ignored_path": "artifacts/pose-projection-010/landmark_projection_calculator_test.cc",
+      "size_bytes": 19325,
+      "sha256": "45598c1200f74a42a012369616f34589e0f0d3202bedf06fb5c6a709216873c1"
+    },
+    {
+      "url": "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/cc/vision/pose_landmarker/pose_landmarks_detector_graph.cc",
+      "raw_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/cc/vision/pose_landmarker/pose_landmarks_detector_graph.cc",
+      "local_ignored_path": "artifacts/pose-projection-010/pose_landmarks_detector_graph.cc",
+      "size_bytes": 38013,
+      "sha256": "07fd0254a4df2e6af77df6832862a8196fe4a66877f953b68236565ca4e4271b"
+    },
+    {
+      "url": "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/cc/vision/pose_detector/pose_detector_graph.cc",
+      "raw_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/cc/vision/pose_detector/pose_detector_graph.cc",
+      "local_ignored_path": "artifacts/pose-projection-010/pose_detector_graph.cc",
+      "size_bytes": 14785,
+      "sha256": "af2a9d5ba0ff37fbd97048ac3da853c22b3cb765838d5d18d01a0dccbcf75b60"
+    },
+    {
+      "url": "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/cc/vision/pose_landmarker/pose_landmarker_graph.cc",
+      "raw_url": "https://raw.githubusercontent.com/google-ai-edge/mediapipe/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/mediapipe/tasks/cc/vision/pose_landmarker/pose_landmarker_graph.cc",
+      "local_ignored_path": "artifacts/pose-projection-010/pose_landmarker_graph.cc",
+      "size_bytes": 17972,
+      "sha256": "af41bd86c155c3d691613e1d350ccac79366bb9c37abdb90ddea3a41a7f33c98"
+    }
+  ],
+  "documentation": {
+    "url": "https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker?tab=Python",
+    "accessed": "2026-11-09",
+    "coordinate_definition": "Normalized image x/y scale by original image width/height; world-coordinate outputs do not establish calibrated motion capture"
+  },
+  "warning": {
+    "observed_in": "execution009 CPU smoke",
+    "condition_in_pinned_source": "norm_rect connected and image_dimensions not connected; log once before examining ROI dimensions",
+    "not_a_test_of": "Input raster squareness, actual ROI squareness, model prediction accuracy or measured projection error",
+    "calculator_lines": [
+      72,
+      103
+    ],
+    "legacy_xy_formula": "x=(cos(theta)*(u-.5)-sin(theta)*(v-.5))*rect_width+cx; y=(sin(theta)*(u-.5)+cos(theta)*(v-.5))*rect_height+cy",
+    "dimension_aware_branch": "Converts normalized ROI geometry to pixel units and builds rotated-rectangle transform; alternate projection matrix branch also exists"
+  },
+  "pose_graph": {
+    "landmark_projection_lines": [
+      480,
+      515
+    ],
+    "projection_input": "landmarks after letterbox removal + pose_rect; no image_dimensions connection on these two projection nodes",
+    "initial_roi": "pose_detector_graph.cc lines143-147 and318-325 set square_long=true, equal1.25scales and provide image_size",
+    "tracked_roi": "pose_landmarks_detector_graph.cc lines207-211 and572-578 likewise set square_long=true, equal1.25scales and provide image_size",
+    "inference_limit": "Public graph configuration and formulas explain a valid square-ROI path; not a claim that installed native binary exposes/verifies every internal runtime ROI"
+  },
+  "synthetic_geometry": {
+    "square_physical_roi_condition": "rect_width*image_width == rect_height*image_height",
+    "equivalence": "Under this condition, legacy normalized rotation equals independent rotation in pixel ROI followed by axis normalization, including rectangular input rasters",
+    "tested_image_sizes": [
+      [
+        640,
+        320
+      ],
+      [
+        160,
+        160
+      ],
+      [
+        320,
+        640
+      ]
+    ],
+    "tested_angles_radians": [
+      0,
+      1.5707963267948966,
+      -0.78
+    ],
+    "square_roi_side_pixels": 100,
+    "equivalence_fixtures": 9,
+    "counterexample": {
+      "image_size": [
+        640,
+        320
+      ],
+      "rect_normalized_width_height": [
+        0.5,
+        0.5
+      ],
+      "roi_point": [
+        0.75,
+        0.5
+      ],
+      "angle_radians": 1.5707963267948966,
+      "legacy_normalized_xy": [
+        0.5,
+        0.625
+      ],
+      "physical_pixel_rotation_normalized_xy": [
+        0.5,
+        0.75
+      ],
+      "absolute_y_difference_pixels": 40
+    },
+    "meaning": "Synthetic source-formula check only, not a measured native pose error or a post-hoc correction to saved observations"
+  },
+  "existing_smoke_raster": {
+    "width": 160,
+    "height": 160,
+    "source_result_sha256": "e972b761bc519b7544f85fc1a19224d6e9c8d39d3c2caa6d246de1ec9c432ba1",
+    "new_inference_performed": false
+  },
+  "reference_protocol": {
+    "path": "experiments/pose-validation-v1.json",
+    "sha256": "29e82013cc4de62b043976cb1098d50383f4aa6007919cb9cf96c7f7575965f5",
+    "study_status": "registered software pilot, zero manual reference annotations",
+    "selected_frame_indices": [
+      0,
+      37,
+      68,
+      87,
+      137
+    ],
+    "required_slots": 165,
+    "empirical_accuracy_study_completed": false,
+    "model_selection_permitted": false
+  },
+  "software_checks": {
+    "command": ".venv/bin/python -m pytest tests/test_pose_validation.py -q",
+    "passed": 51,
+    "scope": "Synthetic strict contracts, source geometry and known reference pixel-error arithmetic only",
+    "actual_artifact_template_check": {
+      "frames": [
+        0,
+        37,
+        68,
+        87,
+        137
+      ],
+      "unreviewed_slots": 165,
+      "coordinates_created": 0,
+      "reviewer_id_empty": true,
+      "blinding_and_independence_unchecked": true,
+      "score_refused_without_manual_review": true,
+      "new_native_inference": false
+    }
+  },
+  "remaining_gates": [
+    "Independent human reference coordinates and repeat-annotator disagreement/coverage; no automatic labels accepted as ground truth",
+    "Compatible additional recording/view/identity/mirror coverage under new prospective study before accuracy or filter selection",
+    "Compiled-native/internal ROI correspondence and actual projected-coordinate agreement; warning is explained, not globally suppressed",
+    "Measurement and event-error reliability, uploaded-video generalization, browser overlay correspondence and coaching efficacy remain unvalidated"
+  ],
+  "app_integration_permitted": false,
+  "validated_for_coaching": false,
+  "advice": []
+}

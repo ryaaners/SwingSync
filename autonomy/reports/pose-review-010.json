@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "execution": "010",
+  "scope": "Offline pose diagnostic/review software pilot; empirical accuracy study unrun",
+  "artifact": {
+    "path": "artifacts/pose/review-010-verified",
+    "manifest_sha256": "47d5141ec64c6ea29bebf64a2524422fcf243ac374abd54aef0c90069f9215f0",
+    "files": {
+      "review.html": "db1be58b2da813f1985200c6da3754fb068951184e28af28e379dca13ceeb1d3",
+      "reference.html": "ee014e0ab82ffd0e1cacfeb4c14de85cc0d775700f36547be46aa19623fbae8d",
+      "reference-template.json": "3cbd7dfa9fcf5b3f2df6df6c097c679d0898a172c2e6fa10487163f67795d204"
+    },
+    "protocol_sha256": "29e82013cc4de62b043976cb1098d50383f4aa6007919cb9cf96c7f7575965f5",
+    "derivation_source_sha256": {
+      "backend/swingsync/research/pose_evidence.py": "ab0737232509de3a489c086d99e153b4312a773488d28bd4ec2b81d061ed4777",
+      "scripts/build_pose_evidence.py": "921624598038ba287c06a5f0271e5ce4033b587a1261f277d561b07f091f7e0a",
+      "backend/swingsync/movement/pose_artifacts.py": "9737cd29c67d76ec7a627e75bbae60ebc6b71239f4e6bdb09e6d5284949b51cc",
+      "backend/swingsync/research/pose_validation.py": "31a4eca8159c3fc96a2e8219d0dcf61838c8b9cbc6a09a7b97e99762cce644b0",
+      "backend/swingsync/movement/measurements.py": "5314a774a9cf31155707c84158ae5c79f9f4c4c52e7ecaf2f7ec234ac9979e4e",
+      "backend/swingsync/movement/contracts.py": "508fb0d243d8483647a79b343f6fc547b4283e554a2f94b1380311d3076e4300",
+      "backend/swingsync/pose_runtime/contracts.py": "6828504d181ff772e5381aba22176b3c19f22cf8fe67dcd36ca25cb034dfa2c4",
+      "experiments/pose-validation-v1.json": "29e82013cc4de62b043976cb1098d50383f4aa6007919cb9cf96c7f7575965f5",
+      "uv.lock": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc"
+    }
+  },
+  "source": {
+    "dataset": "GolfDB authors preprocessed TRAIN clip0, fold1",
+    "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+    "run_sha256": "772ab832647ccede39291b95b0179e54f5cf84e67c4af86980e1c1bf5691fb65",
+    "result_sha256": "e972b761bc519b7544f85fc1a19224d6e9c8d39d3c2caa6d246de1ec9c432ba1",
+    "timestamp_basis": "reencoded",
+    "frame_indices": [
+      0,
+      37,
+      68,
+      87,
+      137
+    ],
+    "independent_source_recordings": 1,
+    "inference_repeated": false
+  },
+  "software_checks": {
+    "authenticated_completed_artifact": true,
+    "all138_native_pts_rechecked": true,
+    "all5_clean_pngs_exact_source_rgb": true,
+    "unchanged_raster": "160x160",
+    "clean_reference_page_excludes_model_data": true,
+    "reference_slots": 165,
+    "reference_labels_created": 0,
+    "unreviewed_slots": 165,
+    "both_attestations_false": true,
+    "unreviewed_scoring_refused_without_output": true,
+    "same_pages_before_after_provenance_corrections": true
+  },
+  "browser_qa": {
+    "scope": "Software QA only, not human landmark reference labels",
+    "scaled_canvas_center_click_px": [
+      80.23,
+      79.92
+    ],
+    "qa_joint_id": 13,
+    "frame37_navigation_and_return_persisted_mark": true,
+    "qa_mark_cleared_before_export": true,
+    "export_path": "artifacts/pose/qa-010/browser-export.json",
+    "export_sha256": "5e1cbbdfecc29eaa3e0c3db07a41a85b1b4663d7dfed6ec5caf9bcdf0f340c2a",
+    "exported_draft_validated": true,
+    "screenshot_path": "artifacts/pose/qa-010/review-preview.png",
+    "screenshot_sha256": "b629fe69d23a84a3b96f4c738a45faec3b6e062580bb2ec57d484f42f0e7bff2",
+    "screenshot_belongs_to_byte_identical_review_html": true
+  },
+  "witness": {
+    "path": "artifacts/pose/verify-review-010.py",
+    "sha256": "37f922e90ccd4911e3eec58cf1fd66248b468b874c872d7a66fa8b26613099ec"
+  },
+  "measurements": {
+    "status": "unavailable",
+    "reason": "No manual event annotations supplied",
+    "measurements": [],
+    "advice": []
+  },
+  "accuracy_evaluation_completed": false,
+  "validated_for_coaching": false,
+  "app_integration_permitted": false,
+  "outcome_integration_permitted": false,
+  "advice": [],
+  "limits": [
+    "No independent empirical reference labels or accuracy result;165empty slots are not labeled data",
+    "Fixed indices are diagnostic selection, not golf event annotations",
+    "Source warning cause and synthetic square-ROI arithmetic do not authenticate native internal ROI or anatomical correctness",
+    "Single TRAIN recording/reencoded timestamps/operator metadata assumptions do not establish generalization, physical timing or identity continuity",
+    "Three no-clobber software report generations preserved:initial review-010 and two provenance-corrected bundles; no pose rerun/model selection",
+    "Images/raw pose/reference templates remain ignored; no media/model redistribution or product serving enabled"
+  ]
+}
