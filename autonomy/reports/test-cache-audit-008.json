@@ -1,0 +1,214 @@
+{
+  "all_per_clip_checks_passed": 350,
+  "all_watched_source_and_inputs_unchanged_after": true,
+  "annotation_anomaly_677": {
+    "annotation_event_indices": [
+      92,
+      114,
+      131,
+      146,
+      158,
+      168,
+      167,
+      242
+    ],
+    "clip_id": 677,
+    "event_order_valid": false,
+    "included_in_test_cache_audit": false,
+    "official_chronological_target_indices": [
+      92,
+      114,
+      131,
+      146,
+      158,
+      167,
+      168,
+      242
+    ],
+    "original_events": [
+      794,
+      886,
+      908,
+      925,
+      940,
+      952,
+      962,
+      961,
+      1036,
+      1071
+    ],
+    "outer_split": 3,
+    "partition": "train"
+  },
+  "artifact_self_consistency_rechecked": true,
+  "audit_type": "independent-complete-test-cache-admission-not-model-evaluation",
+  "audited_at": "2026-11-09T01:37:08.721497+00:00",
+  "cache_directory": {
+    "extra_files": 0,
+    "files": 350,
+    "non_test_files": 0,
+    "separate_from_training": true
+  },
+  "committed_source_evidence": {
+    "current_registered_pipeline_lock_config_and_research_sources_equal_committed_head": true,
+    "head": "db330bf30bf6bcbd166e15450a584177041d7b21",
+    "source": "coordinator read-only Git check; no Git by this auditor"
+  },
+  "elapsed_seconds": 11.715042832773179,
+  "findings": [],
+  "fingerprints": {
+    "artifacts/features/fold1-job-v1/completed-catalog-v1.json": "daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e",
+    "artifacts/features/fold1-test-job-v1/completed-catalog-v1.json": "159ec421d82ca82d66cfe070d4272e013c65604365cf2c31fc11a57af0d66cf4",
+    "artifacts/features/fold1-test-job-v1/job.json": "159ec421d82ca82d66cfe070d4272e013c65604365cf2c31fc11a57af0d66cf4",
+    "artifacts/golfdb/preparation-002-all/fold-1.json": "5e3ac5090a13b3f8d6e58159379b64d6dea40cbecf2b9215c8db897761b69649",
+    "backend/swingsync/research/cache_job.py": "d1d92638c45b01410ef77744017242f403674688fb157815efa28aad460954d7",
+    "backend/swingsync/research/features.py": "0319843f83bf6453eefeadd431a88c6d42186b6a94e541d70672f272be53204d",
+    "backend/swingsync/research/golfdb.py": "5d1cb1e60165e1c62c7df2ff6241b307c192d00a244fe7270f16ae4d38369b70",
+    "backend/swingsync/research/heldout.py": "259346d903d25328b0d2c0c54db7406be13619d960d36cb840bfdc0049a57a09",
+    "backend/swingsync/research/models.py": "2101475e4d5f95fe1d5c1e54bc172038b08475638474be90900e410cff7899ba",
+    "backend/swingsync/research/timeline.py": "0d573f013bc5df27481d18bf50eb321bca5bd4aae94968fd4a521019cfd1da4a",
+    "data/golfdb/golfDB.mat": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+    "experiments/event-v1.json": "0af432a6f938422cb9995513e026160a47c2f0bd516c5d7245223d3579cc7c3e",
+    "experiments/frame-v1.json": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+    "experiments/heldout-v1.json": "4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008",
+    "experiments/temporal-v1.json": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1",
+    "scripts/evaluate_event_heads.py": "89b751aaaaa507fd816d9e7b2b1b028cee598c148fc83223cf45bcca82929c02",
+    "uv.lock": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc"
+  },
+  "frozen_test_catalog": {
+    "byte_identical_to_completed_job": true,
+    "path": "artifacts/features/fold1-test-job-v1/completed-catalog-v1.json",
+    "sha256": "159ec421d82ca82d66cfe070d4272e013c65604365cf2c31fc11a57af0d66cf4"
+  },
+  "full_audit_artifact": {
+    "path": "artifacts/features/fold1-test-job-v1/audit-full-008.json",
+    "rows": 350,
+    "sha256": "09ca6f779dbb45a96d9e49d2b90147aab677a56088d4cbffa51bab6bdb9569e9",
+    "sorted_compact_row_transcript_sha256": "ad7bc6ef275b570375f15b0776c90c73cf4aa3054e53b6b8802d8db48d61d9af"
+  },
+  "job": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "elapsed_seconds": 28.339976416900754,
+        "ended_at": "2026-11-06T17:25:42.760333+00:00",
+        "max_new_clips": 2,
+        "newly_extracted": 2,
+        "pid": 39845,
+        "process_start_identity": "Fri Nov  6 12:25:12 2026",
+        "reused_cache": 0,
+        "started_at": "2026-11-06T17:25:14.411215+00:00",
+        "state": "partial"
+      },
+      {
+        "attempt": 2,
+        "elapsed_seconds": 6139.786182332784,
+        "ended_at": "2026-11-07T18:46:59.663519+00:00",
+        "max_new_clips": null,
+        "newly_extracted": 348,
+        "pid": 40807,
+        "process_start_identity": "Fri Nov  6 12:38:35 2026",
+        "reused_cache": 0,
+        "started_at": "2026-11-06T17:38:36.964375+00:00",
+        "state": "completed"
+      }
+    ],
+    "completed_clip_count": 350,
+    "config_sha256": "7041c43fbbe7fd19c87a25ab7c94c32c363c6d76f0a64a96b324d6a6f7fb39bc",
+    "git_base_commit": "641fe51c254bdfba88e7d51bb148d1f07686d723",
+    "job_fingerprint": "d565f881e53124f05a405f8e89b203f95dc9309f5704a10faca25306ad0b75ed",
+    "job_id": "833e9ffe5592457f9257a46474c72153",
+    "state": "completed",
+    "target_clip_count": 350,
+    "updated_at": "2026-11-07T18:46:59.663509+00:00"
+  },
+  "job_path": "artifacts/features/fold1-test-job-v1/job.json",
+  "job_sha256": "159ec421d82ca82d66cfe070d4272e013c65604365cf2c31fc11a57af0d66cf4",
+  "limitations": [
+    "This is cache admission only; no held-out predictions/metrics computed.",
+    "Reference ImageNet frozen feature weights are not project-trained backbone weights.",
+    "Training/validation frame totals recomputed from MAT and byte-unchanged prior audited catalog; those1050 caches were not redecoded in this audit.",
+    "Actual extraction elapsed_seconds is ledger monotonic elapsed; wall-clock dates differ and must be separately reported; active CPU duration is not inferred.",
+    "Timestamps are actual decoded reencoded clip PTS only; browser/original-source correspondence and coaching efficacy remain separate gates."
+  ],
+  "manifest": {
+    "clip_overlap": 0,
+    "outer_fold": 1,
+    "regenerated_exactly": true,
+    "seed": 20261104,
+    "source_overlap": 0
+  },
+  "negative_admission_controls": {
+    "non_test_inventory": {
+      "message": "Outer cache media inventory coverage differs from test partition",
+      "rejected": true
+    },
+    "partial_catalog": {
+      "message": "Outer evaluation requires complete exact test-only cache job with registered pipeline",
+      "rejected": true
+    },
+    "stale_cache_checksum": {
+      "message": "Outer cache/media ledger provenance changed",
+      "rejected": true
+    },
+    "stale_config": {
+      "message": "Outer evaluation requires complete exact test-only cache job with registered pipeline",
+      "rejected": true
+    }
+  },
+  "original_source_pts_or_image_equivalence_verified": false,
+  "partition_totals": {
+    "test": {
+      "clips": 350,
+      "frames": 98956,
+      "sources": 144
+    },
+    "train": {
+      "clips": 840,
+      "frames": 236088,
+      "sources": 348
+    },
+    "validation": {
+      "clips": 210,
+      "frames": 59133,
+      "sources": 88
+    }
+  },
+  "production_preflight_admitted_complete_exact_catalog": true,
+  "recorded_worker_absence": "coordinator verified PID40807 absent; auditor ps sandbox denied",
+  "reference_feature_tensor_state_sha256": "46cd17dc0b0bbf24bdf5f26a1f20a82f96cc2f5c863fa2fcd87856b5518971be",
+  "reference_weight_file_sha256": "7ebf99e03e254b273379b23edca7ec0da9f48273b23a332b93c1c99d49e86e8f",
+  "schema_version": 1,
+  "scope": "All350 fixed fold1 test caches; no extraction, training, backbone/head inference, prediction or metrics",
+  "shared_lock_at_audit": "available (nonblocking read-only descriptor lock probe)",
+  "status": "passed",
+  "test_annotation_order_anomaly_count": 0,
+  "test_class_counts": [
+    350,
+    350,
+    350,
+    350,
+    350,
+    350,
+    350,
+    350,
+    96156
+  ],
+  "test_frame_count_range": [
+    92,
+    586
+  ],
+  "test_frames": 98956,
+  "test_pts_summary": {
+    "first_pts_max": 0.0,
+    "first_pts_min": 0.0,
+    "last_pts_max": 19.514310494362533,
+    "last_pts_min": 3.0358632193494577,
+    "pts_step_max": 0.033375609104867365,
+    "pts_step_min": 0.03335112059765066
+  },
+  "timestamp_provenance": "reencoded-clip-pts",
+  "training_catalog_byte_sha_unchanged": "daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e",
+  "training_catalog_partition_frame_and_source_totals_rechecked": true,
+  "training_catalog_test_overlap": 0
+}

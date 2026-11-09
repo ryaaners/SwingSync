@@ -1,59 +1,55 @@
-# SwingSync model card
+# SwingSync event model card
 
-Status: VALIDATED EVENT MODEL UNAVAILABLE. Updated 2026-11-07.
+Status: PROJECT-TRAINED RESEARCH HEADS EVALUATED ON OFFICIAL FOLD1; AUTOMATIC APP INFERENCE UNAVAILABLE. Updated 2026-11-08.
 
-## Intended use
+## Intended use and current app behavior
 
-Local analysis of one trimmed golf swing with explicit camera view, handedness and club. Future event models identify eight events, after which supported 2D measurements can reference specific frames. This is a student portfolio/research application, with no validated coaching or injury-prevention efficacy.
+Research localization of eight golf swing events in a trimmed video. The current local React/FastAPI app supports video inspection and explicitly manual frame annotations, corrections, descriptive recording-time tempo and image reports. Automatic proposals, pose extraction, shot outcomes and coaching remain disabled. This is a student research/portfolio project, with no validated coaching or injury-prevention efficacy.
 
-## Artifacts and evidence
+## Trained artifacts and selection
 
-No validated SwingSync event checkpoint, pretrained-reference swing inference result, outcome checkpoint, held-out benchmark or minimum hardware requirement is available yet. Both event heads completed 20 registered epochs. Selected inner-validation PCE is 41.96% for the frame head (epoch 19) and 64.58% for the temporal head (epoch 20), not outer-test performance. Historical five-step smoke artifacts are distinct from these full-training artifacts. No head is yet validated for serving. Audit metadata and synthetic software fixtures are not model-performance evidence. The ordinary app must say model unavailable until a real artifact is validated.
+Both heads were genuinely trained in this project on the same **frozen pretrained ImageNet V2 MobileNetV2 features**. The image backbone was not trained here. No pretrained SwingNet event checkpoint/result is used. Features are deterministic RGB tensor resize short edge 232/center crop 224/ImageNet normalization, 1280 dimensions. This differs from reference 160-pixel preprocessing.
 
-Implemented architecture: shared frozen ImageNet V2 MobileNetV2 features with a frame classifier and packed bidirectional LSTM temporal head, nine classes including background. Held-out comparison is pending. Training/evaluation and exact GolfDB PCE are described in [experiments.md](experiments.md) and [data-contracts.md](data-contracts.md). Device selection detects CUDA/MPS/CPU; CPU smoke passed on Apple M1/8GiB with exact checkpoint resume. Two-training-clip CPU timing is now recorded below; no accelerator timing or minimum specification is established.
+The baseline is a frame-independent linear head with nine classes. The temporal head has one bidirectional LSTM layer with 64 hidden units per direction and a nine-class head. Classes are eight events plus background. Training uses complete clips, packed valid lengths, padding-safe weighted cross entropy, inverse train-only class frequency, no augmentation, 20 epochs per head, batch size 4, Adam learning rate 0.001 and seed 20261105 on one CPU thread. Official fold 1 contains 840 training clips from 348 sources, 210 inner-validation clips from 88 sources, and 350 test clips from 144 sources, with no source overlap. The earliest maximum inner-validation PCE selected frame epoch 19 (41.96%) and temporal epoch 20 (64.58%). Those inner scores are not test scores.
 
-## Data provenance
+Final continuation checkpoints retain both final-epoch model and selected **best_model**. Evaluate selected weights; frame final-epoch weights differ. Final SHA256:
 
-GolfDB annotations inspected at revision `a63b4ce8c0900d09abbe92519223efe16810f5f4`: 1,400 clips, 580 sources, four official folds. The initial audit acquired no media. Increment002 acquired the authors’ linked preprocessed clip archive for local research and verified decoded clip integrity; no event weights acquired. Original source PTS and exact source-image alignment remain unavailable. Code, media and weights require distinct licensing review. CaddieSet CSV inspected at `3c73d9d40580bb8a5a10711ad1fa10735a205ffe`: 1,757 view records, eight golfers, missing features and spreadsheet errors. No released extraction code or videos found in the inspected tree.
+- Frame: `8203c5f5d2d84d2fb8519dffa5d053932cfe353069f145d54b17ff28ce5a2431`.
+- Temporal: `910f6d06a253e8117e825f5d625a1dcc11fe6db61344d169daac3fd973ceb5c3`.
 
-## Limitations and gates
+## Fixed held-out result
 
-- Standard GolfDB splits separate source recordings; do not claim unseen-golfer evaluation without an additional grouped study.
-- No automatic event reliability calibration has been performed. Class probability alone must not be called validated reliability.
-- Pose visibility, camera orientation, occlusion and event timing affect derived 2D measures. Monocular landmarks do not support pressure, forces, clubface angle or calibrated 3D rotation.
-- Descriptive observations must include value, interval, evidence, method and limitations. Suppress unreliable observations; no universal ideal thresholds or professional-similarity quality score.
-- Manual event edits must retain provenance and trigger recomputation. They cannot masquerade as automatic predictions.
-- CaddieSet uses an HRNet/Faster R-CNN/SwingNet feature process, with no demonstrated equivalence to MediaPipe. Video-to-outcome inference remains disabled. DirectionAngle describes initial direction, not curvature.
-- Neither training performance nor feature importance proves that changing a body position improves a shot.
+The prospective contract was committed before test extraction, binding checkpoints/selected epochs/manifest/runtime/pipeline and both contexts. One actual first attempt evaluated all 350 test clips / 98,956 frames. No held-out tuning, reselection or order constraint was used. Independent replay reproduced every one of 1,400 stored per-clip variant results and all aggregate/per-event metrics exactly.
 
-## Required before release claims
+| Head | Evaluation context | PCE (%) | MAE frames | MAE recording ms |
+| --- | --- | ---: | ---: | ---: |
+| Frame baseline | reference-64-reset | 45.11 | 22.224 | 741.489 |
+| Temporal | reference-64-reset | 58.79 | 11.700 | 390.368 |
+| Frame baseline | full-clip | 45.11 | 22.224 | 741.489 |
+| Temporal | full-clip | 64.43 | 6.212 | 207.253 |
 
-Attach final config/seed/split and dataset fingerprints, trained checkpoint hash and provenance, baseline/temporal held-out PCE and timing errors, software and leakage checks, measured local latency, a permitted real-video demonstration and an independent review. Until then, no résumé bullet may claim measured ML performance or completed end-to-end coaching.
+The standard reference 64-frame temporal result is **58.79% PCE**, compared with **45.11%** baseline; full-clip **64.43%** is separately disclosed. The reference context uses independent 64-frame reset calls with unpadded tail, not complete upstream architecture/training replication. Training/inner selection use full-clip context; the differing test context is deliberately disclosed. Official PCE uses chronological occupied annotation frames, variable tolerance `max(round((slot5-slot0)/30),1)`, inclusive error and pinned NumPy default argsort. Timing errors use actual re-encoded PTS. Clip 677's upstream ordering anomaly is retained in training / official fold 3 and does not occur in this test fold.
 
-## Smoke provenance
+Full per-event errors, fixed config, provenance and limitations: [experiments.md](experiments.md), [held-out contract](../experiments/heldout-v1.json), [machine results](../autonomy/reports/heldout-results-008.json), [independent review](../autonomy/reports/review-008.md). Raw run SHA256 `93d9aba2332fd90fdb7cf77891a580550e42a38c68c2b10c0e774fa754c6bdb0`.
 
-See autonomy/reports/smoke-003.json. Reference ImageNet initialization was downloaded from torchvision, not trained here. Event heads received five optimizer steps on fold 1 training clips 0/1; no validation or test partition was evaluated. Training losses and exact CPU resume only demonstrate software operation. No model is enabled in the web app, and no measured shot outcome or coaching advice was added.
+## Reliability and integration limits
 
-## Dataset preparation and full-training status (003b)
+- This is one official outer fold. Other folds have not been trained/evaluated; do not claim four-fold performance. Source-recording separation does not prove unseen-golfer performance because golfers can recur across sources.
+- Address/Finish remain weak: temporal reference 64-frame PCE 13.43% / 17.14%. Post-hoc saved-peak diagnostics show 279/350 strictly chronological reference 64-frame temporal timelines (321/350 full-clip). These diagnostics did not alter decoding, filter results or choose a model/context.
+- No automatic event-error/probability calibration or uploaded-video input-pipeline generalization has been validated. A class probability is not validated reliability. Trained/evaluated research artifacts alone do not enable normal coaching.
+- Original-source image/PTS and browser/audio/display-rotation synchronization remain unverified. Slow motion/time remapping can change physical timing. Canonical manual frames are the current app evidence.
+- No real local pose adapter or empirical movement accuracy is established. Visibility/view/handedness/mirroring/event error affect projected measurements. Ordinary landmarks do not support pressure, forces, clubface angle or calibrated 3D rotation.
+- Manual marks retain current/superseded revisions, recording hash, native/relative timestamps and frame images. Their descriptive timing reliability is unvalidated; no ideal threshold, quality score or advice is inferred. Synthetic software tests are not accuracy, user testing or a permitted-real-golf demonstration.
+- CaddieSet grouped tabular training remains separate and unrun. HRNet/FasterR-CNN/SwingNet features are not established equivalent to MediaPipe; uploaded-video outcomes stay disabled. DirectionAngle describes initial direction, not curvature. Associations/feature importance cannot establish causal fixes.
 
-A fixed first comparison was registered before training. Feature preparation and both registered head runs have now completed; historical launch and bounded-proof evidence remains separately recorded. The web app remains model unavailable. See validation-004 and current job state before making any completion or performance claim.
+## Data, code, weights and hardware
 
-## Completed cache and real training (005)
+GolfDB annotations and reference implementation audited at `a63b4ce8c0900d09abbe92519223efe16810f5f4`: 1,400 clips / 580 sources / four official outer splits. Dataset MAT SHA256 `36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a`; exact manifest and media/cache fingerprints are retained. Authors' reference clip archive is for local research; source-video redistribution rights are not assumed. Code/data/backbone/weights licenses are reviewed separately; no data or weights are committed or relabeled as original project code.
 
-All 1,050 train/inner-validation feature caches passed an independent full audit (295,221 frames; zero outer-test cache). Frame training completed 20 epochs/4,200 updates and selected epoch 19 using inner validation only; selected weights independently reproduced all recorded inner metrics. They are stored as best_model inside the final continuation checkpoint, distinct from last-epoch model weights. Never substitute the last epoch at evaluation by accident. Temporal training completed 20 epochs/4,200 updates with selected epoch 20 at 64.58% inner-validation PCE. Finalized outer evaluation, latency, input-pipeline generalization and empirical event reliability still require evidence. Neither trained weights nor an inner-validation score alone enables normal video coaching.
+Actual measured hardware: Apple M1 / 8 GiB, Torch 2.9.1/torchvision 0.24.1/NumPy 2.2.5/PyAV 16.0.1/Python 3.11.14, CPU one thread. CUDA unavailable; MPS available but unused. Separate one-pass timing on two TRAIN clips / 462 frames measured shared decode/transform/backbone wall 26.867317 s (58.154366 ms/frame), with initialization 0.329 s / warmup 1.124 s excluded and per-head/context time separate. Two clips do not establish representative app latency or minimum hardware. Outer run 19.520488 s is evaluation-loop elapsed, not video inference latency. See latency-006.json.
 
-The movement-calculation module is separate pure arithmetic on supplied landmarks/events. It performs no pose inference, has no empirical accuracy calibration and generates no advice. It has not established CaddieSet feature equivalence.
+Checkpoints/catalogs/raw media remain ignored local artifacts. Exact runtime/source fingerprints are intentionally bound; relocation/cross-platform artifact reproduction is unverified. New environments/folds require explicit prospective registration. Historical smoke losses and bounded cache proofs remain separate software evidence. Pose runtime was audited only: proposed isolated MediaPipe 1.2.2/NumPy 2.2.5/OpenCV 4.12/PyAV 16 stack needs a full lock, model-bundle bytes/license manifest and real extraction/validation; binary Mac ARM floor 14. Root ML dependencies stayed unchanged.
 
-## Held-out software and local timing (006)
+## Supported portfolio scope
 
-A prospective hash-bound fold-1 contract and complete-test-only evaluator are implemented. Both reference 64-frame reset and full-clip context are fixed and separately labeled. Actual bounded test-cache preparation was audited and partial inventory admission correctly refused; full 350-clip preparation remains in progress. No outer-test model result exists yet and neither head is enabled in the video app.
-
-A reviewed one-pass CPU timing run on training clips 0/1 (462 frames) measured shared decode/transform/backbone extraction at **58.15 ms/frame** on Apple M1 / 8 GiB, one CPU thread. Initialization and warmup were excluded and recorded separately, with per-head/context time and precise composed-versus-observed scopes. This is research pipeline timing on two clips, not validated app latency, representative-user performance or a hardware minimum. Full evidence/limits: `autonomy/reports/latency-006.json` and [experiments.md](experiments.md). No pose, coaching or shot-outcome gate changed.
-
-The concrete historical contract requires its local ignored artifacts and exact runtime/source fingerprints. Relocation/cross-platform experiment reproduction has not been verified. A new environment needs an explicitly registered matching experiment before training; do not rewrite this historical contract or retune using its test results.
-
-## Manual review and pose audit (007)
-
-The web app now allows explicit manual frame annotations and descriptive recording-time tempo, with canonical decoded images, timestamp/recording-hash evidence and retained correction history. These are user-supplied marks, not predictions or model validation. Reliability is unvalidated; no ideal thresholds, pose estimates, outcomes or practice advice are generated. Browser playback synchronization and stored-orientation agreement remain unverified and are visible limitations. Synthetic UI/report tests are software evidence only.
-
-The current MediaPipe package/model/runtime audit is documented separately. Its proposed isolated stack is not installed or runtime-validated; no model bundle was acquired and no empirical pose accuracy was measured. The active event feature worker and original ML dependencies/configurations/checkpoints were not changed.
+Research-only training/evaluation statements can cite this specific fixed fold, trained heads and frozen-backbone provenance; [portfolio-evidence.md](portfolio-evidence.md) gives bounded examples. No completed end-to-end automatic coaching, unseen-golfer, supervised outcome or accuracy-on-user-videos claim is supported. Remaining release gates are actual input/pose reliability, permitted real-video-to-report demonstration and reproducibility beyond this local environment.

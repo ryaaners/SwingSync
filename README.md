@@ -2,7 +2,7 @@
 
 Local golf video inspection, with a staged path to reproducible swing-event learning and defensible movement feedback. No paid API or cloud inference.
 
-**Current release: video inspection and manual event review.** Upload a trimmed video, select verified decoded frames for eight events, correct saved marks, review descriptive recording-time tempo, and export an HTML report with images and revision history. Files stay local and can be deleted. Automatic event inference, pose extraction, coaching and shot prediction remain unavailable. Real research event heads are trained, but held-out evaluation and app-inference validation are unfinished. See [manual review and its limits](docs/manual-event-review.md).
+**Current release: video inspection and manual event review.** Upload a trimmed video, select verified decoded frames for eight events, correct saved marks, review descriptive recording-time tempo, and export an HTML report with images and revision history. Files stay local and can be deleted. Automatic event inference, pose extraction, coaching and shot prediction remain unavailable. Real research event heads are trained and evaluated on one held-out GolfDB fold; app-inference validation remains unfinished. See [manual review and its limits](docs/manual-event-review.md).
 
 ## Setup and run
 
@@ -45,7 +45,7 @@ Tests generate synthetic clips solely for software validation, never as ML evide
 
 ## Research roadmap
 
-Implemented: audited GolfDB annotations/source-grouped splits, frozen MobileNetV2 features, two genuinely trained event heads with reproducible inner selection, and a fixed prospective held-out evaluator. The single outer-test cache job is still preparing its350clips; no held-out prediction or score is claimed. Manual events/timing are usable independently. Pure pose-measurement arithmetic and an upstream runtime audit are complete, while real pose extraction/validation are pending. CaddieSet tabular research stays separate until feature equivalence and held-out-golfer performance pass. No résumé accuracy/coaching claim is justified.
+Implemented: audited GolfDB annotations/source-grouped splits, frozen MobileNetV2 features, two genuinely trained event heads with reproducible inner selection, and a fixed prospective held-out evaluator. The fixed 350-clip outer evaluation completed with independent replay: reference 64-frame PCE 45.11% baseline / 58.79% temporal, and separately registered temporal full-clip 64.43%. Manual events/timing are usable independently. Pure pose-measurement arithmetic and an upstream runtime audit are complete, while real pose extraction/validation are pending. CaddieSet tabular research stays separate until feature equivalence and held-out-golfer performance pass. Research-only portfolio statements must retain this fold/protocol scope; no user-video accuracy or coaching claim is justified.
 
 Dataset, upstream code and weight licenses are separate; see the audit. No dataset, checkpoint or upstream code is redistributed in this increment. No license from an upstream repository is applied to original SwingSync code. A project license choice remains with the owner.
 
@@ -63,7 +63,7 @@ uv run python -m scripts.golfdb_prepare \
 
 Replace `--clip-id 0 --clip-id 677` with `--all-clips` to validate the full extracted inventory. The archive check validates names and fingerprints; it does not extract files.
 
-The archive and decoded-clip checks are optional; omit their flags to prepare annotations alone. Each run requires a new output directory. Output includes four official outer-fold manifests with source-grouped inner validation, exact fingerprints and evidence boundaries. The default seed is20261104. No model is trained or evaluated by this command. See data-contracts for the preserved annotation677 anomaly and exact official evaluation semantics. Original-source timestamps cannot be inferred from re-encoded clips.
+The archive and decoded-clip checks are optional; omit their flags to prepare annotations alone. Each run requires a new output directory. Output includes four official outer-fold manifests with source-grouped inner validation, exact fingerprints and evidence boundaries. The default seed is20261104. No model is trained or evaluated by this command. See data-contracts for the preserved annotation 677 anomaly and exact official evaluation semantics. Original-source timestamps cannot be inferred from re-encoded clips.
 
 ## Run the model pipeline smoke
 
@@ -81,13 +81,13 @@ uv run --extra ml python -m scripts.run_ml_smoke \
 
 Use a fresh run directory; the CLI refuses duplicate state. It selects only training IDs from an exactly validated manifest, records its identity before work, downloads official ImageNet V2 initialization if missing, caches frozen features, and checks exact CPU checkpoint resume for both heads. This explicit setup download needs internet once; model computation is local. Set TORCH_HOME to choose weight storage (default data/torch). Keep generated caches/checkpoints outside Git.
 
-The completed smoke ran on an Apple M1 with 8GiB RAM. That is observed hardware, not an established minimum. CUDA/MPS availability is detected, but this lock installs CPU packages on non-macOS; a CUDA build requires a separately tested environment. Full training, held-out accuracy, inference latency and coaching validity remain unmeasured. Ordinary `uv sync --locked` keeps ML dependencies out of the inspection app; optional tests then skip explicitly. CI has a separate CPU ML-contract job without datasets or pretrained downloads. See autonomy/reports/validation-003.md and docs/experiments.md for evidence.
+The completed smoke ran on an Apple M1 with 8GiB RAM. That is observed hardware, not an established minimum. CUDA/MPS availability is detected, but this lock installs CPU packages on non-macOS; a CUDA build requires a separately tested environment. At that smoke milestone, full training and held-out performance were not yet measured. Current fold-1 training/evaluation and scoped CPU timing are recorded below; coaching validity remains unmeasured. Ordinary `uv sync --locked` keeps ML dependencies out of the inspection app; optional tests then skip explicitly. CI has a separate CPU ML-contract job without datasets or pretrained downloads. See autonomy/reports/validation-003.md and docs/experiments.md for evidence.
 
 Supported runtime validation targets are Apple Silicon macOS and Linux x86-64. The dependency resolver requires binary wheel coverage for both. Windows execution is not supported by the current POSIX worker locks.
 
 ## Resume dataset preparation and train the registered heads
 
-The registered first comparison is in experiments/event-v1.json and the two hashed head configurations. It fixes fold1, seed 20261105, frozen ImageNet V2 features, no augmentation, full-clip context,20 epochs/head, batch 4, learning rate0.001, and earliest-epoch ties on inner-validation PCE. Full-clip context differs from reference64-frame recurrent evaluation. No outer-test tuning is allowed.
+The registered first comparison is in experiments/event-v1.json and the two hashed head configurations. It fixes fold 1, seed 20261105, frozen ImageNet V2 features, no augmentation, full-clip context,20 epochs/head, batch 4, learning rate0.001, and earliest-epoch ties on inner-validation PCE. Full-clip context differs from reference 64-frame-frame recurrent evaluation. No outer-test tuning is allowed.
 
 ```sh
 uv run --extra ml python -m scripts.prepare_feature_cache \
@@ -120,7 +120,7 @@ For long local jobs, use an isolated locked environment so ordinary app setup ca
 
 ## Current full-training evidence
 
-The first source-grouped feature inventory is complete and independently audited: 1,050 training/inner-validation clips, 295,221 frames. The frame head completed the registered 20-epoch budget and selected epoch 19 at 41.96% **inner-validation PCE**. This is model-selection evidence, not a final held-out accuracy claim. The temporal head also completed 20 epochs, selecting epoch 20 at 64.58% inner-validation PCE. No outer-test results are available yet. The app remains inspection-only until model/input/measurement gates pass. See docs/model-card.md, docs/experiments.md and current durable status for completed run identities and next validation gates.
+The first source-grouped feature inventory is complete and independently audited: 1,050 training/inner-validation clips, 295,221 frames. The frame head completed the registered 20-epoch budget and selected epoch 19 at 41.96% **inner-validation PCE**. This is model-selection evidence, not a final held-out accuracy claim. The temporal head also completed 20 epochs, selecting epoch 20 at 64.58% inner-validation PCE. The complete fixed fold-1 outer result is now recorded below. The app provides manual review; automatic inference remains gated by input/measurement reliability. See docs/model-card.md, docs/experiments.md and current durable status for completed run identities and next validation gates.
 
 ## Fixed held-out evaluation and CPU timing
 
@@ -168,4 +168,10 @@ Timing output is exclusive: an existing output/state is refused. Initialization,
 
 ## Local pose runtime audit
 
-[Pose runtime audit](docs/pose-runtime-audit.md) records exact official package/source/license/model-availability evidence. The proposed isolated MediaPipe1.2.2 /NumPy2.2.5 /OpenCV4.12 /PyAV16 stack is metadata-compatible only; full dependency locking, installation, model acquisition and actual pose inference have not run. The concrete binary candidate needs macOS14 on Apple Silicon. Root ML dependencies remain unchanged. Never install legacy MediaPipe0.10.21 into the current NumPy2 environment or treat similarly named CaddieSet measurements as equivalent.
+[Pose runtime audit](docs/pose-runtime-audit.md) records exact official package/source/license/model-availability evidence. The proposed isolated MediaPipe 1.2.2 /NumPy 2.2.5 /OpenCV 4.12 /PyAV 16 stack is metadata-compatible only; full dependency locking, installation, model acquisition and actual pose inference have not run. The concrete binary candidate needs macOS14 on Apple Silicon. Root ML dependencies remain unchanged. Never install legacy MediaPipe0.10.21 into the current NumPy2 environment or treat similarly named CaddieSet measurements as equivalent.
+
+## Completed fold-1 research result
+
+Both project-trained event heads completed the fixed held-out evaluation on350-clips from144 sources. **Reference64-reset PCE: 45.11% frame baseline / 58.79% temporal**; separately preregistered temporalfull-clip context: 64.43%. Timing error is 22.224 / 11.700 / 6.212 frames respectively. No test-driven tuning, reselection or ordered decoder was used. Full per-event/frame/actualPTS-ms metrics and provenance are in [experiments.md](docs/experiments.md), [model card](docs/model-card.md) and [verified machine report](autonomy/reports/heldout-results-008.json). This is one source-disjoint official fold, not four-fold or unseen-golfer evaluation. Weak Address/Finish and unvalidated uploaded-video/pose reliability keep automatic app inference and advice disabled.
+
+A completed evaluation `--resume` verifies existing results without repeating durable inference. Do not restart training or tune against these test results. Pure-stdlib `scripts.report_event_evaluation` packages a known-SHA completed run without models/media; see the experiment guide for the command. Dataset, source video and weight redistribution remain separate rights gates. [Supported portfolio statements](docs/portfolio-evidence.md) distinguish completed research from pending end-to-end coaching.

@@ -1,10 +1,10 @@
 # Experiment registry
 
-No training or evaluation has completed in this project as of the first audit (2026-11-04). Schema inspection, synthetic software tests, reference-repository claims, and model training are separate evidence categories.
+Historical first audit (2026-11-04): no training or evaluation had completed then. Execution 008 now records the actual completed fixed fold-1 benchmark below. Schema inspection, synthetic software tests, reference-repository claims, and model training are separate evidence categories.
 
-## Planned event comparison
+## Registered event comparison
 
-Status: FULL BENCHMARK NOT STARTED; CPU pipeline smoke completed in 003a. Reference preprocessed clips and frozen ImageNet initialization are now local; initial audit and subsequent acquisition are recorded separately. Next gate is full training/selection preparation, not missing public clip inventory. Original-source image/PTS equivalence remains unverified.
+Status: registered fold-1 training, inner selection and complete held-out evaluation finished; independent replay passed. This is one official outer fold, not four-fold or unseen-golfer evaluation. Current metrics are below; historical milestone evidence remains labeled by execution. Original-source image/PTS equivalence and app-inference/coaching validation remain open.
 
 1. Fingerprint annotations and clip inventory; decode one real clip and verify ten-entry event interpretation, all eight target frames, source index offset and timestamps visually.
 2. Save official fold assignments and source-grouped inner validation manifest with seed 20261104. Assert no source recording overlaps.
@@ -15,10 +15,12 @@ Status: FULL BENCHMARK NOT STARTED; CPU pipeline smoke completed in 003a. Refere
 
 Each run must write: run ID, process identity/start time, state, config, seed, Git commit, dependency lock hash, dataset hashes, split-manifest hash, backbone provenance, device/hardware, checkpoint path/hash, optimizer and RNG state, wall time, metrics and artifact paths. Resume the same run only after checking the recorded process and checkpoint; never infer completion from a launched process.
 
-| Model | Evidence type | Outer fold | PCE | Timing error | Latency |
-| --- | --- | --- | --- | --- | --- |
-| SwingSync frame baseline | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Two-train-clip CPU timing; see 006 |
-| SwingSync temporal | Trained 20 epochs; inner selection only | Fold 1 test not evaluated | Outer unavailable | Outer unavailable | Two-train-clip CPU timing; see 006 |
+| Head | Evaluation context | PCE (%) | MAE frames | MAE recording ms |
+| --- | --- | ---: | ---: | ---: |
+| Frame baseline | reference-64-reset | 45.11 | 22.224 | 741.489 |
+| Temporal | reference-64-reset | 58.79 | 11.700 | 390.368 |
+| Frame baseline | full-clip | 45.11 | 22.224 | 741.489 |
+| Temporal | full-clip | 64.43 | 6.212 | 207.253 |
 
 No upstream performance numbers are used as project results. Upstream source/code details and exact tolerance are recorded in [data-contracts.md](data-contracts.md).
 
@@ -47,7 +49,7 @@ Annotations loaded from audited MAT SHA36523fce…; source-grouped manifests cre
 | 3 | 839 | 211 | 350 | 340 / 86 / 154 |
 | 4 | 853 | 197 | 350 | 352 / 88 / 140 |
 
-No source overlaps partitions and all1,400 clip IDs appear once per fold manifest. Local artifacts: artifacts/golfdb/preparation-002/{fold-1.json,…,fold-4.json,summary.json}; exact manifest hashes recorded in summary. Local reference media acquired and decoded integrity inspection recorded in validation-002. Source YouTube timestamp equivalence and browser alignment remain unverified. Annotation677 anomaly is preserved; see data-contracts. Synthetic predictions in unit tests establish evaluator mechanics only and are not included in model result tables. No training/checkpoint/inference latency has completed.
+No source overlaps partitions and all 1,400 clip IDs appear once per fold manifest. Local artifacts: artifacts/golfdb/preparation-002/{fold-1.json,…,fold-4.json,summary.json}; exact manifest hashes recorded in summary. Local reference media acquired and decoded integrity inspection recorded in validation-002. Source YouTube timestamp equivalence and browser alignment remain unverified. Annotation677 anomaly is preserved; see data-contracts. Synthetic predictions in unit tests establish evaluator mechanics only and are not included in model result tables. At increment 002 no training/checkpoint/inference latency had completed.
 
 ## Increment 003a — completed CPU pipeline smoke (2026-11-05)
 
@@ -62,17 +64,17 @@ CPU on Apple M1/8GiB, one Torch thread; CUDA unavailable, MPS detected available
 | Independent frame | 2.218995 | 1.949782 | Passed |
 | BiLSTM temporal | 2.212210 | 1.774242 | Passed |
 
-These are **training-smoke losses only**, not PCE, held-out generalization, baseline superiority, coaching validity or benchmark evidence. Total37.516 seconds including initialization/weight acquisition and resume verification; extraction/cache preparation36.014 seconds. This is not inference latency. No full real training, hyperparameter selection or outer-test evaluation has completed. The app remains model unavailable.
+These are **training-smoke losses only**, not PCE, held-out generalization, baseline superiority, coaching validity or benchmark evidence. Total37.516 seconds including initialization/weight acquisition and resume verification; extraction/cache preparation36.014 seconds. This is not inference latency. At this smoke milestone, full training/selection/outer evaluation had not yet completed; the later registered result is recorded in execution 008 below. The app remains unavailable for automatic inference.
 
-Next: preregister full baseline/temporal training budgets and source-grouped inner validation; sequence sampling/masks and temporally consistent augmentation if enabled; resumable full feature-cache job; only then train/select and evaluate finalized outer test. Record any change in recurrence context relative to reference64-frame evaluation separately.
+Next: preregister full baseline/temporal training budgets and source-grouped inner validation; sequence sampling/masks and temporally consistent augmentation if enabled; resumable full feature-cache job; only then train/select and evaluate finalized outer test. Record any change in recurrence context relative to reference 64-frame-frame evaluation separately.
 
 The CPU smoke was repeated sequentially with warm feature caches after adding required Mac-arm64/Linux-x86-64 wheel coverage to the lock. See smoke-003-ci-lock.json for its separate identity and checkpoint hashes; the original run record is preserved. Logical losses and exact CPU continuation matched. This follow-up validates the corrected environment and cache reuse, not held-out performance.
 
 ## Increment 003b — registered full comparison and resumable preparation
 
-Registered experiments/event-v1.json before any full head training. Hash-bound frame-v1/temporal-v1 configs fix fold1 manifest, seed 20261105,20 epochs, batch 4, Adam0.001, hidden 64/direction, CPU one thread, no augmentation and identical frozen full-clip features. Complete-epoch inner-validation PCE selects the best checkpoint, retaining the earliest epoch on ties. Full-training class counts determine imbalance weights; validation labels never set them. No learning-rate sweep or repeated outer-test tuning is registered. Further outer folds require their own preregistration; do not claim four-fold results from fold1.
+Registered experiments/event-v1.json before any full head training. Hash-bound frame-v1/temporal-v1 configs fix fold 1 manifest, seed 20261105,20 epochs, batch 4, Adam 0.001, hidden 64/direction, CPU one thread, no augmentation and identical frozen full-clip features. Complete-epoch inner-validation PCE selects the best checkpoint, retaining the earliest epoch on ties. Full-training class counts determine imbalance weights; validation labels never set them. No learning-rate sweep or repeated outer-test tuning is registered. Further outer folds require their own preregistration; do not claim four-fold results from fold 1.
 
-The feature job selects exactly840training+210 inner-validation clips and excludes all350 outer-test clips. Durable configuration inventories source/video hashes before extraction, records model and implementation fingerprints, and uses a shared absolute expensive-work lock. It writes each completed cache row atomically and revalidates every prior row on explicit resume. Bounded/interrupted runs remain partial or interrupted. Media changes during the same attempt and corrupt/stale cache state fail closed.
+The feature job selects exactly840training+210 inner-validation clips and excludes all 350 outer-test clips. Durable configuration inventories source/video hashes before extraction, records model and implementation fingerprints, and uses a shared absolute expensive-work lock. It writes each completed cache row atomically and revalidates every prior row on explicit resume. Bounded/interrupted runs remain partial or interrupted. Media changes during the same attempt and corrupt/stale cache state fail closed.
 
 Real bounded resume proof: job 184c02b4709746b79f15a8976399101f reused the two earlier caches and extracted two new clips in attempt1; attempt2 revalidated those four and extracted one additional clip. Final proof snapshot is PARTIAL5/1050, not completed preparation or training. Exact measured times, hashes, clip/source membership and frames are in autonomy/reports/cache-resume-004.json. The real training CLI was exercised against this partial job and refused before creating a head run. Full preparation launch/progress, if any, must be read from the actual job.json and process; never inferred from a command being issued.
 
@@ -116,9 +118,9 @@ The evaluator requires complete exact test-only caches, fresh decoded PTS and ma
 
 Apple M1 / 8 GiB, CPU one Torch thread; CUDA unavailable, MPS available but unused. Final one-pass benchmark used fixed TRAIN clips 0/1, after one 16-frame warmup. There was no simultaneous training/cache worker during measurement. No event accuracy was computed. The two-clip sample is not a population latency guarantee, minimum hardware specification or measured user-app latency.
 
-Initialization/preflight **0.329s**; warmup **1.124s**, both excluded from measured feature throughput. Shared feature extraction took **26.867317s / 462 frames = 58.154366 ms/frame**. It includes actual sequential video decode, RGB transform and backbone, with bounded 16-frame RGB batches. Head timing is separate.
+Initialization/preflight **0.329s**; warmup **1.124s**, both excluded from measured feature throughput. Shared feature extraction took **26.867317 s / 462 frames = 58.154366 ms/frame**. It includes actual sequential video decode, RGB transform and backbone, with bounded 16-frame RGB batches. Head timing is separate.
 
-| Training clip | Frames | Feature wall seconds | Frame reference64 head ms | Temporal reference64 head ms | Temporal full-clip head ms |
+| Training clip | Frames | Feature wall seconds | Frame reference 64-frame head ms | Temporal reference 64-frame head ms | Temporal full-clip head ms |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | 0 | 138 | 7.776176 | 1.221 | 4.973 | 3.129 |
 | 1 | 324 | 19.091141 | 2.369 | 8.787 | 7.026 |
@@ -126,3 +128,73 @@ Initialization/preflight **0.329s**; warmup **1.124s**, both excluded from measu
 Per-frame decode/preprocessing and per-forward-batch quantiles, head/context times, actual PTS hashes, hardware/runtime and immutable source/input hashes are in `autonomy/reports/latency-006.json`. A composed single-variant duration sums shared feature wall plus that head; it is not a separately replayed video pipeline. Observed clip wall includes all four head/context calls. No browser/render/pose/report latency is included. One repetition and two clips cannot establish confidence bounds.
 
 A preliminary timing invocation overlapped a helper-source edit and is excluded from final metrics. Its artifact remains ignored and hash-bound in the report. Source-integrity guards now fail closed before/after work/publication; the final run was taken after fixes and freeze, not chosen for speed. Independent review verified final output/state/source/media/PTS/timing arithmetic. 201 full ML tests pass; synthetic fixtures validate mechanics only.
+
+## Execution 008 — completed preregistered fold-1 held-out evaluation
+
+The first complete outer run used exactly the already selected heads and both declared contexts. No head, epoch, feature, context, threshold or configuration was selected/tuned using these test scores. Prospective contract641fe51 preceded all test feature extraction; its SHA256 remains `4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008`. Registration [heldout-v1.json](../experiments/heldout-v1.json) fixes CPU one thread, NumPy 2.2.5 default-argsort ties, independent class peaks, chronological occupied-frame targets and official tolerance. Reference64 identifies recurrence resets, not a reproduction of the original SwingNet architecture/preprocessing.
+
+Training 840 clips / 348 sources, inner validation 210 / 88 and test 350 / 144 are pairwise source-disjoint. The complete test inventory has98,956 frames; all 350cache/video/annotation/source/historical-index/actualPTS signatures passed a fresh independent audit before inference. Frozen test catalog SHA256 `159ec421d82ca82d66cfe070d4272e013c65604365cf2c31fc11a57af0d66cf4`; original training catalog remained `daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e`. See test-cache-audit-008.json/.md. No training/validation/test frame mixing or test-derived class weights occurred.
+
+| Head | Evaluation context | PCE (%) | MAE frames | MAE recording ms |
+| --- | --- | ---: | ---: | ---: |
+| Frame baseline | reference-64-reset | 45.11 | 22.224 | 741.489 |
+| Temporal | reference-64-reset | 58.79 | 11.700 | 390.368 |
+| Frame baseline | full-clip | 45.11 | 22.224 | 741.489 |
+| Temporal | full-clip | 64.43 | 6.212 | 207.253 |
+
+The primary reference 64-frame comparison is **45.11% → 58.79% PCE**, an observed **13.68 percentage-point** temporal-minus-frame difference on this fixed test fold. Full-clip temporal **64.43%** is a separate predeclared context matching training/inner selection; it must not replace the reference 64-frame result. Both frame contexts were independently computed; probabilities differ at some floating-point bits despite identical event peaks and metrics. No order-constrained decoder was used.
+
+| Event | Frame, reference 64-frame PCE (%) | Temporal, reference 64-frame PCE (%) | Temporal, full-clip PCE (%) |
+| --- | ---: | ---: | ---: |
+| Address | 5.71 | 13.43 | 20.86 |
+| Toe-up | 50.00 | 62.00 | 67.43 |
+| Mid-backswing | 50.86 | 62.57 | 66.86 |
+| Top | 34.29 | 50.86 | 61.71 |
+| Mid-downswing | 66.29 | 87.71 | 91.14 |
+| Impact | 68.00 | 90.86 | 94.29 |
+| Mid-follow-through | 73.43 | 85.71 | 90.86 |
+| Finish | 12.29 | 17.14 | 22.29 |
+
+| Event | Frame, reference 64-frame MAE frames / ms | Temporal, reference 64-frame MAE frames / ms | Temporal, full-clip MAE frames / ms |
+| --- | ---: | ---: | ---: |
+| Address | 51.897 / 1731.505 | 34.500 / 1151.086 | 14.803 / 493.891 |
+| Toe-up | 25.180 / 840.112 | 8.409 / 280.564 | 4.674 / 155.963 |
+| Mid-backswing | 15.723 / 524.580 | 11.674 / 389.518 | 5.469 / 182.461 |
+| Top | 13.417 / 447.661 | 9.877 / 329.544 | 4.309 / 143.754 |
+| Mid-downswing | 9.583 / 319.731 | 4.171 / 139.176 | 2.020 / 67.396 |
+| Impact | 33.254 / 1109.529 | 3.743 / 124.880 | 2.254 / 75.213 |
+| Mid-follow-through | 10.697 / 356.896 | 4.351 / 145.185 | 2.751 / 91.798 |
+| Finish | 18.040 / 601.895 | 16.874 / 562.989 | 13.414 / 447.550 |
+
+Frame full-clip per-event metrics equal the displayed frame reference 64-frame metrics; all four full per-event tables and exact floats remain in [heldout-results-008.json](../autonomy/reports/heldout-results-008.json). Milliseconds use actual re-encoded recording PTS; they are not original YouTube time, calibrated exposure time or necessarily physical swing time. No test annotation-order anomaly exists. Clip 677's original Impact/follow-through inversion remains in TRAIN/officialfold3; it is not an outer-test row. Official chronological benchmark mapping was separately verified without repairing semantic labels.
+
+The first evaluation attempt actually completed350-clips; no resumed or launched process was labeled completed training. Raw run `artifacts/evaluation/fold1-v1/run.json` SHA256 `93d9aba2332fd90fdb7cf77891a580550e42a38c68c2b10c0e774fa754c6bdb0`. Its19.520488 seconds measures the recorded evaluation loop after admission/preflight, including cache IO/result persistence; it is **not** decode-to-inference latency. Real CPU timing remains the separately scoped two-TRAIN-clip measurement in execution006. Explicit completed-run resume was checked without changing the run bytes or adding attempts. Do not rerun training or select a different context after these results.
+
+Fresh independent reviewer loaded the selected best_model tensors into new model objects, used a separate batching loop and transcription of pinned official util.py, and matched **all 1,400per-clip/head/context result dictionaries** plus every aggregate/per-event field exactly. It also rechecked all row/cache/run/catalog/contract/checkpoint hashes and source semantics. Replay script/witness are ignored under `artifacts/evaluation/fold1-v1/review-independent-replay-008.{py,json}` and hash-bound in review-008.md. This replay verifies the same frozen experiment; it is not a second selection/tuning experiment.
+
+### Post-hoc descriptive reliability diagnostics — no changed decoding
+
+These counts were computed from already saved independent peaks after the primary evaluation. They were not preregistered performance endpoints, reliability calibration, filtering or ordered-decoding improvements, and do not change any PCE/result.
+
+| Head/context | Strictly chronological predicted timelines | Clips with duplicate event peaks |
+| --- | ---: | ---: |
+| Frame, either context | 111/350 | 8/350 |
+| Temporal, reference 64-frame | 279/350 | 3/350 |
+| Temporal, full clip | 321/350 | 1/350 |
+
+Weak Address/Finish PCE (temporal reference 64-frame **13.43% / 17.14%**) and nonchronological timelines prevent treating the overall score as dependable eight-event coaching input. Source groups are separated; golfers may recur across sources, so unseen-golfer generalization is not established. No statistical-significance or population-performance guarantee is claimed. Uploaded-video crop/view/time-origin compatibility, event-error calibration, pose reliability and coaching efficacy remain separate gates. No normal-app inference was enabled.
+
+### Reproduce result packaging without model inference
+
+The new stdlib-only packager requires an independently recorded expected raw-run SHA, complete exact test coverage, bound contract/manifest and consistent row checksums/metric arithmetic. It recomputes all aggregates, refuses partial/changed inputs and publishes exclusively. It does not load checkpoints, caches or videos. Fresh output paths are required.
+
+```sh
+uv run python -m scripts.report_event_evaluation \
+  --run artifacts/evaluation/fold1-v1/run.json \
+  --run-sha256 93d9aba2332fd90fdb7cf77891a580550e42a38c68c2b10c0e774fa754c6bdb0 \
+  --contract experiments/heldout-v1.json \
+  --manifest artifacts/golfdb/preparation-002-all/fold-1.json \
+  --output artifacts/evaluation/fold1-report-copy.json --include-order-diagnostics
+```
+
+Independent cache/first-run/replay/report evidence is in execution 008 reports. Further folds need separate prospective registration before their training/testing; avoid exploratory held-out tuning against this fold.

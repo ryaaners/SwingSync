@@ -162,7 +162,7 @@
       "dependencies": [
         "003e"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Actual complete350test caches admitted against frozen contract",
         "Both fixed selected heads evaluated once in both declared contexts; no test tuning",
@@ -173,12 +173,16 @@
         "Bounded proof2/350 then full explicitresume job833e9ffe5592457f9257a46474c72153;inspect actualstate/process before work",
         "ActualworkerPID40807/start2026-11-06 12:38:35Toronto observedrunning;no outer predictions or completedbenchmark",
         "Artifacts/features/fold1-test-job-v1/job.json and launch-full-006.json;one shared expensive-work lock",
-        "Execution007 observed sameworkerPID40807 running 310/350 at2026-11-07T09:02:56.408305+00:00;no duplicate/evaluation launched"
+        "Execution007 observed sameworkerPID40807 running 310/350 at2026-11-07T09:02:56.408305+00:00;no duplicate/evaluation launched",
+        "Actually completed350test/144sources/98956frames; independent allcache/video/PTS/source/pipelineaudit passed; test-cache-audit-008",
+        "Onefirst fixed350clip eval,runSHA93d9aba2332fd90fdb7cf77891a580550e42a38c68c2b10c0e774fa754c6bdb0;noheldouttuning",
+        "Reference64PCE45.1071%frame/58.7857%temporal;separatefullclip64.4286%temporal;all1400results+aggregatesindependentlyreplayedexactly",
+        "Offline stdlibreport63tests;286fullML/191base9skip,Ruff/frontend4tests/buildpass;review-008.mdno materialfinding"
       ]
     },
     {
       "id": "003",
-      "title": "Reproducible frame and temporal event learning",
+      "title": "Reproducible frame and temporal learning \u2014 registered fold-1 comparison",
       "dependencies": [
         "002",
         "003a",
@@ -190,19 +194,38 @@
       ],
       "acceptance_criteria": [
         "Same frozen MobileNetV2 backbone",
-        "Masked padded sequences and temporal augmentations tested",
+        "Masked padded full-clip sequences tested; augmentation explicitly disabled in fixed registration",
         "Device detection and CPU training smoke completed",
         "One tracked resumable real training job",
         "Baseline and temporal outer-test PCE/errors/latency recorded"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "validation_evidence": [
         "003a complete:shared frozen backbone,frame/BiLSTM heads,padding-safe loss/cache and exact CPU resume",
         "Real train-only2clip462frame5step/head smoke completed; no held-out evaluation",
         "82tests pass with MLextra;56pass4skip base; independent review findings resolved",
         "003b:registered configs,cache resume and head driver implemented;110tests;full preparation observed running,not completed",
         "003c/003d completed:1050realcaches;both20epoch4200updateheads;independentselectedINNERreplay;noouterresult/latency/servingvalidation",
-        "003e complete:fixed heldout software,201tests,reviewedactualCPUtiming;003f activefeatureprep only;heldout metrics unavailable"
+        "003e complete:fixed heldout software,201tests,reviewedactualCPUtiming;003f activefeatureprep only;heldout metrics unavailable",
+        "003f complete:real fixed fold1 heldoutmetrics/per-eventPTSerrors plus scopedhardwaretiming reviewed;onefold/source-only,notuserinference/fourfold/coaching"
+      ]
+    },
+    {
+      "id": "003g",
+      "title": "Uploaded-video event input and reliability admission",
+      "dependencies": [
+        "003f"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Declare and verify raw-upload preprocessing/view/crop and timestamp compatibility before ordinary inference",
+        "Validate input pipeline on permitted media and separately assess event-error reliability without current-test retuning",
+        "Keep weak phase/order and uncalibrated confidence limitations visible; suppress advice",
+        "Independent end-to-end review and permitted demonstration"
+      ],
+      "validation_evidence": [
+        "Fold1 benchmark exists; Address/Finish remain weak and posthocorderfailures persist;normalapp staysmodelunavailable",
+        "Current heldoutfold mustnotbecome tuning/calibration feedback; extra sources or a new prospective study required"
       ]
     },
     {
@@ -262,6 +285,24 @@
         "docs/pose-runtime-audit.md;pose-audit-007.json;7exactMETADATAsidecars+pinnedsourcereviewed",
         "CandidateMediaPipe1.2.2/NumPy2.2.5/OpenCV4.12/PyAV16 metadataonly;fullbinarycandidateMacminimum14",
         "Legacy0.10.21 NumPy<2 conflict confirmed;modelHEADonly, modelSHAunavailable;rootlock/MLsourceunchanged"
+      ]
+    },
+    {
+      "id": "004d",
+      "title": "Isolated local pose runtime, asset manifest and timestamp-preserving adapter",
+      "dependencies": [
+        "004c"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Separate non-workspace pinned Python3.11environment and committed full lock;rootMLlock unchanged",
+        "Official pinned model bundle acquired with byte/member SHA256 and separate license/notices manifest",
+        "CPU import/native/inference smoke and immutable per-frame actualPTS/API-ms provenance; collisions fail closed",
+        "Missing/multiple/ambiguous pose/view/mirror inputs remain explicit, advice suppressed; real extraction distinct from empirical accuracy"
+      ],
+      "validation_evidence": [
+        "Metadata candidate only from004c; no install/model acquisition/pose inference yet",
+        "Next implementation increment per original order; event benchmark workers have ended"
       ]
     },
     {
