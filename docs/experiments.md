@@ -198,3 +198,13 @@ uv run python -m scripts.report_event_evaluation \
 ```
 
 Independent cache/first-run/replay/report evidence is in execution 008 reports. Further folds need separate prospective registration before their training/testing; avoid exploratory held-out tuning against this fold.
+
+## 009 — isolated upstream pose extraction smoke
+
+No event training, evaluation or held-out tuning was repeated. Root ML lock and historical source/config/artifact identities remain unchanged. A separate complete pose lock (`edc1d9c8c3e6e3a794bbb0e582e25f292ce5bf3b640f11026c3cce6df9135919`) installed 20 packages on Python 3.11.14/macOS 26.3 ARM64; native import and OpenCV conversion passed. The upstream full/float16/v1 model bundle hashes to `5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1`, with both exact member identities and separate code/model/notices evidence. These are pretrained upstream pose weights, not project training.
+
+One exclusively identified CPU run processed GolfDB clip 0, which belongs to TRAIN in registered fold 1 (official outer_split 3). It used the reencoded clip's actual native PTS, down-the-line view and explicitly declared operator hand/mirror/single-golfer assumptions. The macOS launcher denied all native network access; IPv4/IPv6 denial guards ran before import because the wheel declares performance telemetry. No portable Python opt-out or Linux extraction isolation is claimed.
+
+All 138 decoded frames have one result row: 134 `single_pose` and 4 `no_pose`; no invented/interpolated points. An independent fresh decode verified every integer PTS/time base/float64 second, raster and exact half-up API clock. Completed ledger/result SHA binding, pinned assets, full lock and live adapter/launcher hashes passed. Decode plus synchronous detector calls took 3.589050 seconds for this one pass, excluding imports/preflight/native task initialization. Native thread count was not explicitly limited. This is not landmark accuracy, golfer identity validation, minimum hardware or representative app latency. Native feedback-tensor and NORM_RECT/IMAGE_DIMENSIONS warnings remain documented; empirical projection/measurement validation is pending.
+
+The ignored run is `artifacts/pose/smoke-009-train-0/run.json`, SHA256 `772ab832647ccede39291b95b0179e54f5cf84e67c4af86980e1c1bf5691fb65`; raw result SHA256 `e972b761bc519b7544f85fc1a19224d6e9c8d39d3c2caa6d246de1ec9c432ba1`. Small aggregate evidence is in pose-smoke-009.json and pose-environment-009.json; independent review is review-009.md. Model-member redistribution attribution remains unresolved. App pose serving, automated events, advice and outcome integration remain disabled. See pose-extraction.md for setup, output and explicit recovery instructions.

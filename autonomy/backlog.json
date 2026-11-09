@@ -293,7 +293,7 @@
       "dependencies": [
         "004c"
       ],
-      "status": "pending",
+      "status": "completed",
       "acceptance_criteria": [
         "Separate non-workspace pinned Python3.11environment and committed full lock;rootMLlock unchanged",
         "Official pinned model bundle acquired with byte/member SHA256 and separate license/notices manifest",
@@ -301,8 +301,29 @@
         "Missing/multiple/ambiguous pose/view/mirror inputs remain explicit, advice suppressed; real extraction distinct from empirical accuracy"
       ],
       "validation_evidence": [
-        "Metadata candidate only from004c; no install/model acquisition/pose inference yet",
-        "Next implementation increment per original order; event benchmark workers have ended"
+        "Execution009:independent non-workspace Python3.11 pose lock edc1d9c8c3e6e3a794bbb0e582e25f292ce5bf3b640f11026c3cce6df9135919;20installedpackages;lockedoffline+nativeimports/cv2conversion passed onmacOS26.3ARM64;rootlockunchanged",
+        "Exact official9,398,198byte bundle5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1 andbothmembers acquired/hashregistered;separatecode/model/notices evidence;exactmemberredistributionstilldisabled",
+        "OS network-denied macOSCPUrun completed138TRAINclip0frames:134single/4missing;everyrawPTS/timebase/float64/APIclock independentlychecked;pose-smoke-009.json;notaccuracyvalidation",
+        "60newsyntheticsoftwaretests;346fullML/251base9skip;Ruff/frontend4tests/typecheck/buildpassed;review-009.mdthreeP2findingsresolved",
+        "Missing/malformed/multipleexplicit;anymultipledetectionrefuseswholesequencespatialconversion;unverifiedview/hand/mirror/identitydeclared/refused;adviceempty;LinuxextractionawaitsverifiedOSisolation"
+      ]
+    },
+    {
+      "id": "004e",
+      "title": "Pose coordinate, identity and measurement admission on permitted media",
+      "dependencies": [
+        "004d"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Prospectively define scoped manual reference annotations and agreement measures before evaluating pose coordinates or tuning filters",
+        "Resolve/document projected-coordinate and non-square-raster NORM_RECT warning with authoritative source and independent geometry/image checks",
+        "Review single-golfer identity, handedness/mirror, visibility/missing intervals and view-specific spatial measurement admission on permitted recordings; no invented accuracy or advice thresholds",
+        "Produce reference overlays and manual-event measurement evidence with provenance, suppress unreliable results, and independently review before app integration"
+      ],
+      "validation_evidence": [
+        "004d demonstrates local execution/framecorrespondence only;no landmark groundtruth/identity accuracy or empirical measurement reliability",
+        "The actual native projection warning and single-pose identity limitations are recorded in pose-smoke-009.json;advice and productpose remain disabled"
       ]
     },
     {
@@ -322,7 +343,8 @@
         "004a pure supplied-landmark arithmetic complete;51syntheticcontract/geometry/suppressiontests;independentreview",
         "MediaPipe adapter,real-media empirical validation,app correction interface and coaching reliability remain pending;advice empty",
         "004b complete:manualeventcorrectionUI/API/canonicalframes/report/tempo,softwareonly223tests+browserQA",
-        "004c complete:posepackage/source/license/timecontract audit only;separate resolvedlock+asset acquisition+actualadapter stillpending"
+        "004c complete:posepackage/source/license/timecontract audit only;separate resolvedlock+asset acquisition+actualadapter stillpending",
+        "004dcomplete:realisolatedofflineCPUobservations+60softwaretests;138frameTRAINsmokenotaccuracy;empiricalcoordinate/identity/measurementvalidation004eremainsbeforeappspatialintegration"
       ]
     },
     {

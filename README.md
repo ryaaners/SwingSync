@@ -45,7 +45,7 @@ Tests generate synthetic clips solely for software validation, never as ML evide
 
 ## Research roadmap
 
-Implemented: audited GolfDB annotations/source-grouped splits, frozen MobileNetV2 features, two genuinely trained event heads with reproducible inner selection, and a fixed prospective held-out evaluator. The fixed 350-clip outer evaluation completed with independent replay: reference 64-frame PCE 45.11% baseline / 58.79% temporal, and separately registered temporal full-clip 64.43%. Manual events/timing are usable independently. Pure pose-measurement arithmetic and an upstream runtime audit are complete, while real pose extraction/validation are pending. CaddieSet tabular research stays separate until feature equivalence and held-out-golfer performance pass. Research-only portfolio statements must retain this fold/protocol scope; no user-video accuracy or coaching claim is justified.
+Implemented: audited GolfDB annotations/source-grouped splits, frozen MobileNetV2 features, two genuinely trained event heads with reproducible inner selection, and a fixed prospective held-out evaluator. The fixed 350-clip outer evaluation completed with independent replay: reference 64-frame PCE 45.11% baseline / 58.79% temporal, and separately registered temporal full-clip 64.43%. Manual events/timing are usable independently. An isolated research pose extractor now runs locally; empirical landmark/measurement validation and app integration remain pending. CaddieSet tabular research stays separate until feature equivalence and held-out-golfer performance pass. Research-only portfolio statements must retain this fold/protocol scope; no user-video accuracy or coaching claim is justified.
 
 Dataset, upstream code and weight licenses are separate; see the audit. No dataset, checkpoint or upstream code is redistributed in this increment. No license from an upstream repository is applied to original SwingSync code. A project license choice remains with the owner.
 
@@ -166,9 +166,11 @@ uv run --extra ml python -m scripts.benchmark_event_pipeline \
 
 Timing output is exclusive: an existing output/state is refused. Initialization, warmup, decode, preprocessing, backbone and each head/context have explicit scopes; composed variant time shares one feature pass. These research commands do not enable app inference or advice.
 
-## Local pose runtime audit
+## Offline research pose extraction
 
-[Pose runtime audit](docs/pose-runtime-audit.md) records exact official package/source/license/model-availability evidence. The proposed isolated MediaPipe 1.2.2 /NumPy 2.2.5 /OpenCV 4.12 /PyAV 16 stack is metadata-compatible only; full dependency locking, installation, model acquisition and actual pose inference have not run. The concrete binary candidate needs macOS14 on Apple Silicon. Root ML dependencies remain unchanged. Never install legacy MediaPipe0.10.21 into the current NumPy2 environment or treat similarly named CaddieSet measurements as equivalent.
+The separate [pose environment](docs/pose-assets.md) has a complete lock and an explicitly acquired, hashed upstream model. [Extraction instructions](docs/pose-extraction.md) describe the macOS network-denied CPU launcher, operator metadata, native PTS versus integer API clock, missing/multiple-pose behavior and saved artifacts. Root ML dependencies remain unchanged. The effective Apple Silicon binary minimum is macOS 14; execution was verified on macOS 26.3. Linux CI checks imports only; verified Linux extraction isolation is still pending.
+
+One real GolfDB training-clip smoke produced 138 rows: 134 single-pose returns and 4 missing-pose rows. This proves local execution and frame correspondence, not accuracy, identity continuity or coaching reliability. MediaPipe's wheel declares utilization telemetry, so the supported extraction launcher denies native network access and the extractor checks denial before import. Model-member redistribution attribution remains unresolved. Models, videos and raw observations stay ignored. App pose serving, advice and CaddieSet feature integration remain disabled. See [smoke evidence](autonomy/reports/pose-smoke-009.json) and the earlier [source audit](docs/pose-runtime-audit.md).
 
 ## Completed fold-1 research result
 

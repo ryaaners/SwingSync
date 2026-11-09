@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "execution": "009",
+  "completed_at_utc": "2026-11-09T06:42:41.354829+00:00",
+  "scope": "Installed/imported/native image conversion only; no task initialization, video inference, pose accuracy or coaching evidence in this report",
+  "project": {
+    "path": "pose_runtime",
+    "non_workspace": true,
+    "lock_sha256": "edc1d9c8c3e6e3a794bbb0e582e25f292ce5bf3b640f11026c3cce6df9135919",
+    "root_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+    "root_lock_unchanged": true
+  },
+  "environment": {
+    "python": "3.11.14 (main, Oct 28 2025, 12:11:54) [Clang 20.1.4 ]",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "machine": "arm64",
+    "environment_path": ".tools/pose-runtime",
+    "packages": {
+      "absl-py": "2.5.1",
+      "av": "16.0.1",
+      "certifi": "2026.10.23",
+      "cffi": "2.1.1",
+      "contourpy": "1.3.3",
+      "cycler": "0.12.1",
+      "flatbuffers": "25.12.19",
+      "fonttools": "4.68.0",
+      "kiwisolver": "1.5.1",
+      "matplotlib": "3.11.2",
+      "mediapipe": "1.2.2",
+      "numpy": "2.2.5",
+      "opencv-contrib-python": "4.12.0.88",
+      "packaging": "26.3",
+      "pillow": "13.0.0",
+      "pycparser": "3.12",
+      "pyparsing": "3.3.3",
+      "python-dateutil": "4.0.0",
+      "sounddevice": "0.5.6",
+      "tzdata": "2026.6"
+    }
+  },
+  "native_smoke": {
+    "numpy_version": "2.2.5",
+    "mediapipe_version": "1.2.2",
+    "opencv_version": "4.12.0",
+    "av_version": "16.0.1",
+    "opencv_rgb_to_bgr_2x2": [
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "ffmpeg_libraries": {
+      "libavutil": [
+        60,
+        8,
+        100
+      ],
+      "libavcodec": [
+        62,
+        11,
+        100
+      ],
+      "libavformat": [
+        62,
+        3,
+        100
+      ],
+      "libavdevice": [
+        62,
+        1,
+        100
+      ],
+      "libavfilter": [
+        11,
+        4,
+        100
+      ],
+      "libswscale": [
+        9,
+        1,
+        100
+      ],
+      "libswresample": [
+        6,
+        1,
+        100
+      ]
+    },
+    "mediapipe_native_sha256": "6cb3aa2e19bce289939b617fb96c306db0449f757569ea22df7a4a9c14ac7c60",
+    "mediapipe_native_file": "mediapipe/tasks/c/libmediapipe.dylib",
+    "initial_font_cache": "First MediaPipe import took approximately a minute building Matplotlib font cache; no reliable import latency benchmark claimed"
+  },
+  "asset_manifest": {
+    "path": "artifacts/pose/pose_landmarker_full-v1.manifest.json",
+    "sha256": "f5a214e48afe2b1a592f926761380754ec3a8123061324913fef1aa7967ffd27",
+    "contents": {
+      "schema_version": 1,
+      "url": "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/1/pose_landmarker_full.task",
+      "sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+      "size_bytes": 9398198,
+      "members": [
+        {
+          "name": "pose_detector.tflite",
+          "size_bytes": 2959046,
+          "sha256": "04f5a96483f8ce5913f8730ad2aa0c4c999c80a4b75653bc0e4712de18e104b2"
+        },
+        {
+          "name": "pose_landmarks_detector.tflite",
+          "size_bytes": 6438874,
+          "sha256": "82be6d591b9dad7d29fe21dc9fd892bf8b9602c458fb05209283de8282a0c488"
+        }
+      ],
+      "license_evidence": {
+        "code": {
+          "license": "Apache-2.0 with third-party notices; not a license for original SwingSync code",
+          "source_revision": "2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f",
+          "source_url": "https://github.com/google-ai-edge/mediapipe/blob/2c2d4a7454d6358e0d6f0b54e254d231fe4cc78f/LICENSE",
+          "installed_wheel_license_sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8",
+          "installed_wheel_notice_sha256": "78eed891b4676ead09d8bf72bbab6b1fc8404475ed68da2cdd9f7d5e8dad22c5",
+          "notice_scope": "MediaPipe 1.2.2 macOS ARM wheel; other-platform notice bytes require inspection"
+        },
+        "model_card": {
+          "url": "https://storage.googleapis.com/mediapipe-assets/Model%20Card%20BlazePose%20GHUM%203D.pdf",
+          "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86",
+          "license_statement": "Apache License Version 2.0, page 2",
+          "scope": "BlazePose GHUM landmark model family; card does not bind exact bundle/member hashes"
+        },
+        "members": [
+          {
+            "name": "pose_detector.tflite",
+            "metadata_author": "MediaPipe",
+            "metadata_version": "1",
+            "metadata_license": null,
+            "associated_files": [],
+            "redistribution": "Not enabled: exact-member license attribution remains unestablished"
+          },
+          {
+            "name": "pose_landmarks_detector.tflite",
+            "metadata_author": "MediaPipe",
+            "metadata_version": "1",
+            "metadata_license": null,
+            "associated_files": [],
+            "redistribution": "Not enabled: exact-member license attribution remains unestablished"
+          }
+        ],
+        "usage": "Explicit local research acquisition from official task download; no model redistribution",
+        "privacy": {
+          "notice_date": "2026-06-05",
+          "input_processing": "Upstream NOTICE states image/video/text inputs stay on device",
+          "metrics": "Upstream NOTICE states performance/utilization metrics are sent to Google",
+          "policy": "Run native extraction only within verified OS-level network denial; no Python opt-out verified"
+        }
+      },
+      "acquired_at_utc": "2026-11-09T06:41:58.309311+00:00"
+    }
+  },
+  "license_inventory": [
+    {
+      "distribution": "mediapipe",
+      "distribution_path": "mediapipe-1.2.2.dist-info/licenses/LICENSE",
+      "size_bytes": 12331,
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8"
+    },
+    {
+      "distribution": "mediapipe",
+      "distribution_path": "mediapipe-1.2.2.dist-info/licenses/NOTICE",
+      "size_bytes": 2490145,
+      "sha256": "78eed891b4676ead09d8bf72bbab6b1fc8404475ed68da2cdd9f7d5e8dad22c5"
+    },
+    {
+      "distribution": "opencv-contrib-python",
+      "distribution_path": "cv2/LICENSE-3RD-PARTY.txt",
+      "size_bytes": 174432,
+      "sha256": "6b5966035d16c82b012e120aebff3346c8f0d3e15af1bc5ad9e8be930d8850bf"
+    },
+    {
+      "distribution": "opencv-contrib-python",
+      "distribution_path": "cv2/LICENSE.txt",
+      "size_bytes": 1070,
+      "sha256": "09d719058e782ac7bc71ba21c944e1136cde2bb957c0e888121f0218d6b5f02c"
+    },
+    {
+      "distribution": "opencv-contrib-python",
+      "distribution_path": "cv2/data/haarcascade_license_plate_rus_16stages.xml",
+      "size_bytes": 47775,
+      "sha256": "4d1c44bf7a1bc4e204fa25b046ed0acffd7f713cc13fe2958b6977125c60ddea"
+    },
+    {
+      "distribution": "opencv-contrib-python",
+      "distribution_path": "opencv_contrib_python-4.12.0.88.dist-info/LICENSE-3RD-PARTY.txt",
+      "size_bytes": 174432,
+      "sha256": "6b5966035d16c82b012e120aebff3346c8f0d3e15af1bc5ad9e8be930d8850bf"
+    },
+    {
+      "distribution": "opencv-contrib-python",
+      "distribution_path": "opencv_contrib_python-4.12.0.88.dist-info/LICENSE.txt",
+      "size_bytes": 1070,
+      "sha256": "09d719058e782ac7bc71ba21c944e1136cde2bb957c0e888121f0218d6b5f02c"
+    },
+    {
+      "distribution": "av",
+      "distribution_path": "av-16.0.1.dist-info/licenses/AUTHORS.py",
+      "size_bytes": 3119,
+      "sha256": "1c0ed12637659f8862079e634ff89ffeecdfbb785f1ade3c20e8a97467e1c271"
+    },
+    {
+      "distribution": "av",
+      "distribution_path": "av-16.0.1.dist-info/licenses/AUTHORS.rst",
+      "size_bytes": 5454,
+      "sha256": "0d55271c21b6d424e71dd9bc0068824cb744026154c22fa46bd96e1bb1d8a539"
+    },
+    {
+      "distribution": "av",
+      "distribution_path": "av-16.0.1.dist-info/licenses/LICENSE.txt",
+      "size_bytes": 1505,
+      "sha256": "76af0461ffb92e19f1c14449e95557d83a2dfaa1baf202d49e5f1d8746c0da19"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_path": "numpy-2.2.5.dist-info/LICENSE.txt",
+      "size_bytes": 47786,
+      "sha256": "b4ae62887f4dd6e9430b1a8d7017a3ba84c5d7aa630b9d17ed6f25c21b0ec5b4"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_path": "numpy/_core/include/numpy/random/LICENSE.txt",
+      "size_bytes": 1018,
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_path": "numpy/ma/LICENSE",
+      "size_bytes": 1593,
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_path": "numpy/random/LICENSE.md",
+      "size_bytes": 3511,
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+    }
+  ],
+  "upstream_evidence": [
+    {
+      "path": "artifacts/pose/upstream-LICENSE",
+      "sha256": "8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8"
+    },
+    {
+      "path": "artifacts/pose/upstream-models.md",
+      "sha256": "36f2b0956f6b2743ecb81720daf54408b89542679a071d2e2d0d0aacc2a7aba4"
+    },
+    {
+      "path": "artifacts/pose/upstream-base-options.h",
+      "sha256": "007de3312d4aee7fb77e8ba243ddf4684566383fafefafe9447531b787763125"
+    },
+    {
+      "path": "artifacts/pose/upstream-task-runner.cc",
+      "sha256": "9016c83746e578b36b2924918dbd6e2d7a69a1739477404bd2a8f34ee037aa61"
+    },
+    {
+      "path": "artifacts/pose/upstream-logging-factory.cc",
+      "sha256": "f76ad9290b5d14f94b03fbe6118fb0e3aed7b806919142fe597956b31cdd5662"
+    },
+    {
+      "path": "artifacts/pose/upstream-tasks-logger.h",
+      "sha256": "8e03cfe59935f4aa9bc55d0fa3af54cc11421fbae39dc882832565b0156f87e9"
+    },
+    {
+      "path": "artifacts/pose/model-card.pdf",
+      "sha256": "e982460cedece5ad9a46aa8f13523328e9ab95d7d5b2b8c99b33f13f6a79ca86"
+    }
+  ],
+  "privacy_gate": {
+    "code_notice": "NOTICE 2026-06-05 says inputs stay ondevice but performance/utilization metrics are transmitted to Google",
+    "python_optout": "No supported option found in pinned BaseOptions source; all available fields inspected",
+    "source_binary_distinction": "Public logging_factory.cc returns TasksDummyLogger, but installed native binary exports google_internal::TasksStatsProtoLogger and contains play.googleapis.com/log; public no-op source does not prove wheel telemetry disabled",
+    "traffic_capture": false,
+    "native_inference_requires": "Verified OS-level network denial before importing/initializing native extraction; product serving disabled"
+  },
+  "limits": [
+    "Local macOS26.3 ARM64 native import/conversion proven only; Linux CPU import pending CI; no aarch64/Windows claim",
+    "Minimum binary macOS14 from PyAV16cp311wheel; no minimum RAM/performance claim",
+    "Exact member metadata license fields absent; no embedded license files; model redistribution remains disabled",
+    "Separate optional pose environment does not alter frozen root ML lock or research sources",
+    "MediaPipe pose outputs/thresholds are not validated golf reliability; advice remains suppressed"
+  ],
+  "acquisition_controls": [
+    "Existing valid pinned model produces manifest, then byte-identical idempotent reuse without network",
+    "Changed member hash in existing manifest rejected without overwriting evidence",
+    "Changed existing model rejected without silently repairing/replacing evidence"
+  ],
+  "environment_checks": [
+    "Separate project lock created with uv0.9.8; online install completed",
+    "Repeat uv sync --project pose_runtime --locked --offline passed;20packages audited",
+    "Ruff scripts/acquire_pose_asset.py passed",
+    "Root uv.lock SHA256 unchanged"
+  ]
+}

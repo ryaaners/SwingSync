@@ -1,6 +1,6 @@
 # SwingSync event model card
 
-Status: PROJECT-TRAINED RESEARCH HEADS EVALUATED ON OFFICIAL FOLD1; AUTOMATIC APP INFERENCE UNAVAILABLE. Updated 2026-11-08.
+Status: PROJECT-TRAINED RESEARCH HEADS EVALUATED ON OFFICIAL FOLD1; AUTOMATIC APP INFERENCE UNAVAILABLE. Updated 2026-11-09.
 
 ## Intended use and current app behavior
 
@@ -38,7 +38,7 @@ Full per-event errors, fixed config, provenance and limitations: [experiments.md
 - Address/Finish remain weak: temporal reference 64-frame PCE 13.43% / 17.14%. Post-hoc saved-peak diagnostics show 279/350 strictly chronological reference 64-frame temporal timelines (321/350 full-clip). These diagnostics did not alter decoding, filter results or choose a model/context.
 - No automatic event-error/probability calibration or uploaded-video input-pipeline generalization has been validated. A class probability is not validated reliability. Trained/evaluated research artifacts alone do not enable normal coaching.
 - Original-source image/PTS and browser/audio/display-rotation synchronization remain unverified. Slow motion/time remapping can change physical timing. Canonical manual frames are the current app evidence.
-- No real local pose adapter or empirical movement accuracy is established. Visibility/view/handedness/mirroring/event error affect projected measurements. Ordinary landmarks do not support pressure, forces, clubface angle or calibrated 3D rotation.
+- A real isolated local pose extractor completed a training-clip smoke, but empirical landmark/movement accuracy remains unestablished. Visibility/view/handedness/mirroring/event error affect projected measurements. Ordinary landmarks do not support pressure, forces, clubface angle or calibrated 3D rotation.
 - Manual marks retain current/superseded revisions, recording hash, native/relative timestamps and frame images. Their descriptive timing reliability is unvalidated; no ideal threshold, quality score or advice is inferred. Synthetic software tests are not accuracy, user testing or a permitted-real-golf demonstration.
 - CaddieSet grouped tabular training remains separate and unrun. HRNet/FasterR-CNN/SwingNet features are not established equivalent to MediaPipe; uploaded-video outcomes stay disabled. DirectionAngle describes initial direction, not curvature. Associations/feature importance cannot establish causal fixes.
 
@@ -48,7 +48,9 @@ GolfDB annotations and reference implementation audited at `a63b4ce8c0900d09abbe
 
 Actual measured hardware: Apple M1 / 8 GiB, Torch 2.9.1/torchvision 0.24.1/NumPy 2.2.5/PyAV 16.0.1/Python 3.11.14, CPU one thread. CUDA unavailable; MPS available but unused. Separate one-pass timing on two TRAIN clips / 462 frames measured shared decode/transform/backbone wall 26.867317 s (58.154366 ms/frame), with initialization 0.329 s / warmup 1.124 s excluded and per-head/context time separate. Two clips do not establish representative app latency or minimum hardware. Outer run 19.520488 s is evaluation-loop elapsed, not video inference latency. See latency-006.json.
 
-Checkpoints/catalogs/raw media remain ignored local artifacts. Exact runtime/source fingerprints are intentionally bound; relocation/cross-platform artifact reproduction is unverified. New environments/folds require explicit prospective registration. Historical smoke losses and bounded cache proofs remain separate software evidence. Pose runtime was audited only: proposed isolated MediaPipe 1.2.2/NumPy 2.2.5/OpenCV 4.12/PyAV 16 stack needs a full lock, model-bundle bytes/license manifest and real extraction/validation; binary Mac ARM floor 14. Root ML dependencies stayed unchanged.
+Checkpoints/catalogs/raw media remain ignored local artifacts. Exact runtime/source fingerprints are intentionally bound; relocation/cross-platform artifact reproduction is unverified. New environments/folds require explicit prospective registration. Historical smoke losses and bounded cache proofs remain separate software evidence. Execution 009 installed a separately locked MediaPipe 1.2.2/NumPy 2.2.5/OpenCV 4.12/PyAV 16 CPU runtime and acquired exact upstream bundle/member hashes with separate license evidence. Binary Mac ARM floor is 14; actual execution used macOS 26.3. Root ML dependencies stayed unchanged.
+
+The real pose smoke on one TRAIN clip retained all 138 native frame timestamps: 134 single-pose returns and 4 explicit missing frames. Decode plus detector calls took 3.589 seconds in one pass, excluding import/preflight/task initialization; native threads were not explicitly limited. This is execution/frame-correspondence evidence, not landmark accuracy or general latency. The OS launcher denied native network access because the wheel declares utilization telemetry; Linux extraction awaits verified isolation. The upstream NORM_RECT/IMAGE_DIMENSIONS projection warning remains an accuracy-validation concern. No pose model/member/media redistribution or ordinary app integration was enabled. See pose-assets.md, pose-extraction.md and pose-smoke-009.json.
 
 ## Supported portfolio scope
 

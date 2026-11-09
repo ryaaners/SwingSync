@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "execution": "009",
+  "scope": "Real pretrained upstream pose CPU extraction smoke; not landmark accuracy or coaching validation",
+  "job": {
+    "job_id": "ca5f3af63a634a76aad5c2e97ca41125",
+    "state": "completed",
+    "created_at": "2026-11-09T06:45:06.359830+00:00",
+    "completed_at": "2026-11-09T06:45:12.998937+00:00",
+    "run_path": "artifacts/pose/smoke-009-train-0/run.json",
+    "run_sha256": "772ab832647ccede39291b95b0179e54f5cf84e67c4af86980e1c1bf5691fb65",
+    "result_path": "artifacts/pose/smoke-009-train-0/result.json",
+    "result_sha256": "e972b761bc519b7544f85fc1a19224d6e9c8d39d3c2caa6d246de1ec9c432ba1",
+    "attempt_count": 1,
+    "resume_supported": false
+  },
+  "media": {
+    "relative_path": "data/golfdb/videos_160/0.mp4",
+    "sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+    "dataset": "GolfDB authors preprocessed archive",
+    "clip_id": 0,
+    "official_outer_split": 3,
+    "fold1_partition": "train",
+    "source_id": "f1BWA5F87Jc",
+    "view": "down-the-line",
+    "frame_count": 138,
+    "timestamp_basis": "reencoded",
+    "native_origin_seconds": 0.0,
+    "native_last_seconds": 4.570018013209687,
+    "width": 160,
+    "height": 160,
+    "redistributed": false,
+    "metadata_declarations": "Operator assumptions after inspecting event frames; not verified anatomical identity, mirroring or continuity"
+  },
+  "configuration": {
+    "clock": "exact-rational-relative-half-up-ms-v1",
+    "delegate": "CPU",
+    "limits": {
+      "bytes": 157286400,
+      "frames": 3600,
+      "seconds": 30
+    },
+    "min_pose_detection_confidence": 0.5,
+    "min_pose_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "num_poses": 2,
+    "output_segmentation_masks": false,
+    "presence_filter_floor": 0.5,
+    "running_mode": "VIDEO"
+  },
+  "result": {
+    "status_counts": {
+      "no_pose": 4,
+      "single_pose": 134
+    },
+    "identity_ambiguous": false,
+    "inference_decode_elapsed_seconds": 3.5890502496622503,
+    "timing_scope": "One clip, one pass, synchronous decoded frames plus CPU detector calls; excludes environment import/preflight/native task initialization. No minimum hardware or population latency claim. Native threads not explicitly limited.",
+    "validated_for_coaching": false,
+    "advice_count": 0
+  },
+  "provenance": {
+    "root_ml_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+    "pose_lock_sha256": "edc1d9c8c3e6e3a794bbb0e582e25f292ce5bf3b640f11026c3cce6df9135919",
+    "adapter_source_sha256": {
+      "backend/swingsync/pose_runtime/__init__.py": "93d565f45a0d237a88d0ffae7b8927f39cb39ddbecae3438b35d388192ea8a54",
+      "backend/swingsync/pose_runtime/contracts.py": "6828504d181ff772e5381aba22176b3c19f22cf8fe67dcd36ca25cb034dfa2c4",
+      "backend/swingsync/pose_runtime/extraction.py": "f0643002b5887330b63e08a3ad8c214f37d570265a7dae13f54e4413141ec660",
+      "scripts/acquire_pose_asset.py": "407bf067c30b0c8d69e315a66b65b60cf9de61cdca9de60b175cc59ca379e160",
+      "scripts/extract_pose.py": "a6a082ae4e42e7a815f120c0c2863120d37efa1855869a073a991ba9c648c9f1",
+      "scripts/run_pose_offline.py": "c80119c8c377b87d6f778e42b01d266fb494110988dd7f6537dba1520e6ed474"
+    },
+    "model_bundle_sha256": "5134a3aad27a58b93da0088d431f366da362b44e3ccfbe3462b3827a839011b1",
+    "model_manifest_sha256": "f5a214e48afe2b1a592f926761380754ec3a8123061324913fef1aa7967ffd27",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python": "3.11.14 (main, Oct 28 2025, 12:11:54) [Clang 20.1.4 ]",
+    "delegate": "CPU",
+    "native_libraries": {
+      "av_library_versions": {
+        "libavcodec": [
+          62,
+          11,
+          100
+        ],
+        "libavdevice": [
+          62,
+          1,
+          100
+        ],
+        "libavfilter": [
+          11,
+          4,
+          100
+        ],
+        "libavformat": [
+          62,
+          3,
+          100
+        ],
+        "libavutil": [
+          60,
+          8,
+          100
+        ],
+        "libswresample": [
+          6,
+          1,
+          100
+        ],
+        "libswscale": [
+          9,
+          1,
+          100
+        ]
+      },
+      "mediapipe_version": "1.2.2",
+      "numpy_version": "2.2.5",
+      "opencv_build_information_sha256": "c60af1987955a3239ab836dba53dcb915123ac71bcf8d7ffd351fc2f6765e95e",
+      "opencv_version": "4.12.0"
+    }
+  },
+  "verification_witness": {
+    "path": "artifacts/pose/verify-smoke-009.py",
+    "sha256": "70c715d9e633a05d66db03ce7a3fc4ab658a2dd4093ff4b945871d1530d26fb6"
+  },
+  "independent_checks": {
+    "completed_ledger_result_sha256": true,
+    "fresh_source_bytes": true,
+    "fresh_all_frame_native_pts_timebase_float64": true,
+    "independent_exact_half_up_api_clock": true,
+    "all_frame_correspondence": true,
+    "source_code_and_lock_unchanged": true,
+    "all_missing_frames_explicit_null": true,
+    "no_interpolation_or_frame_drop": true
+  },
+  "network": {
+    "launcher": "scripts/run_pose_offline.py",
+    "os_profile": "(version 1)(allow default)(deny network*)",
+    "pre_import_ipv4_and_ipv6_denied": true,
+    "native_egress_denied_by_os": true,
+    "packet_capture_performed": false,
+    "note": "MediaPipe NOTICE declares utilization telemetry; no supported Python opt-out verified. macOS-only extraction isolation verified. CI imports contain no user media."
+  },
+  "native_warnings": [
+    "Feedback manager requires single signature; feedback tensors disabled by upstream runtime",
+    "NORM_RECT without IMAGE_DIMENSIONS projection warning; retained as unresolved accuracy/coordinate validation limitation"
+  ],
+  "limits": [
+    "One reencoded TRAIN clip; no landmark ground truth, identity accuracy, temporal tracking reliability or empirical measurement validation",
+    "Manual metadata/operator declarations are not inferred or validated",
+    "No app pose overlays, automatic event inference, advice or shot outcomes enabled",
+    "Exact model-member redistribution attribution unresolved; no media or model bytes committed",
+    "Original-source timestamp correspondence and CaddieSet feature equivalence remain closed"
+  ]
+}

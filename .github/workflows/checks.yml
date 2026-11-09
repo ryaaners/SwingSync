@@ -35,3 +35,22 @@ jobs:
           version: '0.9.8'
       - run: uv sync --locked --extra ml --python 3.11
       - run: uv run --extra ml pytest
+  pose-runtime-import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.8'
+      - run: uv sync --project pose_runtime --locked --python 3.11
+      - name: Import isolated native libraries without models or media
+        env:
+          MPLBACKEND: Agg
+          MPLCONFIGDIR: /tmp/swingsync-pose-matplotlib
+        run: |
+          uv run --project pose_runtime --locked python - <<'PY'
+          import av, cv2, mediapipe, numpy as np
+          assert (mediapipe.__version__, np.__version__, cv2.__version__, av.__version__) == ('1.2.2', '2.2.5', '4.12.0', '16.0.1')
+          assert cv2.cvtColor(np.zeros((2, 2, 3), dtype=np.uint8), cv2.COLOR_RGB2BGR).shape == (2, 2, 3)
+          assert av.library_versions
+          PY
