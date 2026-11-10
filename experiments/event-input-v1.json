@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "study_id": "event-input-v1",
+  "scope": "Generic-video research proposal pipeline and TRAIN-only deterministic software parity, not accuracy or serving admission",
+  "model_contract": {
+    "path": "experiments/heldout-v1.json",
+    "sha256": "4b4339a469dd5fe09f97b57ae4b650ce378ce1c3a3863f86b46249ad8d9d0008"
+  },
+  "dependency_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+  "inference": {
+    "device": "cpu",
+    "torch_num_threads": 1,
+    "batch_size": 16,
+    "context": "reference-64-reset",
+    "heads": [
+      "frame",
+      "temporal"
+    ],
+    "selection": "best_model",
+    "order_constrained_decoding": false,
+    "accuracy_metrics_computed": false
+  },
+  "input_policy": {
+    "camera_views": [
+      "face-on",
+      "down-the-line"
+    ],
+    "handedness": [
+      "right",
+      "left"
+    ],
+    "club": "nonempty operator declaration",
+    "unmirrored_required": true,
+    "single_swing_confirmation_required": true,
+    "timestamp_basis": [
+      "source",
+      "reencoded"
+    ],
+    "max_bytes": 157286400,
+    "max_frames": 3600,
+    "max_seconds": 30,
+    "max_width": 3840,
+    "max_height": 2160,
+    "single_video_stream": true,
+    "pixel_aspect": "explicit1/1",
+    "display_transform": "coded-upright-unrotated; display matrices refused",
+    "pts": "native integer ticks/rational time base and unchanged float64seconds, strictly increasing/distinct; noFPS/sampling/jitter",
+    "duration": "native PTS span plus known final duration; noFPSfallback",
+    "pre_backbone_roi_crop": null,
+    "pre_backbone_padding": null,
+    "preprocess": "PinnedRGBuint8CHWtensorresize_short232/bilinear/antialiasTrue,center224,floatconvert,ImageNetnormalize"
+  },
+  "parity": {
+    "catalog_path": "artifacts/features/fold1-job-v1/completed-catalog-v1.json",
+    "catalog_sha256": "daf5f108512fc8468476722e7a751e1d95fe64e51e045a9bc95ab65df9918b9e",
+    "fixtures": [
+      {
+        "clip_id": 0,
+        "partition": "train",
+        "source_id": "f1BWA5F87Jc",
+        "view": "down-the-line",
+        "club": "driver",
+        "slow_motion_annotation": false,
+        "video_path": "data/golfdb/videos_160/0.mp4",
+        "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+        "cache_path": "artifacts/features/8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a.npz",
+        "cache_sha256": "6c968c6ed2c4ac2452486660589921610429b3363ec876c40ca09c6162caae69",
+        "frame_count": 138,
+        "width": 160,
+        "height": 160,
+        "timestamp_basis": "reencoded"
+      },
+      {
+        "clip_id": 1,
+        "partition": "train",
+        "source_id": "f1BWA5F87Jc",
+        "view": "down-the-line",
+        "club": "driver",
+        "slow_motion_annotation": true,
+        "video_path": "data/golfdb/videos_160/1.mp4",
+        "video_sha256": "266bcbdcaab4f9ca90fbc0112e5da84d31c76bc978eaf9ae230021fe6dc2393b",
+        "cache_path": "artifacts/features/806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1.npz",
+        "cache_sha256": "e8ea88c3a22d8d6285561024682391f11705f66a5ad3fcbecc99e32cd9efbb5b",
+        "frame_count": 324,
+        "width": 160,
+        "height": 160,
+        "timestamp_basis": "reencoded"
+      }
+    ],
+    "independent_source_recordings": 1,
+    "comparisons": {
+      "features": "bitwise array equality against registered TRAIN cache using identical CPU/runtime/batch16",
+      "pts": "every float64native second and frame index matches cached actual recordingPTS",
+      "probabilities": "bothselectedheads reference64-reset output equal on newfeatures versus cachedfeatures",
+      "peaks": "pinnedNumPy2.2.5 defaultargsort last per event class; noorderrepair"
+    },
+    "labels_or_pce_used": false,
+    "outer_test_access_permitted": false,
+    "threshold_or_model_tuning_permitted": false
+  },
+  "generic_video_policy": "Arbitrary supported local input is permitted only for clearly labeled research diagnostics; passing file/geometry checks does not establish training-domain compatibility. Fixed TRAIN fixtures restrict the parity study, not every generic research input.",
+  "proposal_policy": {
+    "event_count": 8,
+    "selection": "independent per-class probability peak, retainbackgroundclass and report order/duplicate diagnostics",
+    "calibrated_reliability": false,
+    "eight_forced_peaks_prove_a_swing": false,
+    "physical_timing_validated": false,
+    "proposed_events_are_manual_annotations": false
+  },
+  "gates": {
+    "input_distribution_validated": false,
+    "uploaded_video_accuracy_validated": false,
+    "normal_app_model_available": false,
+    "pose_measurements_permitted": false,
+    "outcome_predictions_permitted": false,
+    "coaching_permitted": false
+  },
+  "limitations": [
+    "The reference archive already cropped/padded sourcebbox to160square and reencoded reportedFPS; genericfullframe center crop cannot reconstruct that absentbbox/originalsource history",
+    "BothfixedTRAINclips shareoneYouTubesource/golfer;clip1isslowmotion;462framesnotindependentgeneralization/physicaltempo evidence",
+    "Cachedfeatureparity verifiescomputationonly on samecodedpixels, notuserupload accuracy or originalYouTubeframe correspondence",
+    "Classsoftmax/background values are uncalibratedmodelquantities; independentpeaks canduplicate/reverse andexistforbackgrounddominant/blankvideos",
+    "No new benchmark/PCE, calibration, test-driven tuning, unreviewed measurements, suggestions or automatic serving promotion"
+  ]
+}

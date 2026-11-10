@@ -216,7 +216,7 @@
       "dependencies": [
         "003f"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Declare and verify raw-upload preprocessing/view/crop and timestamp compatibility before ordinary inference",
         "Validate input pipeline on permitted media and separately assess event-error reliability without current-test retuning",
@@ -225,7 +225,8 @@
       ],
       "validation_evidence": [
         "Fold1 benchmark exists; Address/Finish remain weak and posthocorderfailures persist;normalapp staysmodelunavailable",
-        "Current heldoutfold mustnotbecome tuning/calibration feedback; extra sources or a new prospective study required"
+        "Current heldoutfold mustnotbecome tuning/calibration feedback; extra sources or a new prospective study required",
+        "012prereg:strictgenericmetadata/rationalPTS/geometry/protocol+samefrozen232crop224researchrunner+authenticatedproposalreport;95newsynthetictests;actualTRAINparitypending,normalavailabilityfalse"
       ]
     },
     {

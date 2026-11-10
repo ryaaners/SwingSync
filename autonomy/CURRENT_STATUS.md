@@ -1,5 +1,7 @@
 # Current status — 2026-11-10
 
+Execution012 preregistered generic-video research event proposals and the fixed TRAIN0/1 parity protocol. At this checkpoint only synthetic software checks have completed; no actual selected-head forward/parity result has launched. Normal app availability/advice remain false. ProtocolSHA30b270ab29362a7645598e65a953108a1b2582c06acec48fc9b68ab3f76f8caa. Inspect actual jobs before continuing.
+
 Execution011 completed006: the fixed first CaddieSet grouped tabular comparison, with real smoke,16 outer folds and independent verification. Neither learned model improves pooled MAE over club means in either view; small secondary DTL changes are mixed and disclosed. This is a completed negative/mixed research result, not a serving pipeline. Four major workstreams remain (docs/remaining-work.md). The normal app remains manual-event review; automatic events, pose measurements, outcomes and advice stay disabled.
 
 ## Jobs — none active at completion

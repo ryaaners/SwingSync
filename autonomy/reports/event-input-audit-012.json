@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "execution": "012",
+  "scope": "Primary-source/input/data-contract audit and softwaregeometry tests only; no model inference or performance evaluation by auditor",
+  "upstream": [
+    {
+      "path": "artifacts/event-input-audit-012/golfdb-preprocess_videos.py",
+      "url": "https://raw.githubusercontent.com/wmcnally/golfdb/a63b4ce8c0900d09abbe92519223efe16810f5f4/data/preprocess_videos.py",
+      "sha256": "56d1fb1efb8952045a01b6bcedafbf27a9d6dad1c0faa4edeacb9701fa219cc9",
+      "fact_scope": "bboxpixelcrop/inttruncation,160longedgeresize,ImageNetBGRpadding,FPSwriter,inclusiveeventtrim"
+    },
+    {
+      "path": "artifacts/event-input-audit-012/golfdb-dataloader.py",
+      "url": "https://raw.githubusercontent.com/wmcnally/golfdb/a63b4ce8c0900d09abbe92519223efe16810f5f4/dataloader.py",
+      "sha256": "74c49b40104e454c58e71a0be8725aae305c21719efda80b93cc998109a4b659",
+      "fact_scope": "historical160reference sampling andToTensor/Normalize distinctfromour232center224 frozenfeatures"
+    },
+    {
+      "path": "artifacts/event-input-audit-012/golfdb-README.md",
+      "url": "https://raw.githubusercontent.com/wmcnally/golfdb/a63b4ce8c0900d09abbe92519223efe16810f5f4/README.md",
+      "sha256": "e1ece33ad9427e4a477718271103f400389935c3bb52ecd64d72a303e9c5dafd",
+      "fact_scope": "requiresownvideo cropped/cut aroundoneswing; preprocessedarchive160square; codeCCBYNC4 separatefrommedia/weights"
+    },
+    {
+      "path": "artifacts/event-input-audit-012/torchvision-presets.py",
+      "url": "https://raw.githubusercontent.com/pytorch/vision/v0.24.1/torchvision/transforms/_presets.py",
+      "sha256": "5e5a7b80b2e73d00a3a7c798ef0f6e44ab90295eb02ecef5659308bc28219670",
+      "fact_scope": "ImageClassification tensorresize,centercrop,floatconvert,normalize"
+    },
+    {
+      "path": "artifacts/event-input-audit-012/torchvision-functional.py",
+      "url": "https://raw.githubusercontent.com/pytorch/vision/v0.24.1/torchvision/transforms/functional.py",
+      "sha256": "0b2fdf8e6764f4be0113acd95b58d3b14158c13fa2374ed93fbbe1f4b8730ded",
+      "fact_scope": "oneintegerresizefloorlongedge;centerint(round(...))"
+    },
+    {
+      "path": "artifacts/event-input-audit-012/torchvision-mobilenetv2.py",
+      "url": "https://raw.githubusercontent.com/pytorch/vision/v0.24.1/torchvision/models/mobilenetv2.py",
+      "sha256": "7d8a74ebeaf80e2ecfc6a48c2d07921e268cd5dd97b5994dba5ef701b46d3b24",
+      "fact_scope": "ImageNetV2transformspreset232short/224crop"
+    }
+  ],
+  "protocol_path": "experiments/event-input-v1.json",
+  "protocol_sha256": "30b270ab29362a7645598e65a953108a1b2582c06acec48fc9b68ab3f76f8caa",
+  "fixture_metadata": [
+    {
+      "clip_id": 0,
+      "partition": "train",
+      "source_id": "f1BWA5F87Jc",
+      "view": "down-the-line",
+      "club": "driver",
+      "slow_motion_annotation": false,
+      "video_path": "data/golfdb/videos_160/0.mp4",
+      "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+      "cache_path": "artifacts/features/8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a.npz",
+      "cache_sha256": "6c968c6ed2c4ac2452486660589921610429b3363ec876c40ca09c6162caae69",
+      "frame_count": 138,
+      "width": 160,
+      "height": 160,
+      "timestamp_basis": "reencoded"
+    },
+    {
+      "clip_id": 1,
+      "partition": "train",
+      "source_id": "f1BWA5F87Jc",
+      "view": "down-the-line",
+      "club": "driver",
+      "slow_motion_annotation": true,
+      "video_path": "data/golfdb/videos_160/1.mp4",
+      "video_sha256": "266bcbdcaab4f9ca90fbc0112e5da84d31c76bc978eaf9ae230021fe6dc2393b",
+      "cache_path": "artifacts/features/806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1.npz",
+      "cache_sha256": "e8ea88c3a22d8d6285561024682391f11705f66a5ad3fcbecc99e32cd9efbb5b",
+      "frame_count": 324,
+      "width": 160,
+      "height": 160,
+      "timestamp_basis": "reencoded"
+    }
+  ],
+  "geometry_cases": [
+    {
+      "source_width": 160,
+      "source_height": 160,
+      "resized_width": 232,
+      "resized_height": 232,
+      "center_crop_left": 4,
+      "center_crop_top": 4,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 640,
+      "source_height": 360,
+      "resized_width": 412,
+      "resized_height": 232,
+      "center_crop_left": 94,
+      "center_crop_top": 4,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 360,
+      "source_height": 640,
+      "resized_width": 232,
+      "resized_height": 412,
+      "center_crop_left": 4,
+      "center_crop_top": 94,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 640,
+      "source_height": 359,
+      "resized_width": 413,
+      "resized_height": 232,
+      "center_crop_left": 94,
+      "center_crop_top": 4,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 359,
+      "source_height": 640,
+      "resized_width": 232,
+      "resized_height": 413,
+      "center_crop_left": 4,
+      "center_crop_top": 94,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 638,
+      "source_height": 360,
+      "resized_width": 411,
+      "resized_height": 232,
+      "center_crop_left": 94,
+      "center_crop_top": 4,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 360,
+      "source_height": 638,
+      "resized_width": 232,
+      "resized_height": 411,
+      "center_crop_left": 4,
+      "center_crop_top": 94,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 1920,
+      "source_height": 1080,
+      "resized_width": 412,
+      "resized_height": 232,
+      "center_crop_left": 94,
+      "center_crop_top": 4,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    },
+    {
+      "source_width": 1080,
+      "source_height": 1920,
+      "resized_width": 232,
+      "resized_height": 412,
+      "center_crop_left": 4,
+      "center_crop_top": 94,
+      "crop_width": 224,
+      "crop_height": 224,
+      "resize_short_edge": 232,
+      "interpolation": "bilinear",
+      "antialias": true,
+      "input": "RGB-uint8-CHW",
+      "transform": "IMAGENET1K_V2-tensor-resize232-center224",
+      "pre_backbone_roi_crop": null,
+      "pre_backbone_padding": null,
+      "crop_subject_coverage_validated": false
+    }
+  ],
+  "software_validation": {
+    "contract_tests_passed": 49,
+    "geometry_cases_matched_pinned_torchvision_tensor_execution": 9,
+    "tiny_generated_video_native_pts_parity": true,
+    "real_train_media_preflight": [
+      {
+        "clip_id": 0,
+        "frame_count": 138,
+        "square_pixel_aspect": "1/1"
+      },
+      {
+        "clip_id": 1,
+        "frame_count": 324,
+        "square_pixel_aspect": "1/1"
+      }
+    ],
+    "actual_model_inference_performed_by_auditor": false,
+    "operational_protocol_changes_rejected": 8
+  },
+  "conclusion": {
+    "archive_to_generic_input_domain_equivalence": false,
+    "original_source_image_pts_equivalence": false,
+    "uploaded_video_event_accuracy_validated": false,
+    "independent_source_recordings": 1,
+    "physical_tempo_validated": false,
+    "serving_permitted": false,
+    "coaching_permitted": false
+  },
+  "limits": [
+    "Originalbboxcrop/pad/historycannotbeverifiedfromgenericimagealone",
+    "Landscape232shortcenter224 dropslargehorizontalfield; for640x360 resized412x232,cropx94..318 leaves224/412 nominalhorizontalextent; anatomy/clubcoverageunvalidated",
+    "Geometricbookkeeping isnotcalibratedlandmarkmappinganddoesnotmodelinterpolationfilter support/color-transfer equivalence",
+    "Operatorcamera/hand/mirror/singleswing/rights declarations notvalidatedidentity; clip1slowmotion highlightsrecordingtimevsphysicaltime",
+    "No upstreamcode,mediaorweightsvendored; sourceauditcopiesignored;code/data/weightlicensesseparate"
+  ]
+}
