@@ -226,8 +226,59 @@
       "validation_evidence": [
         "Fold1 benchmark exists; Address/Finish remain weak and posthocorderfailures persist;normalapp staysmodelunavailable",
         "Current heldoutfold mustnotbecome tuning/calibration feedback; extra sources or a new prospective study required",
-        "012prereg:strictgenericmetadata/rationalPTS/geometry/protocol+samefrozen232crop224researchrunner+authenticatedproposalreport;95newsynthetictests;actualTRAINparitypending,normalavailabilityfalse"
+        "012prereg:strictgenericmetadata/rationalPTS/geometry/protocol+samefrozen232crop224researchrunner+authenticatedproposalreport;95newsynthetictests;actualTRAINparitypending,normalavailabilityfalse",
+        "012completed003g1:462TRAINframes same1source/golfer;bitwisefeatures/PTS/bothheadprobabilities;two8PNGbrowserreports/navigation+honestunsupportedcodec;nonchronologicalclip1retained;event-input-parity-012.json;normalavailabilityfalse"
       ]
+    },
+    {
+      "id": "003g1",
+      "title": "Research generic event input, fixed TRAIN parity and canonical proposal evidence",
+      "dependencies": [
+        "003f"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Prospectively bind metadata/raster/native PTS/transform/runtime and both selected heads",
+        "Preserve all frames and independent peaks; no order repair or accuracy/coaching admission",
+        "Real fixed TRAIN same-pixel parity and authenticated canonical-image report independently reviewed"
+      ],
+      "validation_evidence": [
+        "Preregistration b112612 before actual inference;CI42788703842 passed",
+        "Two actual completed jobs138+324frames;one source/golfer;features/nativePTS/bothheadprobabilities bitwise equal(max0);noaccuracy/training",
+        "95newtests,586MLpass1skip/base488pass13skip;Ruff/frontend4tests/build;review012 publication/protocol fixes",
+        "Browser both8PNGs/navigation pass;codec fallback visible;video synchronization unverified;event-input-parity-012.json"
+      ]
+    },
+    {
+      "id": "003g2",
+      "title": "Empirical generic crop/domain and event-error reliability admission",
+      "dependencies": [
+        "003g1"
+      ],
+      "status": "blocked",
+      "acceptance_criteria": [
+        "Broader permitted source/view/hand/mirror recordings under prospective grouped study",
+        "Independent reference events and error/coverage/order/reliability analysis separate from already evaluated fold",
+        "Validate actual subject coverage/input compatibility before ordinary serving"
+      ],
+      "validation_evidence": [
+        "Exact unblock:broader permitted recordings with credible conventions and independent reference event labels under a prospectively defined source-grouped protocol",
+        "Same-pixelTRAINparity on one golfer/source does not validate raw upload domain or calibrated confidence;currentheldoutfold cannot be tuned"
+      ]
+    },
+    {
+      "id": "003g3",
+      "title": "Opt-in authenticated research proposals to explicit manual review",
+      "dependencies": [
+        "003g1"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Authenticate completed research source SHA/native-index proposals before draft handoff",
+        "Explicit user confirmation/corrections retain provenance and revision history; predictions never silently become manual labels",
+        "Keep default automatic model/advice unavailable; test conflicts,wrong-source and timing recomputation after manual approval"
+      ],
+      "validation_evidence": []
     },
     {
       "id": "004a",

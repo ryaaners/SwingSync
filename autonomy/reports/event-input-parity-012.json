@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "execution": "012",
+  "completed_capability": "Generic local research event proposals with authenticated canonical-frame review",
+  "preregistration_commit": "b112612544e4becaee4bc3d1533833c5f9a9ddb6",
+  "preregistration_ci": "https://github.com/ryaaners/SwingSync/actions/runs/42788703842",
+  "protocol_sha256": "30b270ab29362a7645598e65a953108a1b2582c06acec48fc9b68ab3f76f8caa",
+  "parity_ledger": {
+    "path": "artifacts/event-input/parity-v1/run.json",
+    "sha256": "d82f66f03819266e618b34832cabfe0dea3178262a5f61b74581e7b6ddf5c5ed",
+    "job_id": "b938073a6cb64f29890c15034f7a4fc7",
+    "state": "completed",
+    "script_path": "artifacts/event-input/parity-012.py",
+    "script_sha256": "8e5dac465aa5d2f4e5a9e4b56d10de008e824704ce9db75e6a11c625853c3a4b",
+    "reference_probabilities_sha256": "7bc9e1c772f260f6033a953c31dba7f859d273c0fd1469344304885fdb843289"
+  },
+  "frame_count": 462,
+  "source_recording_count": 1,
+  "golfer_count": 1,
+  "fixtures": [
+    {
+      "clip_id": 0,
+      "partition": "train",
+      "source_id": "f1BWA5F87Jc",
+      "frame_count": 138,
+      "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+      "run_path": "artifacts/event-input/clip0-v1/run.json",
+      "run_sha256": "425d1729b966f45d7d1041658f41d9d7adc5e7133c726de4ca5ea47be1858141",
+      "result_sha256": "c6de39b6a8cc3eb1f83604c302ff1a1996cef7e9aeabd3d3c712335744e4bc3d",
+      "arrays_sha256": "f32557a3d2dfb8812cc8fc8e34e703ba91b81c53f516d717b314a9cbf377d42b",
+      "cache_path": "artifacts/features/8c33671115c47f0880262e0512a66c13bdcf497d04aa4470f012e71c9bd5f93a.npz",
+      "cache_sha256": "6c968c6ed2c4ac2452486660589921610429b3363ec876c40ca09c6162caae69",
+      "features_bitwise_equal": true,
+      "feature_max_abs_difference": 0.0,
+      "native_pts_bitwise_equal": true,
+      "heads": {
+        "frame": {
+          "probabilities_bitwise_equal": true,
+          "probability_max_abs_difference": 0.0,
+          "peak_indices": [
+            36,
+            88,
+            69,
+            75,
+            97,
+            91,
+            95,
+            103
+          ],
+          "strict_order": false,
+          "duplicate_peak_count": 0
+        },
+        "temporal": {
+          "probabilities_bitwise_equal": true,
+          "probability_max_abs_difference": 0.0,
+          "peak_indices": [
+            47,
+            65,
+            70,
+            83,
+            87,
+            90,
+            93,
+            106
+          ],
+          "strict_order": true,
+          "duplicate_peak_count": 0
+        }
+      },
+      "slow_motion_annotation": false
+    },
+    {
+      "clip_id": 1,
+      "partition": "train",
+      "source_id": "f1BWA5F87Jc",
+      "frame_count": 324,
+      "video_sha256": "266bcbdcaab4f9ca90fbc0112e5da84d31c76bc978eaf9ae230021fe6dc2393b",
+      "run_path": "artifacts/event-input/clip1-v1/run.json",
+      "run_sha256": "b63bfdb1d7779048940f2e0f406caa3247fe4cea6b8bcca70885b70db0c8138d",
+      "result_sha256": "25056b91137ea51a3dda7bfe3a25b67eae146f208aaada4f96fae438f284bc84",
+      "arrays_sha256": "1277fa12f11ed8b00f6c1a70b9ed3d1a9ac6b3799dc09df4828609b0a793e910",
+      "cache_path": "artifacts/features/806a9fa752651d9064a1a8947a293964281ef6a2aab22b451b3e3394ed9e1ef1.npz",
+      "cache_sha256": "e8ea88c3a22d8d6285561024682391f11705f66a5ad3fcbecc99e32cd9efbb5b",
+      "features_bitwise_equal": true,
+      "feature_max_abs_difference": 0.0,
+      "native_pts_bitwise_equal": true,
+      "heads": {
+        "frame": {
+          "probabilities_bitwise_equal": true,
+          "probability_max_abs_difference": 0.0,
+          "peak_indices": [
+            0,
+            92,
+            118,
+            131,
+            169,
+            208,
+            226,
+            252
+          ],
+          "strict_order": true,
+          "duplicate_peak_count": 0
+        },
+        "temporal": {
+          "probabilities_bitwise_equal": true,
+          "probability_max_abs_difference": 0.0,
+          "peak_indices": [
+            196,
+            104,
+            119,
+            134,
+            191,
+            208,
+            215,
+            268
+          ],
+          "strict_order": false,
+          "duplicate_peak_count": 0
+        }
+      },
+      "slow_motion_annotation": true
+    }
+  ],
+  "reports": [
+    {
+      "clip_id": 0,
+      "manifest_path": "artifacts/event-input/clip0-review-v1/manifest.json",
+      "manifest_sha256": "77db8eb4c125f000af45a09c71c95f8c25c19442f3e1c3b8ef8f53f3e0757361",
+      "html_sha256": "f32d591f223cbc6f9544381ce5874996d77b31548c68b36b6da7e6da30647e90",
+      "canonical_frame_indices": [
+        47,
+        65,
+        70,
+        83,
+        87,
+        90,
+        93,
+        106
+      ],
+      "event_count": 8,
+      "browser_time_alignment_validated": false
+    },
+    {
+      "clip_id": 1,
+      "manifest_path": "artifacts/event-input/clip1-review-v1/manifest.json",
+      "manifest_sha256": "2e5f926557a265a37b7b7b6964f3a0545cd13bfe585963879ebb8d4f16bf0b67",
+      "html_sha256": "b9b9bac3f405e55ecddae6dd6bdb5b454f8a7eb3fe8d9cec1eeb70e98ac82d42",
+      "canonical_frame_indices": [
+        104,
+        119,
+        134,
+        191,
+        196,
+        208,
+        215,
+        268
+      ],
+      "event_count": 8,
+      "browser_time_alignment_validated": false
+    }
+  ],
+  "browser_qa": {
+    "performed": true,
+    "both_reports_opened": true,
+    "canonical_images_loaded_per_report": 8,
+    "impact_navigation_verified_both_reports": true,
+    "clip1_nonchronological_warning_visible": true,
+    "native_codec_playback_supported": false,
+    "fallback_message_visible": true,
+    "browser_time_alignment_validated": false,
+    "screenshot_path": "artifacts/event-input/browser-review-012.png",
+    "screenshot_sha256": "29bad9cbde74289062767d9b56de19d7e5be606e10b8f1ef61cff9b8c618495f",
+    "screenshot_redistributed": false
+  },
+  "checks": {
+    "base_pytest_passed": 488,
+    "base_optional_skips": 13,
+    "full_ml_pytest_passed": 586,
+    "full_ml_optional_skips": 1,
+    "new_software_tests": 95,
+    "independent_combined_tests": 137,
+    "ruff": "passed",
+    "frontend_node_tests_passed": 4,
+    "frontend_typecheck_build": "passed",
+    "npm_known_vulnerabilities": 0
+  },
+  "limits": [
+    "TRAIN clips0/1 share source f1BWA5F87Jc and golfer Sandra Gal; not independent generalization examples",
+    "Clip1 is slow motion and temporal peaks remain out of order; no repair or physical tempo",
+    "Exact same-pixel bitwise parity does not establish raw-upload crop/domain compatibility or event accuracy",
+    "Historical benchmark inputs are bbox-cropped, long-edge resized, padded and reencoded; generic full-frame center crop differs",
+    "Reference video codec is unsupported in observed browser; canonical images available, video synchronization unverified",
+    "No outer evaluation repeated, test tuning, training, calibration or advice validation performed",
+    "Raw clips, model weights, arrays, reports and screenshot remain ignored; local research access does not grant redistribution"
+  ],
+  "training_performed": false,
+  "accuracy_metrics_computed": false,
+  "input_distribution_validated": false,
+  "physical_timing_validated": false,
+  "normal_model_available": false,
+  "validated_for_serving": false,
+  "advice": []
+}
