@@ -1,6 +1,6 @@
 # SwingSync event model card
 
-Status: PROJECT-TRAINED RESEARCH HEADS EVALUATED ON OFFICIAL FOLD1; AUTOMATIC APP INFERENCE UNAVAILABLE. Updated 2026-11-09.
+Status: PROJECT-TRAINED RESEARCH HEADS EVALUATED ON OFFICIAL FOLD1; AUTOMATIC APP INFERENCE UNAVAILABLE. Updated 2026-11-10.
 
 ## Intended use and current app behavior
 
@@ -40,7 +40,7 @@ Full per-event errors, fixed config, provenance and limitations: [experiments.md
 - Original-source image/PTS and browser/audio/display-rotation synchronization remain unverified. Slow motion/time remapping can change physical timing. Canonical manual frames are the current app evidence.
 - A real isolated local pose extractor completed a training-clip smoke, but empirical landmark/movement accuracy remains unestablished. Visibility/view/handedness/mirroring/event error affect projected measurements. Ordinary landmarks do not support pressure, forces, clubface angle or calibrated 3D rotation.
 - Manual marks retain current/superseded revisions, recording hash, native/relative timestamps and frame images. Their descriptive timing reliability is unvalidated; no ideal threshold, quality score or advice is inferred. Synthetic software tests are not accuracy, user testing or a permitted-real-golf demonstration.
-- CaddieSet grouped tabular training remains separate and unrun. HRNet/FasterR-CNN/SwingNet features are not established equivalent to MediaPipe; uploaded-video outcomes stay disabled. DirectionAngle describes initial direction, not curvature. Associations/feature importance cannot establish causal fixes.
+- CaddieSet grouped tabular training completed as a separate fixed research comparison; outcome serving remains disabled. HRNet/FasterR-CNN/SwingNet features are not established equivalent to MediaPipe; uploaded-video outcomes stay disabled. DirectionAngle describes initial direction, not curvature. Associations/feature importance cannot establish causal fixes.
 
 ## Data, code, weights and hardware
 
@@ -54,4 +54,12 @@ The real pose smoke on one TRAIN clip retained all 138 native frame timestamps: 
 
 ## Supported portfolio scope
 
-Research-only training/evaluation statements can cite this specific fixed fold, trained heads and frozen-backbone provenance; [portfolio-evidence.md](portfolio-evidence.md) gives bounded examples. No completed end-to-end automatic coaching, unseen-golfer, supervised outcome or accuracy-on-user-videos claim is supported. Remaining release gates are actual input/pose reliability, permitted real-video-to-report demonstration and reproducibility beyond this local environment.
+Research-only training/evaluation statements can cite this specific fixed fold, trained heads and frozen-backbone provenance; [portfolio-evidence.md](portfolio-evidence.md) gives bounded examples. No completed end-to-end automatic coaching, unseen-golfer event performance, validated outcome serving or accuracy-on-user-videos claim is supported. Remaining release gates are actual input/pose reliability, permitted real-video-to-report demonstration and reproducibility beyond this local environment.
+
+## Separate CaddieSet outcome research — execution 011
+
+The fixed first DirectionAngle study completed eight leave-one-golfer-out folds separately for FACEON and DTL, with grouped inner tuning and training-only transforms. All69 registered swing features plus club metadata were used; all ball outcomes/derivatives and golfer identity were excluded from predictors. The initial-direction target is not shot curvature. The eight golfers and correlated/duplicate view records are not a large independent population.
+
+Pooled MAE (degrees) is FACEON3.335 club-mean /4.614 Ridge /3.502 HGB; DTL3.226 /3.235 /3.259. Neither learned model improves pooled MAE in either view; small DTL macro/RMSE changes are mixed and do not establish consistent generalization. FACEON Ridge extrapolates severely for one golfer; the raw failure is retained without clipping or test-driven repair. Full per-fold MAE/RMSE/R², variability, selected inner configurations, provenance and caveats are in caddieset-experiments.md and caddieset-results-011.json. No current held-out feedback may be used to retune this fixed comparison.
+
+Outcome models remain research-only, with no exported product estimator, uploaded-video feature compatibility, calibrated coaching claim or serving endpoint. Lack of consistent baseline improvement and absent feature equivalence both preserve the closed integration gate. The event-model comparison and its original locks/checkpoints are unchanged.

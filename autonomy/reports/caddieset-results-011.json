@@ -1,0 +1,1121 @@
+{
+  "schema_version": 1,
+  "execution": "011",
+  "scope": "Completed fixed separate CaddieSet research comparison; no uploaded-video prediction or coaching",
+  "registration": {
+    "commit": "dcd1b0b2d3dd302ffe54a8f366fe15a1070b469d",
+    "config_path": "experiments/caddieset-v1.json",
+    "config_sha256": "8fc099bc65e4b77bbab5dd88f896d27231c0f5b524e712e932e2c9f7dadb832d",
+    "protocol_path": "experiments/caddieset-v1.md",
+    "protocol_sha256": "519857b1043564aa9d6a9b447c747e77ccf6a95bed8b81b43b7f4de4fa05d5c9",
+    "registered_before_actual_csv_fit": true
+  },
+  "data": {
+    "csv_sha256": "646459b081863e244d75efe6f09fad4d34750d2fed7fde44db654e7720a9a306",
+    "row_count": 1757,
+    "feature_count": 69,
+    "independent_golfers": 8,
+    "duplicate_rows_retained": 6,
+    "target": "DirectionAngle",
+    "units": "degrees of initial departure, not curvature",
+    "view_models_separate": true,
+    "missing_tokens": {
+      "empty": 58917,
+      "#NAME?": 11,
+      "literal_inf": 11
+    },
+    "missing_feature_values": 58939,
+    "audit_path": "autonomy/reports/caddieset-audit-011.json"
+  },
+  "jobs": {
+    "smoke": {
+      "path": "artifacts/caddieset/smoke-v1/run.json",
+      "sha256": "51c7de24a5304bcda8a77c091998c26eb25c521d0fab894a2fc611e959296083",
+      "job_id": "615ea576ede341c2bf1c428660bb0e63",
+      "state": "completed",
+      "train_rows": 64,
+      "heldout_rows": 0,
+      "accuracy_metrics": false
+    },
+    "comparison": {
+      "path": "artifacts/caddieset/comparison-v1/run.json",
+      "sha256": "1b96b88964b9ef278e2bf1bc0482b83508d028d53a3a2808784c1006e183c2e2",
+      "report_path": "artifacts/caddieset/comparison-v1/report.json",
+      "report_sha256": "cddb4d1bd3fb54ec518bc0dc35f392223607b3d290f73c3e9b822fb6a4410632",
+      "job_id": "ab223a3043834df6a68ba29e2ad5050f",
+      "state": "completed",
+      "fold_count": 16,
+      "attempt_count": 2,
+      "attempt_fold_counts": [
+        1,
+        15
+      ],
+      "elapsed_seconds_by_attempt": [
+        1.0127746248617768,
+        16.477840167004615
+      ],
+      "completed_resume_byte_identity_verified": true,
+      "initial_fold_sha256_unchanged": "0777d22645b16448da58c673be9c4fec65875f3b0e3353addc40d404d02b162c"
+    }
+  },
+  "runtime": {
+    "installed_packages": {
+      "cloudpickle": "3.1.2",
+      "iniconfig": "2.3.1",
+      "joblib": "1.6.0",
+      "numpy": "2.2.5",
+      "packaging": "26.3",
+      "pandas": "2.3.3",
+      "pluggy": "1.7.0",
+      "pytest": "8.3.5",
+      "python-dateutil": "4.0.0",
+      "pytz": "2026.6",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.15.3",
+      "threadpoolctl": "3.8.0",
+      "tzdata": "2026.6"
+    },
+    "machine": "arm64",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python": "3.11.14 (main, Oct 28 2025, 12:11:54) [Clang 20.1.4 ]",
+    "python_executable_sha256": "d286f228f793214d6cd65f85d00f9544b1efd8f541be2990ebfd07b7007e2acf",
+    "root_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+    "source_sha256": {
+      "backend/swingsync/research/caddie_experiment.py": "1c4db0b28895874dafaa12579b1901f3ff03592042579dad1841fd1f58432954",
+      "backend/swingsync/research/caddieset.py": "d6fade7760bbd664c1defc2b5bdf06da8c1f07eb30bbb1a6a7ebb3696a4f0469",
+      "docs/caddieset-contract.md": "386062aedf4750fae180f6d103309385f7985eed4f9dcbeeff18556603509a3a",
+      "experiments/caddieset-v1.md": "519857b1043564aa9d6a9b447c747e77ccf6a95bed8b81b43b7f4de4fa05d5c9",
+      "scripts/run_caddieset.py": "0694a5afbed1cfba647eb838a3bbf2d2cdcff9a395f16f55d2d32a219b0e200a"
+    },
+    "tabular_lock_sha256": "ea54460e550b3528de4fceb93f03f3b7a910a75e734909bd282078123b6bf772",
+    "threads": 1
+  },
+  "config": {
+    "dataset_sha256": "646459b081863e244d75efe6f09fad4d34750d2fed7fde44db654e7720a9a306",
+    "hgb_candidates": [
+      {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      }
+    ],
+    "hgb_shared": {
+      "early_stopping": false,
+      "learning_rate": 0.05,
+      "max_iter": 100,
+      "min_samples_leaf": 20
+    },
+    "inner_splits": 3,
+    "outer_golfers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "ridge_alphas": [
+      1,
+      10,
+      100
+    ],
+    "schema_version": 1,
+    "seed": 20261110,
+    "target": "DirectionAngle",
+    "views": [
+      "FACEON",
+      "DTL"
+    ]
+  },
+  "hardware": {
+    "cpu": "Apple M1",
+    "memory_bytes": 8589934592,
+    "execution": "CPU, requested numerical thread limit1; OpenMP1 independently observed in same pinned environment",
+    "minimum_hardware_established": false
+  },
+  "results": {
+    "advice": [],
+    "app_integration_permitted": false,
+    "coaching_permitted": false,
+    "dataset_sha256": "646459b081863e244d75efe6f09fad4d34750d2fed7fde44db654e7720a9a306",
+    "feature_equivalence_validated": false,
+    "independent_golfers": 8,
+    "limitations": [
+      "Eight golfers; frames/view records are not independent golfers",
+      "No authoritative shot identifiers; entire golfers keep potential pairs together",
+      "Duplicates retained; view models and held-out records remain correlated",
+      "Club use is confounded with golfer identity",
+      "DirectionAngle is initial direction, not slice/hook curvature",
+      "Feature importance/associations do not imply causal swing fixes",
+      "MediaPipe feature equivalence is unestablished; research-only output"
+    ],
+    "schema_version": 1,
+    "target": "DirectionAngle",
+    "unit": "degrees_initial_direction",
+    "views": {
+      "DTL": {
+        "club_mean": {
+          "macro_golfer_fold_variation": {
+            "mae": {
+              "fold_count": 8,
+              "max": 5.6701146412219074,
+              "mean": 3.3464795237186697,
+              "min": 1.7937766827454285,
+              "std_population": 1.3682191267807133
+            },
+            "r2": {
+              "fold_count": 8,
+              "max": -0.05541281196904113,
+              "mean": -0.303479102449583,
+              "min": -0.7906709816525859,
+              "std_population": 0.21829883233081493
+            },
+            "rmse": {
+              "fold_count": 8,
+              "max": 7.243707401510154,
+              "mean": 4.241465236593897,
+              "min": 2.2552960882948145,
+              "std_population": 1.8279279413166782
+            }
+          },
+          "per_fold": [
+            {
+              "count": 123,
+              "heldout_golfer": 1,
+              "mae": 1.7937766827454285,
+              "r2": -0.22748217778945135,
+              "rmse": 2.374631369771241
+            },
+            {
+              "count": 165,
+              "heldout_golfer": 2,
+              "mae": 2.6563858781345413,
+              "r2": -0.38243151745673987,
+              "rmse": 3.416903575600819
+            },
+            {
+              "count": 230,
+              "heldout_golfer": 3,
+              "mae": 2.1038961989357294,
+              "r2": -0.09928723977074028,
+              "rmse": 2.69375093069271
+            },
+            {
+              "count": 61,
+              "heldout_golfer": 4,
+              "mae": 3.383419436195745,
+              "r2": -0.05541281196904113,
+              "rmse": 4.318314117974639
+            },
+            {
+              "count": 170,
+              "heldout_golfer": 5,
+              "mae": 5.6701146412219074,
+              "r2": -0.7906709816525859,
+              "rmse": 7.243707401510154
+            },
+            {
+              "count": 33,
+              "heldout_golfer": 6,
+              "mae": 4.019261865086713,
+              "r2": -0.38646559961867655,
+              "rmse": 4.752322563933639
+            },
+            {
+              "count": 6,
+              "heldout_golfer": 7,
+              "mae": 2.057628205128205,
+              "r2": -0.3280314480098929,
+              "rmse": 2.2552960882948145
+            },
+            {
+              "count": 45,
+              "heldout_golfer": 8,
+              "mae": 5.08735328230109,
+              "r2": -0.15805104332953612,
+              "rmse": 6.876795844973161
+            }
+          ],
+          "pooled_row_weighted": {
+            "count": 833,
+            "mae": 3.2257559552496393,
+            "r2": -0.14506911581555393,
+            "rmse": 4.550695374552611
+          }
+        },
+        "hgb": {
+          "macro_golfer_fold_variation": {
+            "mae": {
+              "fold_count": 8,
+              "max": 5.760811151919357,
+              "mean": 3.2996385964019153,
+              "min": 2.0501932709793063,
+              "std_population": 1.3345549781417458
+            },
+            "r2": {
+              "fold_count": 8,
+              "max": -0.0136885240639808,
+              "mean": -0.2699063677928646,
+              "min": -0.8767979625738704,
+              "std_population": 0.28000309313956684
+            },
+            "rmse": {
+              "fold_count": 8,
+              "max": 7.415864109851616,
+              "mean": 4.1499500976768715,
+              "min": 2.1635632227327557,
+              "std_population": 1.7881583219491592
+            }
+          },
+          "per_fold": [
+            {
+              "count": 123,
+              "heldout_golfer": 1,
+              "mae": 2.0916606010574172,
+              "r2": -0.408467195186508,
+              "rmse": 2.5436770475659287
+            },
+            {
+              "count": 165,
+              "heldout_golfer": 2,
+              "mae": 2.2456356967647912,
+              "r2": -0.0136885240639808,
+              "rmse": 2.925924900546624
+            },
+            {
+              "count": 230,
+              "heldout_golfer": 3,
+              "mae": 2.4049397418790583,
+              "r2": -0.46283299930640487,
+              "rmse": 3.107414718994661
+            },
+            {
+              "count": 61,
+              "heldout_golfer": 4,
+              "mae": 3.215144375505661,
+              "r2": -0.07428174528838172,
+              "rmse": 4.356745057524146
+            },
+            {
+              "count": 170,
+              "heldout_golfer": 5,
+              "mae": 5.760811151919357,
+              "r2": -0.8767979625738704,
+              "rmse": 7.415864109851616
+            },
+            {
+              "count": 33,
+              "heldout_golfer": 6,
+              "mae": 3.5421163291401316,
+              "r2": -0.050403739052880425,
+              "rmse": 4.136466304784599
+            },
+            {
+              "count": 6,
+              "heldout_golfer": 7,
+              "mae": 2.0501932709793063,
+              "r2": -0.22219473074719231,
+              "rmse": 2.1635632227327557
+            },
+            {
+              "count": 45,
+              "heldout_golfer": 8,
+              "mae": 5.086607603969601,
+              "r2": -0.05058404612369838,
+              "rmse": 6.549945419414638
+            }
+          ],
+          "pooled_row_weighted": {
+            "count": 833,
+            "mae": 3.2586918702601495,
+            "r2": -0.15895354819428764,
+            "rmse": 4.578201767562922
+          }
+        },
+        "ridge": {
+          "macro_golfer_fold_variation": {
+            "mae": {
+              "fold_count": 8,
+              "max": 5.408783998379863,
+              "mean": 3.3406556131989866,
+              "min": 2.142570636524024,
+              "std_population": 1.166690650444993
+            },
+            "r2": {
+              "fold_count": 8,
+              "max": -0.05405813531221049,
+              "mean": -0.3437805851670599,
+              "min": -0.7695784472156622,
+              "std_population": 0.22923903229588363
+            },
+            "rmse": {
+              "fold_count": 8,
+              "max": 6.909940316580511,
+              "mean": 4.23946457481116,
+              "min": 2.267435753945182,
+              "std_population": 1.6616936853974056
+            }
+          },
+          "per_fold": [
+            {
+              "count": 123,
+              "heldout_golfer": 1,
+              "mae": 2.2839391264257625,
+              "r2": -0.7695784472156622,
+              "rmse": 2.851172628855901
+            },
+            {
+              "count": 165,
+              "heldout_golfer": 2,
+              "mae": 2.4508942011819994,
+              "r2": -0.1027634191448632,
+              "rmse": 3.0517720110175666
+            },
+            {
+              "count": 230,
+              "heldout_golfer": 3,
+              "mae": 2.2596635221902592,
+              "r2": -0.23944142525856815,
+              "rmse": 2.8603214817296267
+            },
+            {
+              "count": 61,
+              "heldout_golfer": 4,
+              "mae": 3.585510977013879,
+              "r2": -0.27660832987108175,
+              "rmse": 4.7493249605122285
+            },
+            {
+              "count": 170,
+              "heldout_golfer": 5,
+              "mae": 5.408783998379863,
+              "r2": -0.629455819397291,
+              "rmse": 6.909940316580511
+            },
+            {
+              "count": 33,
+              "heldout_golfer": 6,
+              "mae": 3.9721439951542195,
+              "r2": -0.33597229096736236,
+              "rmse": 4.6649832292033855
+            },
+            {
+              "count": 6,
+              "heldout_golfer": 7,
+              "mae": 2.142570636524024,
+              "r2": -0.34236681416944026,
+              "rmse": 2.267435753945182
+            },
+            {
+              "count": 45,
+              "heldout_golfer": 8,
+              "mae": 4.621738448721885,
+              "r2": -0.05405813531221049,
+              "rmse": 6.56076621664488
+            }
+          ],
+          "pooled_row_weighted": {
+            "count": 833,
+            "mae": 3.235496423797479,
+            "r2": -0.10170908755166574,
+            "rmse": 4.463703919858797
+          }
+        }
+      },
+      "FACEON": {
+        "club_mean": {
+          "macro_golfer_fold_variation": {
+            "mae": {
+              "fold_count": 8,
+              "max": 5.718300711492932,
+              "mean": 3.29452391095629,
+              "min": 1.6394387564954425,
+              "std_population": 1.4685777362570451
+            },
+            "r2": {
+              "fold_count": 8,
+              "max": -0.014062049995977599,
+              "mean": -0.23594410315038333,
+              "min": -0.737736220734309,
+              "std_population": 0.2491618339445901
+            },
+            "rmse": {
+              "fold_count": 8,
+              "max": 7.277688648831872,
+              "mean": 4.250355160556671,
+              "min": 1.9043332953537626,
+              "std_population": 1.9356111970812337
+            }
+          },
+          "per_fold": [
+            {
+              "count": 112,
+              "heldout_golfer": 1,
+              "mae": 1.6394387564954425,
+              "r2": -0.13534907263313922,
+              "rmse": 2.2542353042165497
+            },
+            {
+              "count": 165,
+              "heldout_golfer": 2,
+              "mae": 2.4827496227282135,
+              "r2": -0.215755569112841,
+              "rmse": 3.204306448762427
+            },
+            {
+              "count": 230,
+              "heldout_golfer": 3,
+              "mae": 2.0895948359742027,
+              "r2": -0.05074619079067988,
+              "rmse": 2.633605716850434
+            },
+            {
+              "count": 74,
+              "heldout_golfer": 4,
+              "mae": 3.4193005995395698,
+              "r2": -0.014062049995977599,
+              "rmse": 4.548659656209865
+            },
+            {
+              "count": 182,
+              "heldout_golfer": 5,
+              "mae": 5.718300711492932,
+              "r2": -0.737736220734309,
+              "rmse": 7.277688648831872
+            },
+            {
+              "count": 109,
+              "heldout_golfer": 6,
+              "mae": 4.413450196592398,
+              "r2": -0.561045327245068,
+              "rmse": 5.476022770868816
+            },
+            {
+              "count": 7,
+              "heldout_golfer": 7,
+              "mae": 1.6747415413533837,
+              "r2": -0.07227721270729592,
+              "rmse": 1.9043332953537626
+            },
+            {
+              "count": 45,
+              "heldout_golfer": 8,
+              "mae": 4.918615023474177,
+              "r2": -0.1005811819837561,
+              "rmse": 6.703989443359637
+            }
+          ],
+          "pooled_row_weighted": {
+            "count": 924,
+            "mae": 3.335241940350364,
+            "r2": -0.13800451682092074,
+            "rmse": 4.692447256041244
+          }
+        },
+        "hgb": {
+          "macro_golfer_fold_variation": {
+            "mae": {
+              "fold_count": 8,
+              "max": 6.392377717882034,
+              "mean": 3.3601638072776194,
+              "min": 1.6776926724496615,
+              "std_population": 1.5191015372369707
+            },
+            "r2": {
+              "fold_count": 8,
+              "max": 0.079207443231044,
+              "mean": -0.35153539084988694,
+              "min": -1.2538257843335878,
+              "std_population": 0.39023580825278253
+            },
+            "rmse": {
+              "fold_count": 8,
+              "max": 8.288228516706154,
+              "mean": 4.3667133464814984,
+              "min": 2.1106935034488,
+              "std_population": 2.014987835189622
+            }
+          },
+          "per_fold": [
+            {
+              "count": 112,
+              "heldout_golfer": 1,
+              "mae": 1.9839816363841491,
+              "r2": -0.49406493023334064,
+              "rmse": 2.5859449673570376
+            },
+            {
+              "count": 165,
+              "heldout_golfer": 2,
+              "mae": 2.363274214278138,
+              "r2": -0.0627526428131242,
+              "rmse": 2.9958978879390554
+            },
+            {
+              "count": 230,
+              "heldout_golfer": 3,
+              "mae": 2.3852877796835976,
+              "r2": -0.3403617410500748,
+              "rmse": 2.974492345205715
+            },
+            {
+              "count": 74,
+              "heldout_golfer": 4,
+              "mae": 3.181923551102664,
+              "r2": 0.079207443231044,
+              "rmse": 4.334430840870785
+            },
+            {
+              "count": 182,
+              "heldout_golfer": 5,
+              "mae": 6.392377717882034,
+              "r2": -1.2538257843335878,
+              "rmse": 8.288228516706154
+            },
+            {
+              "count": 109,
+              "heldout_golfer": 6,
+              "mae": 4.13370451863399,
+              "r2": -0.40453506706931974,
+              "rmse": 5.194261164625802
+            },
+            {
+              "count": 7,
+              "heldout_golfer": 7,
+              "mae": 1.6776926724496615,
+              "r2": -0.3172599940233374,
+              "rmse": 2.1106935034488
+            },
+            {
+              "count": 45,
+              "heldout_golfer": 8,
+              "mae": 4.763068367806724,
+              "r2": -0.01869041050735487,
+              "rmse": 6.449757545698635
+            }
+          ],
+          "pooled_row_weighted": {
+            "count": 924,
+            "mae": 3.5024817999824975,
+            "r2": -0.286561533759804,
+            "rmse": 4.989335267416354
+          }
+        },
+        "ridge": {
+          "macro_golfer_fold_variation": {
+            "mae": {
+              "fold_count": 8,
+              "max": 8.672794541208491,
+              "mean": 4.4999228814843715,
+              "min": 1.393016086804891,
+              "std_population": 2.198751402613074
+            },
+            "r2": {
+              "fold_count": 8,
+              "max": 0.08099512221758753,
+              "mean": -47.53750143900977,
+              "min": -376.2715411717915,
+              "std_population": 124.25035830912866
+            },
+            "rmse": {
+              "fold_count": 8,
+              "max": 41.092405532056596,
+              "mean": 9.58769728261566,
+              "min": 1.7629838363023338,
+              "std_population": 12.071337845391827
+            }
+          },
+          "per_fold": [
+            {
+              "count": 112,
+              "heldout_golfer": 1,
+              "mae": 8.672794541208491,
+              "r2": -376.2715411717915,
+              "rmse": 41.092405532056596
+            },
+            {
+              "count": 165,
+              "heldout_golfer": 2,
+              "mae": 2.6325729478018363,
+              "r2": -0.420762769344454,
+              "rmse": 3.463950633216084
+            },
+            {
+              "count": 230,
+              "heldout_golfer": 3,
+              "mae": 2.612011913109935,
+              "r2": -0.9255478116386331,
+              "rmse": 3.565159772260758
+            },
+            {
+              "count": 74,
+              "heldout_golfer": 4,
+              "mae": 4.512282926488152,
+              "r2": -0.6413178953284857,
+              "rmse": 5.786920687087815
+            },
+            {
+              "count": 182,
+              "heldout_golfer": 5,
+              "mae": 6.54352761415111,
+              "r2": -1.2522226007036434,
+              "rmse": 8.28528021517229
+            },
+            {
+              "count": 109,
+              "heldout_golfer": 6,
+              "mae": 4.514840926958956,
+              "r2": -0.5995241418857342,
+              "rmse": 5.5431022300227015
+            },
+            {
+              "count": 7,
+              "heldout_golfer": 7,
+              "mae": 1.393016086804891,
+              "r2": 0.08099512221758753,
+              "rmse": 1.7629838363023338
+            },
+            {
+              "count": 45,
+              "heldout_golfer": 8,
+              "mae": 5.118336095351595,
+              "r2": -0.2700902436033332,
+              "rmse": 7.201775354806685
+            }
+          ],
+          "pooled_row_weighted": {
+            "count": 924,
+            "mae": 4.614193858539553,
+            "r2": -11.009031826904085,
+            "rmse": 15.24338451186586
+          }
+        }
+      }
+    }
+  },
+  "selected_outer_models": [
+    {
+      "view": "FACEON",
+      "heldout_golfer": 1,
+      "model": "hgb",
+      "training_row_count": 812,
+      "test_row_count": 112,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.648567448921349
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 1,
+      "model": "ridge",
+      "training_row_count": 812,
+      "test_row_count": 112,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 4.363845141108599
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 2,
+      "model": "hgb",
+      "training_row_count": 759,
+      "test_row_count": 165,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 3.5751414999295115
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 2,
+      "model": "ridge",
+      "training_row_count": 759,
+      "test_row_count": 165,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 4.718961187739096
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 3,
+      "model": "hgb",
+      "training_row_count": 694,
+      "test_row_count": 230,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.5447503583843027
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 3,
+      "model": "ridge",
+      "training_row_count": 694,
+      "test_row_count": 230,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 6.301702762138748
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 4,
+      "model": "hgb",
+      "training_row_count": 850,
+      "test_row_count": 74,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 3.4634904083410434
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 4,
+      "model": "ridge",
+      "training_row_count": 850,
+      "test_row_count": 74,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 4.626609947486407
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 5,
+      "model": "hgb",
+      "training_row_count": 742,
+      "test_row_count": 182,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 2.831764863011906
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 5,
+      "model": "ridge",
+      "training_row_count": 742,
+      "test_row_count": 182,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.1400387381313424
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 6,
+      "model": "hgb",
+      "training_row_count": 815,
+      "test_row_count": 109,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.1839822564617206
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 6,
+      "model": "ridge",
+      "training_row_count": 815,
+      "test_row_count": 109,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 4.382289802037747
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 7,
+      "model": "hgb",
+      "training_row_count": 917,
+      "test_row_count": 7,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.649828788150817
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 7,
+      "model": "ridge",
+      "training_row_count": 917,
+      "test_row_count": 7,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 5.043449740734273
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 8,
+      "model": "hgb",
+      "training_row_count": 879,
+      "test_row_count": 45,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 3.2347166561265577
+    },
+    {
+      "view": "FACEON",
+      "heldout_golfer": 8,
+      "model": "ridge",
+      "training_row_count": 879,
+      "test_row_count": 45,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 4.254221008245572
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 1,
+      "model": "hgb",
+      "training_row_count": 710,
+      "test_row_count": 123,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.3905409745089647
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 1,
+      "model": "ridge",
+      "training_row_count": 710,
+      "test_row_count": 123,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.504272692301563
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 2,
+      "model": "hgb",
+      "training_row_count": 668,
+      "test_row_count": 165,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.4554475203347517
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 2,
+      "model": "ridge",
+      "training_row_count": 668,
+      "test_row_count": 165,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.493527759331687
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 3,
+      "model": "hgb",
+      "training_row_count": 603,
+      "test_row_count": 230,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 3.2668780679752376
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 3,
+      "model": "ridge",
+      "training_row_count": 603,
+      "test_row_count": 230,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.6827357404779772
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 4,
+      "model": "hgb",
+      "training_row_count": 772,
+      "test_row_count": 61,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.3142842938486825
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 4,
+      "model": "ridge",
+      "training_row_count": 772,
+      "test_row_count": 61,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.3060338495767367
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 5,
+      "model": "hgb",
+      "training_row_count": 663,
+      "test_row_count": 170,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 2.8756926913588226
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 5,
+      "model": "ridge",
+      "training_row_count": 663,
+      "test_row_count": 170,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 2.888672565223079
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 6,
+      "model": "hgb",
+      "training_row_count": 800,
+      "test_row_count": 33,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.3147419650411254
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 6,
+      "model": "ridge",
+      "training_row_count": 800,
+      "test_row_count": 33,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.330830530950655
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 7,
+      "model": "hgb",
+      "training_row_count": 827,
+      "test_row_count": 6,
+      "selected_parameters": {
+        "l2_regularization": 1,
+        "max_leaf_nodes": 7
+      },
+      "selected_inner_macro_golfer_mae": 3.4942647588515294
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 7,
+      "model": "ridge",
+      "training_row_count": 827,
+      "test_row_count": 6,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.4875943943885575
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 8,
+      "model": "hgb",
+      "training_row_count": 788,
+      "test_row_count": 45,
+      "selected_parameters": {
+        "l2_regularization": 10,
+        "max_leaf_nodes": 15
+      },
+      "selected_inner_macro_golfer_mae": 3.2447234700811918
+    },
+    {
+      "view": "DTL",
+      "heldout_golfer": 8,
+      "model": "ridge",
+      "training_row_count": 788,
+      "test_row_count": 45,
+      "selected_parameters": {
+        "alpha": 100
+      },
+      "selected_inner_macro_golfer_mae": 3.132296617434676
+    }
+  ],
+  "paired_baseline_comparison": {
+    "FACEON": {
+      "ridge": {
+        "mean_fold_mae_change_vs_baseline": 1.2053989705280808,
+        "golfers_with_lower_mae": 1,
+        "golfers_with_higher_mae": 7,
+        "pooled_mae_change_vs_baseline": 1.2789519181891893
+      },
+      "hgb": {
+        "mean_fold_mae_change_vs_baseline": 0.0656398963213298,
+        "golfers_with_lower_mae": 4,
+        "golfers_with_higher_mae": 4,
+        "pooled_mae_change_vs_baseline": 0.1672398596321334
+      }
+    },
+    "DTL": {
+      "ridge": {
+        "mean_fold_mae_change_vs_baseline": -0.005823910519683506,
+        "golfers_with_lower_mae": 4,
+        "golfers_with_higher_mae": 4,
+        "pooled_mae_change_vs_baseline": 0.009740468547839498
+      },
+      "hgb": {
+        "mean_fold_mae_change_vs_baseline": -0.04684092731675438,
+        "golfers_with_lower_mae": 5,
+        "golfers_with_higher_mae": 3,
+        "pooled_mae_change_vs_baseline": 0.032935915010510186
+      }
+    }
+  },
+  "failure_diagnostic": {
+    "scope": "Post-completion description only; no predictions changed or retuned",
+    "view": "FACEON",
+    "heldout_golfer": 1,
+    "ridge_prediction_min": -70.71784135941284,
+    "ridge_prediction_max": 358.41540935943146,
+    "ridge_mae": 8.672794541208491,
+    "ridge_rmse": 41.092405532056596,
+    "ridge_r2": -376.2715411717915,
+    "prediction_clipping_applied": false
+  },
+  "interpretation": "Neither learned model improves pooled MAE over club mean in either view. DTL macro MAE and Ridge RMSE have small improvements; results do not demonstrate consistent baseline improvement across views/weighting. All serving/feature-equivalence/coaching gates remain closed.",
+  "verification_witness": {
+    "path": "artifacts/caddieset/package-results-011.py",
+    "sha256": "aaf5173aae0b3cbd043f52da5ed7e61e08288bc95751c864139c643cc008f926"
+  },
+  "app_integration_permitted": false,
+  "feature_equivalence_validated": false,
+  "coaching_permitted": false,
+  "advice": []
+}

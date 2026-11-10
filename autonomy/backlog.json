@@ -418,10 +418,16 @@
         "Club mean/linear/boosted comparison with per-fold metrics",
         "Feature equivalence gate remains closed unless evidence passes"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "validation_evidence": [
         "Next independent unblocked implementation after010;pose empirical reference gate recorded separately, no reason to delay grouped tabular research",
-        "011pre-fit:data_contract/audit1757x80/8golfers,69strictswingfeatures+club;11newinfvaluesexplicitNaNpolicy;43tests+independentreview;prospectivecaddieset-v1spec/runtimelock beforefitting;resultsstillunavailable"
+        "011pre-fit:data_contract/audit1757x80/8golfers,69strictswingfeatures+club;11newinfvaluesexplicitNaNpolicy;43tests+independentreview;prospectivecaddieset-v1spec/runtimelock beforefitting;resultsstillunavailable",
+        "Prospectiveprotocol/configcommittedandpushed dcd1b0b2d3dd302ffe54a8f366fe15a1070b469d beforeANYactualCSVfit;configSHA8fc099bc65e4b77bbab5dd88f896d27231c0f5b524e712e932e2c9f7dadb832d",
+        "Actualtrain-only64rowgolfers2/3smokecompleted,zeroheldout;comparisonab223a3043834df6a68ba29e2ad5050fcompleted16folds(1thenexplicit15resume),nosourcemutation/testretuning",
+        "Actualcompletedresume unchangedledgerSHA1b96b88964b9ef278e2bf1bc0482b83508d028d53a3a2808784c1006e183c2e2/2attempts;rawreportcddb4d1bd3fb54ec518bc0dc35f392223607b3d290f73c3e9b822fb6a4410632",
+        "PooledMAEdegreesFACEONbaseline3.3352/Ridge4.6142/HGB3.5025;DTL3.2258/3.2355/3.2587;neitherlearnedmodelimprovespooledMAE;smallDTLmacro/RidgeRMSEchangesdisclosed",
+        "Independentall16fold/1757row/48predictionvectors/2208imputermedians/scalers/encoders/grouping/metrics/provenancereviewpassedwithoutactualCSVrefit;68tabulartests,Ruff,fullroot491pass1skip/base394pass12skip/frontend4/buildpass",
+        "Smallmachineaggregatecaddieset-results-011.json;frozenexperimentremainsseparateresearch,noautomaticmodel/causalcoaching/curvatureclaim;featureequivalenceandconsistentgeneralizationgatesclosed"
       ]
     },
     {

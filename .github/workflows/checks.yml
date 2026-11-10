@@ -54,3 +54,13 @@ jobs:
           assert cv2.cvtColor(np.zeros((2, 2, 3), dtype=np.uint8), cv2.COLOR_RGB2BGR).shape == (2, 2, 3)
           assert av.library_versions
           PY
+  tabular-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.8'
+      - run: uv sync --project tabular_runtime --locked --python 3.11
+      - name: Synthetic grouped contracts without dataset downloads
+        run: uv run --project tabular_runtime --locked python -m pytest tests/test_caddieset.py tests/test_caddie_experiment.py
