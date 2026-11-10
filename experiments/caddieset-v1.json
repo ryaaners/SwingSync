@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "dataset_sha256": "646459b081863e244d75efe6f09fad4d34750d2fed7fde44db654e7720a9a306",
+  "target": "DirectionAngle",
+  "seed": 20261110,
+  "views": [
+    "FACEON",
+    "DTL"
+  ],
+  "outer_golfers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "inner_splits": 3,
+  "ridge_alphas": [
+    1,
+    10,
+    100
+  ],
+  "hgb_candidates": [
+    {
+      "max_leaf_nodes": 7,
+      "l2_regularization": 1
+    },
+    {
+      "max_leaf_nodes": 15,
+      "l2_regularization": 10
+    }
+  ],
+  "hgb_shared": {
+    "learning_rate": 0.05,
+    "max_iter": 100,
+    "min_samples_leaf": 20,
+    "early_stopping": false
+  }
+}

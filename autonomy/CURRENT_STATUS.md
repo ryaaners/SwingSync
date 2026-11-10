@@ -1,4 +1,6 @@
-# Current status — 2026-11-09
+# Current status — 2026-11-10
+
+Execution011 has audited and prospectively registered the first grouped CaddieSet comparison. At this registration checkpoint no real fitting or outer evaluation has launched. Data contract/43tests and isolated runtime are verified; driver smoke/full comparison still pending. Inspect actual job ledgers before continuing.
 
 Execution010 completed004e1: an authenticated offline pose review/annotation workbench and conditional reference-agreement tooling, with a primary-source projection audit. The empirical accuracy/identity/measurement study004e remains incomplete. The normal app remains manual-event review only; product pose measurements, automatic events, outcomes and advice stay disabled. Five major workstreams remain; see docs/remaining-work.md.
 

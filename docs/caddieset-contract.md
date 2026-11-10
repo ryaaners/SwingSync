@@ -1,0 +1,37 @@
+# CaddieSet data contract — execution 011
+
+This contract admits the provided upstream **tabular research data only**. It does not admit MediaPipe measurements from uploaded video, create a swing-quality classifier, infer shot curvature, or establish causal coaching advice. The loader and audit run before outcome model evaluation.
+
+## Source, scope and licensing
+
+The pinned [official repository revision](https://github.com/damilab/CaddieSet/tree/3c73d9d40580bb8a5a10711ad1fa10735a205ffe) provides README, MIT LICENSE and `data/CaddieSet.csv`; the previously audited tree contains no source videos, feature extractor or weights. The [exact CSV](https://raw.githubusercontent.com/damilab/CaddieSet/3c73d9d40580bb8a5a10711ad1fa10735a205ffe/data/CaddieSet.csv) is 508,263 bytes, SHA256 `646459b081863e244d75efe6f09fad4d34750d2fed7fde44db654e7720a9a306`. It remains ignored under `data/caddieset/`. The upstream license is separately retained there, SHA256 `f769134dedca333f320213bc2e16aefec773d15bfae96e940c872b75ca2f0e7d`. MIT repository provision does not authorize unreleased recordings or automatically license original SwingSync code.
+
+Cite Jung et al., *CaddieSet: A Golf Swing Dataset with Human Joint Features and Ball Information*, CVPR Workshops 2025. The [paper](https://openaccess.thecvf.com/content/CVPR2025W/CVSPORTS/papers/Jung_CaddieSet_A_Golf_Swing_Dataset_with_Human_Joint_Features_and_CVPRW_2025_paper.pdf), SHA256 `2cc1bc77850957e21561736e54b97f30e9a97d419c3ee115643c5d8e55adc313` from the earlier audit, describes 924 FACEON records and 40 features. This CSV includes an additional 833 DTL records and 69 event features; the paper alone does not define every current-release column.
+
+## Exact schema and usable inputs
+
+The release has 1,757 view records, 80 ordered columns and eight golfers. The loader requires the complete exact header and row width; an arbitrary event-prefixed column is not automatically allowed. `FEATURE_NAMES` explicitly lists all 69 admitted event features. The numeric predictor matrix contains only those columns. `ClubType` is separate candidate metadata, with the experiment responsible for a train-only encoder and an unseen-club fallback. `View` partitions separate FACEON and DTL experiments; it is not an input to these models.
+
+`DirectionAngle` is the single target: signed degrees of initial departure relative to the target line, negative left and positive right. It is **not slice/hook curvature**. The full range is −18.4 to20.9 degrees and no target value is missing. The other seven ball outcomes (`Distance`, `Carry`, `LrDistanceOut`, `SpinBack`, `SpinSide`, `SpinAxis`, `BallSpeed`) and the target itself are excluded from all predictors and predictor-derived transforms/missingness indicators. `GolferId` is a grouping variable only. No shot identifier, source filename, handedness or raw-landmark coordinate table is provided.
+
+The upstream [README definitions](https://github.com/damilab/CaddieSet/blob/3c73d9d40580bb8a5a10711ad1fa10735a205ffe/README.md) describe body-derived angles, relative locations and ratios. In particular, `WEIGHT-SHIFT` is a projected ankle-to-pelvis line angle. Its name does not establish pressure, ground reaction force or weight-transfer measurement. Neither a `HIP-ROTATION` name nor a monocular tabular angle establishes calibrated3D rotation. These upstream feature values are used as provided for association research, without inventing complete extraction formulas or claiming physical validity.
+
+## Numeric cleaning, established before fitting
+
+A new full numeric audit corrects an omission in the initial report: the source has **11 literal `inf` feature cells**, in addition to58,917 empty cells and11 `#NAME?` feature cells. All eight outcome columns are finite and fully populated.
+
+The fixed cleaning policy maps only the three explicitly recognized feature tokens—empty string, `#NAME?`, literal lowercase `inf`—to NaN. The `inf` entries are invalid upstream feature values, not evidence that infinity is a physical measurement. They occur in nine columns: `1-HIP-SHIFTED`(1), `2-HIP-SHIFTED`(1), `2-SHOULDER-LOC`(1), `3-HIP-SHIFTED`(1), `3-SHOULDER-LOC`(1), `4-HIP-HANGING-BACK`(2), `4-SHOULDER-HANGING-BACK`(2), `5-HIP-HANGING-BACK`(1), `5-SHOULDER-HANGING-BACK`(1).
+
+Other nonfinite forms, spreadsheet errors, unexpected text, whitespace-padded numeric cells or malformed CSV rows fail closed. All outcome cells must remain finite; the target is never imputed. Decimal/exponent syntax is explicit, avoiding permissive conversion of tokens such as numeric underscores. Per-view/per-feature missing counts are audit descriptions only. No full-data feature selector, imputer, scaler, encoder or other fitted transform runs in the loader. Structural view missingness must be handled inside each training partition.
+
+## Independence, repeated records and confounding
+
+All records are retained, including six exact duplicate rows; this policy is fixed before fitting. Whole-golfer outer and inner grouping keeps all exact duplicates and possible alternate views together. Separate view models do not turn correlated view records into independent golfers. There are803 groups sharing golfer, club and the eight ball outcomes across both views. This is an **audit-only alternate-view diagnostic**, not an authoritative shot key, grouping input to the split algorithm, predictive feature, or additional label. Without a shot ID, do not claim an exact count of independent shots.
+
+The audit records golfer×view, golfer×club and view×club counts. All eight golfers have both views, but golfer6 supplies109 FACEON versus33 DTL records; golfer7 has only13 records total. Golfers6 and8 use only W1, golfer5 uses W1 in340/352 records, and golfer3 contributes most W3/I8 records. Club/view differences can therefore be associated with identity. Grouped outer evaluation must report every golfer fold and its variation rather than treating1,757 rows as a large independent population. The club-mean baseline must use training values only and fall back to the training-set overall mean for unseen clubs.
+
+## Loader interface and integration gate
+
+`load_caddieset(path, expected_sha256=CSV_SHA256)` returns `CaddieDataset`: owned read-only float64 `X[N,69]` and finite `y[N]`, integer golfer `groups`, view/club arrays, original zero-based CSV `row_ids`, explicit `feature_names`, byte `fingerprint`, and an aggregate audit dictionary. It performs no training. The operational experiment must independently bind the reviewed CSV fingerprint; explicit alternate hashes exist only to test synthetic fixtures. The data contract/audit describes software and actual data, not model performance.
+
+The outcome-serving gate remains **closed**. The upstream pipeline uses automatically selected events and HRNet's17 landmarks with different coordinate/normalization conventions from MediaPipe's33. Unblock conditions remain exact feature/event/camera/handedness/preprocessing definitions, authorized paired source/extractor examples and numerical equivalence including predicted-versus-reviewed event timing, followed by credible held-out-golfer improvement over baseline. Missing videos, extraction code and authoritative shot identifiers cannot be fabricated. Even a favorable grouped tabular result must stay separate from normal uploaded-video coaching until those conditions pass. Feature importance would describe association, not a causal fix.
