@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "execution": "013",
+  "capability": "Opt-in saved research proposals to explicitly confirmed/corrected manual events",
+  "recorded_at": "2026-11-11T06:49:16.218876+00:00",
+  "no_new_inference": true,
+  "no_new_training": true,
+  "accuracy_measured": false,
+  "independent_human_labels_created": false,
+  "input_domain_validated": false,
+  "normal_model_available": false,
+  "advice": [],
+  "source_recording_count": 1,
+  "golfer_count": 1,
+  "checks": {
+    "base_passed": 533,
+    "base_skipped": 13,
+    "ml_passed": 631,
+    "ml_skipped": 1,
+    "new_backend_tests": 45,
+    "frontend_tests": 9,
+    "independent_focused_backend_tests": 96,
+    "ruff": "passed",
+    "typecheck_build": "passed",
+    "npm_known_vulnerabilities": 0
+  },
+  "exports": [
+    {
+      "clip_id": 0,
+      "draft_path": "artifacts/handoff-013/clip0-draft.json",
+      "draft_sha256": "dc24eadba4b6e75bf2a5837a187b67791d970b0902404fc83c94c107f5ca7689",
+      "run_sha256": "425d1729b966f45d7d1041658f41d9d7adc5e7133c726de4ca5ea47be1858141",
+      "frame_count": 138,
+      "event_indices": [
+        47,
+        65,
+        70,
+        83,
+        87,
+        90,
+        93,
+        106
+      ],
+      "strict_order": true,
+      "exporter_provenance": {
+        "run_sha256": "425d1729b966f45d7d1041658f41d9d7adc5e7133c726de4ca5ea47be1858141",
+        "result_sha256": "c6de39b6a8cc3eb1f83604c302ff1a1996cef7e9aeabd3d3c712335744e4bc3d",
+        "arrays_sha256": "f32557a3d2dfb8812cc8fc8e34e703ba91b81c53f516d717b314a9cbf377d42b",
+        "protocol_sha256": "30b270ab29362a7645598e65a953108a1b2582c06acec48fc9b68ab3f76f8caa",
+        "checkpoint_sha256": "910f6d06a253e8117e825f5d625a1dcc11fe6db61344d169daac3fd973ceb5c3",
+        "head": "temporal",
+        "context": "reference-64-reset",
+        "handoff_source_sha256": {
+          "backend/swingsync/proposal_handoff.py": "e8bd00bb7fa68a93c4bf6b82792e3e20c1e79a4ff39cbea5213d9ba32c1aa58b",
+          "scripts/export_event_draft.py": "8217659788d0218db4c87a2cb5c69a225526a45af77e2f5755e04dc03fc7e546"
+        }
+      }
+    },
+    {
+      "clip_id": 1,
+      "draft_path": "artifacts/handoff-013/clip1-draft.json",
+      "draft_sha256": "0b2adb610fc46588cfaff2ce0ab486d2297a6513dd59c70e2544909a94184e75",
+      "run_sha256": "b63bfdb1d7779048940f2e0f406caa3247fe4cea6b8bcca70885b70db0c8138d",
+      "frame_count": 324,
+      "event_indices": [
+        196,
+        104,
+        119,
+        134,
+        191,
+        208,
+        215,
+        268
+      ],
+      "strict_order": false,
+      "exporter_provenance": {
+        "run_sha256": "b63bfdb1d7779048940f2e0f406caa3247fe4cea6b8bcca70885b70db0c8138d",
+        "result_sha256": "25056b91137ea51a3dda7bfe3a25b67eae146f208aaada4f96fae438f284bc84",
+        "arrays_sha256": "1277fa12f11ed8b00f6c1a70b9ed3d1a9ac6b3799dc09df4828609b0a793e910",
+        "protocol_sha256": "30b270ab29362a7645598e65a953108a1b2582c06acec48fc9b68ab3f76f8caa",
+        "checkpoint_sha256": "910f6d06a253e8117e825f5d625a1dcc11fe6db61344d169daac3fd973ceb5c3",
+        "head": "temporal",
+        "context": "reference-64-reset",
+        "handoff_source_sha256": {
+          "backend/swingsync/proposal_handoff.py": "e8bd00bb7fa68a93c4bf6b82792e3e20c1e79a4ff39cbea5213d9ba32c1aa58b",
+          "scripts/export_event_draft.py": "8217659788d0218db4c87a2cb5c69a225526a45af77e2f5755e04dc03fc7e546"
+        }
+      }
+    }
+  ],
+  "api_qa": {
+    "path": "artifacts/handoff-013/api-qa.json",
+    "sha256": "81c00636111122ca88a36f1be10d811ddf66900f43691071808b023d4074cc87",
+    "checks": [
+      {
+        "clip_id": 0,
+        "analysis_id": "e4657a4e670d4c86bc0daf048a0f6b6f",
+        "frame_count": 138,
+        "draft_sha256": "dc24eadba4b6e75bf2a5837a187b67791d970b0902404fc83c94c107f5ca7689",
+        "preview_wrote_nothing": true,
+        "confirmation_required": true,
+        "saved_revision": 1,
+        "timing_measurement_count": 3,
+        "stale_save_refused": true,
+        "report_sha256": "34d2f51a2e0ffab862d23efde0d425f9da05f905053100e37916828d12857b30",
+        "model_status": "unavailable",
+        "review_type": "automated software QA; no independent human labels or accuracy",
+        "restart_persisted": true
+      },
+      {
+        "clip_id": 1,
+        "analysis_id": "b756bdccce50440fa1865afd29ea8522",
+        "frame_count": 324,
+        "draft_sha256": "0b2adb610fc46588cfaff2ce0ab486d2297a6513dd59c70e2544909a94184e75",
+        "preview_wrote_nothing": true,
+        "nonchronological_save_refused": true,
+        "confirmation_required": true,
+        "restart_persisted": true
+      }
+    ]
+  },
+  "browser_qa": {
+    "type": "automated software QA, not independent human event review",
+    "checked_preview_before_explicit_draft_replacement": true,
+    "save_blocked_until_confirmation": true,
+    "edit_reset_confirmation_and_blocked_save": true,
+    "explicit_reconfirmation_saved_revision": 2,
+    "saved_revision_sha256": "06851f758f468fcd20d4d94aba4f88b34191c13f02d7d1b785e5ee05fdc1cb97",
+    "saved_revision_path": "artifacts/handoff-013/browser-saved.json",
+    "screenshot_path": "artifacts/handoff-013/browser-review.png",
+    "screenshot_sha256": "91c8982220c334e12723d5a74adbdf2e10f807232879655c6c764636c0678897",
+    "codec_playback_supported": false,
+    "browser_sync_validated": false
+  },
+  "derivation_sources": {
+    "backend/swingsync/proposal_handoff.py": "e8bd00bb7fa68a93c4bf6b82792e3e20c1e79a4ff39cbea5213d9ba32c1aa58b",
+    "scripts/export_event_draft.py": "8217659788d0218db4c87a2cb5c69a225526a45af77e2f5755e04dc03fc7e546",
+    "backend/swingsync/annotations.py": "fd301724b7fec55e2aca3d344486eb81efb4b17b46f588a8644157bee933401a",
+    "backend/swingsync/app.py": "2218b0406dc8e3f442f84cc1f5b0db0ee7f25285588e73139ac6b9ffaa2cc36a",
+    "frontend/src/ResearchImport.tsx": "ffd9ed45f4d2a44cad529a20b9c763e4ac97d1612dac44fa68baa860e6dc6cc9",
+    "frontend/src/manualEvents.ts": "7cc5351a5360012ba97202cb2373494f7313464b0ce3f4b58ce559bb2e187c0d",
+    "frontend/src/EventReview.tsx": "884ebd8787118211b66bb27e5b1f2211e9d8046121529e1c988f3629dd9a18d8"
+  },
+  "limits": [
+    "Same two TRAIN clips from one golfer/source; no new generalization evidence",
+    "Clip1 slow-motion and nonchronological proposal save refused without repair",
+    "Expected hash must be obtained independently from trusted exporter; checksum is not signature or accuracy validation",
+    "App checks exact media SHA/full native-float timestamp digest; offline exporter freshly checks native rational PTS through existing evidence loader",
+    "API/browser confirmation was simulated software QA; no independent human ground-truth labels or advice validation",
+    "Research origin remains across subsequent manual changes/clears; recording-time arithmetic remains unvalidated and slow-motion dependent",
+    "Videos/drafts/raw probabilities/SQLite/reports/screenshots remain ignored; no redistribution rights inferred"
+  ]
+}

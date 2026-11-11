@@ -8,6 +8,6 @@ export type Analysis = {
   metadata?: { camera_view?: string; handedness?: string; club?: string; mirrored?: boolean; original_filename?: string };
   video?: { duration_seconds: number; frame_count: number; width: number; height: number; timestamps_seconds?: number[]; source_timestamps_seconds?: number[]; source_start_seconds?: number; sha256?: string };
   model?: { status: string; reason?: string };
-  annotation_revision?: number; annotation_history?: { revision: number; updated_at: string; events: ManualEvent[] }[];
+  annotation_revision?: number; annotation_history?: { revision: number; updated_at: string; events: ManualEvent[]; research_origin?: unknown }[];
   events?: ManualEvent[]; measurements?: ManualMeasurement[]; observations?: unknown[];
 };

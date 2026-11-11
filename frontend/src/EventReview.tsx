@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { EVENT_NAMES, type Analysis, type EventName } from './analysisTypes.ts';
-import { draftProblem, eventPayload, fromAnalysis, markFrame, receiveAnalysis } from './manualEvents.ts';
+import { confirmResearchReview, draftProblem, eventPayload, fromAnalysis, markFrame, receiveAnalysis } from './manualEvents.ts';
+
+import ResearchImport from './ResearchImport.tsx';
 
 type Props = { analysis: Analysis; onSave: (payload: ReturnType<typeof eventPayload>) => Promise<Analysis>; onSeek: (seconds: number) => void; onReload: () => Promise<Analysis> };
 const names: Record<string, string> = {
@@ -49,8 +51,10 @@ export default function EventReview({ analysis, onSave, onSeek, onReload }: Prop
   }
   if (!analysis.video?.sha256) return <section className="manual-review card"><h2>Manual event review</h2><p>This older upload has no recording fingerprint. Upload it again to mark frames and export their evidence.</p></section>;
   return <section className="manual-review card" aria-label="Manual swing event review">
-    <div className="manual-heading"><div><p className="eyebrow">YOUR MARKED FRAMES</p><h2>Build a swing timeline</h2></div><span className="badge">Manual · {marks.length}/8 marked</span></div>
-    <p className="manual-intro">Find an event in the decoded frame below, then mark it. These are your annotations, not automatic detections.</p>
+    <div className="manual-heading"><div><p className="eyebrow">{draft.research ? 'RESEARCH DRAFT · REVIEW REQUIRED' : 'YOUR MARKED FRAMES'}</p><h2>Build a swing timeline</h2></div><span className="badge">{draft.research ? 'Proposed draft' : 'Manual'} · {marks.length}/8 marked</span></div>
+    <p className="manual-intro">{draft.research ? 'Review every proposed event using the decoded frames. Correct or remove unsuitable marks before confirming and saving your choices.' : 'Find an event in the decoded frame below, then mark it. These are your annotations, not automatic detections.'}</p>
+    <ResearchImport draft={draft} count={count} disabled={saving} onApply={value => { setDraft(value); setSaveMessage('Research proposals loaded into an unsaved draft. Review the canonical frames and correct any mistakes.'); setSaveError(''); }} />
+    {draft.research && <div className="research-notice" role="status"><strong>Unsaved research proposals require your review.</strong><p>{draft.research.warning}</p><p>Scores are uncalibrated and background may dominate. Peaks can repeat or occur out of order. No automatic timing, accuracy or coaching is established.</p><p>Research file checksum: <code>{draft.research.expected_sha256}</code></p></div>}
     <div className="canonical-frame">
       <img key={imageUrl} src={imageUrl} alt={`Decoded frame ${frame + 1} of your recording`} onLoad={() => { setReadyImage(imageUrl); setImageError(''); }} onError={() => { setReadyImage(''); setImageError('This decoded frame could not be verified. Reload the recording, or upload it again.'); }} />
       <div><strong>Frame {frame + 1} of {count}</strong><span>{times[frame]?.toFixed(6)} s from first frame</span></div>
@@ -65,12 +69,13 @@ export default function EventReview({ analysis, onSave, onSeek, onReload }: Prop
     </fieldset>
     <ol className="event-markers" aria-label="Swing event markers">{EVENT_NAMES.map(name => {
       const index = draft.frames[name];
-      return <li key={name} className={index === undefined ? '' : 'marked'}><button type="button" disabled={saving || index === undefined} onClick={() => { if (index !== undefined) { selectFrame(index); onSeek(times[index]); } }}><strong>{name}</strong><span>{index === undefined ? 'Not marked' : `Frame ${index + 1} · ${times[index]?.toFixed(3)} s`}</span></button>{index !== undefined && <button type="button" className="clear-event" disabled={saving || draft.conflict} aria-label={`Clear ${name}`} onClick={() => { setDraft(previous => markFrame(previous, name, null)); setSaveMessage(''); }}>×</button>}</li>;
+      return <li key={name} className={index === undefined ? '' : 'marked'}><button type="button" disabled={saving || index === undefined} onClick={() => { if (index !== undefined) { selectFrame(index); onSeek(times[index]); } }}><strong>{name}</strong><span>{index === undefined ? 'Not marked' : `${draft.research ? 'Draft frame' : 'Frame'} ${index + 1} · ${times[index]?.toFixed(3)} s`}</span></button>{index !== undefined && <button type="button" className="clear-event" disabled={saving || draft.conflict} aria-label={`Clear ${name}`} onClick={() => { setDraft(previous => markFrame(previous, name, null)); setSaveMessage(''); }}>×</button>}</li>;
     })}</ol>
+    {draft.research && <label className="research-confirm"><input type="checkbox" checked={draft.research.confirmed} disabled={saving || draft.conflict} onChange={event => setDraft(previous => confirmResearchReview(previous, event.target.checked))} /><span>I reviewed the canonical frames and corrected or removed unsuitable proposals. Save the remaining marks as my confirmed manual annotations. Any edit requires confirmation again.</span></label>}
     <div className="event-save"><button type="button" className="button primary" disabled={!draft.dirty || !!problem || saving} onClick={() => void save()}>{saving ? 'Saving…' : 'Save marked events'}</button><span>{draft.dirty ? 'Unsaved changes' : `Saved revision ${draft.revision}`}</span>{draft.conflict && <button type="button" className="button subtle" disabled={saving} onClick={() => void reloadSaved()}>Reload saved events</button>}</div>
     {(problem || saveError) && <p className="event-error" role="alert">{saveError || problem} {saveError && <button type="button" disabled={saving} onClick={() => void reloadSaved()}>Discard draft and reload saved events</button>}</p>}
     {saveMessage && <p className="save-message" role="status">{saveMessage}</p>}
     <div className="manual-measurements"><p className="eyebrow">RECORDING-TIME MEASUREMENTS</p><h3>Timing from saved marks</h3>{(analysis.measurements ?? []).length ? <dl>{analysis.measurements?.map(value => <div key={value.name}><dt>{names[value.name] ?? value.name}</dt><dd>{value.value.toFixed(3)} {value.unit === 'seconds' ? 's' : 'ratio'}</dd></div>)}</dl> : <p>Save Address, Top and Impact to calculate backswing time, downswing time and their ratio.</p>}<p>Manual event timing is unvalidated. Slow motion or speed ramps can change recording time and tempo. No ideal ratio or practice advice is inferred.</p></div>
-    <details className="annotation-provenance"><summary>Annotation evidence · revision {analysis.annotation_revision ?? 0}</summary><p>Time values come from decoded presentation timestamps, not estimated frame rate. Current frame native timestamp: {sourceTimes[frame]?.toFixed(6) ?? 'Unavailable'} s.</p><p>{analysis.annotation_history?.length ?? 0} saved revision(s). Changes remain marked as manual in the local report.</p></details>
+    <details className="annotation-provenance"><summary>Annotation evidence · revision {analysis.annotation_revision ?? 0}</summary><p>Time values come from decoded presentation timestamps, not estimated frame rate. Current frame native timestamp: {sourceTimes[frame]?.toFixed(6) ?? 'Unavailable'} s.</p><p>{analysis.annotation_history?.length ?? 0} saved revision(s). Changes remain marked as manual in the local report.</p>{analysis.annotation_history?.some(entry => entry.research_origin) && <p>Research proposal origins and your confirmed frames are preserved in revision history and the local report. Confirmation does not validate model accuracy.</p>}</details>
   </section>;
 }

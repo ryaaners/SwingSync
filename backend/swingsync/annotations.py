@@ -11,6 +11,7 @@ from typing import Annotated
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
 
 from .movement.contracts import EventName
+from .proposal_handoff import ResearchDraftInput, research_origin
 
 EVENT_NAMES = tuple(event.value for event in EventName)
 RELIABILITY = 'Unvalidated manual annotation; no event-accuracy or coaching calibration.'
@@ -28,6 +29,7 @@ class AnnotationUpdate(BaseModel):
     model_config = ConfigDict(extra='forbid')
     expected_revision: Annotated[StrictInt, Field(ge=0)]
     events: Annotated[list[EventInput], Field(max_length=8)]
+    research_draft: ResearchDraftInput | None = None
 
 
 class AnnotationConflict(ValueError):
@@ -79,6 +81,7 @@ def apply_annotations(item, update: AnnotationUpdate):
     events = [{'name': name, 'frame_index': index, 'timestamp_seconds': info['timestamps_seconds'][index],
                'source_timestamp_seconds': info['source_timestamps_seconds'][index],
                'source': 'manual', 'updated_at': now} for name, index in ordered]
+    origin = research_origin(item, update.research_draft, events)
     by_name = {event['name']: event for event in events}
     measurements = []
     if all(name in by_name for name in ('Address', 'Top', 'Impact')):
@@ -105,6 +108,12 @@ def apply_annotations(item, update: AnnotationUpdate):
     result = deepcopy(item)
     result.update(annotation_revision=revision + 1, events=events, measurements=measurements,
                   observations=[], advice=[], advice_suppression_reason='No validated coaching evidence; manual descriptive timing only.')
-    result.setdefault('annotation_history', []).append({'revision': revision + 1, 'updated_at': now,
-                                                       'events': deepcopy(events)})
+    entry = {'revision': revision + 1, 'updated_at': now, 'events': deepcopy(events)}
+    if origin is not None:
+        result['research_origin'] = origin
+        entry['research_origin'] = deepcopy(origin)
+        for event in events:
+            event['research_draft_sha256'] = origin['draft_sha256']
+        entry['events'] = deepcopy(events)
+    result.setdefault('annotation_history', []).append(entry)
     return result

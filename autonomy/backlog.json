@@ -227,7 +227,8 @@
         "Fold1 benchmark exists; Address/Finish remain weak and posthocorderfailures persist;normalapp staysmodelunavailable",
         "Current heldoutfold mustnotbecome tuning/calibration feedback; extra sources or a new prospective study required",
         "012prereg:strictgenericmetadata/rationalPTS/geometry/protocol+samefrozen232crop224researchrunner+authenticatedproposalreport;95newsynthetictests;actualTRAINparitypending,normalavailabilityfalse",
-        "012completed003g1:462TRAINframes same1source/golfer;bitwisefeatures/PTS/bothheadprobabilities;two8PNGbrowserreports/navigation+honestunsupportedcodec;nonchronologicalclip1retained;event-input-parity-012.json;normalavailabilityfalse"
+        "012completed003g1:462TRAINframes same1source/golfer;bitwisefeatures/PTS/bothheadprobabilities;two8PNGbrowserreports/navigation+honestunsupportedcodec;nonchronologicalclip1retained;event-input-parity-012.json;normalavailabilityfalse",
+        "013completed003g3:optinresearchdrafttoexplicitmanualreview/corrections/history/report;empirical003g2stillblocked;normalavailabilityfalse"
       ]
     },
     {
@@ -272,13 +273,19 @@
       "dependencies": [
         "003g1"
       ],
-      "status": "pending",
+      "status": "completed",
       "acceptance_criteria": [
         "Authenticate completed research source SHA/native-index proposals before draft handoff",
         "Explicit user confirmation/corrections retain provenance and revision history; predictions never silently become manual labels",
         "Keep default automatic model/advice unavailable; test conflicts,wrong-source and timing recomputation after manual approval"
       ],
-      "validation_evidence": []
+      "validation_evidence": [
+        "013:strict bounded UTF8JSON/rawSHA/exactsource/fullnativePTS/metadata/falsegate admission;trustedexporterchecksum notsignature",
+        "ActualsavedTRAIN0/1 exports/noinference;previewnoDBwrite;confirmationrequired;nonchronologicalclip1saverefused;source/researchorigin preserved",
+        "APIQAclip0rev1+restart/stale409, browserpreview/replace/confirm/editreset/reconfirmrevision2;automatedsoftwareQA nothumanlabels",
+        "45newbackendtests;533basepass13skip/631MLpass1skip;9frontendtests+build/Ruff;review01396focused/backend actual16peak audit;P2overflowfixed",
+        "research-handoff-013.json;no model/accuracy/domain/advice admission"
+      ]
     },
     {
       "id": "004a",
@@ -497,6 +504,24 @@
       ],
       "status": "pending",
       "validation_evidence": []
+    },
+    {
+      "id": "007a",
+      "title": "Clean setup and reproducible local manual/research-handoff demo",
+      "dependencies": [
+        "001",
+        "003g3"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Reproduce clean locked setup and manual/handoff flow with explicit unavailable automatic models",
+        "Document supported hardware/platform and codec limits without invented minimums or accuracy",
+        "Provide permitted or synthetic clearly scoped demo instructions; optional practical CPU packaging without datasets/weights in Git",
+        "Validate lightweight CI and independent reproduction review"
+      ],
+      "validation_evidence": [
+        "Next unblocked software increment while independent empirical event/pose references remain unavailable;do not delay for optionaloutcomeintegration"
+      ]
     }
   ]
 }

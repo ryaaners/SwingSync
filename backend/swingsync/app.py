@@ -18,6 +18,7 @@ from fastapi.exceptions import RequestValidationError
 
 from .annotations import AnnotationConflict, AnnotationUpdate, LIMITATION, validated_video_info
 from .frame_images import extract_frames_bounded, file_sha256
+from .proposal_handoff import MAX_DRAFT_BYTES, preview_draft
 from .store import Store
 from .video import FORMATS, inspect_video_bounded
 
@@ -38,8 +39,9 @@ class UploadLimit:
         allowed = {"localhost", "127.0.0.1", "::1", "testserver"}
         if hostname not in allowed or (origin and urlsplit(origin.decode("latin-1")).hostname not in allowed):
             return await JSONResponse({"detail": "SwingSync accepts requests from this computer only."}, 403)(scope, receive, send)
+        request_limit = min(self.limit, MAX_DRAFT_BYTES + 64 * 1024) if scope.get("path", "").endswith("/research-draft") else self.limit
         try:
-            too_large = int(headers.get(b"content-length", b"0")) > self.limit
+            too_large = int(headers.get(b"content-length", b"0")) > request_limit
         except ValueError:
             too_large = True
         if too_large:
@@ -50,7 +52,7 @@ class UploadLimit:
             nonlocal total, exceeded
             message = await receive()
             total += len(message.get("body", b""))
-            if total > self.limit:
+            if total > request_limit:
                 exceeded = True
                 raise ValueError("Upload exceeds the file size limit.")
             return message
@@ -244,6 +246,27 @@ def create_app(data_dir: Path | str | None = None, max_upload_bytes: int | None 
         media_type = {".mp4": "video/mp4", ".mov": "video/quicktime", ".webm": "video/webm", ".avi": "video/x-msvideo"}[path.suffix]
         return FileResponse(path, media_type=media_type)
 
+    @app.post("/api/analyses/{identifier}/research-draft")
+    async def research_draft_preview(identifier: str, file: UploadFile = File(...),
+                                     expected_sha256: str = Form(...)):
+        try:
+            current = find(identifier)
+            raw = await file.read(MAX_DRAFT_BYTES + 1)
+            if len(raw) > MAX_DRAFT_BYTES:
+                raise HTTPException(413, "Research draft exceeds64KiB.")
+            if current.get("status") != "completed":
+                raise AnnotationConflict("Complete video inspection before importing research proposals.")
+            validated_video_info(current.get("video"))
+            if file_sha256(root / current["file_name"]) != current["video"]["sha256"]:
+                raise AnnotationConflict("Recording bytes changed after inspection. Upload it again.")
+            return preview_draft(current, raw, expected_sha256)
+        except (AnnotationConflict, OSError) as exc:
+            raise HTTPException(409, "Recording evidence is unavailable or changed." if isinstance(exc, OSError) else str(exc)) from exc
+        except ValueError as exc:
+            raise HTTPException(422, str(exc)) from exc
+        finally:
+            await file.close()
+
     @app.put("/api/analyses/{identifier}/events")
     def save_events(identifier: str, update: AnnotationUpdate):
         current = find(identifier)
@@ -318,15 +341,26 @@ def create_app(data_dir: Path | str | None = None, max_upload_bytes: int | None 
                               or "All event marks cleared")
                 + '</li>' for entry in item.get("annotation_history", []))
             manual = (f'<h2>Manual event annotations — revision {item.get("annotation_revision", 0)}</h2>'
-                      '<p>All markers were selected by the user; they are not model estimates. '
+                      '<p>All saved markers were manually confirmed or selected by the user. Imported research origins, if present, are disclosed below. '
                       'Images show coded decoded orientation; display rotation and mirroring are not applied. '
                       'Browser playback synchronization is not validated. Use the decoded frames as evidence.</p>'
                       + figures + '<h2>Descriptive manual timing</h2><p>' + html.escape(LIMITATION) + '</p><ul>'
                       + measurement_rows + '</ul>'
                       + ('' if measurement_rows else '<p>Mark Address, Top and Impact to compute descriptive timing.</p>')
                       + '<h2>Manual corrections</h2><ol>' + history_rows + '</ol>')
+        research_history = [entry for entry in item.get('annotation_history', []) if entry.get('research_origin')]
+        if research_history:
+            import json
+            manual += ('<h2>Research-assisted manual review provenance</h2>'
+                       '<p>These marks began as unvalidated imported model proposals and were explicitly reviewed by the user. '
+                       'Original proposal frames and subsequent confirmed/corrected marks are retained below. '
+                       'An exporter checksum verifies bytes against an independently trusted source, not a digital signature or accuracy. '
+                       'No automatic inference was performed by the app; model and coaching availability remain disabled.</p><pre>'
+                       + html.escape(json.dumps(research_history, indent=2)) + '</pre>')
         empty_note = ("No event estimates, movement measurements, outcome predictions or practice suggestions were generated."
                       if not events else "No automatic event estimates, pose measurements, outcome predictions or practice suggestions were generated.")
+        if research_history:
+            empty_note = 'Imported research proposals were manually confirmed or corrected; no pose, shot outcome or coaching advice was generated.'
         content = f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>SwingSync inspection report</title>
         <style>body{{font:16px system-ui;max-width:800px;margin:50px auto;padding:20px;color:#14382c}}dt{{font-weight:bold}}dd{{margin-bottom:15px}}.notice{{padding:20px;background:#f4f1e8}}</style>
         <h1>SwingSync</h1><h2>Video inspection report</h2><p>{html.escape(item['created_at'])}</p>
