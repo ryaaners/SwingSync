@@ -36,3 +36,9 @@ This audit requires the original locked research Python environment; runtime/bui
 ```
 
 Use a fresh output directory. `run.json` records partial/failed/completed state, and `audit.json` is published only after full verified coverage. Every declared protocol dependency, source, cache, video and approved output byte sequence is checked around final publication; changed inputs produce a failed ledger and remove the report. There is no automatic resume or training mode. Inspect actual process identity and the shared lock before another attempt.
+
+## Completed first audit
+
+Registration/code checkpoint `2f1fbebf6c5eb776182383af63a28ec98b161afe` was pushed before the scan; its six CI checks passed. One actual audit completed1400caches/394177frames with no fitting, model execution, fresh decoding or PCE. Run SHA `fedd0ab2d2e51cf3e22c6c4eb453cd0629e4fb6fc5fc29db03b677070109951f` binds report SHA `282f540880ca111cae2723c971951f7e577d67858ce6762beea1301f49b9666e`. The18.360s interval measures file/array verification and publication, not inference latency. Original files remain unchanged.
+
+Independent review checked all1400catalog/MAT mappings, regenerated partitions, train-only counts,23input/12implementation bindings and sample cache/source bytes0,10,677. The source-clock limitation and strict original runtime remain explicit. See [small machine evidence](../autonomy/reports/additional-folds-audit-015.json) and [review](../autonomy/reports/review-015.md). The next step is a reviewed launcher and registered training-only smoke; the audit report is still not a training catalog.

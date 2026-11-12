@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "execution": "015",
+  "capability": "Fixed additional-fold registration and read-only frozen-cache reuse verification",
+  "registration_commit": "2f1fbebf6c5eb776182383af63a28ec98b161afe",
+  "registration_ci": "https://github.com/ryaaners/SwingSync/actions/runs/43170873162",
+  "registration_ci_conclusion": "success",
+  "protocol_path": "experiments/additional-folds-v1.json",
+  "protocol_sha256": "b9c7e29b2afa63e6733d0a26c5e335f7ad31463143b97300a2ea3e3d91107a53",
+  "audit": {
+    "run_path": "artifacts/additional-folds-015/audit-v1/run.json",
+    "run_sha256": "fedd0ab2d2e51cf3e22c6c4eb453cd0629e4fb6fc5fc29db03b677070109951f",
+    "report_path": "artifacts/additional-folds-015/audit-v1/audit.json",
+    "report_sha256": "282f540880ca111cae2723c971951f7e577d67858ce6762beea1301f49b9666e",
+    "job_id": "a0bd16f8d12a458594ab23acde8333b4",
+    "state": "completed",
+    "clip_count": 1400,
+    "frame_count": 394177,
+    "elapsed_seconds": 18.360005124937743,
+    "timing_scope": "Entire read-only audit of cached arrays, source/cache hashing and publication; not inference latency",
+    "input_bindings": 23,
+    "source_bindings": 12,
+    "fresh_video_decode_performed": false
+  },
+  "folds": {
+    "2": {
+      "manifest_sha256": "12a5b80d7156de65e7a6f3716d0f60670d36cc50b05fbb5adf91d59f848f4c5a",
+      "partitions": {
+        "test": {
+          "clips": 350,
+          "sources": 142
+        },
+        "train": {
+          "clips": 836,
+          "sources": 350
+        },
+        "validation": {
+          "clips": 214,
+          "sources": 88
+        }
+      },
+      "class_counts_train_only": [
+        836,
+        836,
+        836,
+        836,
+        836,
+        836,
+        836,
+        836,
+        230613
+      ]
+    },
+    "3": {
+      "manifest_sha256": "5fe0225c912b0c18ab494458a7f1d9d1d71a29207f8bf87599d6138f577071d9",
+      "partitions": {
+        "test": {
+          "clips": 350,
+          "sources": 154
+        },
+        "train": {
+          "clips": 839,
+          "sources": 340
+        },
+        "validation": {
+          "clips": 211,
+          "sources": 86
+        }
+      },
+      "class_counts_train_only": [
+        839,
+        839,
+        839,
+        839,
+        839,
+        839,
+        839,
+        839,
+        230926
+      ]
+    },
+    "4": {
+      "manifest_sha256": "3d20ab4b028e77d1cb96cb952fe3c944219ac4ab1f3bc1e697508e13ebe8434d",
+      "partitions": {
+        "test": {
+          "clips": 350,
+          "sources": 140
+        },
+        "train": {
+          "clips": 853,
+          "sources": 352
+        },
+        "validation": {
+          "clips": 197,
+          "sources": 88
+        }
+      },
+      "class_counts_train_only": [
+        853,
+        853,
+        853,
+        853,
+        853,
+        853,
+        853,
+        853,
+        229827
+      ]
+    }
+  },
+  "checks": {
+    "base_passed": 653,
+    "base_optional_skips": 14,
+    "ml_passed": 778,
+    "ml_optional_skips": 1,
+    "new_protocol_tests": 61,
+    "new_audit_tests": 27,
+    "independent_focused_tests": 88,
+    "fresh_source_path_focused_tests": 88,
+    "ruff": "passed",
+    "frontend_state_tests": 9,
+    "frontend_clean_install_build": "passed",
+    "npm_known_vulnerabilities": 0
+  },
+  "training_performed": false,
+  "inference_performed": false,
+  "accuracy_metrics_computed": false,
+  "training_admitted": false,
+  "outer_evaluation_admitted": false,
+  "normal_model_available": false,
+  "validated_for_serving": false,
+  "advice": [],
+  "limits": [
+    "Audit uses authenticated historical cache/catalog/native-PTS provenance plus fresh video-byte hashes; no fresh decode or original-source timing equivalence",
+    "Image features are frozen ImageNet data; newly trained heads must start from scratch and use only each new train partition for weights",
+    "Fold1 was already observed and new outer clips were historically used in its train/inner partitions; future four-fold summary is not wholly prospective",
+    "Source recording grouping is not verified unseen-golfer or arbitrary uploaded-video generalization",
+    "Exact historical runtime/source-path identity required for actual cache audit; synthetic tests use separately declared current-runtime fixtures",
+    "Read-only report is not a consumable training catalog; reviewed launcher admission and train-only smoke still pending",
+    "No new fit, forward, selected-head load, prediction or PCE; all empirical movement/coaching/outcome gates remain closed"
+  ]
+}

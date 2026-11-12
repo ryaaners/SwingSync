@@ -303,7 +303,8 @@
       ],
       "validation_evidence": [
         "Next independent ML increment after native reproduction;no newfold fitting/cache/evaluation launched",
-        "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources"
+        "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources",
+        "015completed003h1:fixedprotocolpushed2f1fbeb beforeoneactualread-only1400cache/394177frameaudit;no newfits/forwards/PCE;003h2/3pending"
       ]
     },
     {
@@ -313,14 +314,18 @@
         "003f",
         "007a"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Exact original config/source/lock bindings and actual official manifests validated before any new fits",
         "Complete1400known-cache/source-byte audit with native cache provenance and per-fold train-only counts; no relabeling or model execution",
         "Independent review and strict source/input/output publication checks; read-only result does not admit training"
       ],
       "validation_evidence": [
-        "Software ready:61protocol+27audit synthetic tests and copied-source-path portability pass; actualscan not launched"
+        "ProtocolSHAb9c7e29b2afa63e6733d0a26c5e335f7ad31463143b97300a2ea3e3d91107a53;pushedregistration2f1fbeb beforeactualscan;CI43170873162all6passed",
+        "Actualaudit a0bd16f8d12a458594ab23acde8333b4completed1400clips394177frames;runSHAfedd0ab2d2e51cf3e22c6c4eb453cd0629e4fb6fc5fc29db03b677070109951f",
+        "AuditreportSHA282f540880ca111cae2723c971951f7e577d67858ce6762beea1301f49b9666e;newtrain/innercounts836/214,839/211,853/197;350outereach;train-onlyclasscountsverified",
+        "61protocol+27auditnewtests;653basepass14skip/778MLpass1skip;frontend9/build/Ruff;independent88+freshpath88 andactualmetadata/sampleNPZ auditpass",
+        "Read-onlyresulttraining/eval/servingfalse;no fit/forward/headload/freshdecode/PCE;additional-folds-audit-015.json;review-015.md"
       ]
     },
     {
