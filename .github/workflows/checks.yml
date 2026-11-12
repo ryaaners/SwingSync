@@ -64,3 +64,21 @@ jobs:
       - run: uv sync --project tabular_runtime --locked --python 3.11
       - name: Synthetic grouped contracts without dataset downloads
         run: uv run --project tabular_runtime --locked python -m pytest tests/test_caddieset.py tests/test_caddie_experiment.py
+
+  local-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.8'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: uv sync --locked --python 3.11
+      - run: npm ci && npm run build
+        working-directory: frontend
+      - name: Synthetic local upload-to-report software demonstration
+        run: uv run python scripts/demo_local.py --output artifacts/ci-local-demo --frontend-dir frontend/dist

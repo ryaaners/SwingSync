@@ -512,7 +512,7 @@
         "001",
         "003g3"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Reproduce clean locked setup and manual/handoff flow with explicit unavailable automatic models",
         "Document supported hardware/platform and codec limits without invented minimums or accuracy",

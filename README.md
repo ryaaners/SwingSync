@@ -12,11 +12,12 @@ Use Python 3.11, Node 24 and [uv](https://docs.astral.sh/uv/getting-started/inst
 uv sync --locked
 cd frontend
 npm ci
+npm run build
 cd ..
-./scripts/dev.sh
+uv run python scripts/serve_local.py
 ```
 
-Open http://127.0.0.1:5173. Backend documentation: http://127.0.0.1:8000/docs. Run one backend process. Bind both servers to loopback; this is a local single-user application without authentication. Stop with Ctrl-C.
+Open http://127.0.0.1:8000; the built interface and API share one local server. API documentation is at http://127.0.0.1:8000/docs. This launcher fixes loopback binding and one worker. This is a local single-user application without authentication. Stop with Ctrl-C. For code development with frontend hot reload, use `./scripts/dev.sh` and open http://127.0.0.1:5173 instead. See [clean setup and synthetic demo instructions](docs/local-demo.md).
 
 For this workstation, project-local uv/Python were bootstrapped without needing global installations:
 
