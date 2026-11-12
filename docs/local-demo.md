@@ -40,3 +40,11 @@ Logs, generated videos, local databases and reports remain ignored under the cho
 ## Validation scope
 
 The observed workstation is an Apple M1 with8GiB RAM on macOS26.3; this is observed hardware, not an established minimum. Fresh-environment/source-archive evidence and remote Linux CI status are recorded in the execution report after they actually complete. Docker is not installed on this workstation, so no container build or execution is claimed. Native CPU packaging is the verified path; container packaging remains optional work requiring an available runtime and its own validation.
+
+## Completed execution014 evidence
+
+Source checkpoint `4ff32c77a76083ac2628d090f8ffd19d4d32d488` was archived without datasets, models, environments, node_modules or built assets. A fresh Python base environment and frontend install were populated from prefetched package caches. All592base tests (13optional skips),9frontend tests, build and the real HTTP synthetic demo passed; Torch, MediaPipe and scikit-learn were absent. This verifies a fresh environment, not a fresh network download. The frontend build matched the working-tree bytes. Root fullML checks additionally passed690tests (1optional tabular skip).
+
+The source-only phase used only generated media. A separate phase then supplied an existing genuine research draft, its independently trusted hash and exact paired recording externally. The fresh base app verified preview/confirmation/origin/report without MAT annotations, caches, checkpoints or ML dependencies. That is handoff software evidence, not new model inference or independent human labeling.
+
+The fresh built interface loaded in the browser from one origin; the synthetic H264 video reached readyState4 and its canonical Top marker showed decoded index5. A report click returned HTTP200, while browser automation did not capture completed download. Report content and exact canonical PNG pixels passed the HTTP/reviewer checks; browser synchronization and completed browser download are not claimed. All owned QA servers were stopped. See [machine evidence](../autonomy/reports/local-reproduction-014.json) and [independent review](../autonomy/reports/review-014.md). Remote CI completion is recorded with the final checkpoint after actual success.

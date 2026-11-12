@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "execution": "014",
+  "capability": "Single-origin loopback app plus reproducible synthetic HTTP demo and fresh-environment reproduction",
+  "implementation_commit": "4ff32c77a76083ac2628d090f8ffd19d4d32d488",
+  "source_archive_sha256": "f565fb1a45b0554dcd405be7e02664e142ae0eb8b154e4db60e0dd30c2a51a64",
+  "checks": {
+    "base_passed": 592,
+    "base_optional_skips": 13,
+    "ml_passed": 690,
+    "ml_optional_skips": 1,
+    "new_server_tests": 50,
+    "new_demo_tests": 9,
+    "frontend_state_tests": 9,
+    "independent_focused_tests": 104,
+    "ruff": "passed",
+    "frontend_clean_install_typecheck_build": "passed",
+    "npm_known_vulnerabilities": 0
+  },
+  "clean_reproduction": {
+    "path": "artifacts/reproduction-014/cold-run.json",
+    "sha256": "bc132b2499ea7859ef674a79a7174a7ba26cc1a111de25ad5eeaaf574b54b26b",
+    "state": "completed",
+    "root": "/private/tmp/swingsync-clean-014-e860aaec2e",
+    "initially_no_data_models_environment_or_build": true,
+    "package_cache_reused": true,
+    "uncached_network_install_validated": false,
+    "package_count": 24,
+    "torch_available": false,
+    "mediapipe_available": false,
+    "sklearn_available": false,
+    "frontend_build_byte_equal_to_working_tree": true,
+    "stages": [
+      {
+        "name": "cold-sync",
+        "state": "completed",
+        "argv": [
+          "/Users/ryaanmahmood/Downloads/SwingSync/.tools/uv-env/bin/uv",
+          "sync",
+          "--locked",
+          "--offline",
+          "--python",
+          "/Users/ryaanmahmood/Downloads/SwingSync/.tools/python/cpython-3.11.14-macos-aarch64-none/bin/python3.11"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e",
+        "elapsed_seconds": 0.20672925002872944,
+        "log_sha256": "929d00e56881f5c78756e2c3dfd2ac952bd73979ade5877c37851290d52a785c"
+      },
+      {
+        "name": "cold-environment",
+        "state": "completed",
+        "argv": [
+          "/private/tmp/swingsync-clean-014-e860aaec2e/.venv/bin/python",
+          "-c",
+          "import json,sys,importlib.util,importlib.metadata as m; print(json.dumps({'python':sys.version,'executable':sys.executable,'sys_path':sys.path,'torch_available':importlib.util.find_spec('torch') is not None,'mediapipe_available':importlib.util.find_spec('mediapipe') is not None,'sklearn_available':importlib.util.find_spec('sklearn') is not None,'packages':{d.metadata['Name']:d.version for d in m.distributions()}},indent=2))"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e",
+        "elapsed_seconds": 0.0790863330475986,
+        "log_sha256": "c20c9f011d38fda3309538ca6dddb18aa87da82f10115e9938daf7dbdfec36e6"
+      },
+      {
+        "name": "cold-base-tests",
+        "state": "completed",
+        "argv": [
+          "/Users/ryaanmahmood/Downloads/SwingSync/.tools/uv-env/bin/uv",
+          "run",
+          "--locked",
+          "--offline",
+          "pytest",
+          "-q"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e",
+        "elapsed_seconds": 32.559467625338584,
+        "log_sha256": "80361f491a0fcd4400d13865b49ad2d13e833e290855feb5f90235419918cf40"
+      },
+      {
+        "name": "cold-ruff",
+        "state": "completed",
+        "argv": [
+          "/Users/ryaanmahmood/Downloads/SwingSync/.tools/uv-env/bin/uv",
+          "run",
+          "--locked",
+          "--offline",
+          "ruff",
+          "check",
+          "backend",
+          "tests",
+          "scripts"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e",
+        "elapsed_seconds": 0.6649154578335583,
+        "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      {
+        "name": "cold-npm-ci",
+        "state": "completed",
+        "argv": [
+          "npm",
+          "ci",
+          "--offline"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e/frontend",
+        "elapsed_seconds": 1.2643521670252085,
+        "log_sha256": "47111914733620070687a51f4a8a5993091a9ddbb1c54951e88d327e1c49fb86"
+      },
+      {
+        "name": "cold-frontend-tests",
+        "state": "completed",
+        "argv": [
+          "npm",
+          "test"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e/frontend",
+        "elapsed_seconds": 0.2607305832207203,
+        "log_sha256": "e90168ff65beb3bd97156f59595f20b2f26c195cee63664df27825c765b1870b"
+      },
+      {
+        "name": "cold-frontend-build",
+        "state": "completed",
+        "argv": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e/frontend",
+        "elapsed_seconds": 2.3966058334335685,
+        "log_sha256": "d117841885c0cd7345d6e2cd60673dce9fb65db977121ae3d7fd9427f4241df5"
+      },
+      {
+        "name": "cold-demo",
+        "state": "completed",
+        "argv": [
+          "/Users/ryaanmahmood/Downloads/SwingSync/.tools/uv-env/bin/uv",
+          "run",
+          "--locked",
+          "--offline",
+          "python",
+          "scripts/demo_local.py",
+          "--output",
+          "artifacts/synthetic-demo",
+          "--frontend-dir",
+          "frontend/dist"
+        ],
+        "cwd": "/private/tmp/swingsync-clean-014-e860aaec2e",
+        "elapsed_seconds": 1.860661500133574,
+        "log_sha256": "6b4debf5ba877cc50267fff169204b9f4ee6e90299bf368e9a03b822deb2210e"
+      }
+    ],
+    "demo": {
+      "path": "/private/tmp/swingsync-clean-014-e860aaec2e/artifacts/synthetic-demo/run.json",
+      "sha256": "f99f4a21b833fc02d9b8ba38f60091206a60c9cc2cbaec4c5d5f1f7db07991ec",
+      "job_id": "bcb7ec62bc7a4fefa679cc15bebdd9ea",
+      "checks": {
+        "native_pts_exact": true,
+        "canonical_png_exact_rgb": true,
+        "report_pngs_exact_rgb": 3,
+        "manual_revisions": 2,
+        "stale_save_status": 409,
+        "restart_preserved": true,
+        "second_upload_deleted": true,
+        "retained_analysis_id": "90cb3aea234c4b55925c80533a22924a"
+      },
+      "elapsed_seconds": 1.5990131669677794,
+      "timing_scope": "Entire synthetic HTTP workflow including two local server lifetimes; not model latency."
+    }
+  },
+  "existing_handoff_replay": {
+    "path": "/private/tmp/swingsync-clean-014-e860aaec2e/artifacts/existing-research-handoff/run.json",
+    "sha256": "c6e11d83a017be2ab1685742c4ce65e344f33495b331ab58bfe877b3bf2a5560",
+    "record": {
+      "state": "completed",
+      "server_attempts": [
+        {
+          "state": "stopped",
+          "started_at": "2026-11-12T04:04:34.900193+00:00",
+          "port": 61364,
+          "pid": 94741,
+          "returncode": -15,
+          "stopped_at": "2026-11-12T04:04:35.750075+00:00"
+        }
+      ],
+      "frontend_sha256": {
+        "assets/index-BwOU4m-T.js": "9f528de08c9b40b458013c1dca23dba7c7d0d919bc345963188d7a2388c331ea",
+        "assets/index-DK9Nwag6.css": "3bf4ac6479236d7e97976e4a5dea30d3ac292933a6cf1c8123424969d04e19aa",
+        "index.html": "97491b5522f179208035108d976589869f1166fccde77cbc976807451c89efb5"
+      },
+      "scope": "Existing real research packet and exact paired video supplied externally AFTER source-only synthetic reproduction; automated manual-review software QA, no human labels or new inference",
+      "inference_performed": false,
+      "training_performed": false,
+      "normal_model_available": false,
+      "advice": [],
+      "draft_sha256": "dc24eadba4b6e75bf2a5837a187b67791d970b0902404fc83c94c107f5ca7689",
+      "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0",
+      "preview_wrote_nothing": true,
+      "confirmation_required": true,
+      "saved_revision": 1,
+      "history_origin_preserved": true,
+      "report_sha256": "7f21e0beb2b6f34800b06e87bb0b80a33947fc1945515c88f48edfc850d7febb",
+      "provided_annotations_or_models": false
+    }
+  },
+  "browser_qa": {
+    "origin": "http://127.0.0.1:18114",
+    "built_interface_loaded": true,
+    "synthetic_video_ready_state": 4,
+    "video_error": null,
+    "video_raster": [
+      320,
+      200
+    ],
+    "canonical_frame_image_loaded": true,
+    "top_marker_selected_decoded_index": 5,
+    "native_synchronization_validated": false,
+    "report_click_http_status": 200,
+    "download_completion_confirmed": false,
+    "download_limitation": "Browser automation download wait timed out; no local download completion claimed. API report content/RGB was independently verified.",
+    "screenshot_path": "artifacts/reproduction-014/browser-review.png",
+    "screenshot_sha256": "f92d7ddee4695a080f108e35725d25ca0bdc684b3fb151ec96ed45d724d64f03",
+    "qa_server_stopped": true,
+    "http_status_evidence": "Coordinator-observed Uvicorn stdout in exec session69801/PID94749; no separate saved browser-server log. Independent HTTP report-content audits remain recorded."
+  },
+  "observed_hardware": {
+    "machine": "Apple M1 arm64",
+    "ram_bytes": 8589934592,
+    "os": "macOS26.3",
+    "python": "3.11.14",
+    "node": "24.15.0",
+    "minimum_established": false
+  },
+  "docker": {
+    "installed": false,
+    "build_or_run_validated": false,
+    "unblock": "Available Docker runtime plus separately verified build and execution; optional, native path verified."
+  },
+  "training_performed": false,
+  "inference_performed": false,
+  "accuracy_measured": false,
+  "independent_human_labels_created": false,
+  "normal_model_available": false,
+  "advice": [],
+  "limits": [
+    "Synthetic fixture is original bitmap software media, not a golf swing or model/coach demonstration",
+    "Fresh source-only phase used cached package artifacts; no uncached network installation or minimum hardware claim",
+    "Additional handoff phase explicitly supplied one existing trusted real draft and exact paired video externally; no annotations/checkpoints/ML packages supplied",
+    "One source/golfer research handoff is not a new generalization study or independent human reference",
+    "HTTP/orchestration deadlines are bounded; fixed native fixture encode/decode is not under a hard global OS timeout",
+    "Browser H264 decode and canonical display work; exact seek/audio/native-frame synchronization remains unvalidated",
+    "Docker absent; no container claim. Empirical event/pose/advice/outcome gates unchanged."
+  ],
+  "durable_artifact_copies": [
+    {
+      "path": "artifacts/reproduction-014/cold-demo",
+      "run_sha256": "f99f4a21b833fc02d9b8ba38f60091206a60c9cc2cbaec4c5d5f1f7db07991ec",
+      "raw_ledger_bytes_preserved": true
+    },
+    {
+      "path": "artifacts/reproduction-014/cold-handoff",
+      "run_sha256": "c6e11d83a017be2ab1685742c4ce65e344f33495b331ab58bfe877b3bf2a5560",
+      "raw_ledger_bytes_preserved": true
+    },
+    {
+      "path": "artifacts/reproduction-014/reviewer-demo",
+      "run_sha256": "04d8fd3424626f67ea876309329b125c0eec03c48627e717e599dec10abffaa4",
+      "raw_ledger_bytes_preserved": true
+    }
+  ]
+}

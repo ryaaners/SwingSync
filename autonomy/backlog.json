@@ -288,6 +288,25 @@
       ]
     },
     {
+      "id": "003h",
+      "title": "Audit and prospectively register additional official-fold event comparisons",
+      "dependencies": [
+        "003f",
+        "007a"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Audit existing frozen pixel-feature inventories against each new official source-grouped manifest without altering historical artifacts",
+        "Register fixed baseline/temporal configs, inner selection, contexts, seeds and outer protocol before any new fitting/evaluation; disclose previously observed fold1",
+        "Keep outer splits/source grouping/no frame leakage, train-only imbalance weights and shared backbone; one resumable expensive job at a time",
+        "Run train-only smoke before resource-appropriate additional folds; report per-fold variation and scope without uploaded-video/unseen-golfer/coaching promotion"
+      ],
+      "validation_evidence": [
+        "Next independent ML increment after native reproduction;no newfold fitting/cache/evaluation launched",
+        "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources"
+      ]
+    },
+    {
       "id": "004a",
       "title": "Pure descriptive landmark measurement contract and arithmetic",
       "dependencies": [
@@ -512,7 +531,7 @@
         "001",
         "003g3"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Reproduce clean locked setup and manual/handoff flow with explicit unavailable automatic models",
         "Document supported hardware/platform and codec limits without invented minimums or accuracy",
@@ -520,7 +539,12 @@
         "Validate lightweight CI and independent reproduction review"
       ],
       "validation_evidence": [
-        "Next unblocked software increment while independent empirical event/pose references remain unavailable;do not delay for optionaloutcomeintegration"
+        "014singleoriginloopbackserver+visiblysyntheticH264VFRmanualHTTPdemo;59newtests;592basepass13skip/690MLpass1skip;frontend9/build/Ruff",
+        "Exactarchive4ff32c7freshsource/.venv/node_modules usingprefetchedcaches;noTorch/MediaPipe/sklearn;592base+frontend9/build/demo passed;builtbytesmatch",
+        "Separatecoldhandoffreplaysuppliedonlyoldtrusteddraft+pairedvideoexternally;noannotations/checkpoints/inference;confirmation/history/reportpass",
+        "Freshindependentreview104tests+actualnativePTS/3PNGexactRGB/history/restart/delete/childcleanup;fivefindingsresolved",
+        "BrowserbuiltUI/H264ready4/canonicalTopindex5works;reportHTTP200;downloadcompletionnotcaptured;no nativesync/accuracy/minhardwareclaims",
+        "Dockerabsent,containerunverifiedoptional;local-reproduction-014.json;docs/local-demo.md"
       ]
     }
   ]
