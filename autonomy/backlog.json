@@ -289,12 +289,12 @@
     },
     {
       "id": "003h",
-      "title": "Audit and prospectively register additional official-fold event comparisons",
+      "title": "Additional official-fold event comparisons \u2014 fixed registered extension",
       "dependencies": [
         "003f",
         "007a"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Audit existing frozen pixel-feature inventories against each new official source-grouped manifest without altering historical artifacts",
         "Register fixed baseline/temporal configs, inner selection, contexts, seeds and outer protocol before any new fitting/evaluation; disclose previously observed fold1",
@@ -305,6 +305,53 @@
         "Next independent ML increment after native reproduction;no newfold fitting/cache/evaluation launched",
         "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources"
       ]
+    },
+    {
+      "id": "003h1",
+      "title": "Prospective folds2\u20134 registration and read-only frozen-cache reuse audit",
+      "dependencies": [
+        "003f",
+        "007a"
+      ],
+      "status": "in_progress",
+      "acceptance_criteria": [
+        "Exact original config/source/lock bindings and actual official manifests validated before any new fits",
+        "Complete1400known-cache/source-byte audit with native cache provenance and per-fold train-only counts; no relabeling or model execution",
+        "Independent review and strict source/input/output publication checks; read-only result does not admit training"
+      ],
+      "validation_evidence": [
+        "Software ready:61protocol+27audit synthetic tests and copied-source-path portability pass; actualscan not launched"
+      ]
+    },
+    {
+      "id": "003h2",
+      "title": "Reviewed additional-fold launcher admission and training-only smoke",
+      "dependencies": [
+        "003h1"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Bind published registration and independently known completed audit SHA before constructing any fresh head",
+        "Exactly new train/inner IDs/source groups, original fixed configs and frozen feature identities; no prior-head warm start",
+        "One shared expensive-work lock, exclusive resumable job/config/runtime/seed/checkpoints; no duplicate jobs",
+        "Complete registered train-only five-update smoke without outer metrics, and independently review before full runs"
+      ],
+      "validation_evidence": []
+    },
+    {
+      "id": "003h3",
+      "title": "Complete fixed additional-fold head training and outer comparison",
+      "dependencies": [
+        "003h2"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Six fresh heads complete original20epoch budget sequentially with inner-only selection and resumable provenance",
+        "Fixed selected checkpoints evaluated under registered reference64-reset and separately full-clip contexts without test retuning",
+        "Per-fold/per-event PCE, frame/nativePTS-ms error, hardware latency and variation independently verified",
+        "Disclose historical fold1/seen-data registration and source-not-unseen-golfer scope; no coaching or upload-domain promotion"
+      ],
+      "validation_evidence": []
     },
     {
       "id": "004a",

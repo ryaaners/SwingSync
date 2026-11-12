@@ -1,0 +1,31 @@
+# Independent review — execution015
+
+Reviewed 2026-11-12 as the reviewer role. Software acceptance passed; the coordinator's actual1400-cache audit is pending at this checkpoint. No new training, backbone/head forward, video decode, prediction, outer PCE or human reference label was produced by this review. No Git operation or implementation edit was performed. This reviewer owns this report only.
+
+## Scope and result
+
+Reviewed `backend/swingsync/research/fold_cache_audit.py`, `scripts/audit_fold_caches.py`, `backend/swingsync/research/fold_protocol.py`, `experiments/additional-folds-v1.json`, both new test modules and both new documentation pages against the unchanged feature/cache, GolfDB split, training and official-evaluator contracts. Final protocol SHA256 is `b9c7e29b2afa63e6733d0a26c5e335f7ad31463143b97300a2ea3e3d91107a53`.
+
+No unresolved material findings remain in the reviewed software. Acceptance applies to the read-only audit implementation and prospective registration. It does not admit a new training loader, launch fitting, establish completed cache verification, or validate uploaded-video/coaching accuracy. Actual audit evidence will receive a separate addendum.
+
+## Findings resolved before acceptance
+
+1. **P2 — incomplete dependency drift coverage.** The initial audit validated original head configs, the held-out registration and additional frozen sources during protocol admission, but omitted some from later publication checks. Changing a protocol-declared config after admission could therefore leave an apparently completed audit. Reproduce with `test_protocol_declared_config_drift_after_admission_refused`: the synthetic clip-check hook changes a registered temporary config after admission. The final implementation collects every declared path/SHA binding, frozen-source binding and dependency lock into its watched inputs, and checks them before report publication, after report publication and after the completed ledger. The regression now rejects the change and removes the success report.
+2. **P2 — published bytes needed a precomputed expected digest.** Worker self-review found that calculating the report digest only after writing could authenticate a report altered during publication. `test_modified_published_output_cannot_be_bound_as_valid[audit.json]` and `[run.json]` reproduce this with write hooks. The final implementation computes expected serialized bytes before publishing, verifies both report and final-ledger bytes, marks failure and removes the success report on drift. Both cases pass independently.
+3. **P2 — synthetic fixtures depended on the original checkout/runtime.** Coordinator review found the fixture initially called strict production runtime admission using historical Mac versions and marshaled source-path identity. This could fail every fixture in a fresh checkout or Linux CPU build before exercising the intended behavior. The final fixture writes a clearly synthetic registration from its current runtime/code identity. Strict production checks remain unchanged; separate tests reject a changed Torch build suffix and changed code filename. A fresh source-only temporary copy independently passes all88 focused cases.
+
+## Independent verification
+
+- Read `AGENTS.md`, reviewer role, current status and backlog, plus historical completed-cache evidence. The read-only descriptor probe found the shared expensive-work lock available during initial inspection. Direct `ps` inspection was sandbox-denied; process absence is the coordinator's responsibility and was not independently claimed here.
+- Independently validated actual audited MAT bytes and all three new saved manifests with `validate_protocol(dataset=load_annotations(...), manifests_dir=...)`; exact source-grouped assignments, counts and protocol bytes passed without opening caches or videos.
+- Ran `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest tests/test_fold_cache_audit.py tests/test_fold_protocol.py -q -p no:cacheprovider --basetemp=/private/tmp/swingsync-review015-folds-r2`: **88 passed in2.86s**. These are synthetic software checks, not model results.
+- Copied only backend source, experiment registrations, dependency lock, audit CLI and selected tests to `/private/tmp/swingsync-review015-source-5y2j1akv`, excluding bytecode, datasets, weights and real caches. Ran the same focused suite using the existing Python environment from that new source directory: **88 passed in3.07s**. This verifies source-path independence of software fixtures; it does not reproduce strict historical real-cache runtime admission on Linux.
+- Independent Ruff check of all five new code/test files passed. Reviewed coordinator check logs: locked base653passed/14skipped, fullML778passed/1skipped; coordinator reports frontend9tests/build and complete Ruff passed. Existing AnyIO deprecation warning remains.
+
+The reviewed cache path authenticates both independently known historical catalog SHA values, exact old membership/disjoint coverage, complete MAT identities, cached array hashes/schema, inclusive historical indices, finite float32[frames,1280] features and float64 increasing PTS. Fresh source-video hashes bind the existing cached timestamps to previously verified source bytes; no fresh decode or original-source timing equivalence is claimed. New per-fold train-only class counts come solely from each regenerated train partition. Audit success leaves training/evaluation/serving gates false.
+
+The registration preserves original20-epoch configs and seeds, fresh per-fold heads, no warm start, inner-only earliest-tie selection, fixed reference64-reset and separately reported full-clip contexts, and unchanged official chronological-target PCE including anomaly677. It truthfully discloses previously observed fold1 results and historical use of the new outer clips in fold1 train/inner partitions. Neither source-disjoint folds nor frozen-feature reuse proves unseen-golfer or arbitrary-upload reliability. Future launcher/smoke, fitting/evaluation and empirical coaching gates remain separate unfinished work.
+
+## Actual evidence addendum
+
+Pending coordinator's single read-only scan after the registration checkpoint. No completed1400-cache audit is asserted by the software acceptance above.
