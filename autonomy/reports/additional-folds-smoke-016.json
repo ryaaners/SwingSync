@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "execution": "016",
+  "capability": "Known-audit additional-fold admission and checkpoint-resumable training-only smoke",
+  "status": "both-real-smokes-completed-not-full-training",
+  "original_registration_commit": "2f1fbebf6c5eb776182383af63a28ec98b161afe",
+  "initial_implementation_commit": "c851a9449b410b3bfa5d137454372d72ff884a3a",
+  "pre_fit_implementation_commit": "47667360fd4eda70f5478b5c9d2f4c47695daa87",
+  "pre_fit_ci_url": "https://github.com/ryaaners/SwingSync/actions/runs/43774822790",
+  "pre_fit_ci_conclusion": "success",
+  "pre_fit_ci_successful_jobs": 6,
+  "protocol_sha256": "b9c7e29b2afa63e6733d0a26c5e335f7ad31463143b97300a2ea3e3d91107a53",
+  "known_audit_run_sha256": "fedd0ab2d2e51cf3e22c6c4eb453cd0629e4fb6fc5fc29db03b677070109951f",
+  "known_audit_report_sha256": "282f540880ca111cae2723c971951f7e577d67858ce6762beea1301f49b9666e",
+  "fold": 2,
+  "partition_clips": {
+    "test": 350,
+    "train": 836,
+    "validation": 214
+  },
+  "train_only_class_counts": [
+    836,
+    836,
+    836,
+    836,
+    836,
+    836,
+    836,
+    836,
+    230613
+  ],
+  "training_clip_ids_per_head": [
+    330,
+    1127,
+    1336,
+    1359,
+    709,
+    1213,
+    1123,
+    258,
+    688,
+    997,
+    230,
+    786,
+    1074,
+    212,
+    311,
+    25,
+    899,
+    350,
+    999,
+    296
+  ],
+  "training_clips_per_head": 20,
+  "training_source_recordings_per_head": 20,
+  "training_frame_presentations_per_head": 5877,
+  "seed": 20261105,
+  "runtime": {
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "machine": "arm64",
+    "numpy": "2.2.5",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "pyav": "16.0.1",
+    "python": "3.11.14",
+    "python_executable": "/Users/ryaanmahmood/Downloads/SwingSync/.tools/python/cpython-3.11.14-macos-aarch64-none/bin/python3.11",
+    "torch": "2.9.1",
+    "torch_num_threads": 1,
+    "torchvision": "0.24.1"
+  },
+  "hardware": "Apple M1 / 8 GiB / macOS26.3; observed CPU execution, not minimum requirements",
+  "timing_scope": "Attempt elapsed excludes earlier admission/import; includes constructor/cache reads, updates, checkpoint hashes and publication. Not inference latency.",
+  "heads": {
+    "frame": {
+      "job_id": "7890727c123743c3b93a13c218f03c56",
+      "state": "completed",
+      "scope": "five-update-training-only-smoke-not-completed-benchmark-training",
+      "run_path": "artifacts/additional-folds-016/frame-smoke-v1/run.json",
+      "run_sha256": "eb0728446686ad3db71960da17a131722f103cff0cb575589152795c70294657",
+      "partial_snapshot_sha256": "27e2bf3704ee53910e985e04db3fd0b82c3102862f329c484f786c959ef9a0d7",
+      "noop_witness_sha256": "b36ed653dc7ddd9fe28fe744866ccd623e011230ce89a73b858d7c5f42f8d972",
+      "optimizer_updates": 5,
+      "completed_epochs": 0,
+      "inner_selection": null,
+      "attempt_count": 2,
+      "attempt_elapsed_seconds": [
+        25.998193542007357,
+        28.938179000280797
+      ],
+      "initial_model_tensor_sha256": "3e2d5f39514b016b8801b3fad16d624b0b6c0737f0d30981883ee761176a0d0e",
+      "final_model_tensor_sha256": "ca2f5bb6bf3bcf68529eb88d5eef00898001911bf5f29692c9fe0826ad6d9417",
+      "class_weights_train_only": [
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        0.004076413810253143
+      ],
+      "completed_resume_byte_identical": true,
+      "checkpoints": [
+        {
+          "path": "artifacts/additional-folds-016/frame-smoke-v1/step-0000001.pt",
+          "sha256": "f6bf6de74c1431a6809538408d8eb70d628701ddd8d17b03f47563d21a4e7b4c",
+          "optimizer_steps": 1
+        },
+        {
+          "path": "artifacts/additional-folds-016/frame-smoke-v1/step-0000002.pt",
+          "sha256": "b21bbac2c24dc2e0715bb7ed97dcbec0833745de89f51c452d46a2135be778b9",
+          "optimizer_steps": 2
+        },
+        {
+          "path": "artifacts/additional-folds-016/frame-smoke-v1/step-0000003.pt",
+          "sha256": "fb867742dfb207ceb24e8c47b208661acea481dd9c36cee8a041128e43e01daf",
+          "optimizer_steps": 3
+        },
+        {
+          "path": "artifacts/additional-folds-016/frame-smoke-v1/step-0000004.pt",
+          "sha256": "a4279a2a0be290a9bc4a1bb239cb1dcdf5e9842523b9c5e2448b4fc8d0d2f6f9",
+          "optimizer_steps": 4
+        },
+        {
+          "path": "artifacts/additional-folds-016/frame-smoke-v1/step-0000005.pt",
+          "sha256": "6055d4177694749cb792b4ae0a63c6e26b0aaccfd962ecc3e6b98df68908e46b",
+          "optimizer_steps": 5
+        }
+      ]
+    },
+    "temporal": {
+      "job_id": "037d68b3764f49ea9fa8383653fb69a9",
+      "state": "completed",
+      "scope": "five-update-training-only-smoke-not-completed-benchmark-training",
+      "run_path": "artifacts/additional-folds-016/temporal-smoke-v1/run.json",
+      "run_sha256": "9b0bc9acc8c65a5a1898e9bebc415bdbed8b8c9c49e9267ec78e6d8b2ed41736",
+      "partial_snapshot_sha256": "6623e4b3b48143190de067375ca236c098d2f1141732af38cf73f8f6c585d061",
+      "noop_witness_sha256": "5d91754b6b18fafb059b6bbbbb2619ac24106736dfc980861f6043ddc451d7b3",
+      "optimizer_updates": 5,
+      "completed_epochs": 0,
+      "inner_selection": null,
+      "attempt_count": 2,
+      "attempt_elapsed_seconds": [
+        33.15868066716939,
+        30.531838790979236
+      ],
+      "initial_model_tensor_sha256": "a23bfc217da072ffe6505f52ef16f2236a597b8ee654f22d4459421018c5af1f",
+      "final_model_tensor_sha256": "11f2f9f3d7c8ddca0bc9f7d251215c8ba01f9d2658547207ad94df2404816f67",
+      "class_weights_train_only": [
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        1.12449049949646,
+        0.004076413810253143
+      ],
+      "completed_resume_byte_identical": true,
+      "checkpoints": [
+        {
+          "path": "artifacts/additional-folds-016/temporal-smoke-v1/step-0000001.pt",
+          "sha256": "df3753426d67cee03bf4b4af31f79915e65bbc4f879dd98a9188e7889c1ed889",
+          "optimizer_steps": 1
+        },
+        {
+          "path": "artifacts/additional-folds-016/temporal-smoke-v1/step-0000002.pt",
+          "sha256": "519fcbebcb0aae06f23731389b035f94c5bcef7822944f20ee51010c01045bb6",
+          "optimizer_steps": 2
+        },
+        {
+          "path": "artifacts/additional-folds-016/temporal-smoke-v1/step-0000003.pt",
+          "sha256": "b6dd61d9f3b61621662b71de44a79f354666961ccc7e842fd11527969b25d961",
+          "optimizer_steps": 3
+        },
+        {
+          "path": "artifacts/additional-folds-016/temporal-smoke-v1/step-0000004.pt",
+          "sha256": "858fc24759590ec1ee62a26055401145850eb7a016f08b9a3d82b7755928b9d7",
+          "optimizer_steps": 4
+        },
+        {
+          "path": "artifacts/additional-folds-016/temporal-smoke-v1/step-0000005.pt",
+          "sha256": "2a2584ea89fdf88c2e01b1e9e5a4102b0b3993e292fdcd966bea1276b3b4a6d3",
+          "optimizer_steps": 5
+        }
+      ]
+    }
+  },
+  "checks": {
+    "base_passed": 653,
+    "base_optional_skips": 16,
+    "ml_passed": 852,
+    "ml_optional_skips": 1,
+    "new_admission_cases": 41,
+    "new_launcher_cases": 33,
+    "independent_admission_cases": 41,
+    "independent_launcher_plus_extra_regression_cases": 32,
+    "independent_source_only_cases_before_cli_fix": 72,
+    "independent_final_cli_subprocess_cases": 2,
+    "ruff": "passed",
+    "frontend_state_tests": 9,
+    "frontend_clean_install_build": "passed",
+    "npm_known_vulnerabilities": 0
+  },
+  "pre_job_entry_failure": {
+    "commit": "c851a9449b410b3bfa5d137454372d72ff884a3a",
+    "run_directory_created": false,
+    "head_constructed": false,
+    "optimizer_updates": 0,
+    "resolved_by": "repository-root bootstrap and PYTHONPATH-free subprocess regressions before any actual fitting"
+  },
+  "training_performed": true,
+  "training_scope": "smoke only; 5 batches per head",
+  "training_forward_performed": true,
+  "backbone_forward_performed": false,
+  "full_training_completed": false,
+  "inner_validation_evaluated": false,
+  "outer_test_evaluated": false,
+  "accuracy_metrics_computed": false,
+  "fresh_video_decode_performed": false,
+  "normal_model_available": false,
+  "validated_for_serving": false,
+  "advice": [],
+  "shared_lock_at_completion": "free",
+  "expensive_workers_at_completion": 0,
+  "limitations": [
+    "Five updates and zero selected epochs do not establish model quality/generalization; original full20epoch comparison remains003h3",
+    "Only new fold2 training clips forwarded; complete train+inner caches authenticated and weights use all836train clips",
+    "Resume equivalence against uninterrupted training is synthetic software evidence; actual jobs demonstrate explicit2+3continuation and byte-identical completed no-op",
+    "Frozen cached reencoded float64 PTS and historical extraction identity are preserved; no new decode or original-source clock validation",
+    "Source groups are not verified unseen golfers; historical fold1 already observed and new outer clips previously used in its train/inner partitions",
+    "Full runs must initialize fresh and cannot consume these smoke weights; full mode currently refuses",
+    "Empirical uploaded-video/pose reliability, independent references, outcome equivalence/generalization and coaching gates stay closed"
+  ]
+}

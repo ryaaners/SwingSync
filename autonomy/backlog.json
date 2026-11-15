@@ -302,9 +302,10 @@
         "Run train-only smoke before resource-appropriate additional folds; report per-fold variation and scope without uploaded-video/unseen-golfer/coaching promotion"
       ],
       "validation_evidence": [
-        "Next independent ML increment after native reproduction;no newfold fitting/cache/evaluation launched",
+        "Historical pre015: Next independent ML increment after native reproduction;no newfold fitting/cache/evaluation launched",
         "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources",
-        "015completed003h1:fixedprotocolpushed2f1fbeb beforeoneactualread-only1400cache/394177frameaudit;no newfits/forwards/PCE;003h2/3pending"
+        "015completed003h1:fixedprotocolpushed2f1fbeb beforeoneactualread-only1400cache/394177frameaudit;no newfits/forwards/PCE;003h2/3pending",
+        "016completed003h2:bothfreshfold2heads5updatetraining-onlysmokes+explicitresume/noopverified;noepochs/metrics/fulltraining;003h3next"
       ]
     },
     {
@@ -334,7 +335,7 @@
       "dependencies": [
         "003h1"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Bind published registration and independently known completed audit SHA before constructing any fresh head",
         "Exactly new train/inner IDs/source groups, original fixed configs and frozen feature identities; no prior-head warm start",
@@ -342,9 +343,12 @@
         "Complete registered train-only five-update smoke without outer metrics, and independently review before full runs"
       ],
       "validation_evidence": [
-        "016pre-fit:strict independently known015audit/run admission;fixedfold2freshheadsmoke-onlylauncher;fullmoderefused",
-        "74newsyntheticcases;653basepass16skip/final852MLpass1skip;Ruff/frontend9/build;independentreview72source-only+2CLIregressions;twoP2findingsfixed",
-        "c851a94/all6CI43774210598passed;documentedentryfailedbeforejob/head/update;bootstrapfixandPYTHONPATH-free subprocesschecksverified;correctedpushbeforeactualsmoke"
+        "Correctedreviewed47667360fd4eda70f5478b5c9d2f4c47695daa87pushed/remoteverified;all6CI43774822790passedbeforeANYactualfit;fixedknown015audit/runtime/sourcepartitions",
+        "Actualframe7890727c123743c3b93a13c218f03c56runSHAeb0728446686ad3db71960da17a131722f103cff0cb575589152795c70294657;temporal037d68b3764f49ea9fa8383653fb69a9runSHA9b0bc9acc8c65a5a1898e9bebc415bdbed8b8c9c49e9267ec78e6d8b2ed41736",
+        "Eachfixedfold2freshhead2+3=5totalupdates/2attempts/5checkpoints/0epochs/history[]/nullselection;20TRAINclips5877rows20source-recordingsperhead;classcounts836each+230613backgroundfromalltrain",
+        "Bothcompletedresumesbyte-identicalall6files;noextraattempt/update/headconstruction;oneexpensivelock,sequentialactualworkersended",
+        "74newcases;653basepass16skip/852MLpass1skip;Ruff/frontend9/build/npm0;freshindependentreviewall10actualpayloads/provenance/noop;twoP2findingsfixed",
+        "Initialc851a94CLIimportfailureoccurredbeforejob/head/update;request/logretained;bootstrapand2PYTHONPATH-free subprocesscasesfixedbeforeactualfits;full20epochmodeexplicitlyrefused;additional-folds-smoke-016.json/review-016.md"
       ]
     },
     {
@@ -355,12 +359,15 @@
       ],
       "status": "pending",
       "acceptance_criteria": [
+        "Reviewed full-run admission authenticates independently known completed frame/temporal016smoke ledgers and fixed015audit; full heads initialize fresh rather than from smoke weights",
         "Six fresh heads complete original20epoch budget sequentially with inner-only selection and resumable provenance",
         "Fixed selected checkpoints evaluated under registered reference64-reset and separately full-clip contexts without test retuning",
         "Per-fold/per-event PCE, frame/nativePTS-ms error, hardware latency and variation independently verified",
         "Disclose historical fold1/seen-data registration and source-not-unseen-golfer scope; no coaching or upload-domain promotion"
       ],
-      "validation_evidence": []
+      "validation_evidence": [
+        "Unblockedbycompleted003h2;no full training/evaluation launched;smokeCLI fullmode refuses until a new reviewed full-run launcher exists"
+      ]
     },
     {
       "id": "004a",
