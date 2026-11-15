@@ -334,14 +334,18 @@
       "dependencies": [
         "003h1"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Bind published registration and independently known completed audit SHA before constructing any fresh head",
         "Exactly new train/inner IDs/source groups, original fixed configs and frozen feature identities; no prior-head warm start",
         "One shared expensive-work lock, exclusive resumable job/config/runtime/seed/checkpoints; no duplicate jobs",
         "Complete registered train-only five-update smoke without outer metrics, and independently review before full runs"
       ],
-      "validation_evidence": []
+      "validation_evidence": [
+        "016pre-fit:strict independently known015audit/run admission;fixedfold2freshheadsmoke-onlylauncher;fullmoderefused",
+        "72newsyntheticcases;653basepass16skip/850MLpass1skip;Ruff/frontend9/build;freshreviewand72source-onlytests;P2checkpointdriftfixed",
+        "Actualsmokenotyetlaunched;reviewedimplementationmustbepushedandCIpassedbefore2+3updatecontinuations"
+      ]
     },
     {
       "id": "003h3",
