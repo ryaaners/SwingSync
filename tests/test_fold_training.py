@@ -2,7 +2,10 @@
 from copy import deepcopy
 import fcntl
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 from types import SimpleNamespace
 
 import numpy as np
@@ -318,3 +321,31 @@ def test_resume_refuses_inconsistent_checkpoint_or_model_identity(smoke, problem
         args['model'] = 'temporal'
     with pytest.raises(ValueError):
         ft.run_fold_smoke(**args, resume=True)
+
+
+@pytest.mark.parametrize('mode', ['help', 'full-refused'])
+def test_direct_script_bootstraps_repository_without_pythonpath(tmp_path, mode):
+    # Pytest's pythonpath setting must not mask a broken documented CLI entry.
+    script = Path(__file__).resolve().parents[1] / 'scripts/train_additional_fold.py'
+    env = dict(os.environ)
+    env.pop('PYTHONPATH', None)
+    env['PYTHONDONTWRITEBYTECODE'] = '1'
+    command = [sys.executable, str(script)]
+    if mode == 'help':
+        command += ['--help']
+    else:
+        command += ['--annotations', str(tmp_path / 'missing.mat'),
+                    '--manifests-dir', str(tmp_path / 'missing-manifests'),
+                    '--audit-run', str(tmp_path / 'missing-audit.json'),
+                    '--model', 'frame', '--run-dir', str(tmp_path / 'never-created'),
+                    '--mode', 'full']
+    result = subprocess.run(command, cwd=tmp_path, env=env, capture_output=True,
+                            text=True, timeout=60, check=False)
+    assert 'ModuleNotFoundError' not in result.stderr
+    if mode == 'help':
+        assert result.returncode == 0 and '--max-new-batches' in result.stdout
+    else:
+        assert result.returncode == 2
+        assert 'Full training is unavailable' in result.stderr
+        assert 'No such file' not in result.stderr
+    assert not (tmp_path / 'never-created').exists()

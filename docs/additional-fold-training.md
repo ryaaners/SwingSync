@@ -11,7 +11,8 @@ No training result is recorded by this guide.
 ## Prerequisites and evidence
 
 Use the original local `.tools/ml-runtime/bin/python` environment and repository
-path. The existing cache identity checks include exact versions, implementation
+path. The direct script entry adds its repository root to Python imports; it
+does not require `PYTHONPATH` or a package installation. The existing cache identity checks include exact versions, implementation
 bytes and historical Python code identity. A source-only checkout elsewhere or
 different CPU package build is not admitted merely because versions look similar.
 No model/backbone download, video decoding, image-feature extraction or paid API

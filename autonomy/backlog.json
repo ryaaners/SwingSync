@@ -343,8 +343,8 @@
       ],
       "validation_evidence": [
         "016pre-fit:strict independently known015audit/run admission;fixedfold2freshheadsmoke-onlylauncher;fullmoderefused",
-        "72newsyntheticcases;653basepass16skip/850MLpass1skip;Ruff/frontend9/build;freshreviewand72source-onlytests;P2checkpointdriftfixed",
-        "Actualsmokenotyetlaunched;reviewedimplementationmustbepushedandCIpassedbefore2+3updatecontinuations"
+        "74newsyntheticcases;653basepass16skip/final852MLpass1skip;Ruff/frontend9/build;independentreview72source-only+2CLIregressions;twoP2findingsfixed",
+        "c851a94/all6CI43774210598passed;documentedentryfailedbeforejob/head/update;bootstrapfixandPYTHONPATH-free subprocesschecksverified;correctedpushbeforeactualsmoke"
       ]
     },
     {

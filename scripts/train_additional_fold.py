@@ -2,9 +2,12 @@
 import argparse
 import json
 from pathlib import Path
+import sys
 
-from backend.swingsync.research.fold_protocol import DEFAULT_PROTOCOL
-from backend.swingsync.research.fold_training import run_fold_smoke
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from backend.swingsync.research.fold_protocol import DEFAULT_PROTOCOL  # noqa: E402
+from backend.swingsync.research.fold_training import run_fold_smoke  # noqa: E402
 
 
 def main():
