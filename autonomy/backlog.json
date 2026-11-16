@@ -357,7 +357,7 @@
       "dependencies": [
         "003h2"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Reviewed full-run admission authenticates independently known completed frame/temporal016smoke ledgers and fixed015audit; full heads initialize fresh rather than from smoke weights",
         "Six fresh heads complete original20epoch budget sequentially with inner-only selection and resumable provenance",
@@ -366,7 +366,9 @@
         "Disclose historical fold1/seen-data registration and source-not-unseen-golfer scope; no coaching or upload-domain promotion"
       ],
       "validation_evidence": [
-        "Unblockedbycompleted003h2;no full training/evaluation launched;smokeCLI fullmode refuses until a new reviewed full-run launcher exists"
+        "017pre-fit:known BOTH016smoke+015audit admission, fresh-initial-hash guard, original20epoch driver, epoch-boundary resumable checkpoints;no outer path",
+        "39newadmission+38full-launcher cases;653basepass18skip/929MLpass1skip;Ruff/frontend9/build/npm0;freshreview77source-only+original20epochBOTHheadsynthetic",
+        "TwoP2findingsfixed:overflowJSONandpredecessorCASpreserveexternalbytes;actualfulljobstarget25320totalupdates across6heads;notyetlaunched;push/CIbeforefits"
       ]
     },
     {
