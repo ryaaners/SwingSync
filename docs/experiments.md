@@ -263,3 +263,20 @@ Frame7890727c123743c3b93a13c218f03c56 and temporal037d68b3764f49ea9fa8383653fb69
 Both runs retain five checkpoint/model/optimizer/RNG/cursor states,0completed epochs,empty validation history and no selected model or accuracy score. Completed resume revalidated all6files per head without changing bytes, attempts or updates. Synthetic tests separately establish equality against uninterrupted CPU continuation; no duplicate real fit was run for that comparison. Independent review checked all10checkpoint payloads and provenance without a model forward/refit/cache-array scan. Raw artifacts remain ignored; [small measured evidence](../autonomy/reports/additional-folds-smoke-016.json) records hashes and scoped timings. Elapsed smoke time includes head construction, cached-feature reads and checkpoint verification; it is not inference latency or minimum hardware.
 
 This completes003h2, not the20epoch additional-fold comparison. Full mode currently refuses.003h3 must review/admit full runs using known completed smoke witnesses, initialize all six full heads fresh and retain fixed inner selection/outer contexts before reporting completed3fold results. Historical fold1/seen-data registration, original-source timing and uploaded-video/pose/coaching gates remain unchanged.
+
+
+## Completed additional-fold training and recovery — execution018
+
+All six fresh event heads genuinely completed the fixed original20epoch budgets under the registered source-grouped folds. Training code cfcde5e was reviewed/pushed and six CI jobs43945570455 passed before fitting. Both heads use the same frozen pretrained ImageNet MobileNetV2 pixel features; project training fits fresh heads and does not retrain that backbone. Seed20261105,batch4,Adam0.001,full-clip/no-augmentation/CPU single-thread settings and train-only imbalance weights are unchanged.
+
+| Official fold | Train / inner / outer clips | Updates per head | Frame / temporal selected inner epoch |
+| --- | --- | ---: | --- |
+| 2 | 836 / 214 / 350 | 4180 | 20 / 18 |
+| 3 | 839 / 211 / 350 | 4200 | 20 / 18 |
+| 4 | 853 / 197 / 350 | 4280 | 19 / 19 |
+
+This is120completed head-epochs and25320durable optimizer updates. Each final payload retains continuation model and the earliest maximum inner-PCE best_model; evaluation must load best_model. These selection epochs are not held-out accuracy results. Independent017/018review verified all120epoch checkpoint payloads, train/inner fingerprints excluding each outer set, class weights, optimizer/RNG state, selection equality and completed byte-identical no-ops.
+
+The017controller stopped after five completed entries. The final temporal job resumed from its durable epoch11 checkpoint and preserved all eleven earlier checkpoint files/history entries, completing20epochs in the same job. Its first attempt has no recorded end/elapsed, which remains unknown; uncheckpointed work is not counted as saved progress. The controller remains unchanged as an interrupted snapshot. NEW [training evidence](../autonomy/reports/additional-folds-training-018.json) binds a separate completion witness SHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407. Raw checkpoints/media/caches remain ignored.
+
+No additional-fold outer predictions, PCE, timing errors or latency benchmark have run. Those are the next separate reviewed increment under the already fixed protocol. Historicalfold1 was observed; source-recording grouping is not verified unseen-golfer or uploaded-video validation. No automatic coaching, pose or outcome gate opens from training completion.

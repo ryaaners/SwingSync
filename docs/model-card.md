@@ -94,3 +94,10 @@ This proves compatibility of immutable cached data under the declared source-gro
 The fixed folds2–4 extension now has strict known-audit admission and two completed real fold2 five-update training-only smokes. Each fresh head used the same20TRAINclips/5877frame rows, full-training-only class weights and explicit2+3checkpoint continuation. Zero epochs or inner/outer selection/accuracy metrics completed; these smoke states are not new benchmark models and must not warm-start future full training. Both completed resumes were byte-identical; independent payload/provenance review passed. See [evidence and limitations](../autonomy/reports/additional-folds-smoke-016.json).
 
 The historical fold1 performance table is unchanged. Full20epoch training/evaluation is still003h3 and the current launcher refuses full mode. No uploaded-video accuracy, empirical movement reliability, coaching validity or outcome integration is established by this operational smoke. Normal model availability remains false and advice empty.
+
+
+## Additional-fold training complete — execution018
+
+Six fresh frame/temporal heads across official folds2–4 completed20epochs each, with inner-only checkpoint selection and the original frozen ImageNet features/configuration. Selected inner epochs:2=20/18,3=20/18,4=19/19. Independent saved-artifact review covers all120epoch checkpoints, exact train/inner membership, training-only weights, optimizer/RNG and selected best_model equality. See [authenticated training evidence](../autonomy/reports/additional-folds-training-018.json).
+
+The interrupted final job continued from its last durable epoch11 checkpoint; missing original-attempt timing was not invented. A separate018completion witness supersedes the stopped017controller snapshot for completion claims. No additional-fold held-out accuracy or hardware-latency result exists yet. Historicalfold1 metrics above remain unchanged; automatic model availability/advice, empirical pose/upload reliability and outcome integration remain gated.

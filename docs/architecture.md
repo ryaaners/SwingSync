@@ -92,3 +92,10 @@ This proves compatibility of immutable cached data under the declared source-gro
 ## Additional-fold smoke boundary (016)
 
 `fold_admission.py` authenticates the independently known completed015audit ledger/report, unchanged registration/runtime and regenerated source groups before exposing exactly one fold's train/inner cache paths. `fold_training.py` and `train_additional_fold.py` use the shared expensive-work lock and persist process/config/seed/input/source/runtime identity before constructing a fresh head. The fixed fold2 smoke checkpoints every update, supports explicit continuation to five total updates and authenticates a completed no-op without head construction. No inner/outer example is forwarded in smoke; full mode refuses. This is separate research software and changes no application model/advice availability. Full20epoch admission and fixed outer evaluation remain003h3. See [operational guide](additional-fold-training.md).
+
+
+## Full additional-fold training boundary (017)
+
+`full_fold_admission.py` extends the known015audit gate with BOTH independently known completed016smoke ledgers and all ten checkpoint byte hashes. Those witnesses authenticate runtime/source/configuration and the seeded INITIAL head tensors; their trained smoke weights never initialize full jobs. Requested folds2–4 retain their own source-grouped train/inner membership and train-only class weights.
+
+`full_fold_training.py` and the standalone `train_full_fold.py` persist process/config/seed/runtime/input/source identity before head construction, require positive fresh-initialization equality and use the unchanged20epoch HeadExperiment. Epoch-boundary checkpoints retain continuation and selected best_model states; only inner full-clip PCE with earliest ties selects weights. Exact pending advances permit bounded orphan recovery. Predecessor/output ledger and checkpoint/source checks preserve outside edits and refuse invalid numeric state. Completed resume authenticates bytes/progress without another model construction or update. No outer evaluator or application availability is enabled here. See [execution guide](full-fold-training.md).

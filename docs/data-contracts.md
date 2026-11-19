@@ -138,3 +138,10 @@ This proves compatibility of immutable cached data under the declared source-gro
 ## Additional-fold smoke admission (016)
 
 The read-only015audit remains compatibility evidence; the new [training admission](additional-fold-training.md) separately binds its independently known ledger/report bytes, exact registered source-grouped manifests and immutable selected cache hashes. Permanent official split identity is preserved when old catalog roles change for a new fold. Only complete train+inner paths enter the unchanged head driver; weights use complete relevant training labels, while the fixed five-update smoke forwards training clips only and stops before inner selection. No warm start or mutable current-ledger assertion substitutes for trusted evidence. Source/runtime/config drift blocks continuation; completed resume rechecks input, all checkpoint and ledger bytes without another update. A successful smoke neither admits full training/evaluation nor changes pose, outcome, original-source timestamp or coaching gates.
+
+
+## Full-training witness and selection contract (017)
+
+The [separate full launcher](full-fold-training.md) authenticates BOTH known smoke ledgers, their original fold2 metadata/runtime/source bindings and all five checkpoint hashes per head. New fold3/4 inputs remain their own exact source-grouped train/inner sets; old smoke membership is a prerequisite witness, not a replacement dataset or warm start. The freshly seeded full model must match the known INITIAL tensor hash.
+
+Fixed20epoch budgets are4180/4200/4280updates per head on folds2/3/4. Current-fold training labels alone determine imbalance weights. Per-epoch checkpoints make the selected earliest maximum inner-PCE state independently comparable with the final payload's best_model. Final continuation weights may differ. Outer results require a separate authenticated evaluator under the already registered contexts and official tolerance; internal selection is not held-out generalization or uploaded-video admission. Original reencoded nativePTS provenance and all pose/outcome/coaching gates remain unchanged.

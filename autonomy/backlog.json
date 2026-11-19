@@ -305,7 +305,8 @@
         "Historical pre015: Next independent ML increment after native reproduction;no newfold fitting/cache/evaluation launched",
         "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources",
         "015completed003h1:fixedprotocolpushed2f1fbeb beforeoneactualread-only1400cache/394177frameaudit;no newfits/forwards/PCE;003h2/3pending",
-        "016completed003h2:bothfreshfold2heads5updatetraining-onlysmokes+explicitresume/noopverified;noepochs/metrics/fulltraining;003h3next"
+        "016completed003h2:bothfreshfold2heads5updatetraining-onlysmokes+explicitresume/noopverified;noepochs/metrics/fulltraining;003h3next",
+        "018completed all6additionalfold head training/independentartifactreview;outerevaluation/latency003h3-evalnext;no newaccuracy"
       ]
     },
     {
@@ -366,9 +367,49 @@
         "Disclose historical fold1/seen-data registration and source-not-unseen-golfer scope; no coaching or upload-domain promotion"
       ],
       "validation_evidence": [
-        "017pre-fit:known BOTH016smoke+015audit admission, fresh-initial-hash guard, original20epoch driver, epoch-boundary resumable checkpoints;no outer path",
-        "39newadmission+38full-launcher cases;653basepass18skip/929MLpass1skip;Ruff/frontend9/build/npm0;freshreview77source-only+original20epochBOTHheadsynthetic",
-        "TwoP2findingsfixed:overflowJSONandpredecessorCASpreserveexternalbytes;actualfulljobstarget25320totalupdates across6heads;notyetlaunched;push/CIbeforefits"
+        "017reviewedcode cfcde5e79784131d40a027bd1920104244ca3e8e pushed/all6CI43945570455passedbeforefits;39admission+38launcher tests;originalsource/configs/locks preserved",
+        "018all6headscompleted20epochs/120head-epochs/25320durableupdates/120checkpoints;selectedepochs2frame20,2temporal18,3frame20,3temporal18,4frame19,4temporal19;no newouteraccuracy",
+        "Independent017/018review coversall120savedpayloads/grouping/counts/Adam/RNG/selectedweights/noop;018same-joblastheadrecoveryfrom11epochs,prefixpreserved;oldcontrollerNOTrewritten",
+        "NEWcompletionreceiptSHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407;additional-folds-training-018.json;003h3-trainingcomplete,003h3-evalpending"
+      ]
+    },
+    {
+      "id": "003h3-training",
+      "title": "Complete and independently verify six fixed additional-fold training jobs",
+      "dependencies": [
+        "003h2"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Six fresh heads complete original20epochs with source-grouped inner-only selection and train-only weights",
+        "Immutable optimizer/RNG/epoch checkpoints and selected best_model independently verified",
+        "Recover existing interrupted job without replacing it or claiming missing timing; preserve old controller snapshot",
+        "Publish a separate authenticated completed-training witness without accuracy/serving promotion"
+      ],
+      "validation_evidence": [
+        "018all6headscompleted20epochs/120head-epochs/25320durableupdates/120checkpoints;selectedepochs2frame20,2temporal18,3frame20,3temporal18,4frame19,4temporal19;no newouteraccuracy",
+        "Independent017/018review coversall120savedpayloads/grouping/counts/Adam/RNG/selectedweights/noop;018same-joblastheadrecoveryfrom11epochs,prefixpreserved;oldcontrollerNOTrewritten",
+        "NEWcompletionreceiptSHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407;additional-folds-training-018.json;003h3-trainingcomplete,003h3-evalpending",
+        "653basepass18skip/929MLpass1skip,Ruff/frontend9/build;rawweights/data ignored;no expensiveworker remains"
+      ]
+    },
+    {
+      "id": "003h3-eval",
+      "title": "Official additional-fold outer comparison and scoped CPU latency",
+      "dependencies": [
+        "003h3-training"
+      ],
+      "status": "pending",
+      "acceptance_criteria": [
+        "Reviewed admission binds independently known018receipt/all6selectedcheckpoints/fixed015protocol before any outer forward",
+        "350outerclips/fold,bothheads,reference64-reset primary/fullclip separate; officialPCE/per-event/nativePTS-ms errors and fold variation",
+        "Store authenticated probabilities for independent no-forward replay; disclose historicalfold1 and source-not-unseen-golfer scope; no test tuning",
+        "Registered training-only latency IDs0/1,6/7,0/1;warmup16,batch16,oneCPUrepetition;no automatic downloads or minimum-hardware claim",
+        "Software checks/fresh independent review/pushed code before actual evaluation;normal model/coaching gates stay closed"
+      ],
+      "validation_evidence": [
+        "All6training prerequisite completed;018receiptknownSHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407",
+        "Existinguntracked latencywrapper/CLI remain unfinished, depend on missingadditional_evaluation helper/tests;noactual newoutereval orlatency run"
       ]
     },
     {

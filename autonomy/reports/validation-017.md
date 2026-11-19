@@ -1,5 +1,7 @@
 # Execution017 validation
 
+Historical pre-fit and initial-launch journal. Completed training and recovery are verified in validation-018.md; the partial states below describe the earlier recording boundary.
+
 Implementing the003h3 full-training portion: authenticate completed016smoke witnesses plus015audit/fixed registration, initialize six fresh frame/temporal heads across official folds2–4 and preserve original20epoch configs/inner-only selection/resumable provenance. Outer evaluation/latency remains separate, with no normal model/coaching promotion. Actual full training has not launched.
 
 Initial repository/root/remote/branch matched dedicated SwingSync at f345e52; fetch showed no divergence and all6CI43776122423 succeeded. Both016smoke ledgers match independently known completed hashes; actual process inspection found no expensive Python worker and shared lock free. Preflight plan is ignored artifacts/additional-folds-017/preflight.json; launch/code/CI/actual completion evidence will be recorded separately.
@@ -9,3 +11,5 @@ Pre-fit software checks completed: required lockedbase653passed18optional skips;
 Two P2 issues were reproduced and fixed before launch: reject JSON1e999 nonfinite overflow and preserve externally changed predecessor ledger bytes with conflict markers instead of overwriting. The launcher binds known smoke INITIAL tensor hashes, full train-only weights and source-grouped train/inner coverage before fresh heads. Default500checkpoint limit stops at every epoch boundary, with reserved exact orphan recovery and completed byte-identical no-op semantics. No original hash-bound code/config, dependency lock, source video or cache changed.
 
 Resource/input preflight regenerated actual official manifests without model construction: train836/839/853,inner214/211/197,outer350each excluded. Original batch4/20epochs implies4180/4200/4280updates per model,25320total acrosssix. Actual M1/8GiB CUDAfalse/MPStrue/CPUtrue; registered work stays CPU one Torch thread/deterministic. No minimum-hardware or new inference-latency claim. The prospective original registration remains byte-identical. Actual training still awaits reviewed pushed code and successfulCI.
+
+Reviewed codecfcde5e79784131d40a027bd1920104244ca3e8e was pushed/remote-verified and all6CI43945570455 passed BEFORE actual fitting. Ignored controller records exact argv/source/review/CI/process identity and refuses any pre-existing job root. Actual firstfold2frame56295ab1806e48fda5dea64cf8012963 saved one epoch209updates, then requested explicit continuation of that same job. This is currently partial training, not all6head completion or an outer result. Inspect current saved ledgers/controller; no second controller or duplicate jobs.

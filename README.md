@@ -50,6 +50,10 @@ Implemented: audited GolfDB annotations/source-grouped splits, frozen MobileNetV
 
 Dataset, upstream code and weight licenses are separate; see the audit. No dataset, checkpoint or upstream code is redistributed in this increment. No license from an upstream repository is applied to original SwingSync code. A project license choice remains with the owner.
 
+## Additional-fold training
+
+The [fixed folds2–4 study](docs/additional-folds-protocol.md) has a separate [full-training launcher](docs/full-fold-training.md). It authenticates the completed cache audit and both real smoke witnesses, initializes every head fresh, preserves source grouping and saves resumable epoch checkpoints. All six additional-fold heads completed20epochs each and passed independent saved-artifact review; [training evidence](autonomy/reports/additional-folds-training-018.json) records the interrupted-job recovery and immutable hashes. These outputs use inner-only model selection; separate outer evaluation is required before reporting additional-fold accuracy. These research artifacts do not enable automatic coaching in the app. Consult [saved progress](autonomy/CURRENT_STATUS.md) before launching or continuing any job.
+
 ## Prepare GolfDB research data
 
 Obtain the annotations and preprocessed clips from the [official GolfDB repository](https://github.com/wmcnally/golfdb), observe applicable terms and keep all data outside Git. SciPy is pinned in the project lock. From the repository root:
