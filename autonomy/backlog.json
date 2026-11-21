@@ -294,7 +294,7 @@
         "003f",
         "007a"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Audit existing frozen pixel-feature inventories against each new official source-grouped manifest without altering historical artifacts",
         "Register fixed baseline/temporal configs, inner selection, contexts, seeds and outer protocol before any new fitting/evaluation; disclose previously observed fold1",
@@ -306,7 +306,8 @@
         "Do not tune fixed model hyperparameters/context against completedfold1 outcomes or mutate old hash-bound sources",
         "015completed003h1:fixedprotocolpushed2f1fbeb beforeoneactualread-only1400cache/394177frameaudit;no newfits/forwards/PCE;003h2/3pending",
         "016completed003h2:bothfreshfold2heads5updatetraining-onlysmokes+explicitresume/noopverified;noepochs/metrics/fulltraining;003h3next",
-        "018completed all6additionalfold head training/independentartifactreview;outerevaluation/latency003h3-evalnext;no newaccuracy"
+        "018completed all6additionalfold head training/independentartifactreview;outerevaluation/latency003h3-evalnext;no newaccuracy",
+        "019completed003h3-eval:1050outer/4200variants/295221frames independentlyreplayed;primaryPCE43.4524%frame/56.0238%temporal;registeredCPUtimingindependentlyverified;normalgatesclosed;additional-folds-results-019.json"
       ]
     },
     {
@@ -358,7 +359,7 @@
       "dependencies": [
         "003h2"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Reviewed full-run admission authenticates independently known completed frame/temporal016smoke ledgers and fixed015audit; full heads initialize fresh rather than from smoke weights",
         "Six fresh heads complete original20epoch budget sequentially with inner-only selection and resumable provenance",
@@ -370,7 +371,8 @@
         "017reviewedcode cfcde5e79784131d40a027bd1920104244ca3e8e pushed/all6CI43945570455passedbeforefits;39admission+38launcher tests;originalsource/configs/locks preserved",
         "018all6headscompleted20epochs/120head-epochs/25320durableupdates/120checkpoints;selectedepochs2frame20,2temporal18,3frame20,3temporal18,4frame19,4temporal19;no newouteraccuracy",
         "Independent017/018review coversall120savedpayloads/grouping/counts/Adam/RNG/selectedweights/noop;018same-joblastheadrecoveryfrom11epochs,prefixpreserved;oldcontrollerNOTrewritten",
-        "NEWcompletionreceiptSHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407;additional-folds-training-018.json;003h3-trainingcomplete,003h3-evalpending"
+        "NEWcompletionreceiptSHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407;additional-folds-training-018.json;003h3-trainingcomplete,003h3-evalpending",
+        "019completed003h3-eval:1050outer/4200variants/295221frames independentlyreplayed;primaryPCE43.4524%frame/56.0238%temporal;registeredCPUtimingindependentlyverified;normalgatesclosed;additional-folds-results-019.json"
       ]
     },
     {
@@ -399,7 +401,7 @@
       "dependencies": [
         "003h3-training"
       ],
-      "status": "in_progress",
+      "status": "completed",
       "acceptance_criteria": [
         "Reviewed admission binds independently known018receipt/all6selectedcheckpoints/fixed015protocol before any outer forward",
         "350outerclips/fold,bothheads,reference64-reset primary/fullclip separate; officialPCE/per-event/nativePTS-ms errors and fold variation",
@@ -408,8 +410,12 @@
         "Software checks/fresh independent review/pushed code before actual evaluation;normal model/coaching gates stay closed"
       ],
       "validation_evidence": [
-        "019implemented strict known018receipt admission, all6selected-head outer runner, authenticated probability replay and registered TRAIN-only latency wrapper; real held-out evaluation and timing are not yet performed",
-        "019real metadata-only admission verified1583immutable files/sixheads; no tensors loaded/model constructed/forward or accuracy; reviewed admission-check SHA7a11dbd8f4b4d046d12b5bbdec4bad3934d36ba5a7e425f61f9dfae9da9e8dcf"
+        "019correctedcode6a6a370/pushedremoteverified/all6CI44864587822passedbeforerealforwards;1090ML/653base/frontend9/build/Ruff;freshreview019materialfindingsresolved",
+        "019outerjob73ee529b8e0d4a6c8606d07514525d9f genuinelycompleted1050clips/295221frames/4200variants (1then1049samejob);selectedbest_model/reference64primary/fullclipseparate;notraining/testretuning",
+        "Independentallprobability/MAT/source/PTS/official677/tie/tolerance/perclip/per-event/foldaggregate/variationreplayexact;completedresume1052filesbyte-identical/0loads/forwards/attempts",
+        "PrimaryPCE43.4524%frame/56.0238%temporal;MAE25.8465frames862.3457ms/14.0493frames468.7403ms;separatefullcliptemporal63.2143%;alltablesadditional-folds-results-019.json",
+        "Latencyjobbf3d7f1d6c404b789b25098e6e29eb83 completed6TRAINobs/4unique/1339frames/87batches;CPUAppleM1/8GiB/batch16/warm16/onepass;independenttimingreviewpassed",
+        "Source-not-unseen-golfer/historicalfold1/reencodedPTS/weakboundaryeventsdisclosed;normalmodels/pose/outcomes/adviceunavailable;noexpensiveworkerremains"
       ]
     },
     {

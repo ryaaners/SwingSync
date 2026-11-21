@@ -32,11 +32,17 @@
   "latency_measured": false,
   "normal_model_available": false,
   "advice": [],
-  "next": "verified code checkpoint/CI, then real bounded outer evaluation and fixed training-only latency",
+  "next": "Software and subsequent actual comparison/timing complete; see additional-folds-results-019.json; empirical upload/pose references remain required",
   "first_code_checkpoint": {
     "sha": "b30a3bca518067887831a6b614780512d36a4b9b",
     "ci_run": 44864016408,
     "ci_conclusion": "failure",
     "issue": "Linux inode reuse exposed unsafe report cleanup; corrected with full stat identity and SHA guards and deterministic collision regression; no actual forwards launched"
+  },
+  "corrected_code_checkpoint": {
+    "sha": "6a6a370abd553ec8c3b243a9d3bdf7c1e6eda897",
+    "ci_run": 44864587822,
+    "ci_all_six": "success",
+    "before_actual_forward": true
   }
 }

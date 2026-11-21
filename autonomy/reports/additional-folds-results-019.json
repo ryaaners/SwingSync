@@ -1,0 +1,2154 @@
+{
+  "schema_version": 1,
+  "execution": "019",
+  "state": "completed-additional-official-fold-comparison-and-scoped-CPU-timing",
+  "code_commit": "6a6a370abd553ec8c3b243a9d3bdf7c1e6eda897",
+  "pre_evaluation_ci_url": "https://github.com/ryaaners/SwingSync/actions/runs/44864587822",
+  "pre_evaluation_all_six_ci": "success",
+  "study_id": "additional-official-folds-v1",
+  "protocol_sha256": "b9c7e29b2afa63e6733d0a26c5e335f7ad31463143b97300a2ea3e3d91107a53",
+  "dataset_annotation_sha256": "36523fcef016d93334691ea058d643bcf0d3a4a8c70b733f3b4cc0b8e5e0cf0a",
+  "seed": 20261105,
+  "runtime": {
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "machine": "arm64",
+    "numpy": "2.2.5",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "pyav": "16.0.1",
+    "python": "3.11.14",
+    "python_executable": "/Users/ryaanmahmood/Downloads/SwingSync/.tools/python/cpython-3.11.14-macos-aarch64-none/bin/python3.11",
+    "torch": "2.9.1",
+    "torch_num_threads": 1,
+    "torchvision": "0.24.1"
+  },
+  "dependency_lock_sha256": "8ce1d6674a07bf122541f555b90ad81532029b7ce343af54a78cd057fc2b26fc",
+  "training_receipt_sha256": "7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407",
+  "trained_head_artifacts": [
+    {
+      "fold": 2,
+      "model": "frame",
+      "job_id": "56295ab1806e48fda5dea64cf8012963",
+      "run_sha256": "9ad9f31f7e5b516b186ee797ba62477eca340d8b2baf208175793ce75cd34041",
+      "config_file_sha256": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+      "manifest_sha256": "12a5b80d7156de65e7a6f3716d0f60670d36cc50b05fbb5adf91d59f848f4c5a",
+      "completed_epochs": 20,
+      "optimizer_steps": 4180,
+      "best_epoch_inner_only": 20,
+      "final_checkpoint_sha256": "9424a0edcfbaee736ee34a2b48c786afb9be07366b690bdaff67ae3e4f31992f",
+      "selected_epoch_checkpoint_sha256": "9424a0edcfbaee736ee34a2b48c786afb9be07366b690bdaff67ae3e4f31992f",
+      "evaluation_state_key": "best_model"
+    },
+    {
+      "fold": 2,
+      "model": "temporal",
+      "job_id": "b2e6f4175c5546f4a192c61f17a036a4",
+      "run_sha256": "746fb1519c75861a9fbdba6787904647106499e7cbf6de6c55845755fcbfcec5",
+      "config_file_sha256": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1",
+      "manifest_sha256": "12a5b80d7156de65e7a6f3716d0f60670d36cc50b05fbb5adf91d59f848f4c5a",
+      "completed_epochs": 20,
+      "optimizer_steps": 4180,
+      "best_epoch_inner_only": 18,
+      "final_checkpoint_sha256": "ec688936270e0909e4acb01ce5ca82f0d2bf452b9a2635d77a011372323d925a",
+      "selected_epoch_checkpoint_sha256": "8c39ea43b78577ad44d69352a225bfe82c2b77ef9c645eac47b9d21182a47fcb",
+      "evaluation_state_key": "best_model"
+    },
+    {
+      "fold": 3,
+      "model": "frame",
+      "job_id": "b175351717fd47fdb114ec8df3b8b596",
+      "run_sha256": "91718ef607e81568bc3399852fa6ab9100295416492c442375dc0359789c72bb",
+      "config_file_sha256": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+      "manifest_sha256": "5fe0225c912b0c18ab494458a7f1d9d1d71a29207f8bf87599d6138f577071d9",
+      "completed_epochs": 20,
+      "optimizer_steps": 4200,
+      "best_epoch_inner_only": 20,
+      "final_checkpoint_sha256": "d86d0733bbd5d63760c30570b1c40fbd56d156f77db2bd49701ad09d213ac3b6",
+      "selected_epoch_checkpoint_sha256": "d86d0733bbd5d63760c30570b1c40fbd56d156f77db2bd49701ad09d213ac3b6",
+      "evaluation_state_key": "best_model"
+    },
+    {
+      "fold": 3,
+      "model": "temporal",
+      "job_id": "a55c5b2c5b11427cafb13c47b12b5e20",
+      "run_sha256": "fabc1a4003114aa5debd748772e07178e0c710ae87e57a23ddeb93e2d75392af",
+      "config_file_sha256": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1",
+      "manifest_sha256": "5fe0225c912b0c18ab494458a7f1d9d1d71a29207f8bf87599d6138f577071d9",
+      "completed_epochs": 20,
+      "optimizer_steps": 4200,
+      "best_epoch_inner_only": 18,
+      "final_checkpoint_sha256": "370312f52c6ba54dbaacff2617439e2ec72880ee289bf2fd754eec1a6f88b2e3",
+      "selected_epoch_checkpoint_sha256": "713be3709f0cd594adc3f6270bbbd9ad159932bccf7a2414b294b2abfe97d9c3",
+      "evaluation_state_key": "best_model"
+    },
+    {
+      "fold": 4,
+      "model": "frame",
+      "job_id": "589d37cbba5a468f8b6de97f28e2fab1",
+      "run_sha256": "c57fb2e619af5d82dacd4be51cc821dda5e86ec17403a483f843cec699f4af85",
+      "config_file_sha256": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+      "manifest_sha256": "3d20ab4b028e77d1cb96cb952fe3c944219ac4ab1f3bc1e697508e13ebe8434d",
+      "completed_epochs": 20,
+      "optimizer_steps": 4280,
+      "best_epoch_inner_only": 19,
+      "final_checkpoint_sha256": "680f0518de09639485f1edaabc63a24baa7ab855465d2f5ca0d69773fa9c0a82",
+      "selected_epoch_checkpoint_sha256": "3535f35177f8f9636be6c3a5e4c0b7f2047ebad704a85dda823d30defc754fbe",
+      "evaluation_state_key": "best_model"
+    },
+    {
+      "fold": 4,
+      "model": "temporal",
+      "job_id": "ba31e5bdebcc4565b2f1857ad56c872e",
+      "run_sha256": "08f0ce094785a80e9e331b3f2a5172c39295b917e5d5c5cd48e003a29ec2a33b",
+      "config_file_sha256": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1",
+      "manifest_sha256": "3d20ab4b028e77d1cb96cb952fe3c944219ac4ab1f3bc1e697508e13ebe8434d",
+      "completed_epochs": 20,
+      "optimizer_steps": 4280,
+      "best_epoch_inner_only": 19,
+      "final_checkpoint_sha256": "d8fe5efad8003e42b160fa04aa0bbb5fcb6ea42e4f8966e5b2384475bea16d12",
+      "selected_epoch_checkpoint_sha256": "c0ff702c0c422fed1a065b259f26ac9c00d091d3dc7a7a8f9bf88436204104af",
+      "evaluation_state_key": "best_model"
+    }
+  ],
+  "partitions": {
+    "2": {
+      "test": {
+        "clip_count": 350,
+        "source_count": 142
+      },
+      "train": {
+        "clip_count": 836,
+        "source_count": 350
+      },
+      "validation": {
+        "clip_count": 214,
+        "source_count": 88
+      }
+    },
+    "3": {
+      "test": {
+        "clip_count": 350,
+        "source_count": 154
+      },
+      "train": {
+        "clip_count": 839,
+        "source_count": 340
+      },
+      "validation": {
+        "clip_count": 211,
+        "source_count": 86
+      }
+    },
+    "4": {
+      "test": {
+        "clip_count": 350,
+        "source_count": 140
+      },
+      "train": {
+        "clip_count": 853,
+        "source_count": 352
+      },
+      "validation": {
+        "clip_count": 197,
+        "source_count": 88
+      }
+    }
+  },
+  "outer_evaluation": {
+    "job_id": "73ee529b8e0d4a6c8606d07514525d9f",
+    "run_sha256": "fb3acc69289824a6a482272b310be712714e0692d69abcc31a95970a330bd12a",
+    "report_sha256": "cd45e2837930bb2d59934db49b1dbfbe14ed5db704495211c70ff052c22a0be3",
+    "clip_count": 1050,
+    "variant_count": 4200,
+    "frame_count": 295221,
+    "attempt_count": 2,
+    "bounded_continuation": "one clip then explicit1049same-job resume",
+    "no_retuning": true,
+    "first_clip_preserved": true,
+    "groups": {
+      "2": {
+        "frame__full_clip": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 23.98,
+          "mae_ms": 800.0829533354416,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.4325,
+          "pce_percent": 43.25,
+          "per_event": {
+            "Address": {
+              "mae_frames": 53.505714285714284,
+              "mae_ms": 1785.2151025382595,
+              "pce": 0.05714285714285714,
+              "pce_percent": 5.714285714285714
+            },
+            "Finish": {
+              "mae_frames": 21.485714285714284,
+              "mae_ms": 716.8453616277674,
+              "pce": 0.09428571428571429,
+              "pce_percent": 9.428571428571429
+            },
+            "Impact": {
+              "mae_frames": 29.97142857142857,
+              "mae_ms": 999.9942959737712,
+              "pce": 0.6742857142857143,
+              "pce_percent": 67.42857142857143
+            },
+            "Mid-backswing": {
+              "mae_frames": 19.225714285714286,
+              "mae_ms": 641.4592735600287,
+              "pce": 0.5085714285714286,
+              "pce_percent": 50.857142857142854
+            },
+            "Mid-downswing": {
+              "mae_frames": 15.114285714285714,
+              "mae_ms": 504.27871332272133,
+              "pce": 0.5942857142857143,
+              "pce_percent": 59.42857142857143
+            },
+            "Mid-follow-through": {
+              "mae_frames": 14.628571428571428,
+              "mae_ms": 488.08195845231575,
+              "pce": 0.68,
+              "pce_percent": 68.0
+            },
+            "Toe-up": {
+              "mae_frames": 24.06,
+              "mae_ms": 802.747240220817,
+              "pce": 0.48,
+              "pce_percent": 48.0
+            },
+            "Top": {
+              "mae_frames": 13.848571428571429,
+              "mae_ms": 462.04168098785163,
+              "pce": 0.37142857142857144,
+              "pce_percent": 37.142857142857146
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 99,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "frame__reference_64_reset": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 23.98,
+          "mae_ms": 800.0829533354416,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.4325,
+          "pce_percent": 43.25,
+          "per_event": {
+            "Address": {
+              "mae_frames": 53.505714285714284,
+              "mae_ms": 1785.2151025382595,
+              "pce": 0.05714285714285714,
+              "pce_percent": 5.714285714285714
+            },
+            "Finish": {
+              "mae_frames": 21.485714285714284,
+              "mae_ms": 716.8453616277674,
+              "pce": 0.09428571428571429,
+              "pce_percent": 9.428571428571429
+            },
+            "Impact": {
+              "mae_frames": 29.97142857142857,
+              "mae_ms": 999.9942959737712,
+              "pce": 0.6742857142857143,
+              "pce_percent": 67.42857142857143
+            },
+            "Mid-backswing": {
+              "mae_frames": 19.225714285714286,
+              "mae_ms": 641.4592735600287,
+              "pce": 0.5085714285714286,
+              "pce_percent": 50.857142857142854
+            },
+            "Mid-downswing": {
+              "mae_frames": 15.114285714285714,
+              "mae_ms": 504.27871332272133,
+              "pce": 0.5942857142857143,
+              "pce_percent": 59.42857142857143
+            },
+            "Mid-follow-through": {
+              "mae_frames": 14.628571428571428,
+              "mae_ms": 488.08195845231575,
+              "pce": 0.68,
+              "pce_percent": 68.0
+            },
+            "Toe-up": {
+              "mae_frames": 24.06,
+              "mae_ms": 802.747240220817,
+              "pce": 0.48,
+              "pce_percent": 48.0
+            },
+            "Top": {
+              "mae_frames": 13.848571428571429,
+              "mae_ms": 462.04168098785163,
+              "pce": 0.37142857142857144,
+              "pce_percent": 37.142857142857146
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 99,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__full_clip": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 8.509285714285713,
+          "mae_ms": 283.9073764014597,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.6214285714285714,
+          "pce_percent": 62.142857142857146,
+          "per_event": {
+            "Address": {
+              "mae_frames": 16.917142857142856,
+              "mae_ms": 564.4397375510426,
+              "pce": 0.18857142857142858,
+              "pce_percent": 18.857142857142858
+            },
+            "Finish": {
+              "mae_frames": 14.8,
+              "mae_ms": 493.7711840563484,
+              "pce": 0.18571428571428572,
+              "pce_percent": 18.571428571428573
+            },
+            "Impact": {
+              "mae_frames": 2.137142857142857,
+              "mae_ms": 71.30657334428439,
+              "pce": 0.9342857142857143,
+              "pce_percent": 93.42857142857143
+            },
+            "Mid-backswing": {
+              "mae_frames": 9.274285714285714,
+              "mae_ms": 309.44156890595235,
+              "pce": 0.6285714285714286,
+              "pce_percent": 62.857142857142854
+            },
+            "Mid-downswing": {
+              "mae_frames": 4.562857142857143,
+              "mae_ms": 152.24171684582126,
+              "pce": 0.8942857142857142,
+              "pce_percent": 89.42857142857143
+            },
+            "Mid-follow-through": {
+              "mae_frames": 3.42,
+              "mae_ms": 114.10914485144808,
+              "pce": 0.8714285714285714,
+              "pce_percent": 87.14285714285714
+            },
+            "Toe-up": {
+              "mae_frames": 9.231428571428571,
+              "mae_ms": 308.0167687033566,
+              "pce": 0.6514285714285715,
+              "pce_percent": 65.14285714285715
+            },
+            "Top": {
+              "mae_frames": 7.731428571428571,
+              "mae_ms": 257.9323169534241,
+              "pce": 0.6171428571428571,
+              "pce_percent": 61.71428571428571
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 306,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__reference_64_reset": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 13.983214285714286,
+          "mae_ms": 466.53457066216055,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.5514285714285714,
+          "pce_percent": 55.14285714285714,
+          "per_event": {
+            "Address": {
+              "mae_frames": 29.225714285714286,
+              "mae_ms": 975.0835845752089,
+              "pce": 0.10285714285714286,
+              "pce_percent": 10.285714285714285
+            },
+            "Finish": {
+              "mae_frames": 19.49142857142857,
+              "mae_ms": 650.306340637356,
+              "pce": 0.1457142857142857,
+              "pce_percent": 14.571428571428571
+            },
+            "Impact": {
+              "mae_frames": 7.708571428571428,
+              "mae_ms": 257.2012910216184,
+              "pce": 0.8742857142857143,
+              "pce_percent": 87.42857142857143
+            },
+            "Mid-backswing": {
+              "mae_frames": 13.025714285714285,
+              "mae_ms": 434.57598654745715,
+              "pce": 0.6,
+              "pce_percent": 60.0
+            },
+            "Mid-downswing": {
+              "mae_frames": 9.362857142857143,
+              "mae_ms": 312.38502103162006,
+              "pce": 0.8028571428571428,
+              "pce_percent": 80.28571428571428
+            },
+            "Mid-follow-through": {
+              "mae_frames": 7.831428571428572,
+              "mae_ms": 261.2875271497751,
+              "pce": 0.8057142857142857,
+              "pce_percent": 80.57142857142857
+            },
+            "Toe-up": {
+              "mae_frames": 10.59142857142857,
+              "mae_ms": 353.38243484606454,
+              "pce": 0.5971428571428572,
+              "pce_percent": 59.71428571428572
+            },
+            "Top": {
+              "mae_frames": 14.628571428571428,
+              "mae_ms": 488.0543794881841,
+              "pce": 0.4828571428571429,
+              "pce_percent": 48.285714285714285
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 254,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        }
+      },
+      "3": {
+        "frame__full_clip": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 350,
+          "mae_frames": 23.298214285714284,
+          "mae_ms": 777.2877175328214,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.4275,
+          "pce_percent": 42.75,
+          "per_event": {
+            "Address": {
+              "mae_frames": 52.88285714285714,
+              "mae_ms": 1764.3418683643931,
+              "pce": 0.06571428571428571,
+              "pce_percent": 6.571428571428571
+            },
+            "Finish": {
+              "mae_frames": 19.417142857142856,
+              "mae_ms": 647.78489958398,
+              "pce": 0.10571428571428572,
+              "pce_percent": 10.571428571428571
+            },
+            "Impact": {
+              "mae_frames": 30.228571428571428,
+              "mae_ms": 1008.5320363851604,
+              "pce": 0.6771428571428572,
+              "pce_percent": 67.71428571428572
+            },
+            "Mid-backswing": {
+              "mae_frames": 20.074285714285715,
+              "mae_ms": 669.7241134138969,
+              "pce": 0.46285714285714286,
+              "pce_percent": 46.285714285714285
+            },
+            "Mid-downswing": {
+              "mae_frames": 14.54,
+              "mae_ms": 485.0812872069136,
+              "pce": 0.5714285714285714,
+              "pce_percent": 57.14285714285714
+            },
+            "Mid-follow-through": {
+              "mae_frames": 13.085714285714285,
+              "mae_ms": 436.5594172277721,
+              "pce": 0.6942857142857143,
+              "pce_percent": 69.42857142857143
+            },
+            "Toe-up": {
+              "mae_frames": 20.205714285714286,
+              "mae_ms": 674.1056270700753,
+              "pce": 0.52,
+              "pce_percent": 52.0
+            },
+            "Top": {
+              "mae_frames": 15.951428571428572,
+              "mae_ms": 532.1724910103792,
+              "pce": 0.32285714285714284,
+              "pce_percent": 32.285714285714285
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 99,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "frame__reference_64_reset": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 350,
+          "mae_frames": 23.298214285714284,
+          "mae_ms": 777.2877175328214,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.4275,
+          "pce_percent": 42.75,
+          "per_event": {
+            "Address": {
+              "mae_frames": 52.88285714285714,
+              "mae_ms": 1764.3418683643931,
+              "pce": 0.06571428571428571,
+              "pce_percent": 6.571428571428571
+            },
+            "Finish": {
+              "mae_frames": 19.417142857142856,
+              "mae_ms": 647.78489958398,
+              "pce": 0.10571428571428572,
+              "pce_percent": 10.571428571428571
+            },
+            "Impact": {
+              "mae_frames": 30.228571428571428,
+              "mae_ms": 1008.5320363851604,
+              "pce": 0.6771428571428572,
+              "pce_percent": 67.71428571428572
+            },
+            "Mid-backswing": {
+              "mae_frames": 20.074285714285715,
+              "mae_ms": 669.7241134138969,
+              "pce": 0.46285714285714286,
+              "pce_percent": 46.285714285714285
+            },
+            "Mid-downswing": {
+              "mae_frames": 14.54,
+              "mae_ms": 485.0812872069136,
+              "pce": 0.5714285714285714,
+              "pce_percent": 57.14285714285714
+            },
+            "Mid-follow-through": {
+              "mae_frames": 13.085714285714285,
+              "mae_ms": 436.5594172277721,
+              "pce": 0.6942857142857143,
+              "pce_percent": 69.42857142857143
+            },
+            "Toe-up": {
+              "mae_frames": 20.205714285714286,
+              "mae_ms": 674.1056270700753,
+              "pce": 0.52,
+              "pce_percent": 52.0
+            },
+            "Top": {
+              "mae_frames": 15.951428571428572,
+              "mae_ms": 532.1724910103792,
+              "pce": 0.32285714285714284,
+              "pce_percent": 32.285714285714285
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 99,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__full_clip": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 350,
+          "mae_frames": 7.5625,
+          "mae_ms": 252.31332228481634,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.6328571428571429,
+          "pce_percent": 63.28571428571429,
+          "per_event": {
+            "Address": {
+              "mae_frames": 13.917142857142856,
+              "mae_ms": 464.3241250516219,
+              "pce": 0.2,
+              "pce_percent": 20.0
+            },
+            "Finish": {
+              "mae_frames": 13.837142857142856,
+              "mae_ms": 461.6365954931529,
+              "pce": 0.19428571428571428,
+              "pce_percent": 19.428571428571427
+            },
+            "Impact": {
+              "mae_frames": 4.942857142857143,
+              "mae_ms": 164.92036905148154,
+              "pce": 0.88,
+              "pce_percent": 88.0
+            },
+            "Mid-backswing": {
+              "mae_frames": 7.571428571428571,
+              "mae_ms": 252.61937972317557,
+              "pce": 0.6942857142857143,
+              "pce_percent": 69.42857142857143
+            },
+            "Mid-downswing": {
+              "mae_frames": 3.222857142857143,
+              "mae_ms": 107.52685448276287,
+              "pce": 0.9085714285714286,
+              "pce_percent": 90.85714285714286
+            },
+            "Mid-follow-through": {
+              "mae_frames": 4.5285714285714285,
+              "mae_ms": 151.0904321963051,
+              "pce": 0.8828571428571429,
+              "pce_percent": 88.28571428571429
+            },
+            "Toe-up": {
+              "mae_frames": 4.9,
+              "mae_ms": 163.48564406997895,
+              "pce": 0.6857142857142857,
+              "pce_percent": 68.57142857142857
+            },
+            "Top": {
+              "mae_frames": 7.58,
+              "mae_ms": 252.9031782100517,
+              "pce": 0.6171428571428571,
+              "pce_percent": 61.71428571428571
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 318,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__reference_64_reset": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 350,
+          "mae_frames": 13.922857142857143,
+          "mae_ms": 464.5135433867674,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.5482142857142858,
+          "pce_percent": 54.82142857142858,
+          "per_event": {
+            "Address": {
+              "mae_frames": 31.285714285714285,
+              "mae_ms": 1043.7963613081663,
+              "pce": 0.10285714285714286,
+              "pce_percent": 10.285714285714285
+            },
+            "Finish": {
+              "mae_frames": 17.274285714285714,
+              "mae_ms": 576.3103472271208,
+              "pce": 0.16285714285714287,
+              "pce_percent": 16.28571428571429
+            },
+            "Impact": {
+              "mae_frames": 9.922857142857143,
+              "mae_ms": 331.07228688016045,
+              "pce": 0.7942857142857143,
+              "pce_percent": 79.42857142857143
+            },
+            "Mid-backswing": {
+              "mae_frames": 10.148571428571428,
+              "mae_ms": 338.58846832472886,
+              "pce": 0.6628571428571428,
+              "pce_percent": 66.28571428571428
+            },
+            "Mid-downswing": {
+              "mae_frames": 8.211428571428572,
+              "mae_ms": 273.9751197532778,
+              "pce": 0.8028571428571428,
+              "pce_percent": 80.28571428571428
+            },
+            "Mid-follow-through": {
+              "mae_frames": 10.242857142857142,
+              "mae_ms": 341.7324526095579,
+              "pce": 0.8028571428571428,
+              "pce_percent": 80.28571428571428
+            },
+            "Toe-up": {
+              "mae_frames": 10.128571428571428,
+              "mae_ms": 337.91347249502144,
+              "pce": 0.5685714285714286,
+              "pce_percent": 56.85714285714286
+            },
+            "Top": {
+              "mae_frames": 14.168571428571429,
+              "mae_ms": 472.7198384961057,
+              "pce": 0.48857142857142855,
+              "pce_percent": 48.857142857142854
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 251,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        }
+      },
+      "4": {
+        "frame__full_clip": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 30.26142857142857,
+          "mae_ms": 1009.6662979556135,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.44357142857142856,
+          "pce_percent": 44.357142857142854,
+          "per_event": {
+            "Address": {
+              "mae_frames": 64.28285714285714,
+              "mae_ms": 2144.78363444627,
+              "pce": 0.04857142857142857,
+              "pce_percent": 4.857142857142857
+            },
+            "Finish": {
+              "mae_frames": 29.46,
+              "mae_ms": 982.9251938328383,
+              "pce": 0.11142857142857143,
+              "pce_percent": 11.142857142857142
+            },
+            "Impact": {
+              "mae_frames": 34.074285714285715,
+              "mae_ms": 1136.888942473142,
+              "pce": 0.6428571428571429,
+              "pce_percent": 64.28571428571429
+            },
+            "Mid-backswing": {
+              "mae_frames": 26.834285714285713,
+              "mae_ms": 895.3259888133616,
+              "pce": 0.5057142857142857,
+              "pce_percent": 50.57142857142857
+            },
+            "Mid-downswing": {
+              "mae_frames": 20.614285714285714,
+              "mae_ms": 687.8035261841344,
+              "pce": 0.6257142857142857,
+              "pce_percent": 62.57142857142857
+            },
+            "Mid-follow-through": {
+              "mae_frames": 19.12,
+              "mae_ms": 637.9548999354568,
+              "pce": 0.7457142857142857,
+              "pce_percent": 74.57142857142857
+            },
+            "Toe-up": {
+              "mae_frames": 34.50857142857143,
+              "mae_ms": 1151.3577729473127,
+              "pce": 0.5142857142857142,
+              "pce_percent": 51.42857142857142
+            },
+            "Top": {
+              "mae_frames": 13.197142857142858,
+              "mae_ms": 440.2904250123906,
+              "pce": 0.35428571428571426,
+              "pce_percent": 35.42857142857142
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 93,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "frame__reference_64_reset": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 30.26142857142857,
+          "mae_ms": 1009.6662979556135,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.44357142857142856,
+          "pce_percent": 44.357142857142854,
+          "per_event": {
+            "Address": {
+              "mae_frames": 64.28285714285714,
+              "mae_ms": 2144.78363444627,
+              "pce": 0.04857142857142857,
+              "pce_percent": 4.857142857142857
+            },
+            "Finish": {
+              "mae_frames": 29.46,
+              "mae_ms": 982.9251938328383,
+              "pce": 0.11142857142857143,
+              "pce_percent": 11.142857142857142
+            },
+            "Impact": {
+              "mae_frames": 34.074285714285715,
+              "mae_ms": 1136.888942473142,
+              "pce": 0.6428571428571429,
+              "pce_percent": 64.28571428571429
+            },
+            "Mid-backswing": {
+              "mae_frames": 26.834285714285713,
+              "mae_ms": 895.3259888133616,
+              "pce": 0.5057142857142857,
+              "pce_percent": 50.57142857142857
+            },
+            "Mid-downswing": {
+              "mae_frames": 20.614285714285714,
+              "mae_ms": 687.8035261841344,
+              "pce": 0.6257142857142857,
+              "pce_percent": 62.57142857142857
+            },
+            "Mid-follow-through": {
+              "mae_frames": 19.12,
+              "mae_ms": 637.9548999354568,
+              "pce": 0.7457142857142857,
+              "pce_percent": 74.57142857142857
+            },
+            "Toe-up": {
+              "mae_frames": 34.50857142857143,
+              "mae_ms": 1151.3577729473127,
+              "pce": 0.5142857142857142,
+              "pce_percent": 51.42857142857142
+            },
+            "Top": {
+              "mae_frames": 13.197142857142858,
+              "mae_ms": 440.2904250123906,
+              "pce": 0.35428571428571426,
+              "pce_percent": 35.42857142857142
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 93,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__full_clip": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 7.064285714285714,
+          "mae_ms": 235.69248010758594,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.6421428571428571,
+          "pce_percent": 64.21428571428571,
+          "per_event": {
+            "Address": {
+              "mae_frames": 14.08,
+              "mae_ms": 469.76224402277467,
+              "pce": 0.1657142857142857,
+              "pce_percent": 16.57142857142857
+            },
+            "Finish": {
+              "mae_frames": 15.842857142857143,
+              "mae_ms": 528.5795866466293,
+              "pce": 0.17714285714285713,
+              "pce_percent": 17.71428571428571
+            },
+            "Impact": {
+              "mae_frames": 1.937142857142857,
+              "mae_ms": 64.63215192962235,
+              "pce": 0.9171428571428571,
+              "pce_percent": 91.71428571428571
+            },
+            "Mid-backswing": {
+              "mae_frames": 7.288571428571428,
+              "mae_ms": 243.18266396556507,
+              "pce": 0.6885714285714286,
+              "pce_percent": 68.85714285714286
+            },
+            "Mid-downswing": {
+              "mae_frames": 3.137142857142857,
+              "mae_ms": 104.6638385590264,
+              "pce": 0.9257142857142857,
+              "pce_percent": 92.57142857142857
+            },
+            "Mid-follow-through": {
+              "mae_frames": 2.2142857142857144,
+              "mae_ms": 73.87538801160926,
+              "pce": 0.9257142857142857,
+              "pce_percent": 92.57142857142857
+            },
+            "Toe-up": {
+              "mae_frames": 5.831428571428572,
+              "mae_ms": 194.5573233687458,
+              "pce": 0.7,
+              "pce_percent": 70.0
+            },
+            "Top": {
+              "mae_frames": 6.182857142857143,
+              "mae_ms": 206.2866443567145,
+              "pce": 0.6371428571428571,
+              "pce_percent": 63.714285714285715
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 319,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__reference_64_reset": {
+          "annotation_order_anomaly_count": 0,
+          "clip_count": 350,
+          "mae_frames": 14.241785714285715,
+          "mae_ms": 475.17278006013635,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.5810714285714286,
+          "pce_percent": 58.107142857142854,
+          "per_event": {
+            "Address": {
+              "mae_frames": 32.51428571428571,
+              "mae_ms": 1084.823962146438,
+              "pce": 0.11714285714285715,
+              "pce_percent": 11.714285714285715
+            },
+            "Finish": {
+              "mae_frames": 21.28857142857143,
+              "mae_ms": 710.2812164819683,
+              "pce": 0.17142857142857143,
+              "pce_percent": 17.142857142857142
+            },
+            "Impact": {
+              "mae_frames": 8.137142857142857,
+              "mae_ms": 271.50378216235976,
+              "pce": 0.8657142857142858,
+              "pce_percent": 86.57142857142858
+            },
+            "Mid-backswing": {
+              "mae_frames": 13.462857142857143,
+              "mae_ms": 449.1720790318823,
+              "pce": 0.6171428571428571,
+              "pce_percent": 61.71428571428571
+            },
+            "Mid-downswing": {
+              "mae_frames": 9.582857142857144,
+              "mae_ms": 319.7292016569477,
+              "pce": 0.8514285714285714,
+              "pce_percent": 85.14285714285714
+            },
+            "Mid-follow-through": {
+              "mae_frames": 5.7057142857142855,
+              "mae_ms": 190.37342017016707,
+              "pce": 0.8714285714285714,
+              "pce_percent": 87.14285714285714
+            },
+            "Toe-up": {
+              "mae_frames": 10.982857142857142,
+              "mae_ms": 366.4469831212108,
+              "pce": 0.6428571428571429,
+              "pce_percent": 64.28571428571429
+            },
+            "Top": {
+              "mae_frames": 12.26,
+              "mae_ms": 409.05159571011717,
+              "pce": 0.5114285714285715,
+              "pce_percent": 51.142857142857146
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 265,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        }
+      },
+      "additional-three-folds": {
+        "frame__full_clip": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 1050,
+          "mae_frames": 25.84654761904762,
+          "mae_ms": 862.3456562746254,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.43452380952380953,
+          "pce_percent": 43.452380952380956,
+          "per_event": {
+            "Address": {
+              "mae_frames": 56.89047619047619,
+              "mae_ms": 1898.1135351163075,
+              "pce": 0.05714285714285714,
+              "pce_percent": 5.714285714285714
+            },
+            "Finish": {
+              "mae_frames": 23.454285714285714,
+              "mae_ms": 782.5184850148619,
+              "pce": 0.10380952380952381,
+              "pce_percent": 10.380952380952381
+            },
+            "Impact": {
+              "mae_frames": 31.424761904761905,
+              "mae_ms": 1048.4717582773576,
+              "pce": 0.6647619047619048,
+              "pce_percent": 66.47619047619048
+            },
+            "Mid-backswing": {
+              "mae_frames": 22.044761904761906,
+              "mae_ms": 735.5031252624292,
+              "pce": 0.49238095238095236,
+              "pce_percent": 49.238095238095234
+            },
+            "Mid-downswing": {
+              "mae_frames": 16.756190476190476,
+              "mae_ms": 559.0545089045899,
+              "pce": 0.5971428571428572,
+              "pce_percent": 59.71428571428572
+            },
+            "Mid-follow-through": {
+              "mae_frames": 15.611428571428572,
+              "mae_ms": 520.8654252051815,
+              "pce": 0.7066666666666667,
+              "pce_percent": 70.66666666666667
+            },
+            "Toe-up": {
+              "mae_frames": 26.258095238095237,
+              "mae_ms": 876.0702134127349,
+              "pce": 0.5047619047619047,
+              "pce_percent": 50.476190476190474
+            },
+            "Top": {
+              "mae_frames": 14.332380952380952,
+              "mae_ms": 478.16819900354056,
+              "pce": 0.3495238095238095,
+              "pce_percent": 34.95238095238095
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 291,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "frame__reference_64_reset": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 1050,
+          "mae_frames": 25.84654761904762,
+          "mae_ms": 862.3456562746254,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.43452380952380953,
+          "pce_percent": 43.452380952380956,
+          "per_event": {
+            "Address": {
+              "mae_frames": 56.89047619047619,
+              "mae_ms": 1898.1135351163075,
+              "pce": 0.05714285714285714,
+              "pce_percent": 5.714285714285714
+            },
+            "Finish": {
+              "mae_frames": 23.454285714285714,
+              "mae_ms": 782.5184850148619,
+              "pce": 0.10380952380952381,
+              "pce_percent": 10.380952380952381
+            },
+            "Impact": {
+              "mae_frames": 31.424761904761905,
+              "mae_ms": 1048.4717582773576,
+              "pce": 0.6647619047619048,
+              "pce_percent": 66.47619047619048
+            },
+            "Mid-backswing": {
+              "mae_frames": 22.044761904761906,
+              "mae_ms": 735.5031252624292,
+              "pce": 0.49238095238095236,
+              "pce_percent": 49.238095238095234
+            },
+            "Mid-downswing": {
+              "mae_frames": 16.756190476190476,
+              "mae_ms": 559.0545089045899,
+              "pce": 0.5971428571428572,
+              "pce_percent": 59.71428571428572
+            },
+            "Mid-follow-through": {
+              "mae_frames": 15.611428571428572,
+              "mae_ms": 520.8654252051815,
+              "pce": 0.7066666666666667,
+              "pce_percent": 70.66666666666667
+            },
+            "Toe-up": {
+              "mae_frames": 26.258095238095237,
+              "mae_ms": 876.0702134127349,
+              "pce": 0.5047619047619047,
+              "pce_percent": 50.476190476190474
+            },
+            "Top": {
+              "mae_frames": 14.332380952380952,
+              "mae_ms": 478.16819900354056,
+              "pce": 0.3495238095238095,
+              "pce_percent": 34.95238095238095
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 291,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__full_clip": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 1050,
+          "mae_frames": 7.712023809523809,
+          "mae_ms": 257.3043929312873,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.6321428571428571,
+          "pce_percent": 63.21428571428571,
+          "per_event": {
+            "Address": {
+              "mae_frames": 14.971428571428572,
+              "mae_ms": 499.5087022084797,
+              "pce": 0.18476190476190477,
+              "pce_percent": 18.476190476190478
+            },
+            "Finish": {
+              "mae_frames": 14.826666666666666,
+              "mae_ms": 494.6624553987103,
+              "pce": 0.18571428571428572,
+              "pce_percent": 18.571428571428573
+            },
+            "Impact": {
+              "mae_frames": 3.005714285714286,
+              "mae_ms": 100.28636477512943,
+              "pce": 0.9104761904761904,
+              "pce_percent": 91.04761904761904
+            },
+            "Mid-backswing": {
+              "mae_frames": 8.044761904761904,
+              "mae_ms": 268.41453753156435,
+              "pce": 0.6704761904761904,
+              "pce_percent": 67.04761904761905
+            },
+            "Mid-downswing": {
+              "mae_frames": 3.640952380952381,
+              "mae_ms": 121.47746996253684,
+              "pce": 0.9095238095238095,
+              "pce_percent": 90.95238095238095
+            },
+            "Mid-follow-through": {
+              "mae_frames": 3.3876190476190478,
+              "mae_ms": 113.0249883531208,
+              "pce": 0.8933333333333333,
+              "pce_percent": 89.33333333333333
+            },
+            "Toe-up": {
+              "mae_frames": 6.654285714285714,
+              "mae_ms": 222.01991204736044,
+              "pce": 0.679047619047619,
+              "pce_percent": 67.9047619047619
+            },
+            "Top": {
+              "mae_frames": 7.164761904761905,
+              "mae_ms": 239.04071317339677,
+              "pce": 0.6238095238095238,
+              "pce_percent": 62.38095238095238
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 943,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        },
+        "temporal__reference_64_reset": {
+          "annotation_order_anomaly_count": 1,
+          "clip_count": 1050,
+          "mae_frames": 14.049285714285714,
+          "mae_ms": 468.74029803635483,
+          "numpy_version": "2.2.5",
+          "order_constrained_decoding": false,
+          "pce": 0.5602380952380952,
+          "pce_percent": 56.02380952380952,
+          "per_event": {
+            "Address": {
+              "mae_frames": 31.00857142857143,
+              "mae_ms": 1034.5679693432712,
+              "pce": 0.10761904761904761,
+              "pce_percent": 10.761904761904761
+            },
+            "Finish": {
+              "mae_frames": 19.35142857142857,
+              "mae_ms": 645.6326347821484,
+              "pce": 0.16,
+              "pce_percent": 16.0
+            },
+            "Impact": {
+              "mae_frames": 8.58952380952381,
+              "mae_ms": 286.59245335471286,
+              "pce": 0.8447619047619047,
+              "pce_percent": 84.47619047619047
+            },
+            "Mid-backswing": {
+              "mae_frames": 12.212380952380952,
+              "mae_ms": 407.4455113013561,
+              "pce": 0.6266666666666667,
+              "pce_percent": 62.66666666666667
+            },
+            "Mid-downswing": {
+              "mae_frames": 9.052380952380952,
+              "mae_ms": 302.0297808139485,
+              "pce": 0.819047619047619,
+              "pce_percent": 81.9047619047619
+            },
+            "Mid-follow-through": {
+              "mae_frames": 7.926666666666667,
+              "mae_ms": 264.4644666431667,
+              "pce": 0.8266666666666667,
+              "pce_percent": 82.66666666666667
+            },
+            "Toe-up": {
+              "mae_frames": 10.567619047619047,
+              "mae_ms": 352.58096348743226,
+              "pce": 0.6028571428571429,
+              "pce_percent": 60.285714285714285
+            },
+            "Top": {
+              "mae_frames": 13.685714285714285,
+              "mae_ms": 456.60860456480236,
+              "pce": 0.4942857142857143,
+              "pce_percent": 49.42857142857143
+            }
+          },
+          "protocol": "golfdb-independent-events-v1",
+          "strictly_ordered_prediction_count": 770,
+          "target_mapping": "chronological occupied frames, matching reference np.where(labels < 8)",
+          "tie_policy": "numpy-default-argsort-last-index"
+        }
+      }
+    },
+    "descriptive_fold_variation": {
+      "frame__full_clip": {
+        "mae_frames": {
+          "max": 30.26142857142857,
+          "min": 23.298214285714284,
+          "population_sd_descriptive": 3.134175947818196,
+          "values_by_fold_2_3_4": [
+            23.98,
+            23.298214285714284,
+            30.26142857142857
+          ]
+        },
+        "mae_ms": {
+          "max": 1009.6662979556135,
+          "min": 777.2877175328214,
+          "population_sd_descriptive": 104.58627791699955,
+          "values_by_fold_2_3_4": [
+            800.0829533354416,
+            777.2877175328214,
+            1009.6662979556135
+          ]
+        },
+        "pce_percent": {
+          "max": 44.357142857142854,
+          "min": 42.75,
+          "population_sd_descriptive": 0.6715383226747821,
+          "values_by_fold_2_3_4": [
+            43.25,
+            42.75,
+            44.357142857142854
+          ]
+        }
+      },
+      "frame__reference_64_reset": {
+        "mae_frames": {
+          "max": 30.26142857142857,
+          "min": 23.298214285714284,
+          "population_sd_descriptive": 3.134175947818196,
+          "values_by_fold_2_3_4": [
+            23.98,
+            23.298214285714284,
+            30.26142857142857
+          ]
+        },
+        "mae_ms": {
+          "max": 1009.6662979556135,
+          "min": 777.2877175328214,
+          "population_sd_descriptive": 104.58627791699955,
+          "values_by_fold_2_3_4": [
+            800.0829533354416,
+            777.2877175328214,
+            1009.6662979556135
+          ]
+        },
+        "pce_percent": {
+          "max": 44.357142857142854,
+          "min": 42.75,
+          "population_sd_descriptive": 0.6715383226747821,
+          "values_by_fold_2_3_4": [
+            43.25,
+            42.75,
+            44.357142857142854
+          ]
+        }
+      },
+      "temporal__full_clip": {
+        "mae_frames": {
+          "max": 8.509285714285713,
+          "min": 7.064285714285714,
+          "population_sd_descriptive": 0.5993186560369388,
+          "values_by_fold_2_3_4": [
+            8.509285714285713,
+            7.5625,
+            7.064285714285714
+          ]
+        },
+        "mae_ms": {
+          "max": 283.9073764014597,
+          "min": 235.69248010758594,
+          "population_sd_descriptive": 19.99753561159973,
+          "values_by_fold_2_3_4": [
+            283.9073764014597,
+            252.31332228481634,
+            235.69248010758594
+          ]
+        },
+        "pce_percent": {
+          "max": 64.21428571428571,
+          "min": 62.142857142857146,
+          "population_sd_descriptive": 0.8471641368884344,
+          "values_by_fold_2_3_4": [
+            62.142857142857146,
+            63.28571428571429,
+            64.21428571428571
+          ]
+        }
+      },
+      "temporal__reference_64_reset": {
+        "mae_frames": {
+          "max": 14.241785714285715,
+          "min": 13.922857142857143,
+          "population_sd_descriptive": 0.13833036223348183,
+          "values_by_fold_2_3_4": [
+            13.983214285714286,
+            13.922857142857143,
+            14.241785714285715
+          ]
+        },
+        "mae_ms": {
+          "max": 475.17278006013635,
+          "min": 464.5135433867674,
+          "population_sd_descriptive": 4.62268007052731,
+          "values_by_fold_2_3_4": [
+            466.53457066216055,
+            464.5135433867674,
+            475.17278006013635
+          ]
+        },
+        "pce_percent": {
+          "max": 58.107142857142854,
+          "min": 54.82142857142858,
+          "population_sd_descriptive": 1.4789720337599306,
+          "values_by_fold_2_3_4": [
+            55.14285714285714,
+            54.82142857142858,
+            58.107142857142854
+          ]
+        }
+      }
+    },
+    "primary_context": "reference-64-reset",
+    "full_clip_reported_separately": true
+  },
+  "verification": {
+    "independent_replay_sha256": "0f907eedc9ce59d74f976844349f6ae664368ecc29b7eed750be6c4f14076c48",
+    "independent_replayed_variants": 4200,
+    "annotation_anomaly_clip_ids": [
+      677
+    ],
+    "completed_noop_witness_sha256": "74239cbc8b50560078a50467eac5fe767728c45223cb9682b755e28e79a07ea2",
+    "completed_resume_byte_identical": true,
+    "unchanged_artifacts": 1052,
+    "model_load_calls_on_completed_resume": 0,
+    "forward_calls_on_completed_resume": 0,
+    "attempt_count_unchanged": 2,
+    "independent_latency_review_sha256": "4f0ae833d0911c596984854e04e9d6f8d409131816742bdeb5ca6c5180a19b1d",
+    "independent_latency_state": "independent-latency-evidence-validated-not-accuracy"
+  },
+  "latency": {
+    "job_id": "bf3d7f1d6c404b789b25098e6e29eb83",
+    "run_sha256": "f76adc09d999aff67a6ccdda1b86a8f319b1f44f3f665473aa623fd5d7fcfb21",
+    "report_sha256": "83e27423bef210be3cd5b698d23af7f305b0b31954dc38b3d9c46b34830cc0bc",
+    "hardware": {
+      "logical_cpu_count": 8,
+      "machine": "arm64",
+      "physical_memory_bytes": 8589934592,
+      "processor": "Apple M1"
+    },
+    "devices": {
+      "cpu": true,
+      "cuda": false,
+      "mps": true
+    },
+    "config": {
+      "batch_size": 16,
+      "contexts": [
+        "reference-64-reset",
+        "full-clip"
+      ],
+      "device": "cpu",
+      "fold_training_clip_ids": {
+        "2": [
+          0,
+          1
+        ],
+        "3": [
+          6,
+          7
+        ],
+        "4": [
+          0,
+          1
+        ]
+      },
+      "heads": [
+        "frame",
+        "temporal"
+      ],
+      "repetitions_per_fold_clip": 1,
+      "warmup_frames_per_fold": 16
+    },
+    "folds": {
+      "2": {
+        "clip_ids": [
+          0,
+          1
+        ],
+        "clips": [
+          {
+            "backbone": {
+              "mean_seconds": 0.8872126478895047,
+              "p50_seconds": 0.9527816659974633,
+              "p95_seconds": 1.0500695830014593,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 9,
+              "sample_unit": "forward batch including stack/output transfer",
+              "total_seconds": 7.984913831005542
+            },
+            "batch_frame_counts": [
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              10
+            ],
+            "clip_id": 0,
+            "container_open_seconds": 0.0010967080015689135,
+            "decode": {
+              "mean_seconds": 5.400603642055353e-05,
+              "p50_seconds": 4.4104499465902336e-05,
+              "p95_seconds": 0.00012295445067138646,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 138,
+              "sample_unit": "successful decoded frame retrieval",
+              "total_seconds": 0.007452833026036387
+            },
+            "decoder_eof_drain_seconds": 7.941700096125714e-05,
+            "feature_extraction_wall_seconds": 8.128432542001974,
+            "first_pts_seconds": 0.0,
+            "frame_count": 138,
+            "heads": {
+              "frame": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 8.129208959002426,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0007764170004520565
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 8.129822375998629,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0013898339966544881
+                }
+              },
+              "temporal": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 8.131663667001703,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.003231124999729218
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 8.135118292000698,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.006685749998723622
+                }
+              }
+            },
+            "last_pts_seconds": 4.570018013209687,
+            "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+            "measured_clip_wall_seconds": 8.143262625002535,
+            "preprocessing": {
+              "mean_seconds": 0.0009620799711241937,
+              "p50_seconds": 0.0009200420008710353,
+              "p95_seconds": 0.0011510285985423252,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 138,
+              "sample_unit": "frame RGB conversion plus transform",
+              "total_seconds": 0.13276703601513873
+            },
+            "pts_sha256": "cc6e43695a08cf12f310b4509f34fdb1a890432eb1eb2b5d0599f3cda78ab1b1",
+            "source_id": "f1BWA5F87Jc",
+            "timestamp_provenance": "reencoded-clip-pts",
+            "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0"
+          },
+          {
+            "backbone": {
+              "mean_seconds": 0.9367017380477808,
+              "p50_seconds": 0.9665714169968851,
+              "p95_seconds": 1.0371934169997985,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 21,
+              "sample_unit": "forward batch including stack/output transfer",
+              "total_seconds": 19.670736499003397
+            },
+            "batch_frame_counts": [
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              4
+            ],
+            "clip_id": 1,
+            "container_open_seconds": 0.00882258300043759,
+            "decode": {
+              "mean_seconds": 4.585441046749762e-05,
+              "p50_seconds": 3.0729497666470706e-05,
+              "p95_seconds": 0.00013226440023572625,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 324,
+              "sample_unit": "successful decoded frame retrieval",
+              "total_seconds": 0.014856828991469229
+            },
+            "decoder_eof_drain_seconds": 0.0013299580023158342,
+            "feature_extraction_wall_seconds": 20.016467292000016,
+            "first_pts_seconds": 0.0,
+            "frame_count": 324,
+            "heads": {
+              "frame": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 20.01835208400007,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0018847920000553131
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 20.01995637500295,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0034890830029326025
+                }
+              },
+              "temporal": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 20.02415487500184,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.00768758300182526
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 20.02630445900286,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.009837167002842762
+                }
+              }
+            },
+            "last_pts_seconds": 10.774568016545466,
+            "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+            "measured_clip_wall_seconds": 20.043998125001963,
+            "preprocessing": {
+              "mean_seconds": 0.0009736637962136969,
+              "p50_seconds": 0.0009173750004265457,
+              "p95_seconds": 0.0012014410975098142,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 324,
+              "sample_unit": "frame RGB conversion plus transform",
+              "total_seconds": 0.3154670699732378
+            },
+            "pts_sha256": "0b555b61f88ff08a155f8ab2cd9b498e77034037e83072f5976d4f053fae485b",
+            "source_id": "f1BWA5F87Jc",
+            "timestamp_provenance": "reencoded-clip-pts",
+            "video_sha256": "266bcbdcaab4f9ca90fbc0112e5da84d31c76bc978eaf9ae230021fe6dc2393b"
+          }
+        ],
+        "feature_wall_seconds_per_frame": 0.06091969661039392,
+        "head_sequence_timings": {
+          "frame": {
+            "full-clip": {
+              "mean_seconds": 0.0013306045002536848,
+              "p50_seconds": 0.0013306045002536848,
+              "p95_seconds": 0.0018293732500751503,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.0026612090005073696
+            },
+            "reference-64-reset": {
+              "mean_seconds": 0.0024394584997935453,
+              "p50_seconds": 0.0024394584997935453,
+              "p95_seconds": 0.003384120552618697,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.004878916999587091
+            }
+          },
+          "temporal": {
+            "full-clip": {
+              "mean_seconds": 0.005459354000777239,
+              "p50_seconds": 0.005459354000777239,
+              "p95_seconds": 0.0074647601017204575,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.010918708001554478
+            },
+            "reference-64-reset": {
+              "mean_seconds": 0.008261458500783192,
+              "p50_seconds": 0.008261458500783192,
+              "p95_seconds": 0.009679596152636805,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.016522917001566384
+            }
+          }
+        },
+        "selected_head_tensor_sha256": {
+          "frame": "73f1504f4973520788ae452dbec69e64c79a57a22b36430cb77d63d36720af97",
+          "temporal": "698c1091768f84f47a04828258db6eccef5fb3f48e4662d2018fe9207697e195"
+        },
+        "warmup_frames": 16,
+        "warmup_seconds": 1.134658250000939
+      },
+      "3": {
+        "clip_ids": [
+          6,
+          7
+        ],
+        "clips": [
+          {
+            "backbone": {
+              "mean_seconds": 0.8963318098883772,
+              "p50_seconds": 0.962112540997623,
+              "p95_seconds": 1.0630089004014736,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 9,
+              "sample_unit": "forward batch including stack/output transfer",
+              "total_seconds": 8.066986288995395
+            },
+            "batch_frame_counts": [
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              8
+            ],
+            "clip_id": 6,
+            "container_open_seconds": 0.0006805420016462449,
+            "decode": {
+              "mean_seconds": 4.9855426636093075e-05,
+              "p50_seconds": 3.877050039591268e-05,
+              "p95_seconds": 0.00011088475184806157,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 136,
+              "sample_unit": "successful decoded frame retrieval",
+              "total_seconds": 0.0067803380225086585
+            },
+            "decoder_eof_drain_seconds": 7.854100113036111e-05,
+            "feature_extraction_wall_seconds": 8.202665500000876,
+            "first_pts_seconds": 0.0,
+            "frame_count": 136,
+            "heads": {
+              "frame": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 8.203439000000799,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0007734999999229331
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 8.20411016700018,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0014446669993049
+                }
+              },
+              "temporal": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 8.206114625001646,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0034491250007704366
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 8.207061583001632,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0043960830007563345
+                }
+              }
+            },
+            "last_pts_seconds": 4.503002001334223,
+            "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+            "measured_clip_wall_seconds": 8.215168582999468,
+            "preprocessing": {
+              "mean_seconds": 0.0009309678899251808,
+              "p50_seconds": 0.0009050415010278812,
+              "p95_seconds": 0.0010672497501218459,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 136,
+              "sample_unit": "frame RGB conversion plus transform",
+              "total_seconds": 0.1266116330298246
+            },
+            "pts_sha256": "ca1e75714d4021c8494cb46500b00969560e7590f43deaa12929d62b996e99fa",
+            "source_id": "iPuVhnI8pJU",
+            "timestamp_provenance": "reencoded-clip-pts",
+            "video_sha256": "116bd112b7b6f24cdaa150edab29da5d5c8be6dbb1cf51460643d5c5653a3534"
+          },
+          {
+            "backbone": {
+              "mean_seconds": 0.9334260533887573,
+              "p50_seconds": 0.9607418334999238,
+              "p95_seconds": 1.0845353857506779,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 18,
+              "sample_unit": "forward batch including stack/output transfer",
+              "total_seconds": 16.80166896099763
+            },
+            "batch_frame_counts": [
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              7
+            ],
+            "clip_id": 7,
+            "container_open_seconds": 0.0011039999990316574,
+            "decode": {
+              "mean_seconds": 3.8066304531440766e-05,
+              "p50_seconds": 2.204100019298494e-05,
+              "p95_seconds": 0.00011467049844213754,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 279,
+              "sample_unit": "successful decoded frame retrieval",
+              "total_seconds": 0.010620498964271974
+            },
+            "decoder_eof_drain_seconds": 9.066699931281619e-05,
+            "feature_extraction_wall_seconds": 17.076928375001444,
+            "first_pts_seconds": 0.0,
+            "frame_count": 279,
+            "heads": {
+              "frame": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 17.07844104200194,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0015126670004974585
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 17.07917612500023,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.002247749998787185
+                }
+              },
+              "temporal": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 17.0838379170018,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.00690954200035776
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 17.084877042001608,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.007948667000164278
+                }
+              }
+            },
+            "last_pts_seconds": 9.272848565710474,
+            "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+            "measured_clip_wall_seconds": 17.098799458999565,
+            "preprocessing": {
+              "mean_seconds": 0.0009333350859104871,
+              "p50_seconds": 0.0009094999986700714,
+              "p95_seconds": 0.0010563246989477193,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 279,
+              "sample_unit": "frame RGB conversion plus transform",
+              "total_seconds": 0.2604004889690259
+            },
+            "pts_sha256": "9d1bff694d9c7f71e4905dfafc3c1d07148f3fd5d5f61696dbaafff20dfc6c22",
+            "source_id": "iPuVhnI8pJU",
+            "timestamp_provenance": "reencoded-clip-pts",
+            "video_sha256": "1bc4c3a18097a36e34aeaebac5543c1dffeb4ed4aa0dec4175e4c58a37b15aa0"
+          }
+        ],
+        "feature_wall_seconds_per_frame": 0.06091468403615017,
+        "head_sequence_timings": {
+          "frame": {
+            "full-clip": {
+              "mean_seconds": 0.0011430835002101958,
+              "p50_seconds": 0.0011430835002101958,
+              "p95_seconds": 0.001475708650468732,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.0022861670004203916
+            },
+            "reference-64-reset": {
+              "mean_seconds": 0.0018462084990460426,
+              "p50_seconds": 0.0018462084990460426,
+              "p95_seconds": 0.0022075958488130707,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.003692416998092085
+            }
+          },
+          "temporal": {
+            "full-clip": {
+              "mean_seconds": 0.005179333500564098,
+              "p50_seconds": 0.005179333500564098,
+              "p95_seconds": 0.006736521150378393,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.010358667001128197
+            },
+            "reference-64-reset": {
+              "mean_seconds": 0.006172375000460306,
+              "p50_seconds": 0.006172375000460306,
+              "p95_seconds": 0.0077710378001938805,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.012344750000920612
+            }
+          }
+        },
+        "selected_head_tensor_sha256": {
+          "frame": "4a190a5053d0b12f9670746c61acb26215358b8b62b1114eb911062573f32611",
+          "temporal": "778fb3b32ccc51920b7062d3f9ddb2317363224d8064d1002b766027ff211741"
+        },
+        "warmup_frames": 16,
+        "warmup_seconds": 1.2691297910023422
+      },
+      "4": {
+        "clip_ids": [
+          0,
+          1
+        ],
+        "clips": [
+          {
+            "backbone": {
+              "mean_seconds": 0.9628301433327174,
+              "p50_seconds": 1.0033586249992368,
+              "p95_seconds": 1.2599848249992647,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 9,
+              "sample_unit": "forward batch including stack/output transfer",
+              "total_seconds": 8.665471289994457
+            },
+            "batch_frame_counts": [
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              10
+            ],
+            "clip_id": 0,
+            "container_open_seconds": 0.005593875001068227,
+            "decode": {
+              "mean_seconds": 7.553870267841283e-05,
+              "p50_seconds": 4.468750012165401e-05,
+              "p95_seconds": 0.0001549964506921242,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 138,
+              "sample_unit": "successful decoded frame retrieval",
+              "total_seconds": 0.010424340969620971
+            },
+            "decoder_eof_drain_seconds": 0.0001261670004168991,
+            "feature_extraction_wall_seconds": 8.833976958998392,
+            "first_pts_seconds": 0.0,
+            "frame_count": 138,
+            "heads": {
+              "frame": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 8.834814458998153,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0008374999997613486
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 8.836589209000522,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0026122500021301676
+                }
+              },
+              "temporal": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 8.837577041998884,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0036000830004923046
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 8.83943358399847,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.00545662500007893
+                }
+              }
+            },
+            "last_pts_seconds": 4.570018013209687,
+            "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+            "measured_clip_wall_seconds": 8.849330999997619,
+            "preprocessing": {
+              "mean_seconds": 0.0010855549708271544,
+              "p50_seconds": 0.0009457295000174781,
+              "p95_seconds": 0.0015058973494888053,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 138,
+              "sample_unit": "frame RGB conversion plus transform",
+              "total_seconds": 0.1498065859741473
+            },
+            "pts_sha256": "cc6e43695a08cf12f310b4509f34fdb1a890432eb1eb2b5d0599f3cda78ab1b1",
+            "source_id": "f1BWA5F87Jc",
+            "timestamp_provenance": "reencoded-clip-pts",
+            "video_sha256": "c4f17b019859c62b3745fd7f48c2a6e79892ad90be44ebf86cd759e72fa084d0"
+          },
+          {
+            "backbone": {
+              "mean_seconds": 0.9467068373340313,
+              "p50_seconds": 0.9682378750003409,
+              "p95_seconds": 1.0778467920026742,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 21,
+              "sample_unit": "forward batch including stack/output transfer",
+              "total_seconds": 19.880843584014656
+            },
+            "batch_frame_counts": [
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              16,
+              4
+            ],
+            "clip_id": 1,
+            "container_open_seconds": 0.013444666998111643,
+            "decode": {
+              "mean_seconds": 4.77313488424701e-05,
+              "p50_seconds": 3.0313001843751408e-05,
+              "p95_seconds": 0.000126703647401882,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 324,
+              "sample_unit": "successful decoded frame retrieval",
+              "total_seconds": 0.015464957024960313
+            },
+            "decoder_eof_drain_seconds": 0.00010466599997016601,
+            "feature_extraction_wall_seconds": 20.24848229199779,
+            "first_pts_seconds": 0.0,
+            "frame_count": 324,
+            "heads": {
+              "frame": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 20.25034470799801,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.001862416000221856
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 20.2587917919991,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.0103095000013127
+                }
+              },
+              "temporal": {
+                "full-clip": {
+                  "composed_video_pipeline_seconds": 20.256061166997824,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.007578875000035623
+                },
+                "reference-64-reset": {
+                  "composed_video_pipeline_seconds": 20.264713166998263,
+                  "composition": "observed shared feature-extraction wall plus this head; not a separate replay",
+                  "head_seconds": 0.016230875000474043
+                }
+              }
+            },
+            "last_pts_seconds": 10.774568016545466,
+            "measured_clip_wall_scope": "shared extraction plus all four head/context calls and checks",
+            "measured_clip_wall_seconds": 20.296821374999126,
+            "preprocessing": {
+              "mean_seconds": 0.001017410101824534,
+              "p50_seconds": 0.0009084165012609446,
+              "p95_seconds": 0.0010726500495366054,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 324,
+              "sample_unit": "frame RGB conversion plus transform",
+              "total_seconds": 0.3296408729911491
+            },
+            "pts_sha256": "0b555b61f88ff08a155f8ab2cd9b498e77034037e83072f5976d4f053fae485b",
+            "source_id": "f1BWA5F87Jc",
+            "timestamp_provenance": "reencoded-clip-pts",
+            "video_sha256": "266bcbdcaab4f9ca90fbc0112e5da84d31c76bc978eaf9ae230021fe6dc2393b"
+          }
+        ],
+        "feature_wall_seconds_per_frame": 0.06294904599782723,
+        "head_sequence_timings": {
+          "frame": {
+            "full-clip": {
+              "mean_seconds": 0.0013499579999916023,
+              "p50_seconds": 0.0013499579999916023,
+              "p95_seconds": 0.0018111702001988306,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.0026999159999832045
+            },
+            "reference-64-reset": {
+              "mean_seconds": 0.006460875001721433,
+              "p50_seconds": 0.006460875001721433,
+              "p95_seconds": 0.009924637501353572,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.012921750003442867
+            }
+          },
+          "temporal": {
+            "full-clip": {
+              "mean_seconds": 0.005589479000263964,
+              "p50_seconds": 0.005589479000263964,
+              "p95_seconds": 0.007379935400058457,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.011178958000527928
+            },
+            "reference-64-reset": {
+              "mean_seconds": 0.010843750000276486,
+              "p50_seconds": 0.010843750000276486,
+              "p95_seconds": 0.015692162500454288,
+              "quantile_method": "numpy-linear; descriptive sample quantiles, not confidence bounds",
+              "sample_count": 2,
+              "sample_unit": "one whole-clip head call",
+              "total_seconds": 0.021687500000552973
+            }
+          }
+        },
+        "selected_head_tensor_sha256": {
+          "frame": "c68118ac5dbc7d5f698cb22bc0afa633dd87dc082f90e77f587e0567b22361c3",
+          "temporal": "cefa61e3a5cf8d59a152bf1f72e3102fdf486250e10d7b6633f66c3e2025bbb5"
+        },
+        "warmup_frames": 16,
+        "warmup_seconds": 1.121477374999813
+      }
+    },
+    "timing_scope": "CPU synchronous measurements; decode retrieval excludes RGB conversion; composed variant shares one extraction pass, whole-clip wall includes all4variants; metadata integrity checks and per-fold warmup excluded from stage timings",
+    "limitations": [
+      "Two TRAIN clips per fold, one repetition; four unique clip IDs, not population bounds",
+      "MPS/CUDA may be detected but only CPU measured; no minimum hardware claim",
+      "Cached/native reencoded PTS verified, not original-source or browser time",
+      "No event accuracy, uploaded-video reliability, causal coaching or serving admission"
+    ]
+  },
+  "training_performed_in_019": false,
+  "normal_model_available": false,
+  "validated_for_serving": false,
+  "pose_available": false,
+  "outcomes_available": false,
+  "advice": [],
+  "limitations": [
+    "Three additional official folds; historicalfold1 was already observed at registration, so no wholly prospective fourfold claim",
+    "Source-recording grouping is not verified unseen-golfer or upload-domain validation",
+    "Native reencoded cache/video PTS are not original-source or browser-clock equivalence",
+    "Official chronological occupied target slots preserve raw annotation anomaly677; no order repair or test tuning",
+    "Weak Address/Finish and nonchronological peaks remain; no calibrated confidence, coaching or ordinary serving admission",
+    "CPU timings are one repetition on six TRAIN observations/four unique clips; no minimum hardware, app-latency or accelerator-performance claim"
+  ],
+  "configurations": {
+    "frame": {
+      "path": "experiments/frame-v1.json",
+      "sha256": "a57b0c196bcfa666d3e9bf6167cf054635783286b597c1b083e6a09cc9bb2860",
+      "config": {
+        "schema_version": 1,
+        "seed": 20261105,
+        "model": "frame",
+        "epochs": 20,
+        "batch_size": 4,
+        "learning_rate": 0.001,
+        "hidden_size": 64,
+        "selection_metric": "validation_pce",
+        "context": "full-clip",
+        "augmentation": "none",
+        "device": "cpu"
+      }
+    },
+    "temporal": {
+      "path": "experiments/temporal-v1.json",
+      "sha256": "d9d0a22955c3a4f8e22e83d5683465798cd1b2d8868284140cf9c6887c4cd5c1",
+      "config": {
+        "schema_version": 1,
+        "seed": 20261105,
+        "model": "temporal",
+        "epochs": 20,
+        "batch_size": 4,
+        "learning_rate": 0.001,
+        "hidden_size": 64,
+        "selection_metric": "validation_pce",
+        "context": "full-clip",
+        "augmentation": "none",
+        "device": "cpu"
+      }
+    }
+  },
+  "split_metadata": {
+    "2": {
+      "outer_fold": 2,
+      "seed": 20261104,
+      "split_algorithm": "sha256-seed-source-rank-v1-ceil",
+      "upstream_revision": "a63b4ce8c0900d09abbe92519223efe16810f5f4",
+      "validation_fraction_sources": 0.2
+    },
+    "3": {
+      "outer_fold": 3,
+      "seed": 20261104,
+      "split_algorithm": "sha256-seed-source-rank-v1-ceil",
+      "upstream_revision": "a63b4ce8c0900d09abbe92519223efe16810f5f4",
+      "validation_fraction_sources": 0.2
+    },
+    "4": {
+      "outer_fold": 4,
+      "seed": 20261104,
+      "split_algorithm": "sha256-seed-source-rank-v1-ceil",
+      "upstream_revision": "a63b4ce8c0900d09abbe92519223efe16810f5f4",
+      "validation_fraction_sources": 0.2
+    }
+  }
+}
