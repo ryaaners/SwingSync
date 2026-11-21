@@ -14,12 +14,14 @@ No unresolved material correctness finding remains in the reviewed source snapsh
 
 3. **P2 — initial stat pinning invalidated every fresh publication.** In the intermediate optimization, `_publish` captured inode ctime while the temporary hard-link alias still existed; deleting that alias changed the same published inode ctime. Reproduction: invoke the existing synthetic harness; initial ledger `save()` failed its next stat guard before model construction. Resolution: remove temporary alias before capturing published identity. Final fresh/bounded/resumed/completed tests pass; stat tests also reject restored bytes/mtime, inode replacement and symlinks.
 
-The owner also added conditional final-ledger rollback: post-publication input drift retracts only the unchanged, owned successor to its prior pending-report ledger; an outside ledger edit is preserved. Both synthetic branches pass. Latency report cleanup likewise records the published inode at link time and preserves an external replacement; externally deleted ledger predecessors produce a separate conflict witness.
+4. **P2 — Linux inode reuse could cause failed-report cleanup to delete an external replacement.** CI44864016408 failed the external-replacement latency test before any real forward or timing job launched. Inode number alone was an insufficient ownership check after the original path was unlinked. Resolution: retain an original temporary-file descriptor through publication, capture full dev/inode/mode/nlink/size/mtime/ctime identity after removing the alias, and remove a failed report only when both that identity and the known published SHA remain unchanged, with a second identity check. Any modified/replaced report is retained as conflict evidence and the failed ledger has report_sha256=null. Independent deterministic regression replaces with equal-size bytes/restored mtime and spoofs the entire original stat identity; the SHA check preserves the external bytes. A separate regression verifies unchanged owned report cleanup. Independent new+legacy latency suite: **64 passed in 3.37 s**, scoped Ruff clean. Latency source SHA is now `df9bc2602371a70ddc0e2637a33a15928a743380884d0fce2d990b3b9825c1b6`; the coordinator must publish this correction and obtain all CI checks before real work.
+
+The owner also added conditional final-ledger rollback: post-publication input drift retracts only the unchanged, owned successor to its prior pending-report ledger; an outside ledger edit is preserved. Both synthetic branches pass. Latency report cleanup uses the stronger unchanged full-identity-plus-SHA rule described above; externally deleted ledger predecessors produce a separate conflict witness.
 
 ## Independent validation
 
-- `.tools/ml-runtime/bin/python -m pytest tests/test_additional_study.py tests/test_additional_evaluation.py tests/test_additional_latency.py -q -p no:cacheprovider`: **159 passed in 6.85 s** (84 study, 29 evaluation, 46 latency).
-- Previous stable outer/gate snapshot plus unchanged `tests/test_evaluation.py tests/test_heldout.py tests/test_latency.py tests/test_fold_protocol.py`: **238 passed in 12.52 s**. The subsequent outer changes added two publication tests and were included in the final 159-test run above.
+- `.tools/ml-runtime/bin/python -m pytest tests/test_additional_study.py tests/test_additional_evaluation.py tests/test_additional_latency.py -q -p no:cacheprovider`: **161 passed in 11.81 s** after the Linux cleanup correction (84 study, 29 evaluation, 48 latency); the earlier pre-CI snapshot passed159 in6.85s.
+- Previous stable outer/gate snapshot plus unchanged `tests/test_evaluation.py tests/test_heldout.py tests/test_latency.py tests/test_fold_protocol.py`: **238 passed in 12.52 s**. The subsequent outer changes added two publication tests and were included in the final 161-test run above.
 - Direct root `.venv/bin/ruff check --no-cache` on all three new research modules, both CLIs and all three new test files: **All checks passed**.
 - Process inspection showed no active SwingSync training/evaluation/benchmark worker. Only the inspection command itself matched.
 - Synthetic tests intentionally mock production study admission and model calls, except the explicit synthetic selected-versus-last checkpoint loader test. They are software evidence, never accuracy or hardware-performance evidence.
@@ -44,7 +46,7 @@ The metadata artifact reports 1,583 watched files and 18.961426165999 seconds fo
 
 - additional_study.py: `ed39268bff22d80b25a8b738ffcbfa75e04167bfa06efe7aca22e07538bda93c`
 - additional_evaluation.py: `006d74d1c100809970df8832197fb881c44d446f617bd9a8a357f7e4724f55f8`
-- additional_latency.py: `317e85aaa5d555a828b4d31b265a9b28e52505f4f62de70285f4c3cff2649d4b`
+- additional_latency.py: `df9bc2602371a70ddc0e2637a33a15928a743380884d0fce2d990b3b9825c1b6`
 - evaluate_additional_folds.py: `6174c06fb6efd08056d37e618668bc5044d59a165fa3851c3b20ece9b21d0dc4`
 - benchmark_additional_folds.py: `ad0997ef3e27392e142226deb8b0aea7c9f3a79487d51a9666b6445e06e89d47`
 

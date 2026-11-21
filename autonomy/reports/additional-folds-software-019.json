@@ -11,13 +11,13 @@
   "implementation_sha256": {
     "backend/swingsync/research/additional_study.py": "ed39268bff22d80b25a8b738ffcbfa75e04167bfa06efe7aca22e07538bda93c",
     "backend/swingsync/research/additional_evaluation.py": "006d74d1c100809970df8832197fb881c44d446f617bd9a8a357f7e4724f55f8",
-    "backend/swingsync/research/additional_latency.py": "317e85aaa5d555a828b4d31b265a9b28e52505f4f62de70285f4c3cff2649d4b",
+    "backend/swingsync/research/additional_latency.py": "df9bc2602371a70ddc0e2637a33a15928a743380884d0fce2d990b3b9825c1b6",
     "scripts/evaluate_additional_folds.py": "6174c06fb6efd08056d37e618668bc5044d59a165fa3851c3b20ece9b21d0dc4",
     "scripts/benchmark_additional_folds.py": "ad0997ef3e27392e142226deb8b0aea7c9f3a79487d51a9666b6445e06e89d47"
   },
   "checks": {
-    "new_synthetic_tests": 159,
-    "full_ml_passed": 1088,
+    "new_synthetic_tests": 161,
+    "full_ml_passed": 1090,
     "full_ml_skipped": 1,
     "frontend_passed": 9,
     "ruff": "passed",
@@ -32,5 +32,11 @@
   "latency_measured": false,
   "normal_model_available": false,
   "advice": [],
-  "next": "verified code checkpoint/CI, then real bounded outer evaluation and fixed training-only latency"
+  "next": "verified code checkpoint/CI, then real bounded outer evaluation and fixed training-only latency",
+  "first_code_checkpoint": {
+    "sha": "b30a3bca518067887831a6b614780512d36a4b9b",
+    "ci_run": 44864016408,
+    "ci_conclusion": "failure",
+    "issue": "Linux inode reuse exposed unsafe report cleanup; corrected with full stat identity and SHA guards and deterministic collision regression; no actual forwards launched"
+  }
 }

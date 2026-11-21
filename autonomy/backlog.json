@@ -427,7 +427,7 @@
       ],
       "validation_evidence": [
         "019real metadata-only admission1583files/sixheads/no tensorload/model/forward/accuracy; admission-check SHA7a11dbd8f4b4d046d12b5bbdec4bad3934d36ba5a7e425f61f9dfae9da9e8dcf",
-        "159newsynthetic tests; fullML1088pass1skip/basechecks/frontend9/build/Ruff; freshreview019 resolvedmaterial in-flight/report-orphan/stat publication findings",
+        "161newsynthetic tests; fullML1090pass1skip/basechecks/frontend9/build/Ruff; freshreview019 resolvedmaterial in-flight/report-orphan/stat publication findings",
         "Code checkpoint publication precedes any actual held-out forward; actual1050outerclips/registeredCPUtiming remains parent003h3-eval"
       ]
     },

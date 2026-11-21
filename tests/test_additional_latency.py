@@ -366,30 +366,59 @@ def test_cli_help_runs_from_outside_repo_without_pythonpath(tmp_path):
     assert '--training-receipt' in result.stdout
 
 
-@pytest.mark.parametrize('kind', ['corrupt-own', 'external-replacement'])
-def test_failed_report_publication_removes_only_owned_inode(ready, monkeypatch, kind):
+@pytest.mark.parametrize('kind', ['corrupt-own', 'external-replacement', 'inode-reuse-restored-metadata'])
+def test_failed_report_publication_preserves_changed_bytes_even_with_reused_identity(ready, monkeypatch, kind):
     original = timing._write
-    external = b'{"external": "SYNTHETIC replacement report"}\n'
+    original_stat = Path.stat
+    expected = {}
     def altered(path, value, **kwargs):
         result = original(path, value, **kwargs)
         if Path(path).name == 'latency.json':
-            if kind == 'external-replacement':
+            before = original_stat(path)
+            # Equal length and restored mtime eliminate those weak ownership
+            # signals. The collision case deterministically reports ALL of the
+            # original stat fields, including inode and ctime, for this path.
+            external = b'X' * before.st_size
+            if kind == 'corrupt-own':
+                Path(path).write_bytes(external)
+            else:
                 Path(path).unlink()
                 replacement = Path(path).with_name('external-report.tmp')
                 replacement.write_bytes(external)
                 replacement.replace(path)
-            else:
-                Path(path).write_bytes(b'SYNTHETIC corrupted own report')
+            os.utime(path, ns=(before.st_atime_ns, before.st_mtime_ns))
+            expected['bytes'] = external
+            if kind == 'inode-reuse-restored-metadata':
+                target = Path(path)
+                def reused_identity(candidate, *args, **kwargs):
+                    if candidate == target:
+                        return before
+                    return original_stat(candidate, *args, **kwargs)
+                monkeypatch.setattr(Path, 'stat', reused_identity)
         return result
     monkeypatch.setattr(timing, '_write', altered)
     with pytest.raises(ValueError, match='report changed'):
         timing.run_additional_latency(**ready.options)
     path = ready.options['run_dir'] / 'latency.json'
-    if kind == 'external-replacement':
-        assert path.read_bytes() == external
-    else:
-        assert not path.exists()
-    assert read(ready.options['run_dir'] / 'run.json')['state'] == 'failed'
+    assert path.read_bytes() == expected['bytes']
+    state = read(ready.options['run_dir'] / 'run.json')
+    assert state['state'] == 'failed' and state['report_sha256'] is None
+    assert state['validated_for_serving'] is False
+
+
+def test_later_failure_removes_only_unchanged_published_report(ready, monkeypatch):
+    original = timing._write
+    def fail_after_report(path, value, **kwargs):
+        result = original(path, value, **kwargs)
+        if Path(path).name == 'latency.json':
+            raise ValueError('SYNTHETIC failure after unchanged publication')
+        return result
+    monkeypatch.setattr(timing, '_write', fail_after_report)
+    with pytest.raises(ValueError, match='unchanged publication'):
+        timing.run_additional_latency(**ready.options)
+    assert not (ready.options['run_dir'] / 'latency.json').exists()
+    state = read(ready.options['run_dir'] / 'run.json')
+    assert state['state'] == 'failed' and state['report_sha256'] is None
 
 
 def test_training_admission_failure_is_recorded_before_model_construction(ready, monkeypatch):

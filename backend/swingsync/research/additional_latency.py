@@ -45,25 +45,61 @@ def _serialized(value):
     return (json.dumps(value, sort_keys=True, indent=2, allow_nan=False) + '\n').encode()
 
 
+def _stat_identity(value):
+    # Reading bytes can change atime. These fields identify an unchanged file
+    # without treating access itself as a publication change.
+    return (value.st_dev, value.st_ino, value.st_mode, value.st_nlink,
+            value.st_size, value.st_mtime_ns, value.st_ctime_ns)
+
+
+def _remove_unchanged_report(path, publication):
+    """Remove only our unchanged publication; retain changed conflict evidence.
+
+    Inodes may be reused after unlink, and size/mtime can be restored. Require
+    both the complete recorded stat identity and the published byte digest.
+    Cleanup must never obscure the original failure if another writer removes
+    or changes the path while it is being inspected.
+    """
+    identity = publication.get('identity')
+    if identity is None:
+        return
+    try:
+        if (not path.is_symlink() and _stat_identity(path.stat()) == identity
+                and file_sha256(path) == publication['sha256']
+                and _stat_identity(path.stat()) == identity):
+            path.unlink()
+    except OSError:
+        pass
+
+
 def _write(path, value, *, exclusive=False, publication=None):
     raw = _serialized(value)
     expected = hashlib.sha256(raw).hexdigest()
     temporary = path.with_name('.' + path.name + '.' + uuid.uuid4().hex + '.part')
+    publication_fd = None
+    linked = False
     try:
         with temporary.open('xb') as stream:
             stream.write(raw)
             stream.flush()
             os.fsync(stream.fileno())
         if exclusive:
-            os.link(temporary, path)
             if publication is not None:
-                publication['inode'] = temporary.stat().st_ino
+                publication_fd = os.open(temporary, os.O_RDONLY)
+            os.link(temporary, path)
+            linked = True
         else:
             temporary.replace(path)
         if file_sha256(path) != expected:
             raise ValueError('Additional-fold timing publication bytes changed')
     finally:
-        temporary.unlink(missing_ok=True)
+        try:
+            temporary.unlink(missing_ok=True)
+            if publication_fd is not None and linked:
+                publication.update(identity=_stat_identity(os.fstat(publication_fd)), sha256=expected)
+        finally:
+            if publication_fd is not None:
+                os.close(publication_fd)
     return expected
 
 
@@ -343,10 +379,7 @@ def run_additional_latency(*, annotations, manifests_dir, audit_run, smokes_dir,
                 raise ValueError('Completed additional-fold timing artifacts changed')
             return result
         except BaseException as exc:
-            if (published_report.get('inode') is not None and report_path.exists()
-                    and not report_path.is_symlink()
-                    and report_path.stat().st_ino == published_report['inode']):
-                report_path.unlink()
+            _remove_unchanged_report(report_path, published_report)
             failed = {**state, 'state': 'unavailable' if isinstance(exc, LocalWeightsUnavailable) else
                       'interrupted' if isinstance(exc, (KeyboardInterrupt, SystemExit)) else 'failed',
                       'error': str(exc), 'ended_at': _now(), 'report_sha256': None, **CLOSED_GATES}

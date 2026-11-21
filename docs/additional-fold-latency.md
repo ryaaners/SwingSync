@@ -68,6 +68,11 @@ is retained in the completed ledger. Existing run directories are refused;
 there is no automatic resume or extra repetition. Source/runtime/input drift,
 invalid PTS, changed weights or a replaced predecessor prevent completion.
 A separately named conflict witness preserves an externally changed ledger.
+On a later failure, cleanup removes the just-published report only if its full
+recorded file identity and SHA256 are unchanged. Changed or replaced reports,
+including in-place corruption or reused inodes, remain as conflict evidence.
+The failed ledger has `report_sha256: null`; a retained report is not authenticated
+completed evidence and must be inspected together with that ledger.
 
 One repetition of four unique training clips provides descriptive samples, not
 population bounds, a minimum hardware requirement, application latency,
