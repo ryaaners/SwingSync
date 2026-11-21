@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "execution": "019",
+  "state": "evaluation-software-and-real-metadata-admission-completed",
+  "scope": "software/admission only; not model performance",
+  "training_receipt_sha256": "7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407",
+  "admission_check_sha256": "7a11dbd8f4b4d046d12b5bbdec4bad3934d36ba5a7e425f61f9dfae9da9e8dcf",
+  "admitted_files": 1583,
+  "heads": 6,
+  "metadata_admission_seconds": 18.961426165999,
+  "implementation_sha256": {
+    "backend/swingsync/research/additional_study.py": "ed39268bff22d80b25a8b738ffcbfa75e04167bfa06efe7aca22e07538bda93c",
+    "backend/swingsync/research/additional_evaluation.py": "006d74d1c100809970df8832197fb881c44d446f617bd9a8a357f7e4724f55f8",
+    "backend/swingsync/research/additional_latency.py": "317e85aaa5d555a828b4d31b265a9b28e52505f4f62de70285f4c3cff2649d4b",
+    "scripts/evaluate_additional_folds.py": "6174c06fb6efd08056d37e618668bc5044d59a165fa3851c3b20ece9b21d0dc4",
+    "scripts/benchmark_additional_folds.py": "ad0997ef3e27392e142226deb8b0aea7c9f3a79487d51a9666b6445e06e89d47"
+  },
+  "checks": {
+    "new_synthetic_tests": 159,
+    "full_ml_passed": 1088,
+    "full_ml_skipped": 1,
+    "frontend_passed": 9,
+    "ruff": "passed",
+    "frontend_build": "passed",
+    "base_passed": 653,
+    "base_skipped": 21
+  },
+  "model_constructed": false,
+  "checkpoint_tensors_loaded": false,
+  "model_forward_performed": false,
+  "outer_accuracy_computed": false,
+  "latency_measured": false,
+  "normal_model_available": false,
+  "advice": [],
+  "next": "verified code checkpoint/CI, then real bounded outer evaluation and fixed training-only latency"
+}

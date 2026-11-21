@@ -399,7 +399,7 @@
       "dependencies": [
         "003h3-training"
       ],
-      "status": "pending",
+      "status": "in_progress",
       "acceptance_criteria": [
         "Reviewed admission binds independently known018receipt/all6selectedcheckpoints/fixed015protocol before any outer forward",
         "350outerclips/fold,bothheads,reference64-reset primary/fullclip separate; officialPCE/per-event/nativePTS-ms errors and fold variation",
@@ -408,8 +408,27 @@
         "Software checks/fresh independent review/pushed code before actual evaluation;normal model/coaching gates stay closed"
       ],
       "validation_evidence": [
-        "All6training prerequisite completed;018receiptknownSHA7c37a7d1b04e618dda41673f2a0b5e252b23f1822e6d3fc394590cbc0b06b407",
-        "Existinguntracked latencywrapper/CLI remain unfinished, depend on missingadditional_evaluation helper/tests;noactual newoutereval orlatency run"
+        "019implemented strict known018receipt admission, all6selected-head outer runner, authenticated probability replay and registered TRAIN-only latency wrapper; real held-out evaluation and timing are not yet performed",
+        "019real metadata-only admission verified1583immutable files/sixheads; no tensors loaded/model constructed/forward or accuracy; reviewed admission-check SHA7a11dbd8f4b4d046d12b5bbdec4bad3934d36ba5a7e425f61f9dfae9da9e8dcf"
+      ]
+    },
+    {
+      "id": "003h3-eval-software",
+      "title": "Reviewed authenticated outer evaluation and CPU latency software",
+      "dependencies": [
+        "003h3-training"
+      ],
+      "status": "completed",
+      "acceptance_criteria": [
+        "Fixed018receipt/all6completed heads admitted before model construction without loading tensors",
+        "Resumable outer runner saves complete probabilities and nativePTS for official metric replay; interrupted forwards never silently repeat",
+        "Registered TRAIN-only local-weight latency runner, source/output drift guards and closed serving/advice gates",
+        "Meaningful synthetic regression tests, actual metadata-only admission, fresh independent review and verified code checkpoint before real forwards"
+      ],
+      "validation_evidence": [
+        "019real metadata-only admission1583files/sixheads/no tensorload/model/forward/accuracy; admission-check SHA7a11dbd8f4b4d046d12b5bbdec4bad3934d36ba5a7e425f61f9dfae9da9e8dcf",
+        "159newsynthetic tests; fullML1088pass1skip/basechecks/frontend9/build/Ruff; freshreview019 resolvedmaterial in-flight/report-orphan/stat publication findings",
+        "Code checkpoint publication precedes any actual held-out forward; actual1050outerclips/registeredCPUtiming remains parent003h3-eval"
       ]
     },
     {
